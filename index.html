@@ -253,8 +253,10 @@
 <p>  #admin_nickname: ROOT</p>
 <p>#友情链接social links<br>social:</p>
 <h1 id="github:">github:</h1><p>6.写博客操作<br>1)hexo new “postname” #新建文章，postname为文章标题<br>在/Developer/githug/hexo/source/_posts中找到postname.md<br>我使用的文本工具是Sublime Text2，打开这个md文件<br>修改分类和标签，在开头加入下面这两行，修改冒号后面的内容为你想要的内容，注意冒号后面要多一个空格，否则创建不成功<br>categories: GIT<br>tags: [Git hexo mac]</p>
-<p>如果想要创建类似 首页、分类之类的标签页，输入下面的命令：<br>hexo new page “pagename” #新建页面  page name为页面名称，例如about<br>2)<br>hexo generate #生成静态页面至public页面<br>hexo server  #开启预览访问端口(默认端口4000，‘ctrl+c’ 关闭server)<br>hexo deploy #将.deploy目录部署到github</p>
-<p>注：<br>hexo deploy失败解决办法：<br>提示:<br>ERROR Deployer not found: github<br>解决办法：<br>把_config.yml中得deploy的type改成git，然后执行下面命令<br>nom install hexo-deployer-git —save<br>再hexo g<br>hexo d</p>
+<p>如果想要创建类似 首页、分类之类的标签页，输入下面的命令：<br>hexo new page “pagename” #新建页面  page name为页面名称，例如about</p>
+<p>2)<br>hexo generate #生成静态页面至public页面<br>hexo server  #开启预览访问端口(默认端口4000，‘ctrl+c’ 关闭server)<br>hexo deploy #将.deploy目录部署到github</p>
+<p>注：<br>1)hexo博客使用的是markdown语法规则，详细规则参考:<br><a href="http://lutaf.com/markdown-simple-usage.htm" target="_blank" rel="external">http://lutaf.com/markdown-simple-usage.htm</a></p>
+<p>2)hexo deploy失败解决办法：<br>提示:<br>ERROR Deployer not found: github<br>解决办法：<br>把_config.yml中得deploy的type改成git，然后执行下面命令<br>nom install hexo-deployer-git —save<br>再hexo g<br>hexo d</p>
 </span>
         
       
