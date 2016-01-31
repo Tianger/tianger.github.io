@@ -246,7 +246,13 @@
 <p>npm install hexo-server<br>nom install hexo-server —save</p>
 <p>hexo server<br>打开<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> 进行查看</p>
 <p>5.生成静态页面<br>1)配置主题,这里配置next主题,下载到themes/next,感谢iissnan大神开发的主题<br>在/Developer/github/hexo的目录中<br>git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a>  themes/next</p>
-<p>6.写博客操作<br>1)hexo new “postname” #新建文章，postname为文章标题<br>在/Developer/githug/hexo/source/_posts中找到postname.md<br>我使用的文本工具是Sublime Text2，打开这个md文件<br>修改分类和标签，在开头加入下面这两行，修改冒号后面的内容为你想要的内容，注意冒号后面要多一个空格，否则创建不成功<br>categories: GIT<br>tags: [Git hexo mac]</p>
+<p>2)修改主题属性<br>打开/Developer/github/hexo/themes/next/,编辑_config.yml</p>
+<p>menu:   #配置页头显示哪些菜单<br>  home: /    #主页，这里只要写上/即可<br>  archives: /archives  #归档页，即历史文章标题页<br>  categories: /categories #分类页<br>  about: /about   #关于页<br>……</p>
+<p>#头像<br>avatar: # 这里可以申请一个七牛的空间，上传你的头像图片，然后把链接填到这里</p>
+<p>#多说评论的配置，假如下面的配置，你的文章会自动加上相关的评论框<br>duoshuo_info:<br>  ua_enable: true<br>  admin_enable: false<br>  user_id: 0<br>duoshuo_shortname:   #你的多说id</p>
+<p>  #admin_nickname: ROOT</p>
+<p>#友情链接social links<br>social:</p>
+<h1 id="github:">github:</h1><p>6.写博客操作<br>1)hexo new “postname” #新建文章，postname为文章标题<br>在/Developer/githug/hexo/source/_posts中找到postname.md<br>我使用的文本工具是Sublime Text2，打开这个md文件<br>修改分类和标签，在开头加入下面这两行，修改冒号后面的内容为你想要的内容，注意冒号后面要多一个空格，否则创建不成功<br>categories: GIT<br>tags: [Git hexo mac]</p>
 <p>如果想要创建类似 首页、分类之类的标签页，输入下面的命令：<br>hexo new page “pagename” #新建页面  page name为页面名称，例如about<br>2)<br>hexo generate #生成静态页面至public页面<br>hexo server  #开启预览访问端口(默认端口4000，‘ctrl+c’ 关闭server)<br>hexo deploy #将.deploy目录部署到github</p>
 <p>注：<br>hexo deploy失败解决办法：<br>提示:<br>ERROR Deployer not found: github<br>解决办法：<br>把_config.yml中得deploy的type改成git，然后执行下面命令<br>nom install hexo-deployer-git —save<br>再hexo g<br>hexo d</p>
 </span>
