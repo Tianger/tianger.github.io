@@ -176,6 +176,95 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/14/rrc-release-progress/" itemprop="url">
+                WCDMA协议和信令—呼叫建立和释放流程分析(5)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-14T21:03:05+08:00" content="2016-03-14">
+            2016-03-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                  <span itemprop="name">WCDMA</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/14/rrc-release-progress/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/rrc-release-progress/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>​<center><strong>RRC连接释放流程</strong></center></p>
+<p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。<br>&nbsp;&nbsp;&nbsp;&nbsp;根据RRC连接所占用的资源情况，可进一步划分为两类：释放建立在专用信道上的RRC连接、释放建立在公共信道上的RRC连接。RRC连接释放只能发生在CELL_DCH或CELL_FACH状态下，如果当前RRC连接处于CELL_PCH或者URA_PCH状态，UTRAN先发起寻呼将UE状态迁移到CELL_FACH，再进行RRC连接释放。<br>&nbsp;&nbsp;&nbsp;&nbsp;RNC根据不同情况，在下行DCCH或CCCH上通过UM RLC方式发送RRC连接释放消息RRC CONNECTION RELEASE。     如RRC释放时DCCH可用，则UTRAN通过下行DCCH信道发送RRC连接释放消息；否则UTRAN通过下行CCCH信道发送RRC连接释放消息。</p>
+<p>1.2 释放建立在专用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在专用信道上的RRC连接，信令流程如图1-1所示。<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_private.png" alt=""><br>    <center>图1-1 RRC连接释放(专用信道)</center></p>
+<pre><code>​信令流程描述：         
+</code></pre><p>  (1)        SRNC通过DCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，SRNC可能发送多次，来提高UE接收的可靠性。<br>  (2)        UE向SRNC返回RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。<br>  (3)        SRNC向NodeB发送无线链路删除请求消息RADIO LINK DELETION REQUEST，删除NodeB中的无线链路资源。<br>  (4)        NodeB资源释放完成后，向SRNC返回无线链路删除响应消息RADIO LINK DELETION RESPONSE。<br>  (5)        RNC使用ALCAP协议发起Iub接口用户面传输承载的释放。RRC释放过程结束。     </p>
+<p>1.3 释放建立在公用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在公用信道上的RRC连接，信令流程如图1-2所示.<br>    ​<img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_public.png" alt=""><br>         <center>图1-1 RRC连接释放(公用信道)</center><br>    ​SRNC通过CCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，发起RRC连接释放过程，UE释放资源。<br>    ​释放建立在公用信道上的RRC连接时，不需要RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。此外，因为用的是小区公共资源，所以只要直接释放UE，而不必释放NodeB资源和数据传输承载。<br>    ​UTRAN可能发送多次RRC连接释放消息RRC CONNECTION RELEASE，以提高UE正确接收这条消息的可靠性，这些消息的RRC SN值相同，重复发送消息数目及发送间隔由网络控制。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/13/ue-capability-information-progress/" itemprop="url">
                 WCDMA协议和信令-呼叫建立和释放流程分析(4)
               </a>
@@ -966,7 +1055,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -980,7 +1069,7 @@
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
