@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="WCDMA RRC RELEASE," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -39,21 +39,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="​RRC连接释放流程
-1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
+&amp;nbs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WCDMA协议和信令—呼叫建立和释放流程分析(5)">
-<meta property="og:url" content="http://tianger.github.io/2016/03/14/rrc-release-progress/index.html">
+<meta property="og:title" content="跟我一起写python--为什么要学习python">
+<meta property="og:url" content="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="​RRC连接释放流程
-1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_private.png">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_public.png">
-<meta property="og:updated_time" content="2016-03-14T13:08:06.000Z">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
+&amp;nbs">
+<meta property="og:updated_time" content="2016-03-15T14:21:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WCDMA协议和信令—呼叫建立和释放流程分析(5)">
-<meta name="twitter:description" content="​RRC连接释放流程
-1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
+<meta name="twitter:title" content="跟我一起写python--为什么要学习python">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
+&amp;nbs">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -63,7 +61,7 @@
   };
 </script>
 
-  <title> WCDMA协议和信令—呼叫建立和释放流程分析(5) | Tianger's Family </title>
+  <title> 跟我一起写python--为什么要学习python | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +178,7 @@
           
           
             
-              WCDMA协议和信令—呼叫建立和释放流程分析(5)
+              跟我一起写python--为什么要学习python
             
           
         </h1>
@@ -189,8 +187,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-14T21:03:05+08:00" content="2016-03-14">
-            2016-03-14
+          <time itemprop="dateCreated" datetime="2016-03-15T22:15:48+08:00" content="2016-03-15">
+            2016-03-15
           </time>
         </span>
 
@@ -199,8 +197,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
                 </a>
               </span>
 
@@ -215,8 +213,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/14/rrc-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/rrc-release-progress/" itemprop="commentsCount"></span>
+              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -230,12 +228,11 @@
       
 
       
-        <span itemprop="articleBody"><p>​<center><strong>RRC连接释放流程</strong></center></p>
-<p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。<br>&nbsp;&nbsp;&nbsp;&nbsp;根据RRC连接所占用的资源情况，可进一步划分为两类：释放建立在专用信道上的RRC连接、释放建立在公共信道上的RRC连接。RRC连接释放只能发生在CELL_DCH或CELL_FACH状态下，如果当前RRC连接处于CELL_PCH或者URA_PCH状态，UTRAN先发起寻呼将UE状态迁移到CELL_FACH，再进行RRC连接释放。<br>&nbsp;&nbsp;&nbsp;&nbsp;RNC根据不同情况，在下行DCCH或CCCH上通过UM RLC方式发送RRC连接释放消息RRC CONNECTION RELEASE。     如RRC释放时DCCH可用，则UTRAN通过下行DCCH信道发送RRC连接释放消息；否则UTRAN通过下行CCCH信道发送RRC连接释放消息。</p>
-<p>1.2 释放建立在专用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在专用信道上的RRC连接，信令流程如图1-1所示。<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_private.png" alt=""><br>    <center>图1-1 RRC连接释放(专用信道)</center></p>
-<pre><code>​信令流程描述：         
-</code></pre><p>  (1)        SRNC通过DCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，SRNC可能发送多次，来提高UE接收的可靠性。<br>  (2)        UE向SRNC返回RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。<br>  (3)        SRNC向NodeB发送无线链路删除请求消息RADIO LINK DELETION REQUEST，删除NodeB中的无线链路资源。<br>  (4)        NodeB资源释放完成后，向SRNC返回无线链路删除响应消息RADIO LINK DELETION RESPONSE。<br>  (5)        RNC使用ALCAP协议发起Iub接口用户面传输承载的释放。RRC释放过程结束。     </p>
-<p>1.3 释放建立在公用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在公用信道上的RRC连接，信令流程如图1-2所示.<br>    ​<img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_public.png" alt=""><br>         <center>图1-1 RRC连接释放(公用信道)</center><br>    ​SRNC通过CCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，发起RRC连接释放过程，UE释放资源。<br>    ​释放建立在公用信道上的RRC连接时，不需要RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。此外，因为用的是小区公共资源，所以只要直接释放UE，而不必释放NodeB资源和数据传输承载。<br>    ​UTRAN可能发送多次RRC连接释放消息RRC CONNECTION RELEASE，以提高UE正确接收这条消息的可靠性，这些消息的RRC SN值相同，重复发送消息数目及发送间隔由网络控制。</p>
+        <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;例如用C语言来实现MCFG适配功能，可能需要上千行的C代码，而且执行也不方便，但是用python可能只要几百行代码，并且可以把脚本加入到编译环境中，当项目执行编译时，自动运行脚本得出结果，减少了人为的动作，缩短了工作量，提高工作效率。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;同时在看了高通骁龙820的平台代码后，发现高通已经在工程中大量的使用了python，因此，使用python将会成为一个趋势，就让大家跟着我一起来学习python吧。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Python简介–来自百度百科：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Python（英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象、解析型计算机程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议[1]  。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进<br>&nbsp;&nbsp;&nbsp;&nbsp;Python具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中[2]  有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C/C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。</p>
 </span>
       
     </div>
@@ -244,7 +241,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WCDMA-RRC-RELEASE/" rel="tag">#WCDMA RRC RELEASE</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -253,13 +250,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" rel="prev">跟我一起写python--为什么要学习python</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/13/ue-capability-information-progress/" rel="next">WCDMA协议和信令-呼叫建立和释放流程分析(4)</a>
+              <a href="/2016/03/14/rrc-release-progress/" rel="next">WCDMA协议和信令—呼叫建立和释放流程分析(5)</a>
             
           </div>
         </div>
@@ -284,8 +279,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/14/rrc-release-progress/"
-                   data-title="WCDMA协议和信令—呼叫建立和释放流程分析(5)" data-url="http://tianger.github.io/2016/03/14/rrc-release-progress/">
+              <div class="ds-thread" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/"
+                   data-title="跟我一起写python--为什么要学习python" data-url="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/">
               </div>
             
           </div>
