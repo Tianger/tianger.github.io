@@ -176,6 +176,210 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/16/learning-python-with-me-hello-world/" itemprop="url">
+                跟我一起写python--Helloworld
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-16T22:13:33+08:00" content="2016-03-16">
+            2016-03-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/16/learning-python-with-me-hello-world/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-hello-world/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>接下来的例子都是在LINUX\MAC OS上进行实际操作，Python为3.5，建议文中的所有例子，都自己一行一行的敲到终端并执行，好记性不如烂笔头还是有些道理的</p>
+<p>打开终端，输入python3<br>得到&gt;&gt;&gt;的标记。</p>
+<p>在里面输入print （’hello world’），会打印我们熟悉的hello world</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print (‘hello world’)<br>hello world</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>输入exit()退出</p>
+<p>如果我们想完成一个python脚本，通过执行脚本来打印hello world，操作如下:</p>
+<ul>
+<li>mkdir python_test</li>
+<li>vim hello.py</li>
+<li>按下esc，按下I键，进入INSERT模式</li>
+<li>输入 print (‘hello world’)</li>
+<li>按下esc，同时按下shift+冒号，输入wq，即保存并退出</li>
+<li>在终端上输入python3 hello.py</li>
+<li>得出结果 hello world</li>
+</ul>
+<p>如果你把hello world替换成中文，则会出现乱码，此时我们需要在hello.py中加入#coding=utf-8，来保证编码格式:</p>
+<pre><code><span class="comment">#coding=utf-8</span>
+<span class="built_in">print</span> (<span class="string">'你好'</span>)
+</code></pre></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/03/16/learning-python-with-me-create-environment/" itemprop="url">
+                跟我一起写python--环境搭建
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-16T22:11:17+08:00" content="2016-03-16">
+            2016-03-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/16/learning-python-with-me-create-environment/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-create-environment/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>python可以用在多个平台–Windows、Linux、MAC OS等<br>如果想知道当前的python是哪个版本或者确认是否已经安装了python，可以在终端上输入“python”来查看</p>
+<p>Python 下载:<br>从python官网进行下载<br><a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a></p>
+<p>根据你的使用的系统，下载相应的python，推荐使用python3.5</p>
+<p>python安装：<br>1）MAC OS<br>下载3.5的pkg包直接，直接一步步默认安装，如果你是10.8及以上用户，系统自动安装了python2.7，建议升级到3.5，安装完再终端上运行python3</p>
+<p>2)Linux</p>
+<ul>
+<li>下载合适的源码包并解压</li>
+<li>如果你需要自定义一些选项修改Modules/Setup</li>
+<li>执行./configure脚本</li>
+<li>make</li>
+<li>make install</li>
+</ul>
+<p>执行以上操作后，python会安装在/usr/local/bin目录，python库安装在/usr/local/lib/pythonXX，XX为你使用的python版本号，安装完再终端上运行python3</p>
+<p>3)Windows安装<br>     根据系统是32\64bit下载对应的msi格式的安装包，勾选Add python 3.5 to PATH,默认一步步安装即可，安装完再终端上运行python<br>     如果运行python提示找不到，则需要去配置环境变量，在系统变量的Path中加入python路径，或者重新安装一下，安装向导上要勾选Add python 3.5 to PATH</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="url">
                 跟我一起写python--为什么要学习python
               </a>
@@ -910,208 +1114,13 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/01/30/use-hexo-create-gt-blog/" itemprop="url">
-                MAC下搭建Git博客-HEXO
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-01-30T21:35:53+08:00" content="2016-01-30">
-            2016-01-30
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/GIT/" itemprop="url" rel="index">
-                  <span itemprop="name">GIT</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/01/30/use-hexo-create-gt-blog/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/use-hexo-create-gt-blog/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Git 博客已经开了好久了，也一直荒废在这，有时候总想写点什么，有时候都因为各种原因，自己给自己找了借口，归结到底还是自己没有能够坚持下来，2016年培养自己的毅力，就从git博客开始吧，把自己平常的工作、学习总结起来，不能再让自己长草，2016加油！ </p>
-<p>1.注册Github<br><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
-<p>2.下载Node.js<br>官网下载最新版本：<br><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
-<p>3.安装GIT</p>
-<p>安装过Xcode就有了git<br>如果不想安装Xcode，也可以到下面地址下载：<br><a href="http://git-scm.com/download/mac" target="_blank" rel="external">http://git-scm.com/download/mac</a></p>
-<p>下载安装完成git后，打开终端，进行下面的操作<br>1)生成ssh的key<br>在终端中输入指令：ssh-keygen -t rsa -C 你的邮箱</p>
-<p>Tianger:~ getianger$ ssh-keygen -t rsa -C 你的邮箱<br>指令输入后，生成下面的内容，需要输入你的key-id，我这里写成了tianger，你需要写成你自己的id<br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/Users/getianger/.ssh/id_rsa): tianger<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in tianger.<br>Your public key has been saved in tianger.pub.<br>The key fingerprint is:<br>28:ff:a0:42:32:c2:9e:32:4c:e5:62:ca:9d:22:7f:4f 你的邮箱<br>The key’s randomart image is:<br>+–[ RSA 2048]—-+<br>|                 |<br>|                 |<br>|                 |<br>|   .   .         |<br>|. o . . S        |<br>|+=.. o           |<br>|O++ . E          |<br>|=*.o.o o         |<br>|oooo… .        |<br>+—————–+</p>
-<p>上面操作完成后，在终端中输入下面的命令<br>2) vim /Users/getianger/.ssh/id_rsa.pub</p>
-<p>得到你的key<br>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDajUCYIWFhZsBTy1V50tnDYto0z3zALrP+8FhHDz6pgBIC2K0JokbcTxUP5jJOUvotAZILtaBoZDZjcZF/U0XHUG0uVRFoB5AvfP3gEAy+pzTzTLSTQ9ZIXrETdWDGS2IsQcM4kbw5yQ2PSI30hU7KmOkU+/PLFIf9ieaccv7VE2szLk0sMLAIwDo/zrxmSD07j/Lgnpyw/gtEPh5+SOdv5+/PZZiI7Dt9enccfOHeH1tPQWHb7Dy/18HyHhay6eJIOtybwP+NQIHqnnsnbFag5suIl7feqC9DgqAAcEr0CPS/pHOfHl7gEgAWQcO0afO5rv55gt+TCwQM4EFzuUjf 你的邮箱</p>
-<p>拷贝这个key</p>
-<p>3)登陆github设置一下账户里的ssh key<br>在账户右边 有一个向下的箭头，点击Settings<br>右侧列表有一个SSH KEY，点击它<br>进去后，点击Add SSH Key，把之前拷贝的key复制进去</p>
-<p>4.安装Hexo<br>1)安装<br>npm install -g hexo<br>如果mac没有root权限，在terminal中输入sudo su -，然后输入当前管理员密码,即可</p>
-<p>2)初始化<br>执行init命令初始化hexo到你指定的目录:<br>hexo init <folder><br>也可以cd到目标目录，执行hexo init</folder></p>
-<p>至此，全部安装工作已经完成<br>hexo generate</p>
-<p>npm install hexo-server<br>nom install hexo-server —save</p>
-<p>hexo server<br>打开<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> 进行查看</p>
-<p>5.生成静态页面<br>1)配置主题,这里配置next主题,下载到themes/next,感谢iissnan大神开发的主题<br>在/Developer/github/hexo的目录中<br>git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a>  themes/next</p>
-<p>2)修改主题属性<br>打开/Developer/github/hexo/themes/next/,编辑_config.yml</p>
-<p>menu:   #配置页头显示哪些菜单<br>  home: /    #主页，这里只要写上/即可<br>  archives: /archives  #归档页，即历史文章标题页<br>  categories: /categories #分类页<br>  about: /about   #关于页<br>……</p>
-<p>#头像<br>avatar: # 这里可以申请一个七牛的空间，上传你的头像图片，然后把链接填到这里</p>
-<p>#多说评论的配置，假如下面的配置，你的文章会自动加上相关的评论框<br>duoshuo_info:<br>  ua_enable: true<br>  admin_enable: false<br>  user_id: 0<br>duoshuo_shortname:   #你的多说id</p>
-<p>  #admin_nickname: ROOT</p>
-<p>#友情链接social links<br>social:</p>
-<h1 id="github:">github:</h1><p>6.写博客操作<br>1)hexo new “postname” #新建文章，postname为文章标题<br>在/Developer/githug/hexo/source/_posts中找到postname.md<br>我使用的文本工具是Sublime Text2，打开这个md文件<br>修改分类和标签，在开头加入下面这两行，修改冒号后面的内容为你想要的内容，注意冒号后面要多一个空格，否则创建不成功<br>categories: GIT<br>tags: [Git hexo mac]</p>
-<p>如果想要创建类似 首页、分类之类的标签页，输入下面的命令：<br>hexo new page “pagename” #新建页面  page name为页面名称，例如about</p>
-<p>2)<br>hexo generate #生成静态页面至public页面<br>hexo server  #开启预览访问端口(默认端口4000，‘ctrl+c’ 关闭server)<br>hexo deploy #将.deploy目录部署到github</p>
-<p>注：<br>1)hexo博客使用的是markdown语法规则，详细规则参考:<br><a href="http://lutaf.com/markdown-simple-usage.htm" target="_blank" rel="external">http://lutaf.com/markdown-simple-usage.htm</a></p>
-<p>2)hexo deploy失败解决办法：<br>提示:<br>ERROR Deployer not found: github<br>解决办法：<br>把_config.yml中得deploy的type改成git，然后执行下面命令<br>nom install hexo-deployer-git —save<br>再hexo g<br>hexo d</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/03/which-programmer-i-want-to-be/" itemprop="url">
-                我想成为怎样的程序员
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-03T15:20:30+08:00" content="2015-10-03">
-            2015-10-03
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/生活/" itemprop="url" rel="index">
-                  <span itemprop="name">生活</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/03/which-programmer-i-want-to-be/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/which-programmer-i-want-to-be/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>当你进入一家IT公司的时候，有没有这样问过自己一句话-“我想成为怎样的程序员”？</p>
-<p>有人会说我会把代码写的很精炼、错误很少；有人会说我会把文档写的很丰富；有人会说我会把公司交给的任务完成的很好，等等… </p>
-<p>这些都是作为一个优秀程序员必备的技能，都没有问题。</p>
-<p>在我看来，其实就是两点，一是做对公司有用的程序员，把公司交给的任务每个功能都开发的很完善，错误很少，代码简洁明了，文档通俗易懂；二是做对自己有用的程序员，掌握语法知识，拓展高级语法，掌握开发中的各个模块，深入理解模块中的各种通信机制，并剥离出各种机制的原理、实现方法，并能举一反三，当你离开这家公司的时候，进入了一个陌生环境，这将成为你的生存之本。</p>
-<p>做到以上两点的人其实比较少，因此在平时的工作跟业余时间中，要善于积累总结，多写文档多增加错误经验。当你真正能做到这些要求，恭喜你，你的薪资将会出现质的飞越。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+  </nav>
+
  </div>
 
         
@@ -1143,7 +1152,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
