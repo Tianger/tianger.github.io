@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="WCDMA Call RRC RAB," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -39,18 +39,34 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
+<meta name="description" content="注:部分内容来自网络。Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。本课主要来讲解python的编程风格.
+
+1.文件名
+python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方法:python 文件名.py or  python3 文件名.py或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py
+2.标识符
+
+标识符区分大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WCDMA协议和信令-呼叫建立和释放流程分析(1)">
-<meta property="og:url" content="http://tianger.github.io/2016/02/29/call-start-and-release-progress/index.html">
+<meta property="og:title" content="跟我一起写python--编程风格">
+<meta property="og:url" content="http://tianger.github.io/2016/04/02/learning-python-with-me-coding-style/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/pagging1.png">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/paging2.png">
-<meta property="og:updated_time" content="2016-02-29T13:23:39.000Z">
+<meta property="og:description" content="注:部分内容来自网络。Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。本课主要来讲解python的编程风格.
+
+1.文件名
+python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方法:python 文件名.py or  python3 文件名.py或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py
+2.标识符
+
+标识符区分大">
+<meta property="og:updated_time" content="2016-04-02T10:21:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WCDMA协议和信令-呼叫建立和释放流程分析(1)">
-<meta name="twitter:description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
+<meta name="twitter:title" content="跟我一起写python--编程风格">
+<meta name="twitter:description" content="注:部分内容来自网络。Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。本课主要来讲解python的编程风格.
+
+1.文件名
+python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方法:python 文件名.py or  python3 文件名.py或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py
+2.标识符
+
+标识符区分大">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +76,7 @@
   };
 </script>
 
-  <title> WCDMA协议和信令-呼叫建立和释放流程分析(1) | Tianger's Family </title>
+  <title> 跟我一起写python--编程风格 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -177,7 +193,7 @@
           
           
             
-              WCDMA协议和信令-呼叫建立和释放流程分析(1)
+              跟我一起写python--编程风格
             
           
         </h1>
@@ -186,8 +202,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-02-29T20:26:40+08:00" content="2016-02-29">
-            2016-02-29
+          <time itemprop="dateCreated" datetime="2016-04-02T17:54:39+08:00" content="2016-04-02">
+            2016-04-02
           </time>
         </span>
 
@@ -196,8 +212,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
                 </a>
               </span>
 
@@ -212,8 +228,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/02/29/call-start-and-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/call-start-and-release-progress/" itemprop="commentsCount"></span>
+              <a href="/2016/04/02/learning-python-with-me-coding-style/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/learning-python-with-me-coding-style/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -227,15 +243,38 @@
       
 
       
-        <span itemprop="articleBody"><p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。<br>&nbsp;&nbsp;&nbsp;&nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;无论UE主叫还是被叫，呼叫建立和释放包含以下过程:<br>     （1）UE和URTRAN建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;—RRC(Radio Resource Control)指无线资源控制，属于第三层，第一层L1(物理层PHY)，第二层L2(数据链路层MAC/RLC)，第三层L3(网络层RRC)<br>     （2）通过直传消息，UE和CN建立连接—CN(Core network核心网)<br>     （3）UE能力信息流程<br>     （4）RAB建立流程—RAB(Radio Access Bearer)无线接入承载<br>     （5）RAB释放流程和lu释放流程<br>     （6）RRC连接释放流程</p>
-<p>1.2寻呼流程<br>1.2.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼分为CN发起的寻呼和UTRAN发起的寻呼。CN发起的寻呼用于建立一条信令连接，CN发起的寻呼分为协作寻呼和非协作寻呼。CN在RANAP PAGING消息中指示RNC(Radio network control 无线网络控制器)是否需要进行UTRAN(基站)的协作寻呼。<br>&nbsp;&nbsp;&nbsp;&nbsp;(1)协作寻呼是由RNC检查UE是否存在寻呼域之外的其他CN域信令连接，如果存在其他的CN域信令连接，且UE处于CELL_DCH或者CELL_FACH状态，则在无线接口上，寻呼消息通过已经存在的连接的DCCH信道下发；如果存在其他的CN域信令连接，且UE处于CELL_PCH或者URA_PCH状态，则无线接口上，寻呼消息通过PCCH信道下发；如果不存在其他的CN域信令连接，寻呼消息通过PCCH信道下发。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;(2)非协作寻呼是指RNC不需要检查UE是否存在寻呼域之外的其他CN域信令连接，直接在CN指定的寻呼区域中通过PCCH信道下发寻呼消息。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN发起的寻呼可以寻呼处于CELL_PCH或URA_PCH状态的UE，UE通过寻呼相应发起小区更新过程将用户从CELL_PCH或URA_PCH状态迁移到CELL_FACH，或在系统信息改变的时候URTARN通过寻呼消息出发UE(处于IDLE-空闲模式、CELL_PCH或URA_PCH)重新读取更新后的系统信息。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;如果UE处于空闲模式或CELL_PCH、URA_PCH状态，RNC通过PCCH信道，使用寻呼类型1消息(PAGING TYPE1)寻呼UE。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;如果UE处于CELL_FACH或者CELL_DCH状态，RNC通过DCCH信道，使用寻呼类型2消息(PAGING TYPE2)寻呼UE。</p>
-<p>1.2.2寻呼空闲模式或PCH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过PCCH信道，使用寻呼类型1消息寻呼处于空闲模式、CELL_PCH或URA_PCH状态下的UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;这一类型的寻呼一般发生在一下几种情况：<br>     （1）为了建立一次呼叫或一条信令连接，由网络侧高层发起的寻呼；<br>     （2）为了将UE的状态从CELL_PCH或URA_PCH状态迁移到CELL_FACH状态，UTRAN发起出发UE状态迁移的寻呼；<br>     （3）当系统信息发生改变时，由UTRAN发起触发UE读取更新后系统信息的寻呼。此时，主消息块(MIB)的值标签包括在寻呼类型1消息PAGING TYPE1中的“HCCH modification info”中。<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-1所示<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/pagging1.png" alt=""><br>     <center>图1-1寻呼空闲模式或PCH状态UE</center></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过PCCH信道，在适当的寻呼时机发送寻呼类型1消息PAGING TYPE1，启动寻呼过程。UTRAN可以选择在几个寻呼时机重复寻呼一个UE，以增加UE正确接收寻呼消息的可能性。<br>处于空闲模式和PCH状态的UE，监视适当的寻呼时机，接收来自网络层的寻呼消息。</p>
-<p>1.2.3寻呼CELL_DCH或CELL_FACH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过DCCH信道，使用寻呼类型2消息寻呼处于CELL_DCH或CELL_FACH状态下的UE.<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-2所示。<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/paging2.png" alt=""><br>     <center>图1-2寻呼CELL_DCH或CELL_FACH状态UE</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过DCCH信道发送寻呼类型2消息PAGING TYPE2,发起寻呼过程。这一类型的寻呼也叫作专用寻呼过程UE接受并读取寻呼类型2消息PAGING TYPE2的内容，并把寻呼原因及寻呼记录种类标识等信息上报给本侧非接入层。寻呼过程结束。<br>&nbsp;&nbsp;&nbsp;&nbsp;本进程不影响UE侧正在进行的其他RRC进程。<br>&nbsp;&nbsp;&nbsp;&nbsp;若UE发现接收到的寻呼类型2消息PAGING TYPE2存在协议错误，丢弃该寻呼消息，并通过上行DCCH采用AM RLC方式，向UTRAN发送RRC状态消息RRC STATUS.</p>
+        <span itemprop="articleBody"><p>注:部分内容来自网络。<br>Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。<br>本课主要来讲解python的编程风格.</p>
+<hr>
+<p><strong>1.文件名</strong></p>
+<p>python的文件名以.py结尾，与.c.cpp.java不同.<br>执行python程序的方法:python 文件名.py or  python3 文件名.py<br>或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py</p>
+<p><strong>2.标识符</strong></p>
+<blockquote>
+<p><em>标识符区分大小写
+</em>标识符由字母、数字、下划线组成。<br><em>标识符可以包括英文、数字以及下划线( _ )，但不能以数字开头
+</em>以下划线开头的标识符都是有特殊意义的，以单下划线开头(_foo)的代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用“from xxx import <em>”而导入。
+</em>以双下划线开头的(<strong>foo)代表类的私有成员；以双下划线开头和结尾的(</strong>foo<strong>)代表python里特殊方法专用的标识，如</strong>init__()代表类的构造函数。</p>
+</blockquote>
+<p><strong>3.代码注释</strong></p>
+<blockquote>
+<p>*单行注释采用 #开头<br>   例：#这是一个测试程序</p>
+<p>*多行注释采用 三个单引号(‘’’)或三个双引号(“””)，注意引号要成对出现。<br>    例:<br>    ‘’’<br>    多行注释，单引号<br>    多行注释，单引号<br>    ‘’’<br>   “””<br>   多行注释，双引号<br>   多行注释，双引号<br>   “””</p>
+</blockquote>
+<p><strong>4.引号</strong></p>
+<blockquote>
+<p>*引号包括单引号(‘)，双引号(“)，和三引号(’’’，”“”)来表示字符串</p>
+<p>*三引号可以由多行组成，编写多行文本的快捷语法，常用语文档字符串，在文件的特定地点，被当做注释。<br>例：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">hello</span> = ‘hello'</span><br><span class="line"><span class="constant">test</span> = “这是一个测试"</span><br><span class="line"><span class="constant">paragraph</span> = “””这是一个段落。“”“</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>源码:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/user/bin/python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment">#下面三行主要用来解决编码问题(UnicodeEncodeError: 'ascii' codec can't encode character)</span></span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">hello = <span class="string">'hello'</span></span><br><span class="line">test = <span class="string">"这是一个测试"</span></span><br><span class="line">paragraph = <span class="string">"""这是一个段落"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (hello)</span><br><span class="line"><span class="keyword">print</span> (test)</span><br><span class="line"><span class="keyword">print</span> (paragraph)</span><br></pre></td></tr></table></figure></p>
+<p>打印值:<br>hello<br>这是一个测试<br>这是一个段落</p>
+<p><strong>5.多行语句</strong><br>Python语句中一般以新行作为为语句的结束符。<br>但是我们可以使用斜杠（ \）将一行的语句分为多行显示，如下所示：</p>
+<p>sum = test_one + \<br>           test_two + \<br>           test_three + \</p>
+<p><strong>6.行和缩进</strong><br>     python与C\C++\JAVA等其他语言最大的区别就是，代码块是通过缩进来控制。<br>     缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行，例如:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 0:</span><br><span class="line">     <span class="keyword">print</span> “0"</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="keyword">print</span> “1”</span><br></pre></td></tr></table></figure></p>
+<p>错误代码示例:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 0:</span><br><span class="line">     <span class="keyword">print</span> “<span class="keyword">test</span>"</span><br><span class="line">     <span class="keyword">print</span> “0"</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">     <span class="keyword">print</span> “<span class="keyword">test</span>"</span><br><span class="line">   #下面这行代码，没有雨上面的<span class="keyword">print</span>或者<span class="keyword">else</span>保持缩进对齐，所以会报错</span><br><span class="line">   <span class="keyword">print</span> “1"</span><br></pre></td></tr></table></figure></p>
+<pre><code>报错如下:
+    print <span class="string">"1"</span>
+       ^
+     IndentationError: unindent <span class="keyword">does</span> <span class="keyword">not</span> match any outer indentation level
+</code></pre><p>  小结:<br>        在python的代码块中必须使用相同数目的行首缩进空格数。<br>        建议你在每个缩进层次使用 单个制表符 或 两个空格 或者 四个空格</p>
 </span>
       
     </div>
@@ -244,7 +283,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WCDMA-Call-RRC-RAB/" rel="tag">#WCDMA Call RRC RAB</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -253,13 +292,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/12/rrc-setup/" rel="prev">WCDMA协议和信令-呼叫建立和释放流程分析(2)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/10/utran-interface-protocol-and-function/" rel="next">WCDMA协议和信令---UTRAN 接口协议和功能</a>
+              <a href="/2016/03/16/learning-python-with-me-hello-world/" rel="next">跟我一起写python--Helloworld</a>
             
           </div>
         </div>
@@ -284,8 +321,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/02/29/call-start-and-release-progress/"
-                   data-title="WCDMA协议和信令-呼叫建立和释放流程分析(1)" data-url="http://tianger.github.io/2016/02/29/call-start-and-release-progress/">
+              <div class="ds-thread" data-thread-key="2016/04/02/learning-python-with-me-coding-style/"
+                   data-title="跟我一起写python--编程风格" data-url="http://tianger.github.io/2016/04/02/learning-python-with-me-coding-style/">
               </div>
             
           </div>
