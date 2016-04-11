@@ -176,6 +176,99 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/11/learning-python-with-me-if/" itemprop="url">
+                跟我一起写python--条件语句If
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-11T21:09:18+08:00" content="2016-04-11">
+            2016-04-11
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/11/learning-python-with-me-if/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/learning-python-with-me-if/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>当一个表达式在程序中被用于检验其真/假时，就成为一个条件，这个句子称为条件语句。<br>我们这里用到’如果’的条件语句——if<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-if.png" alt=""><br>上图含义:<br>当有条件判断进来后，进行值的判断，是True还是False，走不同的通路<br>Python中任何非0和非空的值都是True，0或者空位False。</p>
+<p>if的基本形式：<br>1）单条件– 一次判断<br>if 判断条件:<br>     执行语句1…..<br>else:<br>     执行语句2…</p>
+<p>要注意，if\else的行结尾有冒:<br>如果判断条件为True，则走执行语句1，否则走执行语句2.</p>
+<p>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/user/bin/python</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input age"</span>)</span><br><span class="line">value = input()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (age == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,value)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">20</span></span><br><span class="line">age is  <span class="number">20</span></span><br><span class="line"><span class="number">18</span></span><br><span class="line">age is  <span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<p>2）单条件-多次判断<br>if 判断条件1:<br>     执行语句1…<br>elif 判断条件2：<br>     执行语句2…<br>elif 判断条件3:<br>     执行语句3…<br>else:<br>      执行语句4…</p>
+<p>例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/user/bin/python</span></span><br><span class="line">age_1 = <span class="number">17</span></span><br><span class="line">age_2 = <span class="number">18</span></span><br><span class="line">age_3 = <span class="number">19</span></span><br><span class="line">age_4 = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input age"</span>)</span><br><span class="line">value = input()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (age_1 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_1)</span><br><span class="line"><span class="keyword">elif</span> (age_2 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_2)</span><br><span class="line"><span class="keyword">elif</span> (age_3 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_3)</span><br><span class="line"><span class="keyword">elif</span> (age_4 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_4)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,value)</span><br></pre></td></tr></table></figure></p>
+<p>3）多条件<br>如果里面的条件有多个，我们成为多个条件，这里一般用and、or来表示<br>例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">19</span> and age &lt;=<span class="number">21</span>: <span class="preprocessor">#判断年龄在<span class="number">19</span>到<span class="number">21</span>之间</span></span><br><span class="line">    print (<span class="string">"young"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt;<span class="number">18</span> or age &gt; <span class="number">27</span>:</span><br><span class="line">    print (<span class="string">"not young"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">young</span><br></pre></td></tr></table></figure></p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/10/learning-python-with-me-data-type/" itemprop="url">
                 跟我一起写python--数据类型
               </a>
@@ -363,7 +456,8 @@ Local current <span class="keyword">time</span>: <span class="keyword">time</spa
      expire_time = <span class="string">"2016-04-10 19:03:35"</span>
      d = datetime.datetime.strptime(expire_time,<span class="string">"<span class="variable">%Y</span>-<span class="variable">%m</span>-<span class="variable">%d</span> <span class="variable">%H</span>:<span class="variable">%M</span>:<span class="variable">%S</span>"</span>)
      <span class="keyword">print</span> (d)
-</code></pre></span>
+</code></pre><p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
         
       
     </div>
@@ -1170,95 +1264,6 @@ xiaohong <span class="keyword">is</span> older
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/12/rrc-setup/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(2)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-12T17:09:12+08:00" content="2016-03-12">
-            2016-03-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/12/rrc-setup/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/12/rrc-setup/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><center><strong>呼叫建立和释放流程分析 之 RRC连接建立流程</strong></center>
-
-<p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;UE处于空闲模式时，如果UE的NAS(非接入层)请求建立信令连接，UE将发起RRC连接建立请求过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;当RNC接收到UE的RRC连接请求消息，根据特定的算法确定是接收还是拒绝该RRC连接建立请求。如果接受，则再根据特定无线资源算法判决是建立在专用信道还是公共信道。RRC连接建立信道不同，RRC连接建立流程也不同。如果RRC连接不能建立，则RNC拒绝本次RRC连接建立。<br>&nbsp;&nbsp;&nbsp;&nbsp;RRC连接总是由UE发起，RRC释放由RNC发起；每个UE最多只能有一个RRC连接。</p>
-<p>1.2 在专用信道上建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;若RRC连接建立在专用信道上,RNC需要为UE分配专用无线资源、建立无线链路、并且为无线链路建立lub接口的ALCAP用户承载。<br>&nbsp;&nbsp;&nbsp;&nbsp;信令流程如图1-1所示：<br>            <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc-signal-private.png" alt=""><br>            <center>图1-1 RRC连接建立(专用信道)</center><br>     信令流程描述：<br>     （1）UE通过上行CCCH发送RRC连接请求消息RRC CONNECTION REQUEST,请求建立一个RRC连接。<br>     （2）RNC根据RRC连接请求的原因以及系统资源状态，决定UE建立在专用信道上，并分配RNT1、无线资源和其他资源(L1\L2资源)<br>     （3）RNC向NodeB发送无线链路建立请求消息RADIO LINK SETUP REQUEST,请求NodeB分配RRC连接所需的特定无线链路资源。<br>     （4）NodeB资源准备成功后，向RNC应答无线链路建立响应消息RADIO LINK SETUP RESPONSE.<br>     （5）RNC使用ALCAP协议建立lub接口用户面传输承载，并完成RNC与NodeB之间的同步过程。<br>     （6）RNC通过下行CCCH信道向UE发送RRC连接建立消息RRC CONNECTION SETUP，消息包含RNC分配的专用信道信息。<br>     （7）UE确认RRC连接建立成功后，在刚刚建立的上行DCCH信道向RNC发送RRC连接建立完成消息RRC CONNECTION SETUP COMPLETE.<br>               RRC连接建立过程结束。</p>
-<p>1.3 在公共信道上建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;当RRC连接建立在公共信道上时，因为使用已经建立好的小区公共资源，所以不用建立无线链路和用户面的数据传输承载，只需将UE使用的逻辑信道映射在小区公共信道上，其余过程与RRC连接建立在专用信道的情况相似。<br>&nbsp;&nbsp;&nbsp;&nbsp;信令流程如图1-2所示：<br>        <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc-signal-public.png" alt=""><br>          <center>图1-2 RRC连接建立（公共信道)</center></p>
-<p>1.4 RRC连接拒绝<br>&nbsp;&nbsp;&nbsp;&nbsp;如果RNC判决本次RRC连接请求不能建立（比如资源不足），则RNC直接给UE发送连接拒绝消息RRC CONNECTION REJECT，在该消息中指明RRC连接拒绝的原因，如图1-3所示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc-connection-reject.png" alt=""><br>          <center>图1-3所示 RRC连接拒绝</center></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1297,7 +1302,7 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
