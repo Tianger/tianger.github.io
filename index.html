@@ -176,6 +176,309 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-list/" itemprop="url">
+                跟我一起写python—列表list
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-17T21:24:27+08:00" content="2016-04-17">
+            2016-04-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/17/learning-python-with-me-list/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-list/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p> 列表是Python中最频繁的数据类型，它可以完成大多数集合类的数据结构体实现，支持字符、数字、字符串，甚至嵌套列表。<br>     列表用[ ]标识。<br>     列表中的值可以用逗号分割，也可以用到变量[头下表:尾下表]，就可以截取相应的列表，从左到右默认索引从0开始，从右往左默认索引从-1开始，下标可以为空表示取到头或尾</p>
+<p>1）列表list的创建<br>只要把逗号风格的不同数据项用中括号[ ]括起来，即完成列表的创建<br>list = [‘name’,’tianger’,’year’,2016]</p>
+<p>2）访问列表中的内容</p>
+<ul>
+<li>通过下标索引来查找</li>
+<li><p>通过字符串截取来查找</p>
+<p>   list = [‘name’,’tianger’,’year’,2016]<br>   print (list[0])   #输出列表中的第一个元素，结果为name<br>   print (list[1:3]) #输出第二个至第三个的元素，[tianger,year]</p>
+</li>
+</ul>
+<p>3）更新列表</p>
+<ul>
+<li>赋值更新</li>
+<li>append插入更新,插入到列表的末尾</li>
+<li>insert(position,name) 在指定位置position后插入元素name</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>])  <span class="comment">#打印列表中的第二个元素</span></span><br><span class="line"><span class="keyword">list</span>[<span class="number">1</span>] = <span class="string">'Ge'</span>  <span class="comment">#修改列表中的第二个元素内容</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>])   <span class="comment">#打印修改后的列表中的第二个元素内容</span></span><br><span class="line"><span class="keyword">list</span>.append(<span class="string">'yuan'</span>) <span class="comment">#在列表的最后插入一个元素'yuan'</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.insert(<span class="number">2</span>,<span class="string">'Tian'</span>) <span class="comment">#在列表的第二个元素后面插入一个元素'Tian'</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">tianger</span></span><br><span class="line"><span class="name">Ge</span></span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'Ge'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="string">'yuan'</span>]</span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'Ge'</span>, <span class="string">'Tian'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="string">'yuan'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>4）删除列表</p>
+<ul>
+<li>del删除</li>
+<li>pop删除</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line"></span><br><span class="line">del <span class="keyword">list</span>[<span class="number">2</span>] <span class="comment">#删除列表第三个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.pop()   <span class="comment">#删除列表最后一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.pop(<span class="number">1</span>)  <span class="comment">#删除列表第二个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">['name', 'tianger', <span class="number">2016</span>]</span><br><span class="line">['name', 'tianger']</span><br><span class="line">['name']</span><br></pre></td></tr></table></figure></p>
+<p>5）列表相关函数处理</p>
+<ul>
+<li>获取列表元素个数len()</li>
+<li>返回列表元素中最大的值max()</li>
+<li>返回列表元素中最小的值min()</li>
+<li>列表插入元素insert(),apend()</li>
+<li>列表删除元素del() , pop()</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#!/usr/bin/python</span></span><br><span class="line"><span class="preprocessor"># -*- coding :UTF -<span class="number">8</span> -*-</span></span><br><span class="line">numlist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">print (len(numlist)) <span class="preprocessor">#打印列表元素个数</span></span><br><span class="line">print (max(numlist)) <span class="preprocessor">#打印列表最大值</span></span><br><span class="line">print (min(numlist)) <span class="preprocessor">#打印列表最小值</span></span><br><span class="line">numlist.insert(<span class="number">2</span>,<span class="number">6</span>)  <span class="preprocessor">#在第二个元素后面插入元素<span class="number">6</span></span></span><br><span class="line">print (numlist)</span><br><span class="line">numlist.append(<span class="number">8</span>)    <span class="preprocessor">#在末尾插入元素 <span class="number">8</span></span></span><br><span class="line">print (numlist)</span><br><span class="line"></span><br><span class="line">del numlist[<span class="number">4</span>]  <span class="preprocessor">#删除第<span class="number">5</span>个元素</span></span><br><span class="line">print (numlist)</span><br><span class="line">numlist.pop()   <span class="preprocessor">#删除末尾的元素</span></span><br><span class="line">print (numlist)</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+<p> 列表练习:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line">tinylist = [<span class="number">345</span>,<span class="string">'tianger'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>) <span class="comment">#输出完整列表</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">0</span>]) <span class="comment">#输出列表中的第一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>:<span class="number">3</span>]) <span class="comment">#输出第二个至第三个的元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">2</span>:]) <span class="comment">#输出第三个开始至列表末尾的元素</span></span><br><span class="line"><span class="keyword">print</span> (tinylist * <span class="number">2</span>) <span class="comment">#输出列表两次</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span> + tinylist) <span class="comment">#打印组合的列表</span></span><br></pre></td></tr></table></figure></p>
+<p>输出:<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line"><span class="atom">name</span></span><br><span class="line">[<span class="string">'tianger'</span>, <span class="string">'year'</span>]</span><br><span class="line">[<span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line">[<span class="number">345</span>, <span class="string">'tianger'</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-break-and-continue/" itemprop="url">
+                跟我一起写python--跳出循环-break，continue
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-17T21:20:12+08:00" content="2016-04-17">
+            2016-04-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/17/learning-python-with-me-break-and-continue/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-break-and-continue/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>循环语句中，如果想跳出循环，我们有两种方式，一种是brak，另一种是continue</p>
+<p>1.break<br>     break语句用来终止循环语句，即跳出整个循环过程。</p>
+<p>流程图：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-break.png" alt=""></p>
+<p>例：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding :UTF -8 -*-</span><br><span class="line"><span class="keyword">count</span> = 5</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">count</span> &gt;0:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"count is "</span>,<span class="keyword">count</span>)</span><br><span class="line">    <span class="keyword">count</span> = <span class="keyword">count</span> -1</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">count</span> == 2:</span><br><span class="line">        <span class="keyword">break</span>   #<span class="keyword">break</span>跳出整个<span class="keyword">while</span>循环</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"over!"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">5</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">4</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">3</span></span><br><span class="line"><span class="keyword">over</span>!</span><br></pre></td></tr></table></figure></p>
+<p>2.continue<br>     continue语句用来终止当前循环，即当前一次循环跳出后，执行下一次循环。</p>
+<p>流程图:</p>
+<p><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-continue.png" alt=""></p>
+<p>例：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="command">count</span> = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="command">count</span> &gt;<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">    print (<span class="string">"count is "</span>,<span class="command">count</span>)</span><br><span class="line">    <span class="command">count</span> = <span class="command">count</span> -<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> <span class="command">count</span> == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">continue</span>  <span class="comment">#只跳出当前一次的循环，执行下一次循环</span></span><br><span class="line"></span><br><span class="line">print (<span class="string">"over!"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">5</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">4</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">3</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">2</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">1</span></span><br><span class="line"><span class="keyword">over</span>!</span><br></pre></td></tr></table></figure></p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-while/" itemprop="url">
+                跟我一起写python--while循环
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-17T21:11:36+08:00" content="2016-04-17">
+            2016-04-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/17/learning-python-with-me-while/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-while/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>前面我们已经学习了if条件语句，本节的while其实跟if比较类型，就是把if的判断条件循环执行，直到你的条件不满足后，跳出循环。</p>
+<p>基本形式:<br>while 判断条件:<br>    执行语句…</p>
+<pre><code>当判断条件一直为非<span class="number">0</span>、非空即<span class="literal">True</span>时，<span class="keyword">while</span>循环一直执行，当条件为<span class="number">0</span>、空、<span class="literal">False</span>时，循环停止。
+注意，这里<span class="keyword">while</span> 行结尾也有一个冒号。
+</code></pre><p>例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#!/usr/bin/python</span></span><br><span class="line"><span class="preprocessor"># -*- coding :UTF -<span class="number">8</span> -*-</span></span><br><span class="line">age = <span class="number">4</span></span><br><span class="line"><span class="keyword">while</span> age != <span class="number">0</span>:</span><br><span class="line">    print (age)</span><br><span class="line">    age = age -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">print (<span class="string">"age is over,break!"</span>)</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">age is over,<span class="keyword">break</span>!</span><br></pre></td></tr></table></figure></p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/11/learning-python-with-me-if/" itemprop="url">
                 跟我一起写python--条件语句If
               </a>
@@ -997,273 +1300,6 @@ xiaohong <span class="keyword">is</span> older
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/14/rrc-release-progress/" itemprop="url">
-                WCDMA协议和信令—呼叫建立和释放流程分析(5)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-14T21:03:05+08:00" content="2016-03-14">
-            2016-03-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/14/rrc-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/rrc-release-progress/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>​<center><strong>RRC连接释放流程</strong></center></p>
-<p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。<br>&nbsp;&nbsp;&nbsp;&nbsp;根据RRC连接所占用的资源情况，可进一步划分为两类：释放建立在专用信道上的RRC连接、释放建立在公共信道上的RRC连接。RRC连接释放只能发生在CELL_DCH或CELL_FACH状态下，如果当前RRC连接处于CELL_PCH或者URA_PCH状态，UTRAN先发起寻呼将UE状态迁移到CELL_FACH，再进行RRC连接释放。<br>&nbsp;&nbsp;&nbsp;&nbsp;RNC根据不同情况，在下行DCCH或CCCH上通过UM RLC方式发送RRC连接释放消息RRC CONNECTION RELEASE。     如RRC释放时DCCH可用，则UTRAN通过下行DCCH信道发送RRC连接释放消息；否则UTRAN通过下行CCCH信道发送RRC连接释放消息。</p>
-<p>1.2 释放建立在专用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在专用信道上的RRC连接，信令流程如图1-1所示。<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_private.png" alt=""><br>    <center>图1-1 RRC连接释放(专用信道)</center></p>
-<pre><code>​信令流程描述：         
-</code></pre><p>  (1)        SRNC通过DCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，SRNC可能发送多次，来提高UE接收的可靠性。<br>  (2)        UE向SRNC返回RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。<br>  (3)        SRNC向NodeB发送无线链路删除请求消息RADIO LINK DELETION REQUEST，删除NodeB中的无线链路资源。<br>  (4)        NodeB资源释放完成后，向SRNC返回无线链路删除响应消息RADIO LINK DELETION RESPONSE。<br>  (5)        RNC使用ALCAP协议发起Iub接口用户面传输承载的释放。RRC释放过程结束。     </p>
-<p>1.3 释放建立在公用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在公用信道上的RRC连接，信令流程如图1-2所示.<br>    ​<img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_public.png" alt=""><br>         <center>图1-1 RRC连接释放(公用信道)</center><br>    ​SRNC通过CCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，发起RRC连接释放过程，UE释放资源。<br>    ​释放建立在公用信道上的RRC连接时，不需要RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。此外，因为用的是小区公共资源，所以只要直接释放UE，而不必释放NodeB资源和数据传输承载。<br>    ​UTRAN可能发送多次RRC连接释放消息RRC CONNECTION RELEASE，以提高UE正确接收这条消息的可靠性，这些消息的RRC SN值相同，重复发送消息数目及发送间隔由网络控制。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/13/ue-capability-information-progress/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(4)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-13T17:40:16+08:00" content="2016-03-13">
-            2016-03-13
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/13/ue-capability-information-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/ue-capability-information-progress/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p><center><strong>UE能力信息流程</strong></center><br>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息包括：安全能力、定位能力、测量能力、物理信道能力、传输信道能力等。<br>由于UE的厂家和规格不同，能力也不一致，所以RRC连接建立之后，UE应当向UTRAN发送UE能力信息，以使网络侧按照UE支持的能力参数对其进行配置。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息的传递可以分以下三种情况告诉网络：<br>&nbsp;&nbsp;&nbsp;&nbsp;（1）RRC连接建立完成之后，UE能力信息通过RRC连接建立完成消息RRC CONNECTION SETUP COMPLETE，传递到RNC；<br>&nbsp;&nbsp;&nbsp;&nbsp;（2）RRC连接建立完成之后，当RNC发现相应UE的能力信息不存在时，向UE发送UE能力信息查询消息UE CAPABILITY ENQUIRY，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送UE能力信息；<br>&nbsp;&nbsp;&nbsp;&nbsp;（3）RRC连接期间，当UE能力信息发生改变时，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送新的UE能力信息。</p>
-<p>1.2 UE能力信息查询<br>&nbsp;&nbsp;&nbsp;&nbsp;通过UE能力信息查询，UTRAN请求UE发起UE能力查询过程，如图1-1所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_caoability_enquiry.png" alt=""><br>        <center>图1-1 UE能力查询</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过下行DCCH逻辑信道，采用AM RLC方式发送UE能力查询消息UE CAPABILITY ENQUIRY,完成UE能力信息查询过程。</p>
-<p>1.3 UE能力信息更新<br>&nbsp;&nbsp;&nbsp;&nbsp;若UTRAN发起UE能力信息查询过程，或者RRC连接期间UE能力信息发生改变，UE将发起UE能力信息更新过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息更新过程用于向UTRAN传送UE所支持的无线网络相关能力信息，如图1-2所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_capability_upate.png" alt=""><br>     <center>图1-2 UE能力信息更新</center><br>     （1）UE在上行链路DCCH上，使用AM或UM RLC方式发送UE能力信息消息UE CAPABILITY INFORMATION，消息中携带UE的能力信息。<br>     （2）UTRAN读取UE能力信息，使用AM 或UM RLC方式在下行链路DCCH上发送UE CAPABILITY INFORMA CONFIRM确认消息。UE能力信息更新过程结束。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/13/direct-transfer/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(3)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-13T16:58:27+08:00" content="2016-03-13">
-            2016-03-13
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/13/direct-transfer/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/direct-transfer/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><center><strong>直传消息流程</strong></center>
-
-<p>1.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;直传消息指UE与CN之间的信令交互NAS信息，如鉴权、业务请求、连接建立等。由于这些消息在RNC透明传输，所以称为直传消息。<br>&nbsp;&nbsp;&nbsp;&nbsp;RRC连接建立的只是UE与RNC之间的信令连接，因此为了传送直传消息，还需要继续建立UE与CN之间的信令连接。RNC在收到第一条直传消息时(即初始直传消息INITIAL DIRECT TRANSFER)，将建立与CN之间的信令连接，该连接建立于SS7的SCCP之上。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE和CN的信令连接建立成功后，UE发送到CN的消息，通过上行直传消息UPLINK DIRECT TRANSFER 发送到RNC，RNC将其转换为直传消息DIRECT TRANSFER 发送到CN;CN发送到UE的消息，通过直传消息DIRECT TRANSFER 发送到RNC，RNC将其转换为下行直传消息DOWNLINK DIRECT TRANSFER 发送到UE。</p>
-<p>1.2 初始直传<br>&nbsp;&nbsp;&nbsp;&nbsp;初始直传过程用于建立起RNC与CN之间的一条信令连接，同时承载一条初始NAS消息。NAS消息的内容在RNC并不进行解释，而是转送给CN。<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE处于CELL_PCH或URA_PCH状态时，为了进行初始直传，将首先进行小区更新，状态迁移入CELL_FACH状态，更新理由为“uplink data transmission”。小区更新成功结束后，UE将继续进行初始直传。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;初始直传过程的基本流程如图1-1所示：<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/init_transfer.png" alt=""><br>     <center>图1-1 初始直传</center><br>     信令流程描述：<br>    （1）RRC连接建立后，UE通过RRC连接向RNC发送初始直传消息INITIAL DIRECT TRANSFER,消息中携带UE发送到CN的初始NAS信息内容，及CN标识等内容。<br>    （2）RNC接收到UE的初始直传消息，通过lu接口向CN发送SCCP连接请求消息CONNECTION REQUEST,消息数据为RNC向CN发送的初始UE消息INITIAL UE MESSAGE，该消息包含UE发送到CN的消息内容。<br>    （3）如果CN准备接受连接请求，则向RNC回SCCP连接证实消息CONNECTION CONFIRM,表明SCCP连接建立成功.RNC接收到该消息，确认信令连接建立成功。<br>    （4）如果CN不能接受连接请求，则向RNC回SCCP连接拒绝消息CONNECTION REFUSE，SCCP连接建立失败，RNC接收到该消息，确认信令连接建立失败，则发起RRC连接释放流程。<br>     对于初始直传过程中携带的NAS内容，CN将通过下行直传过程把对这种服务的接受或拒绝信息发送给UE。</p>
-<p>1.3 上行直传<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE需要在已存在的信令连接上向CN发送NAS消息时，将发起上行直传过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;处于CELL_PCH或URA_PCH状态的UE，在进行上行直传之前，需要进行小区更新，状态迁移到CELL_FACH状态，更新原因为“uplink data transmission”。小区更新成功后，将继续进行上行直传。<br>&nbsp;&nbsp;&nbsp;&nbsp;上行直传的信令流程如图1-2所示：<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/uplink_transfer.png" alt=""><br>    <center>图1-2 上行直传</center></p>
-<pre><code>信令流程描述：
-</code></pre><p>   （1）UE向RNC发送上行直传消息UPLINK DIRECT TRANSFER，发起上行直传过程。消息中包含NAS消息、CN标识等信息。<br>   （2）RNC按照消息中包含的CN标识，进行路由，将其中包含的NAS信息内容，通过lu接口的直传消息DIRECT TRANSFER,发送到CN。上行直传过程结束。<br>     如果上行直传消息UPLINK DIRECT TRANSFER 中包含“Measured results on RACH”信息单元，表明消息中携带测量报告，此时UTRAN将解析相应消息内容并用于无线资源控制，消息其余部分仍旧向CN传输。</p>
-<p>1.4 下行直传<br>&nbsp;&nbsp;&nbsp;&nbsp;当CN需要在已存在的信令连接上向UE发送NAS消息时，发起下行直传过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;下行直传的信令流程如图1-3所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/downlink-transfer.png" alt=""><br>     <center>图1-3 下行直传</center><br>信令流程说明：<br>（1）CN向RNC发送直传消息DIRECT TRANSFER，发起下行直传过程。消息中包含NAS消息。<br>（2）UTRAN通过下行DCCH信道采用AM RLC方式，发送下行直传消息DOWNLINK DIRECT TRANSFER,消息中携带CN发送到UE的NAS信息内容，以及CN标识。<br>     UE接收并读取下行直传消息DOWNLINK DIRECT TRANSFER 中携带的NAS消息内容。若接收到的消息包含协议错误，UE将在上行DCCH上采用AM RLC方式发送RRC状态消息RRC STATUS。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1302,7 +1338,7 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
