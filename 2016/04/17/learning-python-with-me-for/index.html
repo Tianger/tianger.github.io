@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="WCDMA Call RRC RAB," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -39,18 +39,36 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
+<meta name="description" content="上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:
+语法格式:
+for 变量 in 序列(元素表):
+     执行语句..
+即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。注意，for的行尾也要用到冒号：
+流程图：
+例：1234567891011121314#!/usr/bin/python# -*- coding :U">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WCDMA协议和信令-呼叫建立和释放流程分析(1)">
-<meta property="og:url" content="http://tianger.github.io/2016/02/29/call-start-and-release-progress/index.html">
+<meta property="og:title" content="跟我一起写python--for循环">
+<meta property="og:url" content="http://tianger.github.io/2016/04/17/learning-python-with-me-for/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/pagging1.png">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/paging2.png">
-<meta property="og:updated_time" content="2016-02-29T13:23:39.000Z">
+<meta property="og:description" content="上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:
+语法格式:
+for 变量 in 序列(元素表):
+     执行语句..
+即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。注意，for的行尾也要用到冒号：
+流程图：
+例：1234567891011121314#!/usr/bin/python# -*- coding :U">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/python-for.png">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-04-17T13:34:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WCDMA协议和信令-呼叫建立和释放流程分析(1)">
-<meta name="twitter:description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
+<meta name="twitter:title" content="跟我一起写python--for循环">
+<meta name="twitter:description" content="上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:
+语法格式:
+for 变量 in 序列(元素表):
+     执行语句..
+即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。注意，for的行尾也要用到冒号：
+流程图：
+例：1234567891011121314#!/usr/bin/python# -*- coding :U">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +78,7 @@
   };
 </script>
 
-  <title> WCDMA协议和信令-呼叫建立和释放流程分析(1) | Tianger's Family </title>
+  <title> 跟我一起写python--for循环 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -177,7 +195,7 @@
           
           
             
-              WCDMA协议和信令-呼叫建立和释放流程分析(1)
+              跟我一起写python--for循环
             
           
         </h1>
@@ -186,8 +204,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-02-29T20:26:40+08:00" content="2016-02-29">
-            2016-02-29
+          <time itemprop="dateCreated" datetime="2016-04-17T21:16:41+08:00" content="2016-04-17">
+            2016-04-17
           </time>
         </span>
 
@@ -196,8 +214,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
                 </a>
               </span>
 
@@ -212,8 +230,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/02/29/call-start-and-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/call-start-and-release-progress/" itemprop="commentsCount"></span>
+              <a href="/2016/04/17/learning-python-with-me-for/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-for/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -227,15 +245,17 @@
       
 
       
-        <span itemprop="articleBody"><p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。<br>&nbsp;&nbsp;&nbsp;&nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;无论UE主叫还是被叫，呼叫建立和释放包含以下过程:<br>     （1）UE和URTRAN建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;—RRC(Radio Resource Control)指无线资源控制，属于第三层，第一层L1(物理层PHY)，第二层L2(数据链路层MAC/RLC)，第三层L3(网络层RRC)<br>     （2）通过直传消息，UE和CN建立连接—CN(Core network核心网)<br>     （3）UE能力信息流程<br>     （4）RAB建立流程—RAB(Radio Access Bearer)无线接入承载<br>     （5）RAB释放流程和lu释放流程<br>     （6）RRC连接释放流程</p>
-<p>1.2寻呼流程<br>1.2.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼分为CN发起的寻呼和UTRAN发起的寻呼。CN发起的寻呼用于建立一条信令连接，CN发起的寻呼分为协作寻呼和非协作寻呼。CN在RANAP PAGING消息中指示RNC(Radio network control 无线网络控制器)是否需要进行UTRAN(基站)的协作寻呼。<br>&nbsp;&nbsp;&nbsp;&nbsp;(1)协作寻呼是由RNC检查UE是否存在寻呼域之外的其他CN域信令连接，如果存在其他的CN域信令连接，且UE处于CELL_DCH或者CELL_FACH状态，则在无线接口上，寻呼消息通过已经存在的连接的DCCH信道下发；如果存在其他的CN域信令连接，且UE处于CELL_PCH或者URA_PCH状态，则无线接口上，寻呼消息通过PCCH信道下发；如果不存在其他的CN域信令连接，寻呼消息通过PCCH信道下发。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;(2)非协作寻呼是指RNC不需要检查UE是否存在寻呼域之外的其他CN域信令连接，直接在CN指定的寻呼区域中通过PCCH信道下发寻呼消息。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN发起的寻呼可以寻呼处于CELL_PCH或URA_PCH状态的UE，UE通过寻呼相应发起小区更新过程将用户从CELL_PCH或URA_PCH状态迁移到CELL_FACH，或在系统信息改变的时候URTARN通过寻呼消息出发UE(处于IDLE-空闲模式、CELL_PCH或URA_PCH)重新读取更新后的系统信息。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;如果UE处于空闲模式或CELL_PCH、URA_PCH状态，RNC通过PCCH信道，使用寻呼类型1消息(PAGING TYPE1)寻呼UE。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;如果UE处于CELL_FACH或者CELL_DCH状态，RNC通过DCCH信道，使用寻呼类型2消息(PAGING TYPE2)寻呼UE。</p>
-<p>1.2.2寻呼空闲模式或PCH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过PCCH信道，使用寻呼类型1消息寻呼处于空闲模式、CELL_PCH或URA_PCH状态下的UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;这一类型的寻呼一般发生在一下几种情况：<br>     （1）为了建立一次呼叫或一条信令连接，由网络侧高层发起的寻呼；<br>     （2）为了将UE的状态从CELL_PCH或URA_PCH状态迁移到CELL_FACH状态，UTRAN发起出发UE状态迁移的寻呼；<br>     （3）当系统信息发生改变时，由UTRAN发起触发UE读取更新后系统信息的寻呼。此时，主消息块(MIB)的值标签包括在寻呼类型1消息PAGING TYPE1中的“HCCH modification info”中。<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-1所示<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/pagging1.png" alt=""><br>     <center>图1-1寻呼空闲模式或PCH状态UE</center></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过PCCH信道，在适当的寻呼时机发送寻呼类型1消息PAGING TYPE1，启动寻呼过程。UTRAN可以选择在几个寻呼时机重复寻呼一个UE，以增加UE正确接收寻呼消息的可能性。<br>处于空闲模式和PCH状态的UE，监视适当的寻呼时机，接收来自网络层的寻呼消息。</p>
-<p>1.2.3寻呼CELL_DCH或CELL_FACH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过DCCH信道，使用寻呼类型2消息寻呼处于CELL_DCH或CELL_FACH状态下的UE.<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-2所示。<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/paging2.png" alt=""><br>     <center>图1-2寻呼CELL_DCH或CELL_FACH状态UE</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过DCCH信道发送寻呼类型2消息PAGING TYPE2,发起寻呼过程。这一类型的寻呼也叫作专用寻呼过程UE接受并读取寻呼类型2消息PAGING TYPE2的内容，并把寻呼原因及寻呼记录种类标识等信息上报给本侧非接入层。寻呼过程结束。<br>&nbsp;&nbsp;&nbsp;&nbsp;本进程不影响UE侧正在进行的其他RRC进程。<br>&nbsp;&nbsp;&nbsp;&nbsp;若UE发现接收到的寻呼类型2消息PAGING TYPE2存在协议错误，丢弃该寻呼消息，并通过上行DCCH采用AM RLC方式，向UTRAN发送RRC状态消息RRC STATUS.</p>
+        <span itemprop="articleBody"><p>上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:</p>
+<p>语法格式:</p>
+<pre><code><span class="keyword">for</span> 变量 <span class="keyword">in</span> 序列(元素表):
+     执行语句..
+</code></pre><p>即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。<br>注意，for的行尾也要用到冒号：</p>
+<p>流程图：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-for.png" alt=""></p>
+<p>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"NAME :"</span>,name)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"over,bye!"</span>)</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">NAME : jason</span><br><span class="line">NAME : tianger</span><br><span class="line">NAME : jodie</span><br><span class="line">over,<span class="built_in">bye</span>!</span><br></pre></td></tr></table></figure></p>
+<p>通过索引迭代<br>通过索引位置来进行循环执行<br>例：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">index</span> in range(len(names)):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"NAME :"</span>,names[<span class="keyword">index</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"over,bye!"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">NAME</span> : jason</span><br><span class="line"><span class="keyword">NAME</span> : tianger</span><br><span class="line"><span class="keyword">NAME</span> : jodie</span><br><span class="line">over,bye<span class="comment">!</span></span><br></pre></td></tr></table></figure></p>
+<p>注:<br>len()返回数组元素的个数<br>range()返回一个序列的数</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
     </div>
@@ -244,7 +264,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WCDMA-Call-RRC-RAB/" rel="tag">#WCDMA Call RRC RAB</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -253,13 +273,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/12/rrc-setup/" rel="prev">WCDMA协议和信令-呼叫建立和释放流程分析(2)</a>
+              <a href="/2016/04/17/learning-python-with-me-break-and-continue/" rel="prev">跟我一起写python--跳出循环-break，continue</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/10/utran-interface-protocol-and-function/" rel="next">WCDMA协议和信令---UTRAN 接口协议和功能</a>
+              <a href="/2016/04/17/learning-python-with-me-while/" rel="next">跟我一起写python--while循环</a>
             
           </div>
         </div>
@@ -284,8 +304,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/02/29/call-start-and-release-progress/"
-                   data-title="WCDMA协议和信令-呼叫建立和释放流程分析(1)" data-url="http://tianger.github.io/2016/02/29/call-start-and-release-progress/">
+              <div class="ds-thread" data-thread-key="2016/04/17/learning-python-with-me-for/"
+                   data-title="跟我一起写python--for循环" data-url="http://tianger.github.io/2016/04/17/learning-python-with-me-for/">
               </div>
             
           </div>
