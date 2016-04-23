@@ -39,19 +39,20 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
+<meta name="description" content="上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。
+1.元组创建：在小括号中添加元素，并使用逗号隔开123456tup1 = (&apos;name&apos;,&apos;tianger&apos;,&apos;year&apos;,1988)tup2 = (1,2,3,4)print">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟我一起写python--为什么要学习python(1)">
-<meta property="og:url" content="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/index.html">
+<meta property="og:title" content="跟我一起写python--元组(13)">
+<meta property="og:url" content="http://tianger.github.io/2016/04/17/learning-python-with-me-tuple/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
-<meta property="og:updated_time" content="2016-04-23T09:15:42.000Z">
+<meta property="og:description" content="上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。
+1.元组创建：在小括号中添加元素，并使用逗号隔开123456tup1 = (&apos;name&apos;,&apos;tianger&apos;,&apos;year&apos;,1988)tup2 = (1,2,3,4)print">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-04-23T11:40:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跟我一起写python--为什么要学习python(1)">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
+<meta name="twitter:title" content="跟我一起写python--元组(13)">
+<meta name="twitter:description" content="上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。
+1.元组创建：在小括号中添加元素，并使用逗号隔开123456tup1 = (&apos;name&apos;,&apos;tianger&apos;,&apos;year&apos;,1988)tup2 = (1,2,3,4)print">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +62,7 @@
   };
 </script>
 
-  <title> 跟我一起写python--为什么要学习python(1) | Tianger's Family </title>
+  <title> 跟我一起写python--元组(13) | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -178,7 +179,7 @@
           
           
             
-              跟我一起写python--为什么要学习python(1)
+              跟我一起写python--元组(13)
             
           
         </h1>
@@ -187,8 +188,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-15T22:15:48+08:00" content="2016-03-15">
-            2016-03-15
+          <time itemprop="dateCreated" datetime="2016-04-17T22:26:20+08:00" content="2016-04-17">
+            2016-04-17
           </time>
         </span>
 
@@ -213,8 +214,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="commentsCount"></span>
+              <a href="/2016/04/17/learning-python-with-me-tuple/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-tuple/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -228,11 +229,15 @@
       
 
       
-        <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;例如用C语言来实现MCFG适配功能，可能需要上千行的C代码，而且执行也不方便，但是用python可能只要几百行代码，并且可以把脚本加入到编译环境中，当项目执行编译时，自动运行脚本得出结果，减少了人为的动作，缩短了工作量，提高工作效率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;同时在看了高通骁龙820的平台代码后，发现高通已经在工程中大量的使用了python，因此，使用python将会成为一个趋势，就让大家跟着我一起来学习python吧。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python简介–来自百度百科：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python（英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象、解析型计算机程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议[1]  。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进<br>&nbsp;&nbsp;&nbsp;&nbsp;Python具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中[2]  有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C/C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。</p>
+        <span itemprop="articleBody"><p>上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。<br>元组与列表类似，不同之处在于元组的元素不能修改。<br>元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。</p>
+<p>1.元组创建：<br>在小括号中添加元素，并使用逗号隔开<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>',<span class="quoted">'year</span>',<span class="number">1988</span>)</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span><br><span class="line"></span><br><span class="line">print <span class="list">(<span class="string">"tup1[0]:"</span>,tup1[<span class="number">0</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup1[1:3]:"</span>,tup1[<span class="number">1</span>:<span class="number">3</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup2[2:3]:"</span>,tup2[<span class="number">2</span>:<span class="number">3</span>])</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tup1[0]</span>: <span class="string">name</span></span><br><span class="line"><span class="attribute">tup1[1:3]</span>: <span class="string">('tianger', 'year')</span></span><br><span class="line"><span class="attribute">tup2[2:3]</span>: <span class="string">(3,)</span></span><br></pre></td></tr></table></figure></p>
+<p>2.修改元组<br>元组中的元素是不允许修改的，但我们可以通过对元组进行连接组合<br>例：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>)</span></span><br><span class="line"></span><br><span class="line">tup3 = tup1 + tup2</span><br><span class="line">print <span class="list">(<span class="keyword">tup3</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="quoted">'name</span>', <span class="quoted">'tianger</span>', <span class="number">1</span>, <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>3.删除元组<br>元组的元素不能够被删除，可以通过del函数来删除元组<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br><span class="line">del tup1</span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (tup1)</span><br><span class="line"><span class="attribute">NameError</span>: name <span class="string">'tup1'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p>
+<p>从输出的内容来看，元组已经被成功删除</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
     </div>
@@ -250,13 +255,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/16/learning-python-with-me-create-environment/" rel="prev">跟我一起写python--环境搭建(2)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/14/rrc-release-progress/" rel="next">WCDMA协议和信令—呼叫建立和释放流程分析(5)</a>
+              <a href="/2016/04/17/learning-python-with-me-dictonaryy/" rel="next">跟我一起写python--字典(12)</a>
             
           </div>
         </div>
@@ -281,8 +284,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/"
-                   data-title="跟我一起写python--为什么要学习python(1)" data-url="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/">
+              <div class="ds-thread" data-thread-key="2016/04/17/learning-python-with-me-tuple/"
+                   data-title="跟我一起写python--元组(13)" data-url="http://tianger.github.io/2016/04/17/learning-python-with-me-tuple/">
               </div>
             
           </div>

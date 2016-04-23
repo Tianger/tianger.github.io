@@ -39,19 +39,23 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
+<meta name="description" content="python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。字典的数据存储以键值对(key:value)的方式来存储。字典使用大括号，元组使用小括号，列表使用方括号
+1.字典的创建及访问创建方式：{key1:value1 ,key2:value2}
+例：1234dict1 = &amp;#123;&apos;name&apos;:&apos;tianger&apos;,&apos;year&apos;:&apos;2016’&amp;#125; #创建字典print (">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟我一起写python--为什么要学习python(1)">
-<meta property="og:url" content="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/index.html">
+<meta property="og:title" content="跟我一起写python--字典(12)">
+<meta property="og:url" content="http://tianger.github.io/2016/04/17/learning-python-with-me-dictonaryy/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
-<meta property="og:updated_time" content="2016-04-23T09:15:42.000Z">
+<meta property="og:description" content="python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。字典的数据存储以键值对(key:value)的方式来存储。字典使用大括号，元组使用小括号，列表使用方括号
+1.字典的创建及访问创建方式：{key1:value1 ,key2:value2}
+例：1234dict1 = &amp;#123;&apos;name&apos;:&apos;tianger&apos;,&apos;year&apos;:&apos;2016’&amp;#125; #创建字典print (">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-04-23T11:45:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跟我一起写python--为什么要学习python(1)">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
+<meta name="twitter:title" content="跟我一起写python--字典(12)">
+<meta name="twitter:description" content="python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。字典的数据存储以键值对(key:value)的方式来存储。字典使用大括号，元组使用小括号，列表使用方括号
+1.字典的创建及访问创建方式：{key1:value1 ,key2:value2}
+例：1234dict1 = &amp;#123;&apos;name&apos;:&apos;tianger&apos;,&apos;year&apos;:&apos;2016’&amp;#125; #创建字典print (">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +65,7 @@
   };
 </script>
 
-  <title> 跟我一起写python--为什么要学习python(1) | Tianger's Family </title>
+  <title> 跟我一起写python--字典(12) | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -178,7 +182,7 @@
           
           
             
-              跟我一起写python--为什么要学习python(1)
+              跟我一起写python--字典(12)
             
           
         </h1>
@@ -187,8 +191,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-15T22:15:48+08:00" content="2016-03-15">
-            2016-03-15
+          <time itemprop="dateCreated" datetime="2016-04-17T22:06:02+08:00" content="2016-04-17">
+            2016-04-17
           </time>
         </span>
 
@@ -213,8 +217,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="commentsCount"></span>
+              <a href="/2016/04/17/learning-python-with-me-dictonaryy/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -228,11 +232,16 @@
       
 
       
-        <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;例如用C语言来实现MCFG适配功能，可能需要上千行的C代码，而且执行也不方便，但是用python可能只要几百行代码，并且可以把脚本加入到编译环境中，当项目执行编译时，自动运行脚本得出结果，减少了人为的动作，缩短了工作量，提高工作效率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;同时在看了高通骁龙820的平台代码后，发现高通已经在工程中大量的使用了python，因此，使用python将会成为一个趋势，就让大家跟着我一起来学习python吧。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python简介–来自百度百科：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python（英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象、解析型计算机程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议[1]  。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进<br>&nbsp;&nbsp;&nbsp;&nbsp;Python具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中[2]  有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C/C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。</p>
+        <span itemprop="articleBody"><p>python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。<br>字典的数据存储以键值对(key:value)的方式来存储。<br>字典使用大括号，元组使用小括号，列表使用方括号</p>
+<p>1.字典的创建及访问<br>创建方式：<br>{key1:value1 ,key2:value2}</p>
+<p>例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span><span class="symbol">:<span class="string">'tianger'</span></span>,<span class="string">'year'</span><span class="symbol">:<span class="string">'2016’&#125; #创建字典</span><br><span class="line"></span><br><span class="line">print ("dict1['</span>name<span class="string">']:",dict1['</span>name<span class="string">']) #获取字典key-name对应的内容</span><br><span class="line">print ("dict1['</span>year<span class="string">']:",dict1['</span>year<span class="string">']) #获取字典key-name对应的内容</span></span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">tianger</span></span><br><span class="line"><span class="attribute">dict1['year']</span>: <span class="string">2016</span></span><br></pre></td></tr></table></figure></p>
+<p>2.字典修改<br>字典可以更新某一个key/value的内容，也可以增加一个新的key/value内容<br>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['age']:"</span>,dict1[<span class="string">'age'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">jason</span></span><br><span class="line"><span class="attribute">dict1['age']</span>: <span class="string">27</span></span><br></pre></td></tr></table></figure></p>
+<p>3.删除字典<br>删除字典可以只删单个元素，也可以清空完整字典<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> dict1[<span class="string">'name'</span>]; <span class="comment">#删除key是name的item</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line">dict1.clear()  <span class="comment">#清空字典所以得条目</span></span><br><span class="line"><span class="keyword">del</span> dict1     <span class="comment">#删除字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['year']:"</span>,dict1[<span class="string">'year'</span>])</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">10</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>])</span><br><span class="line"><span class="attribute">KeyError</span>: <span class="string">'name'</span></span><br></pre></td></tr></table></figure></p>
+<p>由于key-name这个item被删除，所以print会出错</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
     </div>
@@ -250,13 +259,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/16/learning-python-with-me-create-environment/" rel="prev">跟我一起写python--环境搭建(2)</a>
+              <a href="/2016/04/17/learning-python-with-me-tuple/" rel="prev">跟我一起写python--元组(13)</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/14/rrc-release-progress/" rel="next">WCDMA协议和信令—呼叫建立和释放流程分析(5)</a>
+              <a href="/2016/04/17/learning-python-with-me-list/" rel="next">跟我一起写python—列表list (11)</a>
             
           </div>
         </div>
@@ -281,8 +290,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/"
-                   data-title="跟我一起写python--为什么要学习python(1)" data-url="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/">
+              <div class="ds-thread" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/"
+                   data-title="跟我一起写python--字典(12)" data-url="http://tianger.github.io/2016/04/17/learning-python-with-me-dictonaryy/">
               </div>
             
           </div>
