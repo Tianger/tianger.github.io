@@ -1,0 +1,770 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="3G/LTE protocol | C" />
+
+
+
+  <meta name="keywords" content="MarkDown," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="1.为什么要用Markdown2.常用语法&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1标题&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.2粗体、斜体&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.3空格、居中&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.4分割线&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.5列表&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MarkDown 深入浅出--入门篇">
+<meta property="og:url" content="http://tianger.github.io/2016/04/28/markdown-head-first-basic/index.html">
+<meta property="og:site_name" content="Tianger's Family">
+<meta property="og:description" content="1.为什么要用Markdown2.常用语法&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1标题&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.2粗体、斜体&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.3空格、居中&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.4分割线&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.5列表&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.6">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-04-28T15:27:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MarkDown 深入浅出--入门篇">
+<meta name="twitter:description" content="1.为什么要用Markdown2.常用语法&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1标题&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.2粗体、斜体&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.3空格、居中&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.4分割线&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.5列表&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.6">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> MarkDown 深入浅出--入门篇 | Tianger's Family </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3000033e6d5b1f1f2b431451efbce4ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Tianger's Family</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              MarkDown 深入浅出--入门篇
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-28T22:22:21+08:00" content="2016-04-28">
+            2016-04-28
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/MarkDown/" itemprop="url" rel="index">
+                  <span itemprop="name">MarkDown</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/28/markdown-head-first-basic/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/markdown-head-first-basic/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="1-为什么要用Markdown">1.为什么要用Markdown</h3><h3 id="2-常用语法">2.常用语法</h3><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-1标题">&nbsp;&nbsp;&nbsp;&nbsp;2.1标题</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-2粗体、斜体">&nbsp;&nbsp;&nbsp;&nbsp;2.2粗体、斜体</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-3空格、居中">&nbsp;&nbsp;&nbsp;&nbsp;2.3空格、居中</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-4分割线">&nbsp;&nbsp;&nbsp;&nbsp;2.4分割线</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-5列表">&nbsp;&nbsp;&nbsp;&nbsp;2.5列表</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-6高亮代码">&nbsp;&nbsp;&nbsp;&nbsp;2.6高亮代码</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-7引用">&nbsp;&nbsp;&nbsp;&nbsp;2.7引用</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-8表格">&nbsp;&nbsp;&nbsp;&nbsp;2.8表格</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-9超链接、图片">&nbsp;&nbsp;&nbsp;&nbsp;2.9超链接、图片</h4><h3 id="3-常用编辑器">3.常用编辑器</h3><h3 id="4-最后想说的">4.最后想说的</h3><hr>
+<h3 id="1-为什么要用Markdown-1">1.为什么要用Markdown</h3><p>很多人写文档都喜欢用word，但是有没有觉得很长的时间，我们都在调格式，其实真正的技术文档，我们应该把主要的经历花费在技术内容中，而不是在格式的调整中。  </p>
+<p>当我们的word格式的文档需要更新时，不同的版本不方便管理和控制。</p>
+<blockquote>
+<p><em>We believe that writing is about content, about what you want to say - not about fancy formatting.</em><br>我们坚信写作写的是内容，所思所想，而不是花样格式。<br>— Ulysses for Mac  </p>
+</blockquote>
+<h5 id="Markdown优点：">Markdown优点：</h5><ul>
+<li>专注你的文字内容而不是排版样式，安心写作  </li>
+<li>可以转换成pdf、html等格式  </li>
+<li>纯文本内容，兼容所有的文本编辑器与字处理软件  </li>
+<li>文档版本可控    </li>
+<li>可读、直观、学习成本低  </li>
+<li>技术青年  </li>
+</ul>
+<hr>
+<h3 id="2-常用语法-1">2.常用语法</h3><h4 id="2-1标题">2.1标题</h4><h5 id="语法：">语法：</h5><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+<h5 id="效果：">效果：</h5><h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><hr>
+<h5 id="2-2粗体、斜体">2.2粗体、斜体</h5><h5 id="语法：-1">语法：</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span>粗体<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">__粗体__</span><br><span class="line"><span class="keyword">*</span>斜体<span class="keyword">*</span></span><br><span class="line">_斜体_</span><br></pre></td></tr></table></figure>
+<h5 id="效果：-1">效果：</h5><p><strong>粗体</strong><br><strong>粗体</strong><br><em>斜体</em><br><em>斜体</em>  </p>
+<hr>
+<h4 id="2-3-空格、居中">2.3.空格、居中</h4><h5 id="语法：-2">语法：</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp;nbsp;空格,一个&amp;nbsp;为一个空格</span><br><span class="line"><span class="tag">&lt;<span class="title">center</span>&gt;</span>居中<span class="tag">&lt;/<span class="title">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="效果：-2">效果：</h5><p>&nbsp;空格,一个&nbsp;为一个空格</p>
+<center>居中</center> 
+
+
+<hr>
+<h4 id="2-4分割线">2.4分割线</h4><h5 id="语法：-3">语法：</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">~~文字删除线~~</span><br></pre></td></tr></table></figure>
+<h5 id="效果：-3">效果：</h5><hr>
+<hr>
+<p><del>文字删除线</del></p>
+<hr>
+<h4 id="2-5列表">2.5列表</h4><h5 id="语法：-4">语法：</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>无序列表项目</span><br><span class="line"><span class="bullet">- </span>无序列表项目</span><br><span class="line"><span class="bullet">- </span>无序列表项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>无序列表项目</span><br><span class="line"><span class="bullet">* </span>无序列表项目</span><br><span class="line"><span class="bullet">* </span>无序列表项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">1. </span>有序列表项目</span><br><span class="line"><span class="bullet">2. </span>有序列表项目</span><br><span class="line"><span class="bullet">3. </span>有序列表项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>外层列表项目</span><br><span class="line"> + 内层列表项目</span><br><span class="line"> + 内层列表项目</span><br><span class="line"> + 内层列表项目</span><br><span class="line"><span class="bullet">- </span>外层列表项目</span><br></pre></td></tr></table></figure>
+<h5 id="效果：-4">效果：</h5><ul>
+<li>无序列表项目</li>
+<li>无序列表项目</li>
+<li>无序列表项目</li>
+</ul>
+<ul>
+<li>无序列表项目</li>
+<li>无序列表项目</li>
+<li>无序列表项目</li>
+</ul>
+<ol>
+<li>有序列表项目</li>
+<li>有序列表项目</li>
+<li>有序列表项目</li>
+</ol>
+<ul>
+<li>外层列表项目<ul>
+<li>内层列表项目</li>
+<li>内层列表项目</li>
+<li>内层列表项目</li>
+</ul>
+</li>
+<li>外层列表项目</li>
+</ul>
+<hr>
+<h4 id="2-6高亮代码">2.6高亮代码</h4><h5 id="语法：-5">语法：</h5><blockquote>
+<p>首尾都要输入三个括号里的符号(`)</p>
+</blockquote>
+<h5 id="效果：-5">效果：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (YouIdea)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"You are very handsome\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="2-7引用">2.7引用</h4><h5 id="语法：-6">语法：</h5><p>在需要添加引用的内容之前加入符号&gt;<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="blockquote">&gt; 这是一个引用  </span></span><br><span class="line"><span class="blockquote">&gt; I think so</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="效果：-6">效果：</h5><blockquote>
+<p>这是一个引用<br>I think so</p>
+</blockquote>
+<hr>
+<h4 id="2-8表格">2.8表格</h4><hr>
+<h5 id="语法：-7">语法：</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> ABCD </span>|<span class="string"> EFGH </span>|<span class="string"> IJKL </span>|</span><br><span class="line">|<span class="string">:----:</span>|<span class="string">:----:</span>|<span class="string">:----:</span>|</span><br><span class="line">|<span class="string"> 1    </span>|<span class="string"> 2    </span>|<span class="string">  3   </span>|</span><br><span class="line">|<span class="string"> 4    </span>|<span class="string"> 5    </span>|<span class="string">  6   </span>|</span><br><span class="line">|<span class="string"> 7    </span>|<span class="string"> 8    </span>|<span class="string">  8   </span>|</span><br></pre></td></tr></table></figure>
+<h5 id="效果：-7">效果：</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">ABCD</th>
+<th style="text-align:center">EFGH</th>
+<th style="text-align:center">IJKL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="2-9超链接、图片">2.9超链接、图片</h4><h5 id="语法：-8">语法：</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">超链接：</span><br><span class="line">[<span class="link_label">Tianger's Family</span>](<span class="link_url">http://tianger.github.io/</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">图片：</span><br><span class="line">![<span class="link_label">天歌的编程小结</span>](<span class="link_url">http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="效果：-8">效果：</h5><p>超链接：<br><a href="http://tianger.github.io/">Tianger’s Family</a>  </p>
+<p>图片：<br>公众号：天歌的编程小结<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="天歌的编程小结"></p>
+<hr>
+<h3 id="3-常用编辑器-1">3.常用编辑器</h3><p>在线编辑器：</p>
+<ul>
+<li><p>作业部落</p>
+<blockquote>
+<p>支持流程图、序列图<br>地址：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">https://www.zybuluo.com/mdeditor</a></p>
+</blockquote>
+</li>
+<li><p>简书</p>
+<blockquote>
+<p>地址：<a href="http://www.jianshu.com/" target="_blank" rel="external">http://www.jianshu.com/</a></p>
+</blockquote>
+</li>
+<li><p>马克飞象 Marxico</p>
+<blockquote>
+<p>内容可以同步到印象笔记中<br>地址：<a href="https://maxiang.io/" target="_blank" rel="external">https://maxiang.io/</a></p>
+</blockquote>
+</li>
+</ul>
+<p>离线编辑器：</p>
+<ul>
+<li><p>MarkdownPad</p>
+<blockquote>
+<p>下载地址： <a href="http://markdownpad.com/" target="_blank" rel="external">http://markdownpad.com/</a></p>
+</blockquote>
+</li>
+<li><p>CuteMarkEd</p>
+<blockquote>
+<p>下载地址：<a href="http://cloose.github.io/CuteMarkEd" target="_blank" rel="external">http://cloose.github.io/CuteMarkEd</a></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="4-最后想说的-1">4.最后想说的</h3><p>Markdown的入门介绍就到这里的，相信看到这里，基本上已经能够开始进行Markdown的编写了，那么让我们一起MD吧！</p>
+<p>本文使用Markdown编写，可以下载作为例子参考：<br>下载地址：</p>
+<p><a href="http://7xn24x.com1.z0.glb.clouddn.com/MarkDown%20%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA--%E5%85%A5%E9%97%A8%E7%AF%87.MD" target="_blank" rel="external">MarkDown 深入浅出–入门篇</a>  </p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MarkDown/" rel="tag">#MarkDown</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/17/learning-python-with-me-tuple/" rel="next">跟我一起写python--元组(13)</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/04/28/markdown-head-first-basic/"
+                   data-title="MarkDown 深入浅出--入门篇" data-url="http://tianger.github.io/2016/04/28/markdown-head-first-basic/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tianger Ge</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么要用Markdown"><span class="nav-number">1.</span> <span class="nav-text">1.为什么要用Markdown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用语法"><span class="nav-number">2.</span> <span class="nav-text">2.常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-1标题"><span class="nav-number">2.1.</span> <span class="nav-text">    2.1标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-2粗体、斜体"><span class="nav-number">2.2.</span> <span class="nav-text">    2.2粗体、斜体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-3空格、居中"><span class="nav-number">2.3.</span> <span class="nav-text">    2.3空格、居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-4分割线"><span class="nav-number">2.4.</span> <span class="nav-text">    2.4分割线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-5列表"><span class="nav-number">2.5.</span> <span class="nav-text">    2.5列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-6高亮代码"><span class="nav-number">2.6.</span> <span class="nav-text">    2.6高亮代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-7引用"><span class="nav-number">2.7.</span> <span class="nav-text">    2.7引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-8表格"><span class="nav-number">2.8.</span> <span class="nav-text">    2.8表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#    2-9超链接、图片"><span class="nav-number">2.9.</span> <span class="nav-text">    2.9超链接、图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-常用编辑器"><span class="nav-number">3.</span> <span class="nav-text">3.常用编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-最后想说的"><span class="nav-number">4.</span> <span class="nav-text">4.最后想说的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么要用Markdown-1"><span class="nav-number">5.</span> <span class="nav-text">1.为什么要用Markdown</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Markdown优点："><span class="nav-number">5.0.1.</span> <span class="nav-text">Markdown优点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用语法-1"><span class="nav-number">6.</span> <span class="nav-text">2.常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1标题"><span class="nav-number">6.1.</span> <span class="nav-text">2.1标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法："><span class="nav-number">6.1.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果："><span class="nav-number">6.1.2.</span> <span class="nav-text">效果：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number"></span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number"></span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-number">1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四级标题"><span class="nav-number">1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#五级标题"><span class="nav-number">1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#六级标题"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2粗体、斜体"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.2粗体、斜体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-1"><span class="nav-number">1.1.3.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-1"><span class="nav-number">1.1.4.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-空格、居中"><span class="nav-number">1.2.</span> <span class="nav-text">2.3.空格、居中</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-2"><span class="nav-number">1.2.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4分割线"><span class="nav-number">1.3.</span> <span class="nav-text">2.4分割线</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-3"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-3"><span class="nav-number">1.3.2.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5列表"><span class="nav-number">1.4.</span> <span class="nav-text">2.5列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-4"><span class="nav-number">1.4.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-4"><span class="nav-number">1.4.2.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6高亮代码"><span class="nav-number">1.5.</span> <span class="nav-text">2.6高亮代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-5"><span class="nav-number">1.5.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-5"><span class="nav-number">1.5.2.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7引用"><span class="nav-number">1.6.</span> <span class="nav-text">2.7引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-6"><span class="nav-number">1.6.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-6"><span class="nav-number">1.6.2.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8表格"><span class="nav-number">1.7.</span> <span class="nav-text">2.8表格</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-7"><span class="nav-number">1.7.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-7"><span class="nav-number">1.7.2.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-9超链接、图片"><span class="nav-number">1.8.</span> <span class="nav-text">2.9超链接、图片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：-8"><span class="nav-number">1.8.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#效果：-8"><span class="nav-number">1.8.2.</span> <span class="nav-text">效果：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-常用编辑器-1"><span class="nav-number">2.</span> <span class="nav-text">3.常用编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-最后想说的-1"><span class="nav-number">3.</span> <span class="nav-text">4.最后想说的</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tianger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
