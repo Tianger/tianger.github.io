@@ -49,7 +49,7 @@
 <meta property="og:description" content="Git 博客已经开了好久了，也一直荒废在这，有时候总想写点什么，有时候都因为各种原因，自己给自己找了借口，归结到底还是自己没有能够坚持下来，2016年培养自己的毅力，就从git博客开始吧，把自己平常的工作、学习总结起来，不能再让自己长草，2016加油！ 
 1.注册Githubhttps://github.com/
 2.下载Node.js官网下载最新版本：https://nodejs.org/en/">
-<meta property="og:updated_time" content="2016-01-31T07:28:44.000Z">
+<meta property="og:updated_time" content="2016-04-30T06:58:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC下搭建Git博客-HEXO">
 <meta name="twitter:description" content="Git 博客已经开了好久了，也一直荒废在这，有时候总想写点什么，有时候都因为各种原因，自己给自己找了借口，归结到底还是自己没有能够坚持下来，2016年培养自己的毅力，就从git博客开始吧，把自己平常的工作、学习总结起来，不能再让自己长草，2016加油！ 
@@ -257,7 +257,7 @@
 <h1 id="github:">github:</h1><p>6.写博客操作<br>1)hexo new “postname” #新建文章，postname为文章标题<br>在/Developer/githug/hexo/source/_posts中找到postname.md<br>我使用的文本工具是Sublime Text2，打开这个md文件<br>修改分类和标签，在开头加入下面这两行，修改冒号后面的内容为你想要的内容，注意冒号后面要多一个空格，否则创建不成功<br>categories: GIT<br>tags: [Git hexo mac]</p>
 <p>如果想要创建类似 首页、分类之类的标签页，输入下面的命令：<br>hexo new page “pagename” #新建页面  page name为页面名称，例如about</p>
 <p>2)<br>hexo generate #生成静态页面至public页面<br>hexo server  #开启预览访问端口(默认端口4000，‘ctrl+c’ 关闭server)<br>hexo deploy #将.deploy目录部署到github</p>
-<p>注：<br>1)hexo博客使用的是markdown语法规则，详细规则参考:<br><a href="http://lutaf.com/markdown-simple-usage.htm" target="_blank" rel="external">http://lutaf.com/markdown-simple-usage.htm</a></p>
+<p>注：<br>1)hexo博客使用的是markdown语法规则，详细规则参考我的另一篇文章:<br><a href="http://tianger.github.io/2016/04/28/markdown-head-first-basic/">MarkDown入门指南</a></p>
 <p>2)hexo deploy失败解决办法：<br>提示:<br>ERROR Deployer not found: github<br>解决办法：<br>把_config.yml中得deploy的type改成git，然后执行下面命令<br>nom install hexo-deployer-git —save<br>再hexo g<br>hexo d</p>
 </span>
       
