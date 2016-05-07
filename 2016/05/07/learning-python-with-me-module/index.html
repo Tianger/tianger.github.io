@@ -39,34 +39,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="注:部分内容来自网络。Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。本课主要来讲解python的编程风格.
-
-1.文件名
-python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方法:python 文件名.py or  python3 文件名.py或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py
-2.标识符
-
-标识符区分大">
+<meta name="description" content="编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。
+我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟我一起写python--编程风格 (4)">
-<meta property="og:url" content="http://tianger.github.io/2016/04/02/learning-python-with-me-coding-style/index.html">
+<meta property="og:title" content="跟我一起写python--模块(15)">
+<meta property="og:url" content="http://tianger.github.io/2016/05/07/learning-python-with-me-module/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="注:部分内容来自网络。Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。本课主要来讲解python的编程风格.
-
-1.文件名
-python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方法:python 文件名.py or  python3 文件名.py或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py
-2.标识符
-
-标识符区分大">
-<meta property="og:updated_time" content="2016-04-23T11:41:08.000Z">
+<meta property="og:description" content="编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。
+我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.p">
+<meta property="og:updated_time" content="2016-05-07T09:16:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跟我一起写python--编程风格 (4)">
-<meta name="twitter:description" content="注:部分内容来自网络。Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。本课主要来讲解python的编程风格.
-
-1.文件名
-python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方法:python 文件名.py or  python3 文件名.py或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py
-2.标识符
-
-标识符区分大">
+<meta name="twitter:title" content="跟我一起写python--模块(15)">
+<meta name="twitter:description" content="编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。
+我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.p">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -76,7 +61,7 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
   };
 </script>
 
-  <title> 跟我一起写python--编程风格 (4) | Tianger's Family </title>
+  <title> 跟我一起写python--模块(15) | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -193,7 +178,7 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
           
           
             
-              跟我一起写python--编程风格 (4)
+              跟我一起写python--模块(15)
             
           
         </h1>
@@ -202,8 +187,8 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-04-02T17:54:39+08:00" content="2016-04-02">
-            2016-04-02
+          <time itemprop="dateCreated" datetime="2016-05-07T17:13:25+08:00" content="2016-05-07">
+            2016-05-07
           </time>
         </span>
 
@@ -228,8 +213,8 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/04/02/learning-python-with-me-coding-style/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/learning-python-with-me-coding-style/" itemprop="commentsCount"></span>
+              <a href="/2016/05/07/learning-python-with-me-module/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/learning-python-with-me-module/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -243,38 +228,30 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
       
 
       
-        <span itemprop="articleBody"><p>注:部分内容来自网络。<br>Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。<br>本课主要来讲解python的编程风格.</p>
-<hr>
-<p><strong>1.文件名</strong></p>
-<p>python的文件名以.py结尾，与.c.cpp.java不同.<br>执行python程序的方法:python 文件名.py or  python3 文件名.py<br>或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py</p>
-<p><strong>2.标识符</strong></p>
+        <span itemprop="articleBody"><p>编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。</p>
+<p>我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.path中增加事先写好的.py文件所在的目录，然后再import我们的模块名称。<br>即调用方法为 模块名.函数名</p>
+<h3 id="1-_模块导入–import">1. 模块导入–import</h3><p>在Python中用关键字import来引入某个模块，比如要引用模块sys，就可以在文件最开始的地方用import sys来引入。</p>
+<p>例：<br><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print (<span class="string">"sys\'s path is"</span>, sys.path)</span><br></pre></td></tr></table></figure></p>
+<p>输出：</p>
 <blockquote>
-<p><em>标识符区分大小写
-</em>标识符由字母、数字、下划线组成。<br><em>标识符可以包括英文、数字以及下划线( _ )，但不能以数字开头
-</em>以下划线开头的标识符都是有特殊意义的，以单下划线开头(_foo)的代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用“from xxx import <em>”而导入。
-</em>以双下划线开头的(<strong>foo)代表类的私有成员；以双下划线开头和结尾的(</strong>foo<strong>)代表python里特殊方法专用的标识，如</strong>init__()代表类的构造函数。</p>
+<p>sys’s path is [‘/home/tianger/python’, ‘/usr/lib/python2.7’, ‘/usr/lib/python2.7/plat-x86_64-linux-gnu’, ‘/usr/lib/python2.7/lib-tk’, ‘/usr/lib/python2.7/lib-old’, ‘/usr/lib/python2.7/lib-dynload’, ‘/usr/local/lib/python2.7/dist-packages’, ‘/usr/lib/python2.7/dist-packages’, ‘/usr/lib/python2.7/dist-packages/PILcompat’, ‘/usr/lib/python2.7/dist-packages/gtk-2.0’, ‘/usr/lib/pymodules/python2.7’, ‘/usr/lib/python2.7/dist-packages/ubuntu-sso-client’]</p>
 </blockquote>
-<p><strong>3.代码注释</strong></p>
+<p>说明：</p>
 <blockquote>
-<p>*单行注释采用 #开头<br>   例：#这是一个测试程序</p>
-<p>*多行注释采用 三个单引号(‘’’)或三个双引号(“””)，注意引号要成对出现。<br>    例:<br>    ‘’’<br>    多行注释，单引号<br>    多行注释，单引号<br>    ‘’’<br>   “””<br>   多行注释，双引号<br>   多行注释，双引号<br>   “””</p>
+<p>1、import sys 引入 python 标准库中的 sys.py 模块；这是引入某一模块的方法。<br>2、sys.path 包含了一个 Python 解释器自动查找所需模块的路径的列表。</p>
 </blockquote>
-<p><strong>4.引号</strong></p>
+<h3 id="2-自定义模块">2.自定义模块</h3><p>第一节我们用了系统的模块sys，但是通常情况我们需要自己写接口给自己调用，这就需要我们来实现自定义模块</p>
+<p>我们先创建一下自定义模块hello.py，内容如下：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">()</span>:</span></span><br><span class="line">    print <span class="string">'hello world!'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(a,b)</span></span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br></pre></td></tr></table></figure></p>
+<p>我们再创建一个test.py，来调用hello.py中的say()和plus()函数实现，test.py内容如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import hello</span><br><span class="line"></span><br><span class="line">print (<span class="string">'call hello\'s say function as follow:'</span>)</span><br><span class="line"></span><br><span class="line">hello.<span class="function"><span class="title">say</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">sum = hello.<span class="function"><span class="title">plus</span><span class="params">(<span class="number">3</span>,<span class="number">5</span>)</span></span></span><br><span class="line"></span><br><span class="line">print (<span class="string">'call hello\'s plus function is'</span>, sum)</span><br></pre></td></tr></table></figure></p>
+<p>输出：</p>
 <blockquote>
-<p>*引号包括单引号(‘)，双引号(“)，和三引号(’’’，”“”)来表示字符串</p>
-<p>*三引号可以由多行组成，编写多行文本的快捷语法，常用语文档字符串，在文件的特定地点，被当做注释。<br>例：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">hello</span> = ‘hello'</span><br><span class="line"><span class="constant">test</span> = “这是一个测试"</span><br><span class="line"><span class="constant">paragraph</span> = “””这是一个段落。“”“</span><br></pre></td></tr></table></figure></p>
+<p>call hello’s say function as follow:<br>hello world!<br>call hello’s plus function is 8</p>
 </blockquote>
-<p>源码:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/user/bin/python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment">#下面三行主要用来解决编码问题(UnicodeEncodeError: 'ascii' codec can't encode character)</span></span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">hello = <span class="string">'hello'</span></span><br><span class="line">test = <span class="string">"这是一个测试"</span></span><br><span class="line">paragraph = <span class="string">"""这是一个段落"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (hello)</span><br><span class="line"><span class="keyword">print</span> (test)</span><br><span class="line"><span class="keyword">print</span> (paragraph)</span><br></pre></td></tr></table></figure></p>
-<p>打印值:<br>hello<br>这是一个测试<br>这是一个段落</p>
-<p><strong>5.多行语句</strong><br>Python语句中一般以新行作为为语句的结束符。<br>但是我们可以使用斜杠（ \）将一行的语句分为多行显示，如下所示：</p>
-<p>sum = test_one + \<br>           test_two + \<br>           test_three + \</p>
-<p><strong>6.行和缩进</strong><br>     python与C\C++\JAVA等其他语言最大的区别就是，代码块是通过缩进来控制。<br>     缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行，例如:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 0:</span><br><span class="line">     <span class="keyword">print</span> “0"</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="keyword">print</span> “1”</span><br></pre></td></tr></table></figure></p>
-<p>错误代码示例:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 0:</span><br><span class="line">     <span class="keyword">print</span> “<span class="keyword">test</span>"</span><br><span class="line">     <span class="keyword">print</span> “0"</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">     <span class="keyword">print</span> “<span class="keyword">test</span>"</span><br><span class="line">   #下面这行代码，没有雨上面的<span class="keyword">print</span>或者<span class="keyword">else</span>保持缩进对齐，所以会报错</span><br><span class="line">   <span class="keyword">print</span> “1"</span><br></pre></td></tr></table></figure></p>
-<pre><code>报错如下:
-    print <span class="string">"1"</span>
-       ^
-     IndentationError: unindent <span class="keyword">does</span> <span class="keyword">not</span> match any outer indentation level
-</code></pre><p>  小结:<br>        在python的代码块中必须使用相同数目的行首缩进空格数。<br>        建议你在每个缩进层次使用 单个制表符 或 两个空格 或者 四个空格</p>
+<p>说明：</p>
+<blockquote>
+<p>import hello –加载我们之前写的hello模块<br>hello.say() –调用hello模块中的say函数，会自动打印出hello world！<br>sum = hello.plus(3,5) –向hello的plus函数中，传入两个值3、5，计算得到的结果赋值给sum</p>
+</blockquote>
+<p>通过上面两个简单的例子，我们可以编写自己的模块了，让自己的工程进行模块化，不但可以使代码变得简洁，同时也增加了代码的复用性</p>
 </span>
       
     </div>
@@ -292,13 +269,11 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/04/learning-python-with-me-variable/" rel="prev">跟我一起写python--变量 (5)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/16/learning-python-with-me-hello-world/" rel="next">跟我一起写python--Helloworld(3)</a>
+              <a href="/2016/05/02/learning-python-with-me-function/" rel="next">跟我一起写python—函数 (14)</a>
             
           </div>
         </div>
@@ -323,8 +298,8 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/04/02/learning-python-with-me-coding-style/"
-                   data-title="跟我一起写python--编程风格 (4)" data-url="http://tianger.github.io/2016/04/02/learning-python-with-me-coding-style/">
+              <div class="ds-thread" data-thread-key="2016/05/07/learning-python-with-me-module/"
+                   data-title="跟我一起写python--模块(15)" data-url="http://tianger.github.io/2016/05/07/learning-python-with-me-module/">
               </div>
             
           </div>
@@ -406,7 +381,7 @@ python的文件名以.py结尾，与.c.cpp.java不同.执行python程序的方�
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_模块导入–import"><span class="nav-number">1.</span> <span class="nav-text">1. 模块导入–import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-自定义模块"><span class="nav-number">2.</span> <span class="nav-text">2.自定义模块</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
