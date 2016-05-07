@@ -230,7 +230,10 @@
       
         
           <span itemprop="articleBody"><p>编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。</p>
-<p>我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.path中增加事先写好的.py文件所在的目录，然后再import我们的模块名称。<br>即调用方法为 模块名.函数名</p>
+<p>我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.path中增加事先写好的.py文件所在的目录，然后再import我们的模块名称。<br><br></p>
+<blockquote>
+<p>即调用方法为:</p>
+<h4 id="模块名-函数名">模块名.函数名</h4></blockquote>
 <h3 id="1-_模块导入–import">1. 模块导入–import</h3><p>在Python中用关键字import来引入某个模块，比如要引用模块sys，就可以在文件最开始的地方用import sys来引入。</p>
 <p>例：<br><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print (<span class="string">"sys\'s path is"</span>, sys.path)</span><br></pre></td></tr></table></figure></p>
 <p>输出：</p>
@@ -253,6 +256,7 @@
 <p>import hello –加载我们之前写的hello模块<br>hello.say() –调用hello模块中的say函数，会自动打印出hello world！<br>sum = hello.plus(3,5) –向hello的plus函数中，传入两个值3、5，计算得到的结果赋值给sum</p>
 </blockquote>
 <p>通过上面两个简单的例子，我们可以编写自己的模块了，让自己的工程进行模块化，不但可以使代码变得简洁，同时也增加了代码的复用性</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
         
       
