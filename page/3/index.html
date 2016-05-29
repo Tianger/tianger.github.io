@@ -176,6 +176,98 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/13/direct-transfer/" itemprop="url">
+                WCDMA协议和信令-呼叫建立和释放流程分析(3)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-13T16:58:27+08:00" content="2016-03-13">
+            2016-03-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                  <span itemprop="name">WCDMA</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/13/direct-transfer/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/direct-transfer/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><center><strong>直传消息流程</strong></center>
+
+<p>1.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;直传消息指UE与CN之间的信令交互NAS信息，如鉴权、业务请求、连接建立等。由于这些消息在RNC透明传输，所以称为直传消息。<br>&nbsp;&nbsp;&nbsp;&nbsp;RRC连接建立的只是UE与RNC之间的信令连接，因此为了传送直传消息，还需要继续建立UE与CN之间的信令连接。RNC在收到第一条直传消息时(即初始直传消息INITIAL DIRECT TRANSFER)，将建立与CN之间的信令连接，该连接建立于SS7的SCCP之上。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE和CN的信令连接建立成功后，UE发送到CN的消息，通过上行直传消息UPLINK DIRECT TRANSFER 发送到RNC，RNC将其转换为直传消息DIRECT TRANSFER 发送到CN;CN发送到UE的消息，通过直传消息DIRECT TRANSFER 发送到RNC，RNC将其转换为下行直传消息DOWNLINK DIRECT TRANSFER 发送到UE。</p>
+<p>1.2 初始直传<br>&nbsp;&nbsp;&nbsp;&nbsp;初始直传过程用于建立起RNC与CN之间的一条信令连接，同时承载一条初始NAS消息。NAS消息的内容在RNC并不进行解释，而是转送给CN。<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE处于CELL_PCH或URA_PCH状态时，为了进行初始直传，将首先进行小区更新，状态迁移入CELL_FACH状态，更新理由为“uplink data transmission”。小区更新成功结束后，UE将继续进行初始直传。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;初始直传过程的基本流程如图1-1所示：<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/init_transfer.png" alt=""><br>     <center>图1-1 初始直传</center><br>     信令流程描述：<br>    （1）RRC连接建立后，UE通过RRC连接向RNC发送初始直传消息INITIAL DIRECT TRANSFER,消息中携带UE发送到CN的初始NAS信息内容，及CN标识等内容。<br>    （2）RNC接收到UE的初始直传消息，通过lu接口向CN发送SCCP连接请求消息CONNECTION REQUEST,消息数据为RNC向CN发送的初始UE消息INITIAL UE MESSAGE，该消息包含UE发送到CN的消息内容。<br>    （3）如果CN准备接受连接请求，则向RNC回SCCP连接证实消息CONNECTION CONFIRM,表明SCCP连接建立成功.RNC接收到该消息，确认信令连接建立成功。<br>    （4）如果CN不能接受连接请求，则向RNC回SCCP连接拒绝消息CONNECTION REFUSE，SCCP连接建立失败，RNC接收到该消息，确认信令连接建立失败，则发起RRC连接释放流程。<br>     对于初始直传过程中携带的NAS内容，CN将通过下行直传过程把对这种服务的接受或拒绝信息发送给UE。</p>
+<p>1.3 上行直传<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE需要在已存在的信令连接上向CN发送NAS消息时，将发起上行直传过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;处于CELL_PCH或URA_PCH状态的UE，在进行上行直传之前，需要进行小区更新，状态迁移到CELL_FACH状态，更新原因为“uplink data transmission”。小区更新成功后，将继续进行上行直传。<br>&nbsp;&nbsp;&nbsp;&nbsp;上行直传的信令流程如图1-2所示：<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/uplink_transfer.png" alt=""><br>    <center>图1-2 上行直传</center></p>
+<pre><code>信令流程描述：
+</code></pre><p>   （1）UE向RNC发送上行直传消息UPLINK DIRECT TRANSFER，发起上行直传过程。消息中包含NAS消息、CN标识等信息。<br>   （2）RNC按照消息中包含的CN标识，进行路由，将其中包含的NAS信息内容，通过lu接口的直传消息DIRECT TRANSFER,发送到CN。上行直传过程结束。<br>     如果上行直传消息UPLINK DIRECT TRANSFER 中包含“Measured results on RACH”信息单元，表明消息中携带测量报告，此时UTRAN将解析相应消息内容并用于无线资源控制，消息其余部分仍旧向CN传输。</p>
+<p>1.4 下行直传<br>&nbsp;&nbsp;&nbsp;&nbsp;当CN需要在已存在的信令连接上向UE发送NAS消息时，发起下行直传过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;下行直传的信令流程如图1-3所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/downlink-transfer.png" alt=""><br>     <center>图1-3 下行直传</center><br>信令流程说明：<br>（1）CN向RNC发送直传消息DIRECT TRANSFER，发起下行直传过程。消息中包含NAS消息。<br>（2）UTRAN通过下行DCCH信道采用AM RLC方式，发送下行直传消息DOWNLINK DIRECT TRANSFER,消息中携带CN发送到UE的NAS信息内容，以及CN标识。<br>     UE接收并读取下行直传消息DOWNLINK DIRECT TRANSFER 中携带的NAS消息内容。若接收到的消息包含协议错误，UE将在上行DCCH上采用AM RLC方式发送RRC状态消息RRC STATUS。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/12/rrc-setup/" itemprop="url">
                 WCDMA协议和信令-呼叫建立和释放流程分析(2)
               </a>
@@ -792,21 +884,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
