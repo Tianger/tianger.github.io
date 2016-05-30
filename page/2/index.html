@@ -176,6 +176,100 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-for/" itemprop="url">
+                跟我一起写python--for循环(9)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-17T21:16:41+08:00" content="2016-04-17">
+            2016-04-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/17/learning-python-with-me-for/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-for/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:</p>
+<p>语法格式:</p>
+<pre><code><span class="keyword">for</span> 变量 <span class="keyword">in</span> 序列(元素表):
+     执行语句..
+</code></pre><p>即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。<br>注意，for的行尾也要用到冒号：</p>
+<p>流程图：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-for.png" alt=""></p>
+<p>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"NAME :"</span>,name)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"over,bye!"</span>)</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">NAME : jason</span><br><span class="line">NAME : tianger</span><br><span class="line">NAME : jodie</span><br><span class="line">over,<span class="built_in">bye</span>!</span><br></pre></td></tr></table></figure></p>
+<p>通过索引迭代<br>通过索引位置来进行循环执行<br>例：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">index</span> in range(len(names)):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"NAME :"</span>,names[<span class="keyword">index</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"over,bye!"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">NAME</span> : jason</span><br><span class="line"><span class="keyword">NAME</span> : tianger</span><br><span class="line"><span class="keyword">NAME</span> : jodie</span><br><span class="line">over,bye<span class="comment">!</span></span><br></pre></td></tr></table></figure></p>
+<p>注:<br>len()返回数组元素的个数<br>range()返回一个序列的数</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/17/learning-python-with-me-while/" itemprop="url">
                 跟我一起写python--while循环 (8)
               </a>
@@ -1175,92 +1269,6 @@ xiaohong <span class="keyword">is</span> older
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/13/ue-capability-information-progress/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(4)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-13T17:40:16+08:00" content="2016-03-13">
-            2016-03-13
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/13/ue-capability-information-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/ue-capability-information-progress/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p><center><strong>UE能力信息流程</strong></center><br>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息包括：安全能力、定位能力、测量能力、物理信道能力、传输信道能力等。<br>由于UE的厂家和规格不同，能力也不一致，所以RRC连接建立之后，UE应当向UTRAN发送UE能力信息，以使网络侧按照UE支持的能力参数对其进行配置。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息的传递可以分以下三种情况告诉网络：<br>&nbsp;&nbsp;&nbsp;&nbsp;（1）RRC连接建立完成之后，UE能力信息通过RRC连接建立完成消息RRC CONNECTION SETUP COMPLETE，传递到RNC；<br>&nbsp;&nbsp;&nbsp;&nbsp;（2）RRC连接建立完成之后，当RNC发现相应UE的能力信息不存在时，向UE发送UE能力信息查询消息UE CAPABILITY ENQUIRY，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送UE能力信息；<br>&nbsp;&nbsp;&nbsp;&nbsp;（3）RRC连接期间，当UE能力信息发生改变时，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送新的UE能力信息。</p>
-<p>1.2 UE能力信息查询<br>&nbsp;&nbsp;&nbsp;&nbsp;通过UE能力信息查询，UTRAN请求UE发起UE能力查询过程，如图1-1所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_caoability_enquiry.png" alt=""><br>        <center>图1-1 UE能力查询</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过下行DCCH逻辑信道，采用AM RLC方式发送UE能力查询消息UE CAPABILITY ENQUIRY,完成UE能力信息查询过程。</p>
-<p>1.3 UE能力信息更新<br>&nbsp;&nbsp;&nbsp;&nbsp;若UTRAN发起UE能力信息查询过程，或者RRC连接期间UE能力信息发生改变，UE将发起UE能力信息更新过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息更新过程用于向UTRAN传送UE所支持的无线网络相关能力信息，如图1-2所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_capability_upate.png" alt=""><br>     <center>图1-2 UE能力信息更新</center><br>     （1）UE在上行链路DCCH上，使用AM或UM RLC方式发送UE能力信息消息UE CAPABILITY INFORMATION，消息中携带UE的能力信息。<br>     （2）UTRAN读取UE能力信息，使用AM 或UM RLC方式在下行链路DCCH上发送UE CAPABILITY INFORMA CONFIRM确认消息。UE能力信息更新过程结束。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1299,21 +1307,21 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
