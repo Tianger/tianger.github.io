@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="WCDMA Call RRC DIRECT TRANSFER," />
+  <meta name="keywords" content="C," />
 
 
 
@@ -39,25 +39,20 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="直传消息流程
-
-1.1 概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;直传消息指UE与CN之间的信令交互NAS信息，如鉴权、业务请求、连接建立等。由于这些消息在RNC透明传输，所以称为直传消息。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RRC连接建立的只是UE与RNC之间的信令连接，因此为了传送直传消息，还需要继续建立UE与CN之间的信令连接。RNC在收到第一条直传消息时(即初始直传消">
+<meta name="description" content="C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。
+所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WCDMA协议和信令-呼叫建立和释放流程分析(3)">
-<meta property="og:url" content="http://tianger.github.io/2016/03/13/direct-transfer/index.html">
+<meta property="og:title" content="C与指针-第二章 转义字符">
+<meta property="og:url" content="http://tianger.github.io/2016/05/31/c-and-point-two/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="直传消息流程
-
-1.1 概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;直传消息指UE与CN之间的信令交互NAS信息，如鉴权、业务请求、连接建立等。由于这些消息在RNC透明传输，所以称为直传消息。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RRC连接建立的只是UE与RNC之间的信令连接，因此为了传送直传消息，还需要继续建立UE与CN之间的信令连接。RNC在收到第一条直传消息时(即初始直传消">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/init_transfer.png">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/uplink_transfer.png">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/downlink-transfer.png">
-<meta property="og:updated_time" content="2016-03-13T09:10:06.000Z">
+<meta property="og:description" content="C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。
+所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-06-01T13:47:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WCDMA协议和信令-呼叫建立和释放流程分析(3)">
-<meta name="twitter:description" content="直传消息流程
-
-1.1 概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;直传消息指UE与CN之间的信令交互NAS信息，如鉴权、业务请求、连接建立等。由于这些消息在RNC透明传输，所以称为直传消息。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RRC连接建立的只是UE与RNC之间的信令连接，因此为了传送直传消息，还需要继续建立UE与CN之间的信令连接。RNC在收到第一条直传消息时(即初始直传消">
+<meta name="twitter:title" content="C与指针-第二章 转义字符">
+<meta name="twitter:description" content="C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。
+所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -67,7 +62,7 @@
   };
 </script>
 
-  <title> WCDMA协议和信令-呼叫建立和释放流程分析(3) | Tianger's Family </title>
+  <title> C与指针-第二章 转义字符 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -184,7 +179,7 @@
           
           
             
-              WCDMA协议和信令-呼叫建立和释放流程分析(3)
+              C与指针-第二章 转义字符
             
           
         </h1>
@@ -193,8 +188,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-13T16:58:27+08:00" content="2016-03-13">
-            2016-03-13
+          <time itemprop="dateCreated" datetime="2016-05-31T21:43:32+08:00" content="2016-05-31">
+            2016-05-31
           </time>
         </span>
 
@@ -203,8 +198,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针]</span>
                 </a>
               </span>
 
@@ -219,8 +214,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/13/direct-transfer/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/direct-transfer/" itemprop="commentsCount"></span>
+              <a href="/2016/05/31/c-and-point-two/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/c-and-point-two/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -234,15 +229,92 @@
       
 
       
-        <span itemprop="articleBody"><center><strong>直传消息流程</strong></center>
-
-<p>1.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;直传消息指UE与CN之间的信令交互NAS信息，如鉴权、业务请求、连接建立等。由于这些消息在RNC透明传输，所以称为直传消息。<br>&nbsp;&nbsp;&nbsp;&nbsp;RRC连接建立的只是UE与RNC之间的信令连接，因此为了传送直传消息，还需要继续建立UE与CN之间的信令连接。RNC在收到第一条直传消息时(即初始直传消息INITIAL DIRECT TRANSFER)，将建立与CN之间的信令连接，该连接建立于SS7的SCCP之上。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE和CN的信令连接建立成功后，UE发送到CN的消息，通过上行直传消息UPLINK DIRECT TRANSFER 发送到RNC，RNC将其转换为直传消息DIRECT TRANSFER 发送到CN;CN发送到UE的消息，通过直传消息DIRECT TRANSFER 发送到RNC，RNC将其转换为下行直传消息DOWNLINK DIRECT TRANSFER 发送到UE。</p>
-<p>1.2 初始直传<br>&nbsp;&nbsp;&nbsp;&nbsp;初始直传过程用于建立起RNC与CN之间的一条信令连接，同时承载一条初始NAS消息。NAS消息的内容在RNC并不进行解释，而是转送给CN。<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE处于CELL_PCH或URA_PCH状态时，为了进行初始直传，将首先进行小区更新，状态迁移入CELL_FACH状态，更新理由为“uplink data transmission”。小区更新成功结束后，UE将继续进行初始直传。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;初始直传过程的基本流程如图1-1所示：<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/init_transfer.png" alt=""><br>     <center>图1-1 初始直传</center><br>     信令流程描述：<br>    （1）RRC连接建立后，UE通过RRC连接向RNC发送初始直传消息INITIAL DIRECT TRANSFER,消息中携带UE发送到CN的初始NAS信息内容，及CN标识等内容。<br>    （2）RNC接收到UE的初始直传消息，通过lu接口向CN发送SCCP连接请求消息CONNECTION REQUEST,消息数据为RNC向CN发送的初始UE消息INITIAL UE MESSAGE，该消息包含UE发送到CN的消息内容。<br>    （3）如果CN准备接受连接请求，则向RNC回SCCP连接证实消息CONNECTION CONFIRM,表明SCCP连接建立成功.RNC接收到该消息，确认信令连接建立成功。<br>    （4）如果CN不能接受连接请求，则向RNC回SCCP连接拒绝消息CONNECTION REFUSE，SCCP连接建立失败，RNC接收到该消息，确认信令连接建立失败，则发起RRC连接释放流程。<br>     对于初始直传过程中携带的NAS内容，CN将通过下行直传过程把对这种服务的接受或拒绝信息发送给UE。</p>
-<p>1.3 上行直传<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE需要在已存在的信令连接上向CN发送NAS消息时，将发起上行直传过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;处于CELL_PCH或URA_PCH状态的UE，在进行上行直传之前，需要进行小区更新，状态迁移到CELL_FACH状态，更新原因为“uplink data transmission”。小区更新成功后，将继续进行上行直传。<br>&nbsp;&nbsp;&nbsp;&nbsp;上行直传的信令流程如图1-2所示：<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/uplink_transfer.png" alt=""><br>    <center>图1-2 上行直传</center></p>
-<pre><code>信令流程描述：
-</code></pre><p>   （1）UE向RNC发送上行直传消息UPLINK DIRECT TRANSFER，发起上行直传过程。消息中包含NAS消息、CN标识等信息。<br>   （2）RNC按照消息中包含的CN标识，进行路由，将其中包含的NAS信息内容，通过lu接口的直传消息DIRECT TRANSFER,发送到CN。上行直传过程结束。<br>     如果上行直传消息UPLINK DIRECT TRANSFER 中包含“Measured results on RACH”信息单元，表明消息中携带测量报告，此时UTRAN将解析相应消息内容并用于无线资源控制，消息其余部分仍旧向CN传输。</p>
-<p>1.4 下行直传<br>&nbsp;&nbsp;&nbsp;&nbsp;当CN需要在已存在的信令连接上向UE发送NAS消息时，发起下行直传过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;下行直传的信令流程如图1-3所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/downlink-transfer.png" alt=""><br>     <center>图1-3 下行直传</center><br>信令流程说明：<br>（1）CN向RNC发送直传消息DIRECT TRANSFER，发起下行直传过程。消息中包含NAS消息。<br>（2）UTRAN通过下行DCCH信道采用AM RLC方式，发送下行直传消息DOWNLINK DIRECT TRANSFER,消息中携带CN发送到UE的NAS信息内容，以及CN标识。<br>     UE接收并读取下行直传消息DOWNLINK DIRECT TRANSFER 中携带的NAS消息内容。若接收到的消息包含协议错误，UE将在上行DCCH上采用AM RLC方式发送RRC状态消息RRC STATUS。</p>
+        <span itemprop="articleBody"><p>C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。</p>
+<p>所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为后面的字符，都不是它本来的ASCII字符意思了。<br>8进制，16进制转义字符</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th style="text-align:center">意义</th>
+<th style="text-align:center">ASCII码值（十进制）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\a</td>
+<td style="text-align:center">响铃(BEL)</td>
+<td style="text-align:center">007</td>
+</tr>
+<tr>
+<td>\b</td>
+<td style="text-align:center">退格(BS)</td>
+<td style="text-align:center">008</td>
+</tr>
+<tr>
+<td>\f</td>
+<td style="text-align:center">换页(FF)</td>
+<td style="text-align:center">012</td>
+</tr>
+<tr>
+<td>\n</td>
+<td style="text-align:center">换行(LF)</td>
+<td style="text-align:center">010</td>
+</tr>
+<tr>
+<td>\r</td>
+<td style="text-align:center">回车(CR)</td>
+<td style="text-align:center">013</td>
+</tr>
+<tr>
+<td>\t</td>
+<td style="text-align:center">水平制表(HT)</td>
+<td style="text-align:center">009</td>
+</tr>
+<tr>
+<td>\v</td>
+<td style="text-align:center">垂直制表(VT)</td>
+<td style="text-align:center">011</td>
+</tr>
+<tr>
+<td>\</td>
+<td style="text-align:center">代表一个反斜线字符’’\’</td>
+<td style="text-align:center">092</td>
+</tr>
+<tr>
+<td>\’</td>
+<td style="text-align:center">代表一个单引号（撇号）字符</td>
+<td style="text-align:center">039</td>
+</tr>
+<tr>
+<td>\”</td>
+<td style="text-align:center">代表一个双引号字符</td>
+<td style="text-align:center">034</td>
+</tr>
+<tr>
+<td>\?</td>
+<td style="text-align:center">代表一个问号</td>
+<td style="text-align:center">063</td>
+</tr>
+<tr>
+<td>\0</td>
+<td style="text-align:center">空字符(NULL)</td>
+<td style="text-align:center">000</td>
+</tr>
+<tr>
+<td>\ddd</td>
+<td style="text-align:center">1到3位八进制数所代表的任意字符</td>
+<td style="text-align:center">三位八进制</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td style="text-align:center">1到2位十六进制所代表的任意字符</td>
+<td style="text-align:center">二位十六进制</td>
+</tr>
+</tbody>
+</table>
+<p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">     <span class="keyword">int</span> a,b,c;</span><br><span class="line">     a=<span class="number">1</span>; b=<span class="number">2</span>; c=<span class="number">3</span>;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"%d\n\t%d %d\n %d %d\t\b%d\n"</span>,a,b,c,a,b,c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此程序练习转义字符的使用：<br>a、b、c分别为整数1,2,3<br>调用printf显示程序运行结果：<br>1<br>23<br>12 3</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
     </div>
@@ -251,7 +323,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WCDMA-Call-RRC-DIRECT-TRANSFER/" rel="tag">#WCDMA Call RRC DIRECT TRANSFER</a>
+            <a href="/tags/C/" rel="tag">#C</a>
           
         </div>
       
@@ -260,13 +332,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/13/ue-capability-information-progress/" rel="prev">WCDMA协议和信令-呼叫建立和释放流程分析(4)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/12/rrc-setup/" rel="next">WCDMA协议和信令-呼叫建立和释放流程分析(2)</a>
+              <a href="/2016/05/30/c-and-point-one/" rel="next">C与指针-第一章scanf\strncpy\strcpy\memcpy</a>
             
           </div>
         </div>
@@ -291,8 +361,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/13/direct-transfer/"
-                   data-title="WCDMA协议和信令-呼叫建立和释放流程分析(3)" data-url="http://tianger.github.io/2016/03/13/direct-transfer/">
+              <div class="ds-thread" data-thread-key="2016/05/31/c-and-point-two/"
+                   data-title="C与指针-第二章 转义字符" data-url="http://tianger.github.io/2016/05/31/c-and-point-two/">
               </div>
             
           </div>
