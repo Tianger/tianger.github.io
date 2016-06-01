@@ -1,0 +1,697 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="3G/LTE protocol | C" />
+
+
+
+  <meta name="keywords" content="c," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="C与指针第三章重点需要掌握的是 const\extern\static  这三个修饰关键字。第四章主要讲的是if\while\switch\for\do..while\goto等常用语句的用法，这作为基础内容，本章就不进行讲解。
+const:const关键字是一个很常用的关键字，它限定一个变量不允许被改变，产生静态作用。
+定义：const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C与指针-第三、四章const\extern\static">
+<meta property="og:url" content="http://tianger.github.io/2016/06/01/c-and-point-three-and-four/index.html">
+<meta property="og:site_name" content="Tianger's Family">
+<meta property="og:description" content="C与指针第三章重点需要掌握的是 const\extern\static  这三个修饰关键字。第四章主要讲的是if\while\switch\for\do..while\goto等常用语句的用法，这作为基础内容，本章就不进行讲解。
+const:const关键字是一个很常用的关键字，它限定一个变量不允许被改变，产生静态作用。
+定义：const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-06-01T14:03:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C与指针-第三、四章const\extern\static">
+<meta name="twitter:description" content="C与指针第三章重点需要掌握的是 const\extern\static  这三个修饰关键字。第四章主要讲的是if\while\switch\for\do..while\goto等常用语句的用法，这作为基础内容，本章就不进行讲解。
+const:const关键字是一个很常用的关键字，它限定一个变量不允许被改变，产生静态作用。
+定义：const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> C与指针-第三、四章const\extern\static | Tianger's Family </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3000033e6d5b1f1f2b431451efbce4ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Tianger's Family</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              C与指针-第三、四章const\extern\static
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-01T21:56:19+08:00" content="2016-06-01">
+            2016-06-01
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/01/c-and-point-three-and-four/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/c-and-point-three-and-four/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>C与指针第三章重点需要掌握的是 const\extern\static  这三个修饰关键字。<br>第四章主要讲的是if\while\switch\for\do..while\goto等常用语句的用法，这作为基础内容，本章就不进行讲解。</p>
+<h2 id="const:">const:</h2><p>const关键字是一个很常用的关键字，它限定一个变量不允许被改变，产生静态作用。</p>
+<h3 id="定义：">定义：</h3><p>const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新的。</p>
+<h3 id="目的：">目的：</h3><p>const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。</p>
+<h3 id="用法：">用法：</h3><h4 id="1-基本用法">1.基本用法</h4><p>const int a = 10;<br>含义：定义了一个int类型的常量a,值为1，a为只读变量，程序允许过程中不能够直接修改它的值，即编译器编译经过类型检查后，直接用10在编译时替换，这使得编译器编译const常量过程中，少了一步存储与读内存的操作，提高了效率</p>
+<h4 id="2-指针">2.指针</h4><p>  int b = 10;<br> 1)const int <em>a =&b;<br> 2)int const </em>a = &b;<br> 3)int <em> const a = &b;<br>含义：<br>1)表示指针所指向的对象是只读的(</em>a 只读),a指向的内容不能够通过a改变</p>
+<blockquote>
+<p><em>a = </em>a +1; //错误，*a为只读，不能被赋值</p>
+</blockquote>
+<p>2)与1)完全相同<br>3)表示指针指向是常量，不能够修改去指向其他内容<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> c =<span class="number">20</span>;</span><br><span class="line"> a = &amp;c; <span class="comment">//错误，a为只读，不能指向其他内容</span></span><br><span class="line"> *a = *a +<span class="number">1</span>; <span class="comment">//正确， *a不为只读</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="3-函数">3.函数</h4><p>   1)修饰函数参数<br>      void foo(const int a);<br>      含义：传进来的a为只读，不能被修改<br>      void foo(const int <em>a);<br>      含义：传进来的</em>a 为只读，不能被修改，同上用于把数据作为参数传进来，函数只能读取这个指针的内容，当函数返回内部的类型时，已经是一个数值，当然不可被赋值更新，因此这种写法无意义</p>
+<p>2)修饰函数返回值<br>    const int foo();<br>    含义：返回值为const类型，指返回的原函数里的变量初值不能被修改</p>
+<h4 id="4-类型检查">4.类型检查</h4><p>const的值只能赋值给const对象，不能赋值给非const对象，只能强制类型转换才可以<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> b =<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> *a = &amp;b; <span class="comment">//错误，a为非const对象，b为const对象</span></span><br><span class="line"><span class="keyword">int</span> *a = (<span class="keyword">int</span> *)&amp;b; <span class="comment">//正确，强制类型转换</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="extern:">extern:</h2><h3 id="定义：-1">定义：</h3><p>extern可置于变量或者函数前，以表示变量或者函数的定义在别的文件中，提示编译器遇到此变量或函数时，在其它模块中寻找其定义。通过这种行为它告诉编译器：该变量/函数的定义已经存在在某个地方了，让编译器到其他的模块去寻找它的定义。</p>
+<h3 id="用法：-1">用法：</h3><p>extern用在变量声明中常常有这样一个作用：你要在<em>.c文件中引用另一个文件中的一个全局的变量，那就应该放在</em>.h中用extern来声明这个全局变量。<br>在定义函数的时候，这个extern可以被省略，函数的默认定义就是extern类型</p>
+<blockquote>
+<p>extern int a;//声明一个全局变量a ，这是一个声明，只有这样写，才能被其他的C调用</p>
+<p>int a; //定义一个全局变量a    ，这是一个定义，这不能被其他C调用</p>
+<p>extern int a =0 ;//定义一个全局变量a 并给初值。一旦给予赋值，一定是定义，定义才会分配存储空间。</p>
+<p>i nt a =0;//定义一个全局变量a,并给初值，<br>声明之后你不能直接使用这个变量，需要定义之后才能使用。</p>
+</blockquote>
+<h2 id="static:">static:</h2><p>static内容参考了<br><a href="http://blog.csdn.net/keyeagle/article/details/6708077/" target="_blank" rel="external">keyeagle的《C语言static分析》</a><br><a href="http://blog.csdn.net/adriano119/article/details/2991317" target="_blank" rel="external">adriano119的《static用法总结》</a></p>
+<h1 id="一个进程在内存中的布局入下图所示:">一个进程在内存中的布局入下图所示:</h1><pre><code><span class="header">|        栈区     |
+------------------</span>
+<span class="header">| 堆栈增长区  |
+------------------</span>
+<span class="header">|       堆区       |
+-----------------</span>
+<span class="header">|      其他段     |
+-----------------</span>
+<span class="header">|        .bss段      |
+-----------------</span>
+<span class="header">|        .data段     |
+-----------------</span>
+<span class="header">|        .text段     |
+==========</span>
+</code></pre><p>  其中.text段保存进程所执行的程序二进制文件，.data段保存进程所有的已初始化的全局变量，.bss段保存进程未初始化的全局变量（其他段中还有很多乱七八糟的段，暂且不表）。在进程的整个生命周期中，.data段和.bss段内的数据时跟整个进程同生共死的，也就是在进程结束之后这些数据才会寿终就寝。</p>
+<p>一般程序的由malloc/new产生的动态数据存放在堆区，函数内部的自动变量存放在栈区,全局变量和static变量放在.data段内(已初始化)或.bss段内(未初始化)，但是它只在定义它的源文件内有效，其他源文件无法访问它</p>
+<h3 id="1、[静态全局变量]">1、[静态全局变量]</h3><p>//在全局变量前，加上关键字static，该变量就被定义成为一个静态全局变量。<br> 静态全局变量有以下特点：<br>        1)该变量在全局数据区分配内存；<br>        2)未经初始化的静态全局变量会被程序自动初始化为0（自动变量的值是随机的，除非它被显式初始化）；<br>        3)静态全局变量在声明它的整个文件都是可见的，而在文件之外(extern)是不可见的；<br>  定义全局变量就可以实现变量在文件中的共享，但定义静态全局变量还有以下好处：</p>
+<blockquote>
+<pre><code><span class="number">1</span>)静态全局变量不能被其它文件所用；
+<span class="number">2</span>)其它文件中可以定义相同名字的变量，不会发生冲突；
+</code></pre></blockquote>
+<p>示例：<br>test1.c中,静态全局变量ch,只能在test1.c中使用，其他c文件不能使用<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>  <span class="keyword">char</span> *ch = <span class="string">"Hello World!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printstr</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test2.<span class="function">c</span><br><span class="line"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,ch);  <span class="comment">//这里会报错，因为这个ch为test.c中的全局变量，只能在test1.c中使用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、[静态局部变量]">2、[静态局部变量]</h3><p>在局部变量前，加上关键字static，该变量就被定义成为一个静态局部变量。</p>
+<p>在函数体内定义了一个变量，每当程序运行到该语句时都会给该局部变量分配栈内存。但随着程序退出函数体，系统就会收回栈内存，局部变量也相应失效。每次调用这个局部变量在栈上的位置都不一定相同。如果我们想再两次的调用期间保留这个局部变量，就变的不可靠，一种方法使定义全局变量，另一个版本是使用静态局部变量</p>
+<p>静态局部变量保存在全局数据区，即.data段或.bss段，而不是保存在栈中，每次的值保持到下一次调用，直到下次赋新值。</p>
+<p>静态局部变量有以下特点：</p>
+<blockquote>
+<p>1)该变量在全局数据区分配内存；<br>2)静态局部变量在程序执行到该对象的声明处时被首次初始化，即以后的函数调用不再进行初始化；<br>3)静态局部变量一般在声明处初始化，如果没有显式初始化，会被程序自动初始化为0；<br>4)它始终驻留在全局数据区，直到程序运行结束。但其作用域为局部作用域，当定义它的函数或语句块结束时，其作用域随之结束；</p>
+</blockquote>
+<h3 id="3、静态函数">3、静态函数</h3><p>在函数的返回类型前加上static关键字,函数即被定义为静态函数。静态函数与普通函数不同，它只能在声明它的文件当中可见，不能被其它文件使用。</p>
+<p>定义静态函数的好处：</p>
+<blockquote>
+<p>1)静态函数不能被其它文件所用；<br>2)其它文件中可以定义相同名字的函数，不会发生冲突；</p>
+</blockquote>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c/" rel="tag">#c</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/31/c-and-point-two/" rel="next">C与指针-第二章 转义字符</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/06/01/c-and-point-three-and-four/"
+                   data-title="C与指针-第三、四章const\extern\static" data-url="http://tianger.github.io/2016/06/01/c-and-point-three-and-four/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tianger Ge</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#const:"><span class="nav-number">1.</span> <span class="nav-text">const:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义："><span class="nav-number">1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目的："><span class="nav-number">1.2.</span> <span class="nav-text">目的：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法："><span class="nav-number">1.3.</span> <span class="nav-text">用法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-基本用法"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-指针"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-函数"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-类型检查"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.类型检查</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extern:"><span class="nav-number">2.</span> <span class="nav-text">extern:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义：-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法：-1"><span class="nav-number">2.2.</span> <span class="nav-text">用法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static:"><span class="nav-number">3.</span> <span class="nav-text">static:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个进程在内存中的布局入下图所示:"><span class="nav-number"></span> <span class="nav-text">一个进程在内存中的布局入下图所示:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、[静态全局变量]"><span class="nav-number">0.1.</span> <span class="nav-text">1、[静态全局变量]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、[静态局部变量]"><span class="nav-number">0.2.</span> <span class="nav-text">2、[静态局部变量]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、静态函数"><span class="nav-number">0.3.</span> <span class="nav-text">3、静态函数</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tianger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

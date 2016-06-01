@@ -176,6 +176,126 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-list/" itemprop="url">
+                跟我一起写python—列表list (11)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-17T21:24:27+08:00" content="2016-04-17">
+            2016-04-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/17/learning-python-with-me-list/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-list/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p> 列表是Python中最频繁的数据类型，它可以完成大多数集合类的数据结构体实现，支持字符、数字、字符串，甚至嵌套列表。<br>     列表用[ ]标识。<br>     列表中的值可以用逗号分割，也可以用到变量[头下表:尾下表]，就可以截取相应的列表，从左到右默认索引从0开始，从右往左默认索引从-1开始，下标可以为空表示取到头或尾</p>
+<p>1）列表list的创建<br>只要把逗号风格的不同数据项用中括号[ ]括起来，即完成列表的创建<br>list = [‘name’,’tianger’,’year’,2016]</p>
+<p>2）访问列表中的内容</p>
+<ul>
+<li>通过下标索引来查找</li>
+<li><p>通过字符串截取来查找</p>
+<p>   list = [‘name’,’tianger’,’year’,2016]<br>   print (list[0])   #输出列表中的第一个元素，结果为name<br>   print (list[1:3]) #输出第二个至第三个的元素，[tianger,year]</p>
+</li>
+</ul>
+<p>3）更新列表</p>
+<ul>
+<li>赋值更新</li>
+<li>append插入更新,插入到列表的末尾</li>
+<li>insert(position,name) 在指定位置position后插入元素name</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>])  <span class="comment">#打印列表中的第二个元素</span></span><br><span class="line"><span class="keyword">list</span>[<span class="number">1</span>] = <span class="string">'Ge'</span>  <span class="comment">#修改列表中的第二个元素内容</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>])   <span class="comment">#打印修改后的列表中的第二个元素内容</span></span><br><span class="line"><span class="keyword">list</span>.append(<span class="string">'yuan'</span>) <span class="comment">#在列表的最后插入一个元素'yuan'</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.insert(<span class="number">2</span>,<span class="string">'Tian'</span>) <span class="comment">#在列表的第二个元素后面插入一个元素'Tian'</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">tianger</span></span><br><span class="line"><span class="name">Ge</span></span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'Ge'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="string">'yuan'</span>]</span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'Ge'</span>, <span class="string">'Tian'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="string">'yuan'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>4）删除列表</p>
+<ul>
+<li>del删除</li>
+<li>pop删除</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line"></span><br><span class="line">del <span class="keyword">list</span>[<span class="number">2</span>] <span class="comment">#删除列表第三个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.pop()   <span class="comment">#删除列表最后一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.pop(<span class="number">1</span>)  <span class="comment">#删除列表第二个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">['name', 'tianger', <span class="number">2016</span>]</span><br><span class="line">['name', 'tianger']</span><br><span class="line">['name']</span><br></pre></td></tr></table></figure></p>
+<p>5）列表相关函数处理</p>
+<ul>
+<li>获取列表元素个数len()</li>
+<li>返回列表元素中最大的值max()</li>
+<li>返回列表元素中最小的值min()</li>
+<li>列表插入元素insert(),apend()</li>
+<li>列表删除元素del() , pop()</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#!/usr/bin/python</span></span><br><span class="line"><span class="preprocessor"># -*- coding :UTF -<span class="number">8</span> -*-</span></span><br><span class="line">numlist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">print (len(numlist)) <span class="preprocessor">#打印列表元素个数</span></span><br><span class="line">print (max(numlist)) <span class="preprocessor">#打印列表最大值</span></span><br><span class="line">print (min(numlist)) <span class="preprocessor">#打印列表最小值</span></span><br><span class="line">numlist.insert(<span class="number">2</span>,<span class="number">6</span>)  <span class="preprocessor">#在第二个元素后面插入元素<span class="number">6</span></span></span><br><span class="line">print (numlist)</span><br><span class="line">numlist.append(<span class="number">8</span>)    <span class="preprocessor">#在末尾插入元素 <span class="number">8</span></span></span><br><span class="line">print (numlist)</span><br><span class="line"></span><br><span class="line">del numlist[<span class="number">4</span>]  <span class="preprocessor">#删除第<span class="number">5</span>个元素</span></span><br><span class="line">print (numlist)</span><br><span class="line">numlist.pop()   <span class="preprocessor">#删除末尾的元素</span></span><br><span class="line">print (numlist)</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+<p> 列表练习:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line">tinylist = [<span class="number">345</span>,<span class="string">'tianger'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>) <span class="comment">#输出完整列表</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">0</span>]) <span class="comment">#输出列表中的第一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>:<span class="number">3</span>]) <span class="comment">#输出第二个至第三个的元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">2</span>:]) <span class="comment">#输出第三个开始至列表末尾的元素</span></span><br><span class="line"><span class="keyword">print</span> (tinylist * <span class="number">2</span>) <span class="comment">#输出列表两次</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span> + tinylist) <span class="comment">#打印组合的列表</span></span><br></pre></td></tr></table></figure></p>
+<p>输出:<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line"><span class="atom">name</span></span><br><span class="line">[<span class="string">'tianger'</span>, <span class="string">'year'</span>]</span><br><span class="line">[<span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line">[<span class="number">345</span>, <span class="string">'tianger'</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/17/learning-python-with-me-break-and-continue/" itemprop="url">
                 跟我一起写python--跳出循环-break，continue (10)
               </a>
@@ -1186,94 +1306,6 @@ xiaohong <span class="keyword">is</span> older
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="url">
-                跟我一起写python--为什么要学习python(1)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-15T22:15:48+08:00" content="2016-03-15">
-            2016-03-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;例如用C语言来实现MCFG适配功能，可能需要上千行的C代码，而且执行也不方便，但是用python可能只要几百行代码，并且可以把脚本加入到编译环境中，当项目执行编译时，自动运行脚本得出结果，减少了人为的动作，缩短了工作量，提高工作效率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;同时在看了高通骁龙820的平台代码后，发现高通已经在工程中大量的使用了python，因此，使用python将会成为一个趋势，就让大家跟着我一起来学习python吧。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python简介–来自百度百科：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python（英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象、解析型计算机程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议[1]  。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进<br>&nbsp;&nbsp;&nbsp;&nbsp;Python具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中[2]  有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C/C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1312,7 +1344,7 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1326,7 +1358,7 @@ xiaohong <span class="keyword">is</span> older
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
