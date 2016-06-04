@@ -176,6 +176,98 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-tuple/" itemprop="url">
+                跟我一起写python--元组(13)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-17T22:26:20+08:00" content="2016-04-17">
+            2016-04-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/17/learning-python-with-me-tuple/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-tuple/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。<br>元组与列表类似，不同之处在于元组的元素不能修改。<br>元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。</p>
+<p>1.元组创建：<br>在小括号中添加元素，并使用逗号隔开<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>',<span class="quoted">'year</span>',<span class="number">1988</span>)</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span><br><span class="line"></span><br><span class="line">print <span class="list">(<span class="string">"tup1[0]:"</span>,tup1[<span class="number">0</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup1[1:3]:"</span>,tup1[<span class="number">1</span>:<span class="number">3</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup2[2:3]:"</span>,tup2[<span class="number">2</span>:<span class="number">3</span>])</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tup1[0]</span>: <span class="string">name</span></span><br><span class="line"><span class="attribute">tup1[1:3]</span>: <span class="string">('tianger', 'year')</span></span><br><span class="line"><span class="attribute">tup2[2:3]</span>: <span class="string">(3,)</span></span><br></pre></td></tr></table></figure></p>
+<p>2.修改元组<br>元组中的元素是不允许修改的，但我们可以通过对元组进行连接组合<br>例：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>)</span></span><br><span class="line"></span><br><span class="line">tup3 = tup1 + tup2</span><br><span class="line">print <span class="list">(<span class="keyword">tup3</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="quoted">'name</span>', <span class="quoted">'tianger</span>', <span class="number">1</span>, <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>3.删除元组<br>元组的元素不能够被删除，可以通过del函数来删除元组<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br><span class="line">del tup1</span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (tup1)</span><br><span class="line"><span class="attribute">NameError</span>: name <span class="string">'tup1'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p>
+<p>从输出的内容来看，元组已经被成功删除</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/17/learning-python-with-me-dictonaryy/" itemprop="url">
                 跟我一起写python--字典(12)
               </a>
@@ -1195,113 +1287,6 @@ xiaohong <span class="keyword">is</span> older
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/16/learning-python-with-me-hello-world/" itemprop="url">
-                跟我一起写python--Helloworld(3)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-16T22:13:33+08:00" content="2016-03-16">
-            2016-03-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/16/learning-python-with-me-hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-hello-world/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>接下来的例子都是在LINUX\MAC OS上进行实际操作，Python为3.5，建议文中的所有例子，都自己一行一行的敲到终端并执行，好记性不如烂笔头还是有些道理的</p>
-<p>打开终端，输入python3<br>得到&gt;&gt;&gt;的标记。</p>
-<p>在里面输入print （’hello world’），会打印我们熟悉的hello world</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print (‘hello world’)<br>hello world</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>输入exit()退出</p>
-<p>如果我们想完成一个python脚本，通过执行脚本来打印hello world，操作如下:</p>
-<ul>
-<li>mkdir python_test</li>
-<li>vim hello.py</li>
-<li>按下esc，按下I键，进入INSERT模式</li>
-<li>输入 print (‘hello world’)</li>
-<li>按下esc，同时按下shift+冒号，输入wq，即保存并退出</li>
-<li>在终端上输入python3 hello.py</li>
-<li>得出结果 hello world</li>
-</ul>
-<p>如果你把hello world替换成中文，则会出现乱码，此时我们需要在hello.py中加入#coding=utf-8，来保证编码格式:</p>
-<pre><code><span class="comment">#coding=utf-8</span>
-<span class="built_in">print</span> (<span class="string">'你好'</span>)
-</code></pre></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1340,7 +1325,7 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

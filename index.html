@@ -176,6 +176,142 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/04/c-and-point-point/" itemprop="url">
+                C与指针-第六章-指针
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-04T23:12:18+08:00" content="2016-06-04">
+            2016-06-04
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/04/c-and-point-point/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/04/c-and-point-point/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="指针">指针</h2><h3 id="含义：">含义：</h3><p>在计算机科学中，指针（Pointer）是编程语言中的一个对象，利用地址，它的值直接指向（points to）存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。因此，将地址形象化的称为“指针”。意思是通过它能找到以它为地址的内存单元。</p>
+<p>指针是一个特殊的变量，它里面存储的数值被解释成为内存里的一个地址</p>
+<blockquote>
+<p>&amp;操作符：取变量的地址<br>*操作符：对指针做解引用操作</p>
+</blockquote>
+<h3 id="地址&amp;内存：">地址&amp;内存：</h3><p>计算机的内存由数以亿万技的位(bit)组成，每个位可以容纳0和1.</p>
+<p>由于位的标示范围太有限，计算机中为了可以存储较大范围的值，通常把许多个位合成一组作为一个单位。在现代大多数的机器中，常用的是用8个位来组成一个单位，这里成为字节(byte)。1个字节可以存储无符号值0~255，或有符号值-128~127。</p>
+<p> 其实字节标示的大小也比较有限，为了继续扩大存储的范围，我们把更多个字节组合在一起，作为一个更大的单位。</p>
+<p> 例如：</p>
+<blockquote>
+<p>int   –4个字节   ，32位为4个字节<br>  float –4个字节<br>  long –4个字节<br>  long long —8个字节</p>
+</blockquote>
+<p>需要注意的：<br>1)内存中的每个位置由一个独一无二的地址标识<br>2)内存中的每个位置都包含一个值<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/c_point.png" alt=""></p>
+<blockquote>
+<p>int a =112,b = -1;<br>  float c = 3.14;<br>  int <em>d = &a;<br>  float </em>e = &c;</p>
+<p>a,b,c,d,e分别表示什么<br>a是112，b为-1，c为3.14<br>d是指向int型的指针，这里指向a的地址，a的地址是100，所以d的值为100<br>e为指向float型的指针，这里指向c的地址，c的地址为108，所以e的值为108</p>
+</blockquote>
+<h3 id="间接访问操作符：">间接访问操作符：</h3><h4 id="含义：-1">含义：</h4><p>通过一个指针访问它所指向的地址的过程称为间接访问或解引用指针。</p>
+<h4 id="操作符：对应的操作符为*">操作符：对应的操作符为*</h4><p>例如：<br>我们上面一节中的d为100，<em>d即为间接访问，</em>d的值为int类型，d的值为100，<em>d标示访问内存位置100并查看哪里的值，因此</em>d的右值为112.</p>
+<p>未初始化和非法的指针：<br> 下面这个代码有没有问题：</p>
+<blockquote>
+<p> int <em>a;
+ </em>a = 10;</p>
+</blockquote>
+<p>语句描述：这个语句声明创建了一个名叫a的指针变量。<br> *a = 10表示把12 存储到a所指向的内存位置。</p>
+<p>正常编译这个语句没有问题，但是在正常使用的过程中，会存在一些隐患。这里的a没有做初始化，那么a指向哪个地址我们不清楚，所以这个10存储到哪个内存区域，其实我们也不能清楚的知道。</p>
+<pre><code><span class="blockquote">&gt; 如果指针变量是静态的，它会自动初始化为0</span>
+<span class="blockquote">&gt; 如果指针变量是自动的，那它根本不会被初始化。</span>
+</code></pre><p>所以当，赋值操作进行时，如果a的初值是个非法地址，这个语句将会出错，程序终止；如果a的初值是个合法地址，那么地址上的值被修改，但是我们不确定那个地址是否是我们想要修改的地方。<br>     所以，在对指针进行间接访问之前，要确保它已经初始化。</p>
+<h3 id="空指针：">空指针：</h3><p>含义：表示不指向任何东西(地址或内容)<br>用法：要使一个指针变量位NULL，就需要给它赋一个零值。<br>         想要测试一个指针是否为空，我们需要拿它与零值进行比较。这个零值由源代码约定得出。<br>     指针与零值比较来判断是否为空，我们最好用!这个符号来表示，这样可以排除隐士类型转换，也增强了可读性<br>例如：</p>
+<blockquote>
+<p>int a = 10;<br>int *b = &a;<br>if (!b)<br>{<br>  printf(“point p is not null\n”);<br>}</p>
+</blockquote>
+<h3 id="指针的指针:">指针的指针:</h3><p>我们用**来进行表示指针的指针，例如：</p>
+<blockquote>
+<p>int a = 10;<br>int <em>b = &a;<br>int *</em>c = &b;</p>
+</blockquote>
+<p>假设a的地址为101<br>那么b = 101, <em>b = 10;<br>**c相当于</em>(<em>c),我们必须从里向外逐成求值。</em>c访问c所指向的位置，即为变量b，为101，<em>(</em>c)这个间接访问操作，即访问c所指向位置的地址，这里就死&amp;b，就是变量a，值为10.</p>
+<h3 id="指针运算:">指针运算:</h3><p> 指针运算包括 算数运算和关系运算：</p>
+<h4 id="运算符：+_,-,++,—">运算符：+ ,-,++,—</h4><p>   这种形式只能用于指向数组中某个元素的指针，结果类型也是指针。<br>   指针的算数运算都需要操作一段连续的内存空间，例如数组</p>
+<h4 id="指针运算：+，++">指针运算：+，++</h4><blockquote>
+<p> int   value[5]<br>   int   *p;<br>  (1) p = &amp;value[0];//p指向value数组的第一个元素<br>      P += 2;  //p向后偏移两个int长度的位置，即指向了value数组的第三个元素</p>
+<p>(2) for (p = &amp;value[0]; p&lt; &amp;value[5];)<br>     {<br>          <em>p++ =0;   //这边先进行</em>p = 0的操作，即把value[0]赋初值为0，再指针后移一位，循环初始化value这个数组<br>     }</p>
+</blockquote>
+<p>   当p这个指针指向的地址大于value[5]的地址，循环结束，p &lt;&amp;value[5],这里经过了5此循环后，p就指向了value数组最后一个数组外面的那个地址，指针可能可以合法的获取这个值，但对它执行简介访问操作可能意外的原先存储于这个位置的变量，我们一般不知道这个变量是什么，因此，这种情况下，一般不允许对指向这个位置的指针进行间接操作，即*p = 10这种操作</p>
+<h4 id="指针运算:_-，–">指针运算: -，–</h4><p>  指针相减运算，只适用于数组的操作，即两个指针都指向同一个数组中的元素时，才允许一个指针减去另一个指针。</p>
+<blockquote>
+<p>int   value[5]<br>   int   <em>p;<br>  (1) p = &amp;value[4];//p指向value数组的第一个元素<br>      P -= 2;  //p向前偏移两个int长度的位置，即指向了value数组的第三个元素<br> (2) for (p = &amp;value[4]; p&gt;= &amp;value[0]; p–)<br>     {
+          </em>p =0;   //这边先进行*p = 0的操作，即把value[4]赋初值为0，再指针减减，向前移动一位，循环初始化value这个数组<br>     }</p>
+</blockquote>
+<p>当p这个指针指向的地址小于value[0]的地址，循环结束，p &gt; = &amp;value[0],经过5次循环后，p指针指向了数组第一个元素之前,这里我们同样不能再对p这个指针进行间接操作。</p>
+<h3 id="总结：">总结：</h3><p>1)未初始化的指针变量，不能进行解引用操作<br>2)初始化为NULL的指针，不能进行解引用操作<br>3)指针进行加减法操作后，指向了数组外面的内存地址后，不能对它们进行间接操作<br>4)指针的减法操作只能针对同一个数组的元素进行</p>
+<p>=========================<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/02/c-and-point-five/" itemprop="url">
                 C与指针-第五章左移、右移操作
               </a>
@@ -1334,98 +1470,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-tuple/" itemprop="url">
-                跟我一起写python--元组(13)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T22:26:20+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-tuple/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-tuple/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。<br>元组与列表类似，不同之处在于元组的元素不能修改。<br>元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。</p>
-<p>1.元组创建：<br>在小括号中添加元素，并使用逗号隔开<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>',<span class="quoted">'year</span>',<span class="number">1988</span>)</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span><br><span class="line"></span><br><span class="line">print <span class="list">(<span class="string">"tup1[0]:"</span>,tup1[<span class="number">0</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup1[1:3]:"</span>,tup1[<span class="number">1</span>:<span class="number">3</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup2[2:3]:"</span>,tup2[<span class="number">2</span>:<span class="number">3</span>])</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tup1[0]</span>: <span class="string">name</span></span><br><span class="line"><span class="attribute">tup1[1:3]</span>: <span class="string">('tianger', 'year')</span></span><br><span class="line"><span class="attribute">tup2[2:3]</span>: <span class="string">(3,)</span></span><br></pre></td></tr></table></figure></p>
-<p>2.修改元组<br>元组中的元素是不允许修改的，但我们可以通过对元组进行连接组合<br>例：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>)</span></span><br><span class="line"></span><br><span class="line">tup3 = tup1 + tup2</span><br><span class="line">print <span class="list">(<span class="keyword">tup3</span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="quoted">'name</span>', <span class="quoted">'tianger</span>', <span class="number">1</span>, <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>3.删除元组<br>元组的元素不能够被删除，可以通过del函数来删除元组<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br><span class="line">del tup1</span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (tup1)</span><br><span class="line"><span class="attribute">NameError</span>: name <span class="string">'tup1'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p>
-<p>从输出的内容来看，元组已经被成功删除</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1464,7 +1508,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
