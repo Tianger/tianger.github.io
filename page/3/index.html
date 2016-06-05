@@ -176,6 +176,121 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/02/learning-python-with-me-coding-style/" itemprop="url">
+                跟我一起写python--编程风格 (4)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-02T17:54:39+08:00" content="2016-04-02">
+            2016-04-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/02/learning-python-with-me-coding-style/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/learning-python-with-me-coding-style/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>注:部分内容来自网络。<br>Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。<br>本课主要来讲解python的编程风格.</p>
+<hr>
+<p><strong>1.文件名</strong></p>
+<p>python的文件名以.py结尾，与.c.cpp.java不同.<br>执行python程序的方法:python 文件名.py or  python3 文件名.py<br>或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py</p>
+<p><strong>2.标识符</strong></p>
+<blockquote>
+<p><em>标识符区分大小写
+</em>标识符由字母、数字、下划线组成。<br><em>标识符可以包括英文、数字以及下划线( _ )，但不能以数字开头
+</em>以下划线开头的标识符都是有特殊意义的，以单下划线开头(_foo)的代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用“from xxx import <em>”而导入。
+</em>以双下划线开头的(<strong>foo)代表类的私有成员；以双下划线开头和结尾的(</strong>foo<strong>)代表python里特殊方法专用的标识，如</strong>init__()代表类的构造函数。</p>
+</blockquote>
+<p><strong>3.代码注释</strong></p>
+<blockquote>
+<p>*单行注释采用 #开头<br>   例：#这是一个测试程序</p>
+<p>*多行注释采用 三个单引号(‘’’)或三个双引号(“””)，注意引号要成对出现。<br>    例:<br>    ‘’’<br>    多行注释，单引号<br>    多行注释，单引号<br>    ‘’’<br>   “””<br>   多行注释，双引号<br>   多行注释，双引号<br>   “””</p>
+</blockquote>
+<p><strong>4.引号</strong></p>
+<blockquote>
+<p>*引号包括单引号(‘)，双引号(“)，和三引号(’’’，”“”)来表示字符串</p>
+<p>*三引号可以由多行组成，编写多行文本的快捷语法，常用语文档字符串，在文件的特定地点，被当做注释。<br>例：<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">hello</span> = ‘hello'</span><br><span class="line"><span class="constant">test</span> = “这是一个测试"</span><br><span class="line"><span class="constant">paragraph</span> = “””这是一个段落。“”“</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>源码:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/user/bin/python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment">#下面三行主要用来解决编码问题(UnicodeEncodeError: 'ascii' codec can't encode character)</span></span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">hello = <span class="string">'hello'</span></span><br><span class="line">test = <span class="string">"这是一个测试"</span></span><br><span class="line">paragraph = <span class="string">"""这是一个段落"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (hello)</span><br><span class="line"><span class="keyword">print</span> (test)</span><br><span class="line"><span class="keyword">print</span> (paragraph)</span><br></pre></td></tr></table></figure></p>
+<p>打印值:<br>hello<br>这是一个测试<br>这是一个段落</p>
+<p><strong>5.多行语句</strong><br>Python语句中一般以新行作为为语句的结束符。<br>但是我们可以使用斜杠（ \）将一行的语句分为多行显示，如下所示：</p>
+<p>sum = test_one + \<br>           test_two + \<br>           test_three + \</p>
+<p><strong>6.行和缩进</strong><br>     python与C\C++\JAVA等其他语言最大的区别就是，代码块是通过缩进来控制。<br>     缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行，例如:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 0:</span><br><span class="line">     <span class="keyword">print</span> “0"</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="keyword">print</span> “1”</span><br></pre></td></tr></table></figure></p>
+<p>错误代码示例:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 0:</span><br><span class="line">     <span class="keyword">print</span> “<span class="keyword">test</span>"</span><br><span class="line">     <span class="keyword">print</span> “0"</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">     <span class="keyword">print</span> “<span class="keyword">test</span>"</span><br><span class="line">   #下面这行代码，没有雨上面的<span class="keyword">print</span>或者<span class="keyword">else</span>保持缩进对齐，所以会报错</span><br><span class="line">   <span class="keyword">print</span> “1"</span><br></pre></td></tr></table></figure></p>
+<pre><code>报错如下:
+    print <span class="string">"1"</span>
+       ^
+     IndentationError: unindent <span class="keyword">does</span> <span class="keyword">not</span> match any outer indentation level
+</code></pre><p>  小结:<br>        在python的代码块中必须使用相同数目的行首缩进空格数。<br>        建议你在每个缩进层次使用 单个制表符 或 两个空格 或者 四个空格</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/16/learning-python-with-me-hello-world/" itemprop="url">
                 跟我一起写python--Helloworld(3)
               </a>
@@ -1022,98 +1137,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/02/08/wcdma-introduction/" itemprop="url">
-                WCDMA协议和信令—WCDMA简介
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-02-08T16:22:04+08:00" content="2016-02-08">
-            2016-02-08
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/02/08/wcdma-introduction/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/08/wcdma-introduction/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA-宽带码分多址(Wideband Code Division Multiple Access)是一个ITU(国际电信联盟)标准，它从码分多址(CDMA)演变而来，从官方看被认为是IMT-2000的直接扩展，与现在市场上通常提供的技术相比，它能够为移动和手提无线设备提供更高的数据速率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA可支持384Kbps到2Mbps不等的数据传输速率，在高速移动的状态，可以提供384Kbps的传输速率，在低速或是室内环境下，则可提供高达2Mbps的传输速率。而GSM系统目前只能传送9.6Kbps，固定线路的Modem(猫)拨号也只是56Kbps的速率，由此可见WCDMA是无线的宽带通讯。在同一些传输通道中，它还可以提供电路交换(CS域)和分包交换(PS域)的服务，因此，消费者可以同时利用交换方式接听电话，然后以分包方式访问因特网，这样的技术可以提高移动电话的使用效率，使得我们可以解决在同一时间只能做语音或数据传输的服务的限制。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA采用最新的异步传输模式(ATM)微信元传输协议，能够允许在一条线路上传送跟多的语音呼叫，呼叫数由现在的30个提高到300个，在人口密集的地区线路将不在容易堵塞。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA是一种由3GPP定制的，基于GSM MAP核心网，UTRAN(UMTS陆地无线接入网)为无线接口的第三代移动通信系统。目前WCDMA有Release 99、Release 4、Release 5、Release6等版本。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA采用直接序列扩频码分多址(DS-CDMA)、频分双工(FDD)方式，码片速率为3.84Mcps，载波带宽为5MHZ。基于Release 99/Release 4版本，可在5MHZ的带宽内，提供最高384Kbps的用户数据传输速率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;在Release 5版本引入了下行链路增强技术，即HSDPA（High Speed Downlink Packet Access,高速下行分组接入）技术，在5MHZ的带宽内可提高最高14.4Mbps下行数据传输速率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;在Release 6版本引入了上行链路增强技术，即HSUPA(High Speed Uplink Packet Access，高速上行分组接入)技术，在5MHZ的带宽内可提供最高的6Mpbs的上行数据船速速率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;在Release 7版本引入了增强型高速分组接入技术，是HSPA的强化版本，即HSPA+,演进式HSPA(又名 HSPA Evolution，HSPA+,I-HSPA或Internet HSPA)，在5MHZ的带宽内可以提高最高42Mbps下行数据传输速率，以及上行21Mbps数据传输速率.总的来说,HSPA+相比较HSPA速率更快、性能更好，技术更先进，同时网络也更稳定，是目前LTE技术运用之前最快的网络！ITU已经把HSPA+列为4G网络的一个标准，目前4G标准有LTE-Advanced、WirelessMAN-Advanced、WIMAX、HSPA+、LTE（FDD-LTE和TDD-LTE）5个标准。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;在后面我将会逐步进行UTRAN接口协议、小区流程、系统信息、呼叫建立与释放以及移动性管理流程的分析。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1152,7 +1175,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
