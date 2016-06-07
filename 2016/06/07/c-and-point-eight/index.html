@@ -39,20 +39,23 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。
-所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为">
+<meta name="description" content="所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。
+特点：只能存放一种类型的数据，如全部是int型或者全部是char型，数组里的数据成为元素。
+一维数组：格式：类型 数组名[元素个数-常量表达式]（1）数组名的命名方法与变量名相同，遵循标识符命名规则;（2）数组是用方括号括起来的常量表达">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C与指针-第二章 转义字符">
-<meta property="og:url" content="http://tianger.github.io/2016/05/31/c-and-point-two/index.html">
+<meta property="og:title" content="C与指针-第八章-数组">
+<meta property="og:url" content="http://tianger.github.io/2016/06/07/c-and-point-eight/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。
-所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为">
+<meta property="og:description" content="所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。
+特点：只能存放一种类型的数据，如全部是int型或者全部是char型，数组里的数据成为元素。
+一维数组：格式：类型 数组名[元素个数-常量表达式]（1）数组名的命名方法与变量名相同，遵循标识符命名规则;（2）数组是用方括号括起来的常量表达">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
-<meta property="og:updated_time" content="2016-06-01T14:12:59.000Z">
+<meta property="og:updated_time" content="2016-06-07T14:29:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C与指针-第二章 转义字符">
-<meta name="twitter:description" content="C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。
-所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为">
+<meta name="twitter:title" content="C与指针-第八章-数组">
+<meta name="twitter:description" content="所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。
+特点：只能存放一种类型的数据，如全部是int型或者全部是char型，数组里的数据成为元素。
+一维数组：格式：类型 数组名[元素个数-常量表达式]（1）数组名的命名方法与变量名相同，遵循标识符命名规则;（2）数组是用方括号括起来的常量表达">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +65,7 @@
   };
 </script>
 
-  <title> C与指针-第二章 转义字符 | Tianger's Family </title>
+  <title> C与指针-第八章-数组 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -179,7 +182,7 @@
           
           
             
-              C与指针-第二章 转义字符
+              C与指针-第八章-数组
             
           
         </h1>
@@ -188,8 +191,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-05-31T21:43:32+08:00" content="2016-05-31">
-            2016-05-31
+          <time itemprop="dateCreated" datetime="2016-06-07T22:22:28+08:00" content="2016-06-07">
+            2016-06-07
           </time>
         </span>
 
@@ -214,8 +217,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/05/31/c-and-point-two/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/c-and-point-two/" itemprop="commentsCount"></span>
+              <a href="/2016/06/07/c-and-point-eight/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/c-and-point-eight/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -229,91 +232,28 @@
       
 
       
-        <span itemprop="articleBody"><p>C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。</p>
-<p>所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为后面的字符，都不是它本来的ASCII字符意思了。<br>8进制，16进制转义字符</p>
-<table>
-<thead>
-<tr>
-<th>转义字符</th>
-<th style="text-align:center">意义</th>
-<th style="text-align:center">ASCII码值（十进制）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\a</td>
-<td style="text-align:center">响铃(BEL)</td>
-<td style="text-align:center">007</td>
-</tr>
-<tr>
-<td>\b</td>
-<td style="text-align:center">退格(BS)</td>
-<td style="text-align:center">008</td>
-</tr>
-<tr>
-<td>\f</td>
-<td style="text-align:center">换页(FF)</td>
-<td style="text-align:center">012</td>
-</tr>
-<tr>
-<td>\n</td>
-<td style="text-align:center">换行(LF)</td>
-<td style="text-align:center">010</td>
-</tr>
-<tr>
-<td>\r</td>
-<td style="text-align:center">回车(CR)</td>
-<td style="text-align:center">013</td>
-</tr>
-<tr>
-<td>\t</td>
-<td style="text-align:center">水平制表(HT)</td>
-<td style="text-align:center">009</td>
-</tr>
-<tr>
-<td>\v</td>
-<td style="text-align:center">垂直制表(VT)</td>
-<td style="text-align:center">011</td>
-</tr>
-<tr>
-<td>\</td>
-<td style="text-align:center">代表一个反斜线字符’’\’</td>
-<td style="text-align:center">092</td>
-</tr>
-<tr>
-<td>\’</td>
-<td style="text-align:center">代表一个单引号（撇号）字符</td>
-<td style="text-align:center">039</td>
-</tr>
-<tr>
-<td>\”</td>
-<td style="text-align:center">代表一个双引号字符</td>
-<td style="text-align:center">034</td>
-</tr>
-<tr>
-<td>\?</td>
-<td style="text-align:center">代表一个问号</td>
-<td style="text-align:center">063</td>
-</tr>
-<tr>
-<td>\0</td>
-<td style="text-align:center">空字符(NULL)</td>
-<td style="text-align:center">000</td>
-</tr>
-<tr>
-<td>\ddd</td>
-<td style="text-align:center">1到3位八进制数所代表的任意字符</td>
-<td style="text-align:center">三位八进制</td>
-</tr>
-<tr>
-<td>\xhh</td>
-<td style="text-align:center">1到2位十六进制所代表的任意字符</td>
-<td style="text-align:center">二位十六进制</td>
-</tr>
-</tbody>
-</table>
-<p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">     <span class="keyword">int</span> a,b,c;</span><br><span class="line">     a=<span class="number">1</span>; b=<span class="number">2</span>; c=<span class="number">3</span>;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"%d\n\t%d %d\n %d %d\t\b%d\n"</span>,a,b,c,a,b,c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此程序练习转义字符的使用：<br>a、b、c分别为整数1,2,3<br>调用printf显示程序运行结果：<br>1<br>23<br>12 3</p>
+        <span itemprop="articleBody"><p>所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。</p>
+<p>特点：只能存放一种类型的数据，如全部是int型或者全部是char型，数组里的数据成为元素。</p>
+<h2 id="一维数组：">一维数组：</h2><h3 id="格式：">格式：</h3><p>类型 数组名[元素个数-常量表达式]<br>（1）数组名的命名方法与变量名相同，遵循标识符命名规则;<br>（2）数组是用方括号括起来的常量表达式，不能用圆括号;<br>（3）常量表达式表示数组元素的个数，即数组的长度，数组的下标从0开始，下标的最大值为:<br>常量表达式-1;<br>（4）常量表达式中可以包括常量和符号常量，不能包括变量。<br>可以用赋值语句或输入语句使数组中的元素得到值，但要占用运行时间。可以使数组在运行之前初始化，即在编译阶段使之得到初值。</p>
+<h3 id="初始化：">初始化：</h3><p>int buf[5] = {1,2,3,4,5};<br>这里把buf数组中的5个元素初始化为1,2,3,4,5</p>
+<h3 id="下标：">下标：</h3><p>这里变量buf称为数组，因为它是一些值的集合，下标和数组名一起使用，用于标示该集合中的某个特定的值。例如buf[0]表示数组buf的第一个元素的值，这里值为1. buf[4]标示数组buf第5个值，这里值为5.<br>buf[0]  //对应的值为1<br>buf[4] //对应的值为5<br>数组的下标从0开始计数</p>
+<h2 id="多维数组：">多维数组：</h2><p>某个数组的维数不止1个，我们称这个数组为多维数组</p>
+<h3 id="格式：-1">格式：</h3><p>数组［下标］［下标］</p>
+<p>在引用二维数组时，必须是单个元素，不能是整个数组名。下标可以是一个表达式，但不能是变量。如果下标是一个表达式，注意表达式的值不能超出数组定义的上、下限。</p>
+<p>int num[3][5];<br>创建了一个包含15个元素的矩阵。我们一般把这个理解为3行5列，当然也可以理解为5行3列，为了我们方便记忆，我们看做为3行10列。</p>
+<p>(1) 多维数组初始化<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num[<span class="number">3</span>][<span class="number">5</span>] =&#123;&#123;<span class="number">1</span>,<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;,&#123;<span class="number">6</span>，<span class="number">7</span>，<span class="number">8</span>，<span class="number">9</span>，<span class="number">10</span>&#125;,&#123;<span class="number">11</span>，<span class="number">12</span>，<span class="number">13</span>，<span class="number">14</span>，<span class="number">15</span>&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>以上赋值把第一个花括号内的数据赋给第一行元素，第二个花括号内数据赋给第二元素，以此类推，即按行赋值</p>
+<p>(2) 可以将所有的数据写在一个花括号内，按数组排列的顺序对各元素赋值。</p>
+<p>(3)可以对数组的部分元素赋初值。如:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static int a[<span class="link_label">3</span>][<span class="link_reference">5</span>]  = &#123;&#123;1&#125;,&#123;6&#125;，&#123;11&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>以上赋值的结果是:数组第一列的元素分别赋了初值1，6，11，其余元素的值都是0。<br>(4)如果对二维数组的全部元素都赋初值，则定义数组时对第一维的长度可以不指定，但第二维的长度不能省。</p>
+<h2 id="指针数组_&amp;数组指针：">指针数组 &amp;数组指针：</h2><p>　　指针数组：首先它是一个数组，数组的元素都是指针，数组占多少个字节由数组本身决定。它是“储存指针的数组”的简称。<br>　　数组指针：首先它是一个指针，它指向一个数组。在32 位系统下永远是占4 个字节，至于它指向的数组占多少字节，不知道。它是“指向数组的指针”的简称。</p>
+<p>例：</p>
+<h3 id="指针数组：">指针数组：</h3><blockquote>
+<p>int <em>num1[10];<br>“[]”的优先级比“</em>”要高,num1先与“[]”结合，构成一个数组的定义，数组名为num1.int *修饰的是数组的内容，即数组的每个元素。那现在我们清楚，这是一个数组，其包含10 个指向int 类型数据的指针，即指针数组。</p>
+</blockquote>
+<h3 id="数组指针：">数组指针：</h3><blockquote>
+<p>int (<em>num2)[10];<br>在这里“()”的优先级比“[]”高，“</em>”号和num2 构成一个指针的定义，指针变量名为num2,int 修饰的是数组的内容，即数组的每个元素。</p>
+</blockquote>
 <p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
@@ -332,13 +272,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/01/c-and-point-three-and-four/" rel="prev">C与指针-第三、四章const\extern\static</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/30/c-and-point-one/" rel="next">C与指针-第一章scanf\strncpy\strcpy\memcpy</a>
+              <a href="/2016/06/05/c-and-pint-seven-function/" rel="next">C与指针-第七章-函数</a>
             
           </div>
         </div>
@@ -363,8 +301,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/05/31/c-and-point-two/"
-                   data-title="C与指针-第二章 转义字符" data-url="http://tianger.github.io/2016/05/31/c-and-point-two/">
+              <div class="ds-thread" data-thread-key="2016/06/07/c-and-point-eight/"
+                   data-title="C与指针-第八章-数组" data-url="http://tianger.github.io/2016/06/07/c-and-point-eight/">
               </div>
             
           </div>
@@ -446,7 +384,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组："><span class="nav-number">1.</span> <span class="nav-text">一维数组：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式："><span class="nav-number">1.1.</span> <span class="nav-text">格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化："><span class="nav-number">1.2.</span> <span class="nav-text">初始化：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下标："><span class="nav-number">1.3.</span> <span class="nav-text">下标：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组："><span class="nav-number">2.</span> <span class="nav-text">多维数组：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式：-1"><span class="nav-number">2.1.</span> <span class="nav-text">格式：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针数组_&数组指针："><span class="nav-number">3.</span> <span class="nav-text">指针数组 &数组指针：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指针数组："><span class="nav-number">3.1.</span> <span class="nav-text">指针数组：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组指针："><span class="nav-number">3.2.</span> <span class="nav-text">数组指针：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -176,6 +176,112 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/07/c-and-point-eight/" itemprop="url">
+                C与指针-第八章-数组
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-07T22:22:28+08:00" content="2016-06-07">
+            2016-06-07
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/07/c-and-point-eight/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/c-and-point-eight/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。</p>
+<p>特点：只能存放一种类型的数据，如全部是int型或者全部是char型，数组里的数据成为元素。</p>
+<h2 id="一维数组：">一维数组：</h2><h3 id="格式：">格式：</h3><p>类型 数组名[元素个数-常量表达式]<br>（1）数组名的命名方法与变量名相同，遵循标识符命名规则;<br>（2）数组是用方括号括起来的常量表达式，不能用圆括号;<br>（3）常量表达式表示数组元素的个数，即数组的长度，数组的下标从0开始，下标的最大值为:<br>常量表达式-1;<br>（4）常量表达式中可以包括常量和符号常量，不能包括变量。<br>可以用赋值语句或输入语句使数组中的元素得到值，但要占用运行时间。可以使数组在运行之前初始化，即在编译阶段使之得到初值。</p>
+<h3 id="初始化：">初始化：</h3><p>int buf[5] = {1,2,3,4,5};<br>这里把buf数组中的5个元素初始化为1,2,3,4,5</p>
+<h3 id="下标：">下标：</h3><p>这里变量buf称为数组，因为它是一些值的集合，下标和数组名一起使用，用于标示该集合中的某个特定的值。例如buf[0]表示数组buf的第一个元素的值，这里值为1. buf[4]标示数组buf第5个值，这里值为5.<br>buf[0]  //对应的值为1<br>buf[4] //对应的值为5<br>数组的下标从0开始计数</p>
+<h2 id="多维数组：">多维数组：</h2><p>某个数组的维数不止1个，我们称这个数组为多维数组</p>
+<h3 id="格式：-1">格式：</h3><p>数组［下标］［下标］</p>
+<p>在引用二维数组时，必须是单个元素，不能是整个数组名。下标可以是一个表达式，但不能是变量。如果下标是一个表达式，注意表达式的值不能超出数组定义的上、下限。</p>
+<p>int num[3][5];<br>创建了一个包含15个元素的矩阵。我们一般把这个理解为3行5列，当然也可以理解为5行3列，为了我们方便记忆，我们看做为3行10列。</p>
+<p>(1) 多维数组初始化<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num[<span class="number">3</span>][<span class="number">5</span>] =&#123;&#123;<span class="number">1</span>,<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;,&#123;<span class="number">6</span>，<span class="number">7</span>，<span class="number">8</span>，<span class="number">9</span>，<span class="number">10</span>&#125;,&#123;<span class="number">11</span>，<span class="number">12</span>，<span class="number">13</span>，<span class="number">14</span>，<span class="number">15</span>&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>以上赋值把第一个花括号内的数据赋给第一行元素，第二个花括号内数据赋给第二元素，以此类推，即按行赋值</p>
+<p>(2) 可以将所有的数据写在一个花括号内，按数组排列的顺序对各元素赋值。</p>
+<p>(3)可以对数组的部分元素赋初值。如:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static int a[<span class="link_label">3</span>][<span class="link_reference">5</span>]  = &#123;&#123;1&#125;,&#123;6&#125;，&#123;11&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>以上赋值的结果是:数组第一列的元素分别赋了初值1，6，11，其余元素的值都是0。<br>(4)如果对二维数组的全部元素都赋初值，则定义数组时对第一维的长度可以不指定，但第二维的长度不能省。</p>
+<h2 id="指针数组_&amp;数组指针：">指针数组 &amp;数组指针：</h2><p>　　指针数组：首先它是一个数组，数组的元素都是指针，数组占多少个字节由数组本身决定。它是“储存指针的数组”的简称。<br>　　数组指针：首先它是一个指针，它指向一个数组。在32 位系统下永远是占4 个字节，至于它指向的数组占多少字节，不知道。它是“指向数组的指针”的简称。</p>
+<p>例：</p>
+<h3 id="指针数组：">指针数组：</h3><blockquote>
+<p>int <em>num1[10];<br>“[]”的优先级比“</em>”要高,num1先与“[]”结合，构成一个数组的定义，数组名为num1.int *修饰的是数组的内容，即数组的每个元素。那现在我们清楚，这是一个数组，其包含10 个指向int 类型数据的指针，即指针数组。</p>
+</blockquote>
+<h3 id="数组指针：">数组指针：</h3><blockquote>
+<p>int (<em>num2)[10];<br>在这里“()”的优先级比“[]”高，“</em>”号和num2 构成一个指针的定义，指针变量名为num2,int 修饰的是数组的内容，即数组的每个元素。</p>
+</blockquote>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/05/c-and-pint-seven-function/" itemprop="url">
                 C与指针-第七章-函数
               </a>
@@ -1221,129 +1327,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/02/learning-python-with-me-function/" itemprop="url">
-                跟我一起写python—函数 (14)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-02T22:03:48+08:00" content="2016-05-02">
-            2016-05-02
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/05/02/learning-python-with-me-function/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/02/learning-python-with-me-function/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>函数，名称出自数学家李善兰的著作《代数学》—“凡此变数中函彼变数者，则此为彼之函数”。即函数指一个量随着另一个量的变化而变化，或者说一个量中包含另一个量。</p>
-<p>我们简单理解为，一个输入，对应一个唯一的输出关系。</p>
-<p>编程语言中，函数即指一个语句块，语句块有自己的名字，他可以有输入，也可以有输出。</p>
-<p>之前我们已经用过python的内建函数，例如print、len等，下面我们来讲函数的相关使用.</p>
-<h3 id="1-函数的定义">1.函数的定义</h3><pre><code><span class="number">1</span>）函数通过关键字def定义
-<span class="number">2</span>）def关键字后跟一个函数的标识符名称，再跟一对圆括号
-<span class="number">3</span>）圆括号中包括一些变量名、传入的参数，以冒号结尾
-<span class="number">4</span>）函数内容以冒号起始，并且缩进
-<span class="number">5</span>） 返回值用<span class="keyword">return</span> +返回值进行上报，如果没有返回值，直接写一个<span class="keyword">return</span>，相当于上报None
-
-例：
-</code></pre><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/python</span></span><br><span class="line"></span><br><span class="line">def test():</span><br><span class="line">     print (“This <span class="keyword">is</span> a <span class="built_in">function</span> test code!<span class="string">")</span><br><span class="line"></span><br><span class="line">test()</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p> 输出：<br> This is a function test code!</p>
-</blockquote>
-<h3 id="2-函数形参">2.函数形参</h3><p>形参，即你传给函数的参数，函数取得这个值，并用这个值去做一些事情。<br>若果有多个形参，则需要用逗号进行分隔。<br>一个形参，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">x = test(<span class="number">2</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>输出：2</p>
-</blockquote>
-<p>两个形参：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"a is max num"</span>)</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"b is max num"</span>)</span><br><span class="line">        <span class="keyword">return</span> b</span><br><span class="line"></span><br><span class="line">x = test(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>输出：<br>b is max num<br>3</p>
-</blockquote>
-<h3 id="3-局部变量">3.局部变量</h3><p>局部变量是在函数体内声明的变量，即使他们与函数外部具有相同的名称，但是他们没有任何关系。<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a is "</span>,a)</span><br><span class="line">    a = <span class="number">10</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a modify to "</span>,a)</span><br><span class="line"></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">test(a)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"a is still"</span>,a)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<pre><code>输出：
-<span class="tag">a</span> is  <span class="number">2</span>
-<span class="tag">a</span> modify to  <span class="number">10</span>
-<span class="tag">a</span> is still
-</code></pre></blockquote>
-<p>第一次把a赋值为2，传给test函数，这里的a为形参，test函数中a赋值为10，这里a为局部变量，其实跟我传进来的值没有任何关系，所以当跳出函数体后，a仍然为2</p>
-<h3 id="4-全局变量global">4.全局变量global</h3><p>如果想上面例子中的a，我们想在test函数中真正能修改他的值，我们就需要把a作为一个全局变量，用global进行定义<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> a</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a is "</span>,a)</span><br><span class="line">    a = <span class="number">10</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a modify to "</span>,a)</span><br><span class="line"></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">test()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"a is still"</span>,a)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<pre><code>输出：
-<span class="tag">a</span> is  <span class="number">2</span>
-<span class="tag">a</span> modify to  <span class="number">10</span>
-<span class="tag">a</span> is still <span class="number">10</span>
-</code></pre></blockquote>
-<pre><code>这里的<span class="literal">a</span>为一个全局变量
-</code></pre><p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1382,7 +1365,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

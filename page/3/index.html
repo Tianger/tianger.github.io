@@ -176,6 +176,120 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/04/learning-python-with-me-variable/" itemprop="url">
+                跟我一起写python--变量 (5)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-04T22:00:25+08:00" content="2016-04-04">
+            2016-04-04
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/04/learning-python-with-me-variable/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/04/learning-python-with-me-variable/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p> <strong>1.概念</strong><br>     变量来源于数学，是计算机语言中能储存计算结果或能表示值抽象概念。变量存储在内存中，当创建变量时会在内存中开辟一个空间。<br>     变量可以指定不同的数据类型，可以存储整数、小数或字符。</p>
+<p><strong>2.命名规则</strong></p>
+<blockquote>
+<ul>
+<li>1) 第一个字符必须是字母或者下划线 “_”</li>
+<li>2) 剩下的部分可以是字母、下划线“——”或数字(0-9)</li>
+<li>3) 变量名称区分大小写，foo和Foo不是同一个变量</li>
+</ul>
+</blockquote>
+<p><strong>3.赋值</strong><br>     python中，每个变量使用前必须赋值，变量赋值以后该变量才会被创建。<br> <strong>1)单对象赋值</strong><br>     等号（=）用来给变量进行赋值<br>     等号左边表示 一个变量名，右边表示存储在变量中的值</p>
+<pre><code>例如:
+</code></pre><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">age = <span class="number">28</span>  <span class="comment">#整形变量</span></span><br><span class="line">name = “Tianger” <span class="comment">#字符串变量</span></span><br><span class="line"><span class="keyword">length</span> = “<span class="number">100.0</span>” <span class="comment">#浮点型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (age)</span><br><span class="line"><span class="keyword">print</span> (name)</span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">length</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>输出：
+ <span class="number">28</span>
+ Tianger
+ <span class="number">100.0</span>
+ 上面例子中，<span class="number">28</span>赋值给age，Tianger赋值给name，<span class="number">100.0</span>赋值给length
+</code></pre><p><strong>2)多对象赋值</strong><br>    python允许同时为多个变量赋值，例：<br>    a = b = c = 2<br>    上面三个变量a,b,c被赋值为2</p>
+<pre><code>也可以多个对象对应多个变量，例：
+<span class="tag">a</span>, <span class="tag">b</span>, c = <span class="number">1</span>, <span class="number">2</span> ,<span class="number">3</span>
+上面三个变量，<span class="tag">a</span> , <span class="tag">b</span>, c分别被赋值为<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>
+</code></pre><p><strong>3）运算赋值</strong><br>等号右边可以直接是一个运算符，例：<br>value = 2 * 3<br>print (value )<br>输出6</p>
+<p>value = 3&lt;7<br>输出True<br>value = input() # 变量等于自己手动输入的内容<br>print (value)</p>
+<p><strong>一个简单的例子：</strong><br><em>小明和小红谁年龄最大?</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input xiaoming's age"</span>)</span><br><span class="line">ming_age = input()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input xiaohong's age"</span>)</span><br><span class="line">hong_age = input()</span><br><span class="line"></span><br><span class="line">value = ming_age &gt; hong_age</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (ming_age == hong_age) :</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"xiaoming and xiaohong is samge age"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">if</span> (value):</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">"xiaoming is older"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">"xiaohong is older"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>输出：
+please input xiaoming<span class="comment">'s age</span>
+<span class="number">10</span>
+please input xiaohong<span class="comment">'s age</span>
+<span class="number">12</span>
+xiaohong <span class="keyword">is</span> older
+</code></pre></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/02/learning-python-with-me-coding-style/" itemprop="url">
                 跟我一起写python--编程风格 (4)
               </a>
@@ -1020,123 +1134,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/02/10/utran-interface-protocol-and-function/" itemprop="url">
-                WCDMA协议和信令---UTRAN 接口协议和功能
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-02-10T17:13:09+08:00" content="2016-02-10">
-            2016-02-10
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/02/10/utran-interface-protocol-and-function/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/10/utran-interface-protocol-and-function/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>1.1概述<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/UTRAN-interface.png" alt=""></p>
-<center>图1 UTRAN 接口</center><br>&nbsp;&nbsp;&nbsp;&nbsp;图1-1所示，UMTS系统中UTRAN 接口包括lub\ lur \ lu \ uu接口，接口连接的网元如表1-1所示：<br><br><center>表1-1UTRAN接口</center><br><img src="http://7xn24x.com1.z0.glb.clouddn.com/uu-table-interface.png" alt=""><br><br>UTRAN-(UMTS Terrestrial Radio Access Network) UMTS陆地无线接入网<br>Uu—Uu interface 手机和UTRAN之间的接口<br>Node B (WCDMA base station)WCDMA 基站<br>RNC(Radio Network Controller)无线网络控制器—管理基站<br>CN(Core Network) 核心网<br>CS(Circuit-Switched) 电路交换域–例如电话<br>PS(Packet-Switched) 分组交换域—数据业务，例如上网<br>BC(Broadcast-Switched) 广播域–小区广播<br><br>lub/lur/lu/uu都为标准的接口，可以连接不同设备供应商提供的设备。一般将lub/lur/lu接口统称为UTRAN地面接口。<br>根据RNC连接的CN设备的不同，lu接口又可以分lu-CS接口、lu-PS接口和lu-BC，其中lu-CS为RNC何MSC之间的接口，lu-PS为RNC何SGSN之间的接口，lu-BC为RNC何CBC之间的接口。<br><br><br>1.2 Uu接口<br>1.2.1 Uu协议结构<br>&nbsp;&nbsp;&nbsp;&nbsp;Uu接口为UE(User Equipment)与UTRAN(UMTS terrestrial Radio Access Network)之间的接口，是UMTS系统的空中接口，是UMTS系统的空中接口，也是最重要的接口。<br>&nbsp;&nbsp;&nbsp;&nbsp;Uu接口可分为三个协议层：物理层(L1)、数据链路层(L2)和网络层(L3)，如图1-2所示：<br><br><img src="http://7xn24x.com1.z0.glb.clouddn.com/uu-interface.png" alt=""><br><center>图1-2 Uu接口协议栈结构</center>
-
-<p>L1主要用于为高层业务提供传输的无线物理通道。该层由NodeB实现。<br>L2包括MAC(Medium Access Control) 、RLC(Radio Link Control)、BMC(broadcast/Multicast Control)和PDCP(Packet Data Convergence Protocol)四个子层。<br>L3包括接入层(AC)中的RRC子层和非接入层(NAS)的MM(Mobile Management，移动性管理)和CC(Call Control，呼叫控制)<br>L2 和L3子层由RNC实现。</p>
-<p>Uu接口各协议遵循的规范如图1-3所示<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/uu-specification.png" alt=""></p>
-<p><center>图1-3 Uu接口个协议规范</center><br>RRC层参考3GPP文档 TS25.331<br>PDCP层参考3GPP文档 TS25.323<br>BMC层参考3GPP文档 TS25.324<br>RLC层参考3GPP文档 TS25.322<br>MAC层参考3GPP文档 TS25.321<br>PHY层参考3GPP文档 TS25.211 ~TS25.215</p>
-<p>1.2.2 RRC层功能<br>     RRC层实现的功能包括：</p>
-<ul>
-<li>广播由非接入层(NAS)提供的信息</li>
-<li>广播与接入层(AS)相关的信息</li>
-<li>建立、维持及释放UE和UTRAN之间的一个RRC连接，分配、重配置及释放用于RRC连接的无线资源</li>
-<li>建立、重配置及释放无线承载</li>
-<li>RRC连接移动功能管理</li>
-<li>为高层PDU（Protocol Data Util）选路由</li>
-<li>对请求的Qos进行控制</li>
-<li>UE测量上报和报告控制</li>
-<li>外环功率控制</li>
-<li>加密控制</li>
-<li>慢速动态信道分配</li>
-<li>寻呼</li>
-<li>空闲模式下初始小区选择和重选</li>
-<li>上行链路DCH和无线资源的仲裁</li>
-<li>RRC消息完整性保护</li>
-<li>CBS控制</li>
-</ul>
-<p>1.2.3 L1功能<br>     L1(物理层)主要功能包括：</p>
-<ul>
-<li>传输信道的信道交织/解交织，传输信道的复用，CCTrcH的解复用，速率匹配CCTrCH到物理信道的映射，物理信道的调制/扩频与解调/解扩，物理信道的功率加权与组合；</li>
-<li>向上提供测量及知识(如FER,SIR，干扰功率，发送功率等)，传输信道的错误检测</li>
-<li>宏分集分布/组合，软切换执行</li>
-<li>频率和时间（码片，比特，时隙，帧）的同步</li>
-<li>闭环功率控制</li>
-<li>射频处理</li>
-</ul>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1175,7 +1172,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

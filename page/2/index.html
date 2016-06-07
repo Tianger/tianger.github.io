@@ -176,6 +176,129 @@
           
           
             
+              <a class="post-title-link" href="/2016/05/02/learning-python-with-me-function/" itemprop="url">
+                跟我一起写python—函数 (14)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-05-02T22:03:48+08:00" content="2016-05-02">
+            2016-05-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/05/02/learning-python-with-me-function/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/02/learning-python-with-me-function/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>函数，名称出自数学家李善兰的著作《代数学》—“凡此变数中函彼变数者，则此为彼之函数”。即函数指一个量随着另一个量的变化而变化，或者说一个量中包含另一个量。</p>
+<p>我们简单理解为，一个输入，对应一个唯一的输出关系。</p>
+<p>编程语言中，函数即指一个语句块，语句块有自己的名字，他可以有输入，也可以有输出。</p>
+<p>之前我们已经用过python的内建函数，例如print、len等，下面我们来讲函数的相关使用.</p>
+<h3 id="1-函数的定义">1.函数的定义</h3><pre><code><span class="number">1</span>）函数通过关键字def定义
+<span class="number">2</span>）def关键字后跟一个函数的标识符名称，再跟一对圆括号
+<span class="number">3</span>）圆括号中包括一些变量名、传入的参数，以冒号结尾
+<span class="number">4</span>）函数内容以冒号起始，并且缩进
+<span class="number">5</span>） 返回值用<span class="keyword">return</span> +返回值进行上报，如果没有返回值，直接写一个<span class="keyword">return</span>，相当于上报None
+
+例：
+</code></pre><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/python</span></span><br><span class="line"></span><br><span class="line">def test():</span><br><span class="line">     print (“This <span class="keyword">is</span> a <span class="built_in">function</span> test code!<span class="string">")</span><br><span class="line"></span><br><span class="line">test()</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 输出：<br> This is a function test code!</p>
+</blockquote>
+<h3 id="2-函数形参">2.函数形参</h3><p>形参，即你传给函数的参数，函数取得这个值，并用这个值去做一些事情。<br>若果有多个形参，则需要用逗号进行分隔。<br>一个形参，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">x = test(<span class="number">2</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>输出：2</p>
+</blockquote>
+<p>两个形参：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"a is max num"</span>)</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"b is max num"</span>)</span><br><span class="line">        <span class="keyword">return</span> b</span><br><span class="line"></span><br><span class="line">x = test(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>输出：<br>b is max num<br>3</p>
+</blockquote>
+<h3 id="3-局部变量">3.局部变量</h3><p>局部变量是在函数体内声明的变量，即使他们与函数外部具有相同的名称，但是他们没有任何关系。<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a is "</span>,a)</span><br><span class="line">    a = <span class="number">10</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a modify to "</span>,a)</span><br><span class="line"></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">test(a)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"a is still"</span>,a)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<pre><code>输出：
+<span class="tag">a</span> is  <span class="number">2</span>
+<span class="tag">a</span> modify to  <span class="number">10</span>
+<span class="tag">a</span> is still
+</code></pre></blockquote>
+<p>第一次把a赋值为2，传给test函数，这里的a为形参，test函数中a赋值为10，这里a为局部变量，其实跟我传进来的值没有任何关系，所以当跳出函数体后，a仍然为2</p>
+<h3 id="4-全局变量global">4.全局变量global</h3><p>如果想上面例子中的a，我们想在test函数中真正能修改他的值，我们就需要把a作为一个全局变量，用global进行定义<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> a</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a is "</span>,a)</span><br><span class="line">    a = <span class="number">10</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a modify to "</span>,a)</span><br><span class="line"></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">test()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"a is still"</span>,a)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<pre><code>输出：
+<span class="tag">a</span> is  <span class="number">2</span>
+<span class="tag">a</span> modify to  <span class="number">10</span>
+<span class="tag">a</span> is still <span class="number">10</span>
+</code></pre></blockquote>
+<pre><code>这里的<span class="literal">a</span>为一个全局变量
+</code></pre><p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/28/markdown-head-first-basic/" itemprop="url">
                 MarkDown 入门指南
               </a>
@@ -1297,120 +1420,6 @@ Local current <span class="keyword">time</span>: <span class="keyword">time</spa
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/04/learning-python-with-me-variable/" itemprop="url">
-                跟我一起写python--变量 (5)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-04T22:00:25+08:00" content="2016-04-04">
-            2016-04-04
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/04/04/learning-python-with-me-variable/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/04/learning-python-with-me-variable/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p> <strong>1.概念</strong><br>     变量来源于数学，是计算机语言中能储存计算结果或能表示值抽象概念。变量存储在内存中，当创建变量时会在内存中开辟一个空间。<br>     变量可以指定不同的数据类型，可以存储整数、小数或字符。</p>
-<p><strong>2.命名规则</strong></p>
-<blockquote>
-<ul>
-<li>1) 第一个字符必须是字母或者下划线 “_”</li>
-<li>2) 剩下的部分可以是字母、下划线“——”或数字(0-9)</li>
-<li>3) 变量名称区分大小写，foo和Foo不是同一个变量</li>
-</ul>
-</blockquote>
-<p><strong>3.赋值</strong><br>     python中，每个变量使用前必须赋值，变量赋值以后该变量才会被创建。<br> <strong>1)单对象赋值</strong><br>     等号（=）用来给变量进行赋值<br>     等号左边表示 一个变量名，右边表示存储在变量中的值</p>
-<pre><code>例如:
-</code></pre><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">age = <span class="number">28</span>  <span class="comment">#整形变量</span></span><br><span class="line">name = “Tianger” <span class="comment">#字符串变量</span></span><br><span class="line"><span class="keyword">length</span> = “<span class="number">100.0</span>” <span class="comment">#浮点型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (age)</span><br><span class="line"><span class="keyword">print</span> (name)</span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">length</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>输出：
- <span class="number">28</span>
- Tianger
- <span class="number">100.0</span>
- 上面例子中，<span class="number">28</span>赋值给age，Tianger赋值给name，<span class="number">100.0</span>赋值给length
-</code></pre><p><strong>2)多对象赋值</strong><br>    python允许同时为多个变量赋值，例：<br>    a = b = c = 2<br>    上面三个变量a,b,c被赋值为2</p>
-<pre><code>也可以多个对象对应多个变量，例：
-<span class="tag">a</span>, <span class="tag">b</span>, c = <span class="number">1</span>, <span class="number">2</span> ,<span class="number">3</span>
-上面三个变量，<span class="tag">a</span> , <span class="tag">b</span>, c分别被赋值为<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>
-</code></pre><p><strong>3）运算赋值</strong><br>等号右边可以直接是一个运算符，例：<br>value = 2 * 3<br>print (value )<br>输出6</p>
-<p>value = 3&lt;7<br>输出True<br>value = input() # 变量等于自己手动输入的内容<br>print (value)</p>
-<p><strong>一个简单的例子：</strong><br><em>小明和小红谁年龄最大?</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input xiaoming's age"</span>)</span><br><span class="line">ming_age = input()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input xiaohong's age"</span>)</span><br><span class="line">hong_age = input()</span><br><span class="line"></span><br><span class="line">value = ming_age &gt; hong_age</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (ming_age == hong_age) :</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"xiaoming and xiaohong is samge age"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">if</span> (value):</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">"xiaoming is older"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">"xiaohong is older"</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>输出：
-please input xiaoming<span class="comment">'s age</span>
-<span class="number">10</span>
-please input xiaohong<span class="comment">'s age</span>
-<span class="number">12</span>
-xiaohong <span class="keyword">is</span> older
-</code></pre></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1449,7 +1458,7 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
