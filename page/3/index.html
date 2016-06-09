@@ -176,6 +176,224 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/10/learning-python-with-me-data-type/" itemprop="url">
+                跟我一起写python--数据类型 (6)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-04-10T19:25:42+08:00" content="2016-04-10">
+            2016-04-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                  <span itemprop="name">跟我一起写python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/10/learning-python-with-me-data-type/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/learning-python-with-me-data-type/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>数据类型：一个值得集合以及定义在这个值集上的一组操作。<br>数据类型包括原始类型、多元组、记录单元、代数数据类型、抽象数据类型、参考类型以及函数类型。<br>在python中，我们主要使用的数据类型有以下内容:</p>
+<ul>
+<li>整数</li>
+<li>浮点数</li>
+<li>数字</li>
+<li>字符串</li>
+<li>布尔类型</li>
+<li>列表</li>
+<li>元组</li>
+<li>字典</li>
+<li>日期</li>
+</ul>
+<h2 id="1-整数">1.整数</h2><pre><code>整数包括正整数和负整数，例:
+<span class="built_in">i</span> = <span class="number">1</span>
+<span class="built_in">j</span> = -<span class="number">1</span>
+print (<span class="built_in">i</span>)
+print (<span class="built_in">j</span>)
+</code></pre><h2 id="2-浮点数">2.浮点数</h2><pre><code>浮点数也可以成为小数，小数点后面的位置可以变化，例：
+<span class="built_in">float</span> = <span class="number">3.45</span>
+<span class="built_in">print</span> (<span class="built_in">float</span>)
+</code></pre><h2 id="3-数字">3.数字</h2><pre><code>数字类型用于存储数值，python支持四中不同的数字类型：
+- <span class="keyword">int</span> (有符号整形)
+- <span class="keyword">long</span> (长整数)
+- <span class="keyword">float</span> (浮点型)
+- <span class="keyword">complex</span> (复数)
+
+例：
+<span class="keyword">int</span> :<span class="number">10</span>
+<span class="keyword">long</span>: <span class="number">45923461L</span>
+<span class="keyword">float</span>: <span class="number">21.9</span>
+<span class="keyword">complex</span>: <span class="number">3.14</span>j
+</code></pre><h2 id="4-字符串">4.字符串</h2><pre><code>字符串是一单引号’ ，双引号“，或三引号”’括起来的任意文本，引号里面的内容属于我们的字符串。
+1)单引号
+str = ’hello world!‘
+print (str)
+
+2)双引号
+ test = “这是一个测试"
+print (test)
+
+3)三引号
+三引号标识多行的字符串，可以在三引号中自由的使用单引号和双引号
+paragraph = “””这是一个字符串，
+这是一个段落。“”“
+print (paragraph)
+输出:
+这是一个字符串，
+这是一个段落
+
+如果字符串内部包含单引号’又包含双引号“，可以通过转义字符<span class="command">\来</span>标识，例：
+‘We<span class="command">\’</span>re <span class="command">\"</span>Family<span class="command">\”</span>!'
+打印内容：
+we’re “Family”!
+
+转义字符的其他含义：
+<span class="command">\n</span> 表示换行
+<span class="command">\t</span>  表示制表符
+<span class="command">\\</span>  就表示\
+</code></pre><h2 id="5-布尔类型">5.布尔类型</h2><pre><code> 布尔值只有两个结果 <span class="literal">True</span>和<span class="literal">False</span>，bool值可以用<span class="literal">and</span> \<span class="literal">or</span>\<span class="literal">not</span>来运算例：
+ <span class="literal">A</span> = <span class="literal">True</span>
+ B = <span class="literal">False</span>
+ print (<span class="literal">A</span> <span class="literal">and</span> B)
+ print (<span class="literal">A</span> <span class="literal">or</span> B)
+分别 输出<span class="literal">False</span>,<span class="literal">True</span>
+</code></pre><h2 id="6-列表">6.列表</h2><pre><code>列表是Python中最频繁的数据类型，它可以完成大多数集合类的数据结构体实现，支持字符、数字、字符串，甚至嵌套列表。
+列表用<span class="string">[ ]</span>标识。
+列表中的值可以用逗号分割，也可以用到变量<span class="string">[头下表:尾下表]</span>，就可以截取相应的列表，从左到右默认索引从<span class="number">0</span>开始，从右往左默认索引从-<span class="number">1</span>开始，下标可以为空表示取到头或尾
+例:
+</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="number">23</span>,<span class="number">45</span>,<span class="string">'tianger'</span>,<span class="number">18</span>]</span><br><span class="line">tinylist = [<span class="number">345</span>,<span class="string">'tianger'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>) <span class="comment">#输出完整列表</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">0</span>]) <span class="comment">#输出列表中的第一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>:<span class="number">3</span>]) <span class="comment">#输出第二个至第三个的元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">2</span>:]) <span class="comment">#输出第三个开始至列表末尾的元素</span></span><br><span class="line"><span class="keyword">print</span> (tinylist * <span class="number">2</span>) <span class="comment">#输出列表两次</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span> + tinylist) <span class="comment">#打印组合的列表</span></span><br></pre></td></tr></table></figure>
+<pre><code>输出:
+[<span class="string">'name'</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="string">'tianger'</span>, <span class="number">18</span>]
+<span class="atom">name</span>
+[<span class="number">23</span>, <span class="number">45</span>]
+[<span class="number">45</span>, <span class="string">'tianger'</span>, <span class="number">18</span>]
+[<span class="number">345</span>, <span class="string">'tianger'</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]
+[<span class="string">'name'</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="string">'tianger'</span>, <span class="number">18</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]
+</code></pre><h2 id="7-元组">7.元组</h2><pre><code>元组与列表类似，不同之处在于元组的元素不能修改，元组使用小括号<span class="literal">()</span>，列表使用中括号<span class="literal">[]</span>，
+例：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line">tuple = (<span class="string">'name'</span>,<span class="number">23</span>,<span class="number">45</span>,<span class="string">'tianger'</span>,<span class="number">18</span>)</span><br><span class="line">tinytuple= (<span class="number">345</span>,<span class="string">'tianger'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (tuple) <span class="comment">#输出完整列表</span></span><br><span class="line"><span class="built_in">print</span> (tuple[<span class="number">0</span>]) <span class="comment">#输出元组中的第一个元素</span></span><br><span class="line"><span class="built_in">print</span> (tuple[<span class="number">1</span>:<span class="number">3</span>]) <span class="comment">#输出第二个至第三个的元素</span></span><br><span class="line"><span class="built_in">print</span> (tuple[<span class="number">2</span>:]) <span class="comment">#输出第三个开始至元组末尾的元素</span></span><br><span class="line"><span class="built_in">print</span> (tinytuple * <span class="number">2</span>) <span class="comment">#输出元组两次</span></span><br><span class="line"><span class="built_in">print</span> (tuple + tinytuple) <span class="comment">#打印组合的元组</span></span><br></pre></td></tr></table></figure>
+<pre><code>输出：
+(<span class="string">'name'</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="string">'tianger'</span>, <span class="number">18</span>)
+name
+(<span class="number">23</span>, <span class="number">45</span>)
+(<span class="number">45</span>, <span class="string">'tianger'</span>, <span class="number">18</span>)
+(<span class="number">345</span>, <span class="string">'tianger'</span>, <span class="number">345</span>, <span class="string">'tianger'</span>)
+(<span class="string">'name'</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="string">'tianger'</span>, <span class="number">18</span>, <span class="number">345</span>, <span class="string">'tianger'</span>)
+</code></pre><h2 id="7-字典">7.字典</h2><pre><code>字典是除列表之外<span class="tag">python</span>中最灵活的内置数据结构类型，列表是有序的对象集合，字典是无序的对象集合。
+两者区别在于:字典中的元素是通过键来存取的，而不是通过便宜存取
+字典用大括号{}，列表用中括号<span class="attr_selector">[]</span>，元组用小括号()
+
+例:
+</code></pre><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">dict = &#123;&#125;</span><br><span class="line">dict[<span class="string">'one'</span>] = <span class="string">"This is one"</span></span><br><span class="line">dict[<span class="number">2</span>] = <span class="string">"This is two"</span></span><br><span class="line"></span><br><span class="line">tinydict = &#123;<span class="string">'name'</span>: <span class="string">'Ttianger'</span>,<span class="string">'age'</span>:<span class="number">27</span>, <span class="string">'company'</span>: <span class="string">'ZTE'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (dict[<span class="string">'one'</span>]) <span class="comment"># 输出键为'one' 的值</span></span><br><span class="line"><span class="keyword">print</span> (dict[<span class="number">2</span>]) <span class="comment"># 输出键为 2 的值</span></span><br><span class="line"><span class="keyword">print</span> (tinydict) <span class="comment"># 输出完整的字典</span></span><br><span class="line"><span class="keyword">print</span> (tinydict.<span class="keyword">keys</span>()) <span class="comment"># 输出所有键</span></span><br><span class="line"><span class="keyword">print</span> (tinydict.<span class="keyword">values</span>()) <span class="comment"># 输出所有值</span></span><br></pre></td></tr></table></figure>
+<pre><code>输出:
+This <span class="keyword">is</span> one
+This <span class="keyword">is</span> two
+{<span class="string">'company'</span>: <span class="string">'ZTE'</span>, <span class="string">'name'</span>: <span class="string">'Ttianger'</span>, <span class="string">'age'</span>: <span class="number">27</span>}
+dict_keys([<span class="string">'company'</span>, <span class="string">'name'</span>, <span class="string">'age'</span>])
+dict_values([<span class="string">'ZTE'</span>, <span class="string">'Ttianger'</span>, <span class="number">27</span>])
+
+<span class="number">1</span>)创建字典
+   tinydict = {<span class="string">'name'</span>: <span class="string">'Ttianger'</span>,<span class="string">'age'</span>:<span class="number">27</span>, <span class="string">'company'</span>: <span class="string">'ZTE'</span>}
+<span class="number">2</span>)修改字典
+   tinydict = {<span class="string">'name'</span>: <span class="string">'Ttianger'</span>,<span class="string">'age'</span>:<span class="number">27</span>, <span class="string">'company'</span>: <span class="string">'ZTE'</span>}
+   tinydict[<span class="string">"age"</span>] = <span class="number">28</span> <span class="comment">#修改已有的键值</span>
+   <span class="keyword">print</span> (<span class="string">"tinydict['age']"</span>,tinydict[<span class="string">'age'</span>]) <span class="comment">#打印age内容</span>
+
+<span class="number">3</span>)删除字典
+   tinydict = {<span class="string">'name'</span>: <span class="string">'Ttianger'</span>,<span class="string">'age'</span>:<span class="number">27</span>, <span class="string">'company'</span>: <span class="string">'ZTE'</span>}
+   <span class="keyword">print</span> (tinydict) <span class="comment"># 输出完整的字典</span>
+  <span class="keyword">del</span> tinydict[<span class="string">'name'</span>] <span class="comment">#删除键是’name’的条目</span>
+  <span class="keyword">print</span> (tinydict) <span class="comment"># 输出完整的字典</span>
+  tinydict.clear() <span class="comment">#清空词典所有条目</span>
+  <span class="keyword">print</span> (tinydict) <span class="comment"># 输出完整的字典</span>
+  <span class="keyword">del</span> tinydict <span class="comment">#删除词典</span>
+
+输出:
+{<span class="string">'name'</span>: <span class="string">'Ttianger'</span>, <span class="string">'age'</span>: <span class="number">27</span>, <span class="string">'company'</span>: <span class="string">'ZTE'</span>}
+{<span class="string">'age'</span>: <span class="number">27</span>, <span class="string">'company'</span>: <span class="string">'ZTE'</span>}
+{}
+</code></pre><h2 id="9-日期">9.日期</h2><pre><code><span class="number">1</span>)获取当前时间，例：
+import <span class="keyword">time</span>,date <span class="keyword">time</span>;
+<span class="keyword">localtime</span> = <span class="keyword">time</span>.<span class="keyword">localtime</span>(<span class="keyword">time</span>.<span class="keyword">time</span>())
+<span class="keyword">print</span> (<span class="string">"Local current time:"</span>,<span class="keyword">localtime</span>)
+
+输出：
+Local current <span class="keyword">time</span>: <span class="keyword">time</span>.struct_time(tm_year=<span class="number">2016</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">10</span>, tm_hour=<span class="number">19</span>, tm_min=<span class="number">0</span>, tm_sec=<span class="number">49</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">101</span>, tm_isdst=<span class="number">0</span>)
+
+<span class="number">2</span>)格式化时间
+   - 日期转字符串
+     <span class="keyword">print</span> <span class="keyword">time</span>.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>);
+   - 字符串转日期
+     expire_time = <span class="string">"2016-04-10 19:03:35"</span>
+     d = datetime.datetime.strptime(expire_time,<span class="string">"<span class="variable">%Y</span>-<span class="variable">%m</span>-<span class="variable">%d</span> <span class="variable">%H</span>:<span class="variable">%M</span>:<span class="variable">%S</span>"</span>)
+     <span class="keyword">print</span> (d)
+</code></pre><p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/04/learning-python-with-me-variable/" itemprop="url">
                 跟我一起写python--变量 (5)
               </a>
@@ -1042,98 +1260,6 @@ xiaohong <span class="keyword">is</span> older
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/02/29/call-start-and-release-progress/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(1)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-02-29T20:26:40+08:00" content="2016-02-29">
-            2016-02-29
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/02/29/call-start-and-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/call-start-and-release-progress/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。<br>&nbsp;&nbsp;&nbsp;&nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;无论UE主叫还是被叫，呼叫建立和释放包含以下过程:<br>     （1）UE和URTRAN建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;—RRC(Radio Resource Control)指无线资源控制，属于第三层，第一层L1(物理层PHY)，第二层L2(数据链路层MAC/RLC)，第三层L3(网络层RRC)<br>     （2）通过直传消息，UE和CN建立连接—CN(Core network核心网)<br>     （3）UE能力信息流程<br>     （4）RAB建立流程—RAB(Radio Access Bearer)无线接入承载<br>     （5）RAB释放流程和lu释放流程<br>     （6）RRC连接释放流程</p>
-<p>1.2寻呼流程<br>1.2.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼分为CN发起的寻呼和UTRAN发起的寻呼。CN发起的寻呼用于建立一条信令连接，CN发起的寻呼分为协作寻呼和非协作寻呼。CN在RANAP PAGING消息中指示RNC(Radio network control 无线网络控制器)是否需要进行UTRAN(基站)的协作寻呼。<br>&nbsp;&nbsp;&nbsp;&nbsp;(1)协作寻呼是由RNC检查UE是否存在寻呼域之外的其他CN域信令连接，如果存在其他的CN域信令连接，且UE处于CELL_DCH或者CELL_FACH状态，则在无线接口上，寻呼消息通过已经存在的连接的DCCH信道下发；如果存在其他的CN域信令连接，且UE处于CELL_PCH或者URA_PCH状态，则无线接口上，寻呼消息通过PCCH信道下发；如果不存在其他的CN域信令连接，寻呼消息通过PCCH信道下发。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;(2)非协作寻呼是指RNC不需要检查UE是否存在寻呼域之外的其他CN域信令连接，直接在CN指定的寻呼区域中通过PCCH信道下发寻呼消息。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN发起的寻呼可以寻呼处于CELL_PCH或URA_PCH状态的UE，UE通过寻呼相应发起小区更新过程将用户从CELL_PCH或URA_PCH状态迁移到CELL_FACH，或在系统信息改变的时候URTARN通过寻呼消息出发UE(处于IDLE-空闲模式、CELL_PCH或URA_PCH)重新读取更新后的系统信息。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;如果UE处于空闲模式或CELL_PCH、URA_PCH状态，RNC通过PCCH信道，使用寻呼类型1消息(PAGING TYPE1)寻呼UE。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;如果UE处于CELL_FACH或者CELL_DCH状态，RNC通过DCCH信道，使用寻呼类型2消息(PAGING TYPE2)寻呼UE。</p>
-<p>1.2.2寻呼空闲模式或PCH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过PCCH信道，使用寻呼类型1消息寻呼处于空闲模式、CELL_PCH或URA_PCH状态下的UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;这一类型的寻呼一般发生在一下几种情况：<br>     （1）为了建立一次呼叫或一条信令连接，由网络侧高层发起的寻呼；<br>     （2）为了将UE的状态从CELL_PCH或URA_PCH状态迁移到CELL_FACH状态，UTRAN发起出发UE状态迁移的寻呼；<br>     （3）当系统信息发生改变时，由UTRAN发起触发UE读取更新后系统信息的寻呼。此时，主消息块(MIB)的值标签包括在寻呼类型1消息PAGING TYPE1中的“HCCH modification info”中。<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-1所示<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/pagging1.png" alt=""><br>     <center>图1-1寻呼空闲模式或PCH状态UE</center></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过PCCH信道，在适当的寻呼时机发送寻呼类型1消息PAGING TYPE1，启动寻呼过程。UTRAN可以选择在几个寻呼时机重复寻呼一个UE，以增加UE正确接收寻呼消息的可能性。<br>处于空闲模式和PCH状态的UE，监视适当的寻呼时机，接收来自网络层的寻呼消息。</p>
-<p>1.2.3寻呼CELL_DCH或CELL_FACH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过DCCH信道，使用寻呼类型2消息寻呼处于CELL_DCH或CELL_FACH状态下的UE.<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-2所示。<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/paging2.png" alt=""><br>     <center>图1-2寻呼CELL_DCH或CELL_FACH状态UE</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过DCCH信道发送寻呼类型2消息PAGING TYPE2,发起寻呼过程。这一类型的寻呼也叫作专用寻呼过程UE接受并读取寻呼类型2消息PAGING TYPE2的内容，并把寻呼原因及寻呼记录种类标识等信息上报给本侧非接入层。寻呼过程结束。<br>&nbsp;&nbsp;&nbsp;&nbsp;本进程不影响UE侧正在进行的其他RRC进程。<br>&nbsp;&nbsp;&nbsp;&nbsp;若UE发现接收到的寻呼类型2消息PAGING TYPE2存在协议错误，丢弃该寻呼消息，并通过上行DCCH采用AM RLC方式，向UTRAN发送RRC状态消息RRC STATUS.</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1172,7 +1298,7 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
