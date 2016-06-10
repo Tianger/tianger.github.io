@@ -176,6 +176,127 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/10/c-and-point-ten-struct/" itemprop="url">
+                C与指针-第十章-结构体
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-10T22:49:51+08:00" content="2016-06-10">
+            2016-06-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/10/c-and-point-ten-struct/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/c-and-point-ten-struct/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>在C语言中，结构体(struct)指的是一种数据结构，是C语言中聚合数据类型(aggregate data type)的一类。结构体可以被声明为变量、指针或数组等，用以实现较复杂的数据结构。结构体同时也是一些元素的集合，这些元素称为结构体的成员(member)，且这些成员可以为不同的类型，成员一般用名字访问。[1]</p>
+<h2 id="含义：">含义：</h2><p>结构体(struct)是由一系列具有相同类型或不同类型的数据构成的数据集合，叫做结构。</p>
+<h2 id="定义与声明：">定义与声明：</h2><p>结构体的定义如下所示，struct为结构体关键字，tag为结构体的标志，member-list为结构体成员列表，其必须列出其所有成员；variable-list为此结构体声明的变量。</p>
+<blockquote>
+<p>struct tag {<br>member-list<br>} variable-list ;</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//此声明声明了拥有3个成员的结构体，分别为整型的a，字符型的b和双精度的c</span></span><br><span class="line"><span class="comment">//同时又声明了结构体变量s1</span></span><br><span class="line"><span class="comment">//这个结构体并没有标明其标签</span></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">char</span> b;</span><br><span class="line">    <span class="keyword">double</span> c;</span><br><span class="line">&#125;s1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">char</span> b;</span><br><span class="line">    <span class="keyword">double</span> c;</span><br><span class="line">&#125;s2;</span><br><span class="line">注：s1和s2被编译器当做两种截然不同的类型，即使他们成员列表相同。</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同上声明了拥有3个成员的结构体，分别为整型的a，字符型的b和双精度的c</span></span><br><span class="line"><span class="comment">//结构体的标签被命名为SIMPLE,没有声明变量</span></span><br><span class="line"><span class="keyword">struct</span> SI<span class="built_in">MPLE</span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">char</span> b;</span><br><span class="line">    <span class="keyword">double</span> c;</span><br><span class="line">&#125;;</span><br><span class="line">用标签来创建变量：</span><br><span class="line"><span class="keyword">struct</span> SI<span class="built_in">MPLE</span> x;</span><br><span class="line"><span class="keyword">struct</span> SI<span class="built_in">MPLE</span> y[<span class="number">20</span>];</span><br><span class="line">这里x和y是两个完全相同的类型，因为他们用标签来进行定义</span><br></pre></td></tr></table></figure>
+<h2 id="typedef：">typedef：</h2><p>声明结构体时可以使用的另一种良好技巧是用typedef创建一种新的类型。</p>
+<blockquote>
+<p>typedef struct{<br>     int a;<br>     char b;<br>     double c;<br>}s3;</p>
+</blockquote>
+<p>这个技巧和标签的效果几乎完全相同，区别在于s3现在是个类型名而不是个结构标签。以后的声明如下：</p>
+<blockquote>
+<p>s3 x;<br>s3 y[20];</p>
+</blockquote>
+<h2 id="结构成员：">结构成员：</h2><p>结构体的成员可以是标量、数组、指针甚至是其他结构体。</p>
+<blockquote>
+<p>typedef struct{<br>     int a;<br>     char b;<br>     double c:<br>     s3 d;<br>     s3 e[10];<br>}s4;</p>
+</blockquote>
+<h3 id="1)直接访问">1)直接访问</h3><p>结构体成员通过’.’操作符来访问的。<br>例：<br>s4 comp;</p>
+<p>访问成员a， comp.a;<br>访问成员d中的a， comp.d.a;<br>访问成员e中第5个元素的成员a，comp.e[4].a;</p>
+<h3 id="2)间接访问">2)间接访问</h3><p>如果拥有一个指向结构体的指针，那么我们访问结构体成员需要用’-&gt;’操作符来访问。<br>s4 *comp;</p>
+<p>访问成员a， comp-&gt;a;<br>访问成员d中的a， comp-&gt;d.a;<br>访问成员e中第5个元素的成员a，comp-&gt;e[4].a;</p>
+<h2 id="联合：">联合：</h2><h3 id="含义：-1">含义：</h3><p>“联合”是一种特殊的类，也是一种构造类型的数据结构。在一个“联合”内可以定义多种不同的数据类型， 一个被说明为该“联合”类型的变量中，允许装入该“联合”所定义的任何一种数据，这些数据共享同一段内存，以达到节省空间的目的。 这是一个非常特殊的地方，也是联合的特征。另外，同struct一样，联合默认访问权限也是公有的，并且，也具有成员函数。</p>
+<blockquote>
+<p>联合使用关键字union来定义。</p>
+</blockquote>
+<h3 id="声明：">声明：</h3><p>联合声明跟结构体类似。<br>union {<br>     数据成员；<br>}变量；</p>
+<blockquote>
+<p>union{<br>      int a;<br>     float b;<br>}message；</p>
+</blockquote>
+<p>在一个32位的机器上，变量message只占用内存中最大的变量类型的大小，这里int跟float占用内存相同，因此变量message这里只占用内存中一个32位的字。<br>如果a被访问，这个字就作为int型访问；<br>如果b被访问，这个字就作为float型访问。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">message</span>.b = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">message</span>.a = <span class="number">10</span>;</span><br><span class="line">printf(“%d\n”,<span class="keyword">message</span>.a);</span><br><span class="line">printf(“%f\n”,<span class="keyword">message</span>.b);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>由于最后一个访问的是a，因此a打印的值为10，b的值为0.000000；反之相同</p>
+</blockquote>
+<h3 id="union和结构体：">union和结构体：</h3><p>通常我们把union和struct结合起来使用，这样更加方便我们的程序开发。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">typedef <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">     int age;</span><br><span class="line">     int height;</span><br><span class="line">&#125;<span class="class"><span class="keyword">class</span>;</span></span><br><span class="line"></span><br><span class="line">typedef <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">     int year;</span><br><span class="line">     char class_name[<span class="number">10</span>];</span><br><span class="line">     <span class="class"><span class="keyword">enum</span> &#123;<span class="title">class1</span>,<span class="title">class2</span>&#125; <span class="title">type</span>;</span></span><br><span class="line">     <span class="class"><span class="keyword">union</span>&#123;</span></span><br><span class="line">          <span class="class"><span class="keyword">class</span>  <span class="title">first_student</span>;</span></span><br><span class="line">          <span class="class"><span class="keyword">class</span>  <span class="title">second_student</span>;</span></span><br><span class="line">     &#125;data;</span><br><span class="line">&#125;message;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    message msg;</span><br><span class="line">    int y;</span><br><span class="line">    int z;</span><br><span class="line">   <span class="regexp">/*msg相关变量赋值*/</span></span><br><span class="line">    msg.data.first_student.age = <span class="number">10</span>;</span><br><span class="line">    msg.data.first_student.height = <span class="number">170</span>;</span><br><span class="line">    msg.<span class="keyword">type</span> = class1;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(msg.<span class="keyword">type</span> == class1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="regexp">/*union一次只能访问一个成员*/</span></span><br><span class="line">         y = msg.data.first_student.age;</span><br><span class="line">         z = msg.data.first_student.height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">         y = msg.data.second_student.age;</span><br><span class="line">         z = msg.data.second_student.height;</span><br><span class="line">    &#125;</span><br><span class="line">      printf(<span class="string">"%d\n"</span>,y);  <span class="regexp">//</span>打印<span class="number">10</span></span><br><span class="line">      printf(<span class="string">"%d\n"</span>,z);  <span class="regexp">//</span>打印<span class="number">170</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结：">总结：</h2><p>1.结构体中，不同类型的值可以存储在一起，成员可以是标量、数组、指针或结构体<br>2.不同的二结构体声明即使它们的成员列表相同也被认为是不同的类型，typedef可以用于解决此问题<br>3.联合的所有成员都存储于同一个内存位置，通过访问不同类型的联合成员，内存中相同的位组合可以被解释为不同的东西。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/09/c-and-point-nine-char/" itemprop="url">
                 C与指针-第九章-字符、字符串处理API
               </a>
@@ -1246,94 +1367,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/08/python-sample-rm-git-pull-conflict/" itemprop="url">
-                Python实例--移除git pull冲突文件
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-08T20:32:31+08:00" content="2016-05-08">
-            2016-05-08
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Python实例/" itemprop="url" rel="index">
-                  <span itemprop="name">Python实例</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/05/08/python-sample-rm-git-pull-conflict/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/08/python-sample-rm-git-pull-conflict/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
-<p>作用：移除git pull冲突文件 <br><br>说明：当我们本地的一些工程比较老旧时，想同步服务器上最新的代码，但是当我们git pull时，会出现很多文件冲突，如果不想保留自己的修改，直接同步代码的话，可以使用本脚本来进行冲突文件的删除</p>
-</blockquote>
-<p>源码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/user/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="keyword">import</span> os.path </span><br><span class="line"></span><br><span class="line"><span class="comment">#获取当前目录的完整路径</span></span><br><span class="line">homedir = os.getcwd()</span><br><span class="line"></span><br><span class="line"><span class="comment">#把git pull的冲突文件导出到conflict.txt中</span></span><br><span class="line">os.system(<span class="string">"git pull &gt; conflict.txt 2&gt;&amp;1;"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#判断conflict.txt是否存在，如果存在，变量赋值，否则为空</span></span><br><span class="line"><span class="keyword">if</span> os.path.exists(<span class="string">"conflict.txt"</span>): </span><br><span class="line">  conflict_file = open(<span class="string">'conflict.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  conflict_file = <span class="keyword">None</span></span><br><span class="line">  <span class="keyword">print</span> (<span class="string">'there is no conflict.txt file'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除指定目录文件函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">removeFileInFile</span><span class="params">(dir,targetFile)</span>:</span> </span><br><span class="line">    <span class="keyword">if</span> os.path.exists(dir + <span class="string">'/'</span> + targetFile): </span><br><span class="line">        os.remove(dir + <span class="string">'/'</span> + targetFile)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'no such file:%s'</span> % dir + targetFile)</span><br><span class="line"></span><br><span class="line"><span class="comment">#while循环，从conflict.txt中按行读取，如果这一行是一个文件，则删除它，如果不是执行下一个</span></span><br><span class="line"><span class="comment">#当读到行尾后，跳出while循环</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> conflict_file != <span class="keyword">None</span>:</span><br><span class="line">        target_line = conflict_file.readline()</span><br><span class="line">        target_line = target_line.strip()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> target_line:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment">#print target_line</span></span><br><span class="line">        <span class="comment">#print homedir + target_line</span></span><br><span class="line">        <span class="keyword">if</span> os.path.isfile(target_line):</span><br><span class="line">            removeFileInFile(homedir , target_line)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.exists(<span class="string">"conflict.txt"</span>):</span><br><span class="line">    os.remove(<span class="string">"conflict.txt"</span>)</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">"git pull"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1372,7 +1405,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
