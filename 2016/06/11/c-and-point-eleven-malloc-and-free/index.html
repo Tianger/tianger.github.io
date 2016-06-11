@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="WCDMA RRC RELEASE," />
+  <meta name="keywords" content="C," />
 
 
 
@@ -39,21 +39,23 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="​RRC连接释放流程
-1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
+<meta name="description" content="我们使用数组时，它是存储于内存中连续的位置上，它所需要的内存在编译时就被分配，使用起来比较方便，但是也存在几个缺点。
+数组的缺点:1)假如一个数组无限大，而我们只需要很少的几个字节，这就会造成内存浪费，增加了内存的开销。2)我们我们访问超过数组下标的内容时，造成数组越界，有可能产生一个异常值，从而导致失败。
+针对这两点，动态内存分配的处理就相对比较适用。动态内存分配中使用的几个关键字malloc和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WCDMA协议和信令—呼叫建立和释放流程分析(5)">
-<meta property="og:url" content="http://tianger.github.io/2016/03/14/rrc-release-progress/index.html">
+<meta property="og:title" content="C与指针-第十一章—动态内存分配">
+<meta property="og:url" content="http://tianger.github.io/2016/06/11/c-and-point-eleven-malloc-and-free/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="​RRC连接释放流程
-1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_private.png">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_public.png">
-<meta property="og:updated_time" content="2016-03-14T13:08:06.000Z">
+<meta property="og:description" content="我们使用数组时，它是存储于内存中连续的位置上，它所需要的内存在编译时就被分配，使用起来比较方便，但是也存在几个缺点。
+数组的缺点:1)假如一个数组无限大，而我们只需要很少的几个字节，这就会造成内存浪费，增加了内存的开销。2)我们我们访问超过数组下标的内容时，造成数组越界，有可能产生一个异常值，从而导致失败。
+针对这两点，动态内存分配的处理就相对比较适用。动态内存分配中使用的几个关键字malloc和">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-06-11T09:39:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WCDMA协议和信令—呼叫建立和释放流程分析(5)">
-<meta name="twitter:description" content="​RRC连接释放流程
-1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
+<meta name="twitter:title" content="C与指针-第十一章—动态内存分配">
+<meta name="twitter:description" content="我们使用数组时，它是存储于内存中连续的位置上，它所需要的内存在编译时就被分配，使用起来比较方便，但是也存在几个缺点。
+数组的缺点:1)假如一个数组无限大，而我们只需要很少的几个字节，这就会造成内存浪费，增加了内存的开销。2)我们我们访问超过数组下标的内容时，造成数组越界，有可能产生一个异常值，从而导致失败。
+针对这两点，动态内存分配的处理就相对比较适用。动态内存分配中使用的几个关键字malloc和">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -63,7 +65,7 @@
   };
 </script>
 
-  <title> WCDMA协议和信令—呼叫建立和释放流程分析(5) | Tianger's Family </title>
+  <title> C与指针-第十一章—动态内存分配 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +182,7 @@
           
           
             
-              WCDMA协议和信令—呼叫建立和释放流程分析(5)
+              C与指针-第十一章—动态内存分配
             
           
         </h1>
@@ -189,8 +191,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-14T21:03:05+08:00" content="2016-03-14">
-            2016-03-14
+          <time itemprop="dateCreated" datetime="2016-06-11T22:22:28+08:00" content="2016-06-11">
+            2016-06-11
           </time>
         </span>
 
@@ -199,8 +201,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
                 </a>
               </span>
 
@@ -215,8 +217,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/14/rrc-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/rrc-release-progress/" itemprop="commentsCount"></span>
+              <a href="/2016/06/11/c-and-point-eleven-malloc-and-free/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/11/c-and-point-eleven-malloc-and-free/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -230,12 +232,24 @@
       
 
       
-        <span itemprop="articleBody"><p>​<center><strong>RRC连接释放流程</strong></center></p>
-<p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。<br>&nbsp;&nbsp;&nbsp;&nbsp;根据RRC连接所占用的资源情况，可进一步划分为两类：释放建立在专用信道上的RRC连接、释放建立在公共信道上的RRC连接。RRC连接释放只能发生在CELL_DCH或CELL_FACH状态下，如果当前RRC连接处于CELL_PCH或者URA_PCH状态，UTRAN先发起寻呼将UE状态迁移到CELL_FACH，再进行RRC连接释放。<br>&nbsp;&nbsp;&nbsp;&nbsp;RNC根据不同情况，在下行DCCH或CCCH上通过UM RLC方式发送RRC连接释放消息RRC CONNECTION RELEASE。     如RRC释放时DCCH可用，则UTRAN通过下行DCCH信道发送RRC连接释放消息；否则UTRAN通过下行CCCH信道发送RRC连接释放消息。</p>
-<p>1.2 释放建立在专用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在专用信道上的RRC连接，信令流程如图1-1所示。<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_private.png" alt=""><br>    <center>图1-1 RRC连接释放(专用信道)</center></p>
-<pre><code>​信令流程描述：         
-</code></pre><p>  (1)        SRNC通过DCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，SRNC可能发送多次，来提高UE接收的可靠性。<br>  (2)        UE向SRNC返回RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。<br>  (3)        SRNC向NodeB发送无线链路删除请求消息RADIO LINK DELETION REQUEST，删除NodeB中的无线链路资源。<br>  (4)        NodeB资源释放完成后，向SRNC返回无线链路删除响应消息RADIO LINK DELETION RESPONSE。<br>  (5)        RNC使用ALCAP协议发起Iub接口用户面传输承载的释放。RRC释放过程结束。     </p>
-<p>1.3 释放建立在公用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在公用信道上的RRC连接，信令流程如图1-2所示.<br>    ​<img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_public.png" alt=""><br>         <center>图1-1 RRC连接释放(公用信道)</center><br>    ​SRNC通过CCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，发起RRC连接释放过程，UE释放资源。<br>    ​释放建立在公用信道上的RRC连接时，不需要RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。此外，因为用的是小区公共资源，所以只要直接释放UE，而不必释放NodeB资源和数据传输承载。<br>    ​UTRAN可能发送多次RRC连接释放消息RRC CONNECTION RELEASE，以提高UE正确接收这条消息的可靠性，这些消息的RRC SN值相同，重复发送消息数目及发送间隔由网络控制。</p>
+        <span itemprop="articleBody"><p>我们使用数组时，它是存储于内存中连续的位置上，它所需要的内存在编译时就被分配，使用起来比较方便，但是也存在几个缺点。</p>
+<h3 id="数组的缺点:">数组的缺点:</h3><p>1)假如一个数组无限大，而我们只需要很少的几个字节，这就会造成内存浪费，增加了内存的开销。<br>2)我们我们访问超过数组下标的内容时，造成数组越界，有可能产生一个异常值，从而导致失败。</p>
+<p>针对这两点，动态内存分配的处理就相对比较适用。动态内存分配中使用的几个关键字<br>malloc和free，这两个是成对出现的，malloc用来申请内存空间，free用来释放内存。</p>
+<h2 id="malloc和free">malloc和free</h2><p>malloc从内存池中提取一块合适的内存，并向该程序返回一个指向这块内存的指针。这块内存没有初始化。<br>当内存不再使用时，调用free把这块内存归还给内存池。</p>
+<h3 id="原型：">原型：</h3><blockquote>
+<p>void <em>malloc(size_t size);<br>void free(void </em>pointer);</p>
+</blockquote>
+<p>malloc的参数是需要分配的内存字节数。<br>malloc分配的是一块连续的内存。如果请求分配的是100个字节，那么实际分配的就是100个连续的字节，不会分开于两块或多块不同的内存。<br>如果内存池为空，或者申请内存不成功，malloc就会返回一个NULL指针。如果需要对分配的内存进行检查，可以通过与NULL指针进行比较来判断内存是否分配成功。</p>
+<p>free的参数必须是从malloc、calloc或relloc返回的值，或者是NULL。传递NULL指针不会产生任何效果。</p>
+<p>例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *a;</span><br><span class="line">...</span><br><span class="line">a = <span class="built_in">malloc</span>(<span class="number">100</span>);     <span class="comment">//申请内存空间</span></span><br><span class="line"><span class="built_in">memset</span>(a,<span class="number">0x0</span>,<span class="number">100</span>);  <span class="comment">//清空内存</span></span><br><span class="line"><span class="keyword">if</span> (a == <span class="literal">NULL</span>)  <span class="comment">//判断内存是否申请成功</span></span><br><span class="line">&#123;</span><br><span class="line">     <span class="built_in">printf</span>(“out of memory!\n”);</span><br><span class="line">     <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">free</span>(a); <span class="comment">//释放内存</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="calloc和relloc">calloc和relloc</h2><h3 id="原型：-1">原型：</h3><blockquote>
+<p>void <em>calloc(size_t num_elements, size_t element_size);<br>void realloc(void </em>ptr,size_t new_size);</p>
+</blockquote>
+<p>calloc用于内存的申请。<br>calloc与malloc之间的主要区别是calloc在返回指向内存的指针之前把它初始化为0。但是如果你的程序知识想把一些值存储到数组中，那么这个初始化过程纯属浪费时间。</p>
+<p>relloc函数用于修改一个原先已经分配的内存块大小。使用这个函数，你可以使一块内存扩大或缩小。如果它用于扩大一个内存块，那么这块内存原先的内容依然保留，新增加的内存添加到原先内存块的后面，新的内存并未以任何方式进行初始化。该内存块尾部的部分内存便被拿掉，剩余部分内存的原先内容依然被保留。</p>
+<p>如果realloc函数的第1个参数是NULL，那么它的行为就和malloc一样。</p>
+<h2 id="内存泄漏：">内存泄漏：</h2><p>当动态分配的内存不再需要使用时，它应该被释放。如果内存不释放，将会引起内存泄漏。内存泄漏可以一点点的榨干可用内存，从而导致程序崩溃。</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
     </div>
@@ -244,7 +258,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/WCDMA-RRC-RELEASE/" rel="tag">#WCDMA RRC RELEASE</a>
+            <a href="/tags/C/" rel="tag">#C</a>
           
         </div>
       
@@ -253,13 +267,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" rel="prev">跟我一起写python--为什么要学习python(1)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/13/ue-capability-information-progress/" rel="next">WCDMA协议和信令-呼叫建立和释放流程分析(4)</a>
+              <a href="/2016/06/10/c-and-point-ten-struct/" rel="next">C与指针-第十章-结构体\联合union</a>
             
           </div>
         </div>
@@ -284,8 +296,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/14/rrc-release-progress/"
-                   data-title="WCDMA协议和信令—呼叫建立和释放流程分析(5)" data-url="http://tianger.github.io/2016/03/14/rrc-release-progress/">
+              <div class="ds-thread" data-thread-key="2016/06/11/c-and-point-eleven-malloc-and-free/"
+                   data-title="C与指针-第十一章—动态内存分配" data-url="http://tianger.github.io/2016/06/11/c-and-point-eleven-malloc-and-free/">
               </div>
             
           </div>
@@ -367,7 +379,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的缺点:"><span class="nav-number">1.</span> <span class="nav-text">数组的缺点:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#malloc和free"><span class="nav-number"></span> <span class="nav-text">malloc和free</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型："><span class="nav-number">1.</span> <span class="nav-text">原型：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#calloc和relloc"><span class="nav-number"></span> <span class="nav-text">calloc和relloc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型：-1"><span class="nav-number">1.</span> <span class="nav-text">原型：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏："><span class="nav-number"></span> <span class="nav-text">内存泄漏：</span></a></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
