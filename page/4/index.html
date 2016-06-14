@@ -176,6 +176,92 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/13/ue-capability-information-progress/" itemprop="url">
+                WCDMA协议和信令-呼叫建立和释放流程分析(4)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-13T17:40:16+08:00" content="2016-03-13">
+            2016-03-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                  <span itemprop="name">WCDMA</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/13/ue-capability-information-progress/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/ue-capability-information-progress/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p><center><strong>UE能力信息流程</strong></center><br>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息包括：安全能力、定位能力、测量能力、物理信道能力、传输信道能力等。<br>由于UE的厂家和规格不同，能力也不一致，所以RRC连接建立之后，UE应当向UTRAN发送UE能力信息，以使网络侧按照UE支持的能力参数对其进行配置。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息的传递可以分以下三种情况告诉网络：<br>&nbsp;&nbsp;&nbsp;&nbsp;（1）RRC连接建立完成之后，UE能力信息通过RRC连接建立完成消息RRC CONNECTION SETUP COMPLETE，传递到RNC；<br>&nbsp;&nbsp;&nbsp;&nbsp;（2）RRC连接建立完成之后，当RNC发现相应UE的能力信息不存在时，向UE发送UE能力信息查询消息UE CAPABILITY ENQUIRY，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送UE能力信息；<br>&nbsp;&nbsp;&nbsp;&nbsp;（3）RRC连接期间，当UE能力信息发生改变时，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送新的UE能力信息。</p>
+<p>1.2 UE能力信息查询<br>&nbsp;&nbsp;&nbsp;&nbsp;通过UE能力信息查询，UTRAN请求UE发起UE能力查询过程，如图1-1所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_caoability_enquiry.png" alt=""><br>        <center>图1-1 UE能力查询</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过下行DCCH逻辑信道，采用AM RLC方式发送UE能力查询消息UE CAPABILITY ENQUIRY,完成UE能力信息查询过程。</p>
+<p>1.3 UE能力信息更新<br>&nbsp;&nbsp;&nbsp;&nbsp;若UTRAN发起UE能力信息查询过程，或者RRC连接期间UE能力信息发生改变，UE将发起UE能力信息更新过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息更新过程用于向UTRAN传送UE所支持的无线网络相关能力信息，如图1-2所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_capability_upate.png" alt=""><br>     <center>图1-2 UE能力信息更新</center><br>     （1）UE在上行链路DCCH上，使用AM或UM RLC方式发送UE能力信息消息UE CAPABILITY INFORMATION，消息中携带UE的能力信息。<br>     （2）UTRAN读取UE能力信息，使用AM 或UM RLC方式在下行链路DCCH上发送UE CAPABILITY INFORMA CONFIRM确认消息。UE能力信息更新过程结束。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/13/direct-transfer/" itemprop="url">
                 WCDMA协议和信令-呼叫建立和释放流程分析(3)
               </a>
@@ -884,7 +970,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
