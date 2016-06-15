@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="C," />
 
 
 
@@ -39,20 +39,26 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。
-1.元组创建：在小括号中添加元素，并使用逗号隔开123456tup1 = (&apos;name&apos;,&apos;tianger&apos;,&apos;year&apos;,1988)tup2 = (1,2,3,4)print">
+<meta name="description" content="本文重点讲的函数指针为 回调函数和转移表。
+回调函数含义：回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方法直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。
+机制：
+⑴定义一个回调函数；⑵提供函数实现的一方在初始化的时候，将回调函">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟我一起写python--元组(13)">
-<meta property="og:url" content="http://tianger.github.io/2016/04/17/learning-python-with-me-tuple/index.html">
+<meta property="og:title" content="C与指针-第三章-结构体\联合union">
+<meta property="og:url" content="http://tianger.github.io/2016/06/15/c-and-point-thirteen-function-point/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。
-1.元组创建：在小括号中添加元素，并使用逗号隔开123456tup1 = (&apos;name&apos;,&apos;tianger&apos;,&apos;year&apos;,1988)tup2 = (1,2,3,4)print">
+<meta property="og:description" content="本文重点讲的函数指针为 回调函数和转移表。
+回调函数含义：回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方法直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。
+机制：
+⑴定义一个回调函数；⑵提供函数实现的一方在初始化的时候，将回调函">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
-<meta property="og:updated_time" content="2016-04-23T11:40:36.000Z">
+<meta property="og:updated_time" content="2016-06-15T14:09:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跟我一起写python--元组(13)">
-<meta name="twitter:description" content="上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。
-1.元组创建：在小括号中添加元素，并使用逗号隔开123456tup1 = (&apos;name&apos;,&apos;tianger&apos;,&apos;year&apos;,1988)tup2 = (1,2,3,4)print">
+<meta name="twitter:title" content="C与指针-第三章-结构体\联合union">
+<meta name="twitter:description" content="本文重点讲的函数指针为 回调函数和转移表。
+回调函数含义：回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方法直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。
+机制：
+⑴定义一个回调函数；⑵提供函数实现的一方在初始化的时候，将回调函">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +68,7 @@
   };
 </script>
 
-  <title> 跟我一起写python--元组(13) | Tianger's Family </title>
+  <title> C与指针-第三章-结构体\联合union | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -179,7 +185,7 @@
           
           
             
-              跟我一起写python--元组(13)
+              C与指针-第三章-结构体\联合union
             
           
         </h1>
@@ -188,8 +194,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T22:26:20+08:00" content="2016-04-17">
-            2016-04-17
+          <time itemprop="dateCreated" datetime="2016-06-15T22:08:39+08:00" content="2016-06-15">
+            2016-06-15
           </time>
         </span>
 
@@ -198,8 +204,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
                 </a>
               </span>
 
@@ -214,8 +220,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-tuple/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-tuple/" itemprop="commentsCount"></span>
+              <a href="/2016/06/15/c-and-point-thirteen-function-point/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/c-and-point-thirteen-function-point/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -229,15 +235,25 @@
       
 
       
-        <span itemprop="articleBody"><p>上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。<br>元组与列表类似，不同之处在于元组的元素不能修改。<br>元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。</p>
-<p>1.元组创建：<br>在小括号中添加元素，并使用逗号隔开<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>',<span class="quoted">'year</span>',<span class="number">1988</span>)</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span><br><span class="line"></span><br><span class="line">print <span class="list">(<span class="string">"tup1[0]:"</span>,tup1[<span class="number">0</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup1[1:3]:"</span>,tup1[<span class="number">1</span>:<span class="number">3</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup2[2:3]:"</span>,tup2[<span class="number">2</span>:<span class="number">3</span>])</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tup1[0]</span>: <span class="string">name</span></span><br><span class="line"><span class="attribute">tup1[1:3]</span>: <span class="string">('tianger', 'year')</span></span><br><span class="line"><span class="attribute">tup2[2:3]</span>: <span class="string">(3,)</span></span><br></pre></td></tr></table></figure></p>
-<p>2.修改元组<br>元组中的元素是不允许修改的，但我们可以通过对元组进行连接组合<br>例：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>)</span></span><br><span class="line"></span><br><span class="line">tup3 = tup1 + tup2</span><br><span class="line">print <span class="list">(<span class="keyword">tup3</span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="quoted">'name</span>', <span class="quoted">'tianger</span>', <span class="number">1</span>, <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>3.删除元组<br>元组的元素不能够被删除，可以通过del函数来删除元组<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br><span class="line">del tup1</span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (tup1)</span><br><span class="line"><span class="attribute">NameError</span>: name <span class="string">'tup1'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p>
-<p>从输出的内容来看，元组已经被成功删除</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+        <span itemprop="articleBody"><p>本文重点讲的函数指针为 回调函数和转移表。</p>
+<h2 id="回调函数">回调函数</h2><h3 id="含义：">含义：</h3><p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方法直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
+<h3 id="机制：">机制：</h3><blockquote>
+<p>⑴定义一个回调函数；<br>⑵提供函数实现的一方在初始化的时候，将回调函数的函数指针注册给调用者；<br>⑶当特定的事件或条件发生的时候，调用者使用函数指针调用回调函数对事件进行处理。</p>
+</blockquote>
+<h3 id="举例：">举例：</h3><p> 1.我们在路上遇到一个好多年没见到的朋友，要了朋友的手机好，跟他说我回去打给你</p>
+<blockquote>
+<p> 1)遇见朋友–主函数<br>  2)我打电话给朋友，通过朋友的手机号，找到朋友–(回调)</p>
+</blockquote>
+<p>2.寄快递的情形<br>   打电话给快递员，告诉他我的地址(理解成回调函数的地址)，快递员在有空的时候根据这个地址来找到你取件。</p>
+<blockquote>
+<p>1)打电话给快递员，告诉他我的地址–主函数(我的地址–回调函数地址)<br>  2)快递员处理完其他事情后，通过这个地址(回调)来找到你取件，执行完回调里面的内容。</p>
+</blockquote>
+<p>示例:<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*回调函数*/</span></span><br><span class="line"><span class="keyword">void</span> *call_phone_number(<span class="keyword">int</span> number )</span><br><span class="line">&#123;</span><br><span class="line">      printf(<span class="string">"phone number = %d\n"</span>,number); <span class="comment">/*通过号码找到朋友*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*调用函数*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">start_call</span>(<span class="params"> <span class="keyword">void</span> *call_back(<span class="keyword">int</span> number</span>))</span><br><span class="line"></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> phone_number = <span class="number">12345</span>;</span><br><span class="line">      call_back(phone_number);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span>(<span class="params"><span class="keyword">void</span></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">      start_call(call_phone_number);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="转移表">转移表</h2><p>用函数指针的形式来替换switch、if/else的方式</p>
+<h3 id="示例：">示例：</h3><p>一个计算器实现<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">double add(double,double);</span><br><span class="line">double sub(double,double);</span><br><span class="line">double mul(double,double);</span><br><span class="line">double <span class="keyword">div</span>(double,double);</span><br><span class="line"></span><br><span class="line">     switch(oper)</span><br><span class="line">     &#123;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">ADD</span>:</span><br><span class="line">               <span class="literal">result</span> = add(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">SUB</span>:</span><br><span class="line">               <span class="literal">result</span> = sub(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">MUL</span>:</span><br><span class="line">               <span class="literal">result</span> = mul(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">DIV</span>:</span><br><span class="line">               <span class="literal">result</span> = <span class="keyword">div</span>(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          default:</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述代码改成转移表只需要两个步骤。<br>首先，声明并初始化一个函数指针数组。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double (*oper_func[])(double,double)=&#123;add,sub,mil,div&#125;;</span><br><span class="line"></span><br><span class="line">调用：</span><br><span class="line">result = oper_func[<span class="link_label">oper</span>](<span class="link_url">op1,op2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>oper从数组中选择正确的函数指针，而函数调用操作符将执行这个函数</p>
+<p>=========================<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
     </div>
@@ -246,7 +262,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/C/" rel="tag">#C</a>
           
         </div>
       
@@ -255,13 +271,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/28/markdown-head-first-basic/" rel="prev">MarkDown 入门指南</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/17/learning-python-with-me-dictonaryy/" rel="next">跟我一起写python--字典(12)</a>
+              <a href="/2016/06/14/c-and-point-twelve-linknode/" rel="next">C与指针-第十二章 链表</a>
             
           </div>
         </div>
@@ -286,8 +300,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/04/17/learning-python-with-me-tuple/"
-                   data-title="跟我一起写python--元组(13)" data-url="http://tianger.github.io/2016/04/17/learning-python-with-me-tuple/">
+              <div class="ds-thread" data-thread-key="2016/06/15/c-and-point-thirteen-function-point/"
+                   data-title="C与指针-第三章-结构体\联合union" data-url="http://tianger.github.io/2016/06/15/c-and-point-thirteen-function-point/">
               </div>
             
           </div>
@@ -369,7 +383,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数"><span class="nav-number">1.</span> <span class="nav-text">回调函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#含义："><span class="nav-number">1.1.</span> <span class="nav-text">含义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机制："><span class="nav-number">1.2.</span> <span class="nav-text">机制：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例："><span class="nav-number">1.3.</span> <span class="nav-text">举例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转移表"><span class="nav-number">2.</span> <span class="nav-text">转移表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例："><span class="nav-number">2.1.</span> <span class="nav-text">示例：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
