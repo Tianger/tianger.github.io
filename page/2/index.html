@@ -176,6 +176,146 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/01/c-and-point-three-and-four/" itemprop="url">
+                C与指针-第三、四章const\extern\static
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-01T21:56:19+08:00" content="2016-06-01">
+            2016-06-01
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/01/c-and-point-three-and-four/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/c-and-point-three-and-four/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>C与指针第三章重点需要掌握的是 const\extern\static  这三个修饰关键字。<br>第四章主要讲的是if\while\switch\for\do..while\goto等常用语句的用法，这作为基础内容，本章就不进行讲解。</p>
+<h2 id="const:">const:</h2><p>const关键字是一个很常用的关键字，它限定一个变量不允许被改变，产生静态作用。</p>
+<h3 id="定义：">定义：</h3><p>const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新的。</p>
+<h3 id="目的：">目的：</h3><p>const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。</p>
+<h3 id="用法：">用法：</h3><h4 id="1-基本用法">1.基本用法</h4><p>const int a = 10;<br>含义：定义了一个int类型的常量a,值为1，a为只读变量，程序允许过程中不能够直接修改它的值，即编译器编译经过类型检查后，直接用10在编译时替换，这使得编译器编译const常量过程中，少了一步存储与读内存的操作，提高了效率</p>
+<h4 id="2-指针">2.指针</h4><p>  int b = 10;<br> 1)const int <em>a =&b;<br> 2)int const </em>a = &b;<br> 3)int <em> const a = &b;<br>含义：<br>1)表示指针所指向的对象是只读的(</em>a 只读),a指向的内容不能够通过a改变</p>
+<blockquote>
+<p><em>a = </em>a +1; //错误，*a为只读，不能被赋值</p>
+</blockquote>
+<p>2)与1)完全相同<br>3)表示指针指向是常量，不能够修改去指向其他内容<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> c =<span class="number">20</span>;</span><br><span class="line"> a = &amp;c; <span class="comment">//错误，a为只读，不能指向其他内容</span></span><br><span class="line"> *a = *a +<span class="number">1</span>; <span class="comment">//正确， *a不为只读</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="3-函数">3.函数</h4><p>   1)修饰函数参数<br>      void foo(const int a);<br>      含义：传进来的a为只读，不能被修改<br>      void foo(const int <em>a);<br>      含义：传进来的</em>a 为只读，不能被修改，同上用于把数据作为参数传进来，函数只能读取这个指针的内容，当函数返回内部的类型时，已经是一个数值，当然不可被赋值更新，因此这种写法无意义</p>
+<p>2)修饰函数返回值<br>    const int foo();<br>    含义：返回值为const类型，指返回的原函数里的变量初值不能被修改</p>
+<h4 id="4-类型检查">4.类型检查</h4><p>const的值只能赋值给const对象，不能赋值给非const对象，只能强制类型转换才可以<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> b =<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> *a = &amp;b; <span class="comment">//错误，a为非const对象，b为const对象</span></span><br><span class="line"><span class="keyword">int</span> *a = (<span class="keyword">int</span> *)&amp;b; <span class="comment">//正确，强制类型转换</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="extern:">extern:</h2><h3 id="定义：-1">定义：</h3><p>extern可置于变量或者函数前，以表示变量或者函数的定义在别的文件中，提示编译器遇到此变量或函数时，在其它模块中寻找其定义。通过这种行为它告诉编译器：该变量/函数的定义已经存在在某个地方了，让编译器到其他的模块去寻找它的定义。</p>
+<h3 id="用法：-1">用法：</h3><p>extern用在变量声明中常常有这样一个作用：你要在<em>.c文件中引用另一个文件中的一个全局的变量，那就应该放在</em>.h中用extern来声明这个全局变量。<br>在定义函数的时候，这个extern可以被省略，函数的默认定义就是extern类型</p>
+<blockquote>
+<p>extern int a;//声明一个全局变量a ，这是一个声明，只有这样写，才能被其他的C调用</p>
+<p>int a; //定义一个全局变量a    ，这是一个定义，这不能被其他C调用</p>
+<p>extern int a =0 ;//定义一个全局变量a 并给初值。一旦给予赋值，一定是定义，定义才会分配存储空间。</p>
+<p>i nt a =0;//定义一个全局变量a,并给初值，<br>声明之后你不能直接使用这个变量，需要定义之后才能使用。</p>
+</blockquote>
+<h2 id="static:">static:</h2><p>static内容参考了<br><a href="http://blog.csdn.net/keyeagle/article/details/6708077/" target="_blank" rel="external">keyeagle的《C语言static分析》</a><br><a href="http://blog.csdn.net/adriano119/article/details/2991317" target="_blank" rel="external">adriano119的《static用法总结》</a></p>
+<h1 id="一个进程在内存中的布局入下图所示:">一个进程在内存中的布局入下图所示:</h1><pre><code><span class="header">|        栈区     |
+------------------</span>
+<span class="header">| 堆栈增长区  |
+------------------</span>
+<span class="header">|       堆区       |
+-----------------</span>
+<span class="header">|      其他段     |
+-----------------</span>
+<span class="header">|        .bss段      |
+-----------------</span>
+<span class="header">|        .data段     |
+-----------------</span>
+<span class="header">|        .text段     |
+==========</span>
+</code></pre><p>  其中.text段保存进程所执行的程序二进制文件，.data段保存进程所有的已初始化的全局变量，.bss段保存进程未初始化的全局变量（其他段中还有很多乱七八糟的段，暂且不表）。在进程的整个生命周期中，.data段和.bss段内的数据时跟整个进程同生共死的，也就是在进程结束之后这些数据才会寿终就寝。</p>
+<p>一般程序的由malloc/new产生的动态数据存放在堆区，函数内部的自动变量存放在栈区,全局变量和static变量放在.data段内(已初始化)或.bss段内(未初始化)，但是它只在定义它的源文件内有效，其他源文件无法访问它</p>
+<h3 id="1、[静态全局变量]">1、[静态全局变量]</h3><p>//在全局变量前，加上关键字static，该变量就被定义成为一个静态全局变量。<br> 静态全局变量有以下特点：<br>        1)该变量在全局数据区分配内存；<br>        2)未经初始化的静态全局变量会被程序自动初始化为0（自动变量的值是随机的，除非它被显式初始化）；<br>        3)静态全局变量在声明它的整个文件都是可见的，而在文件之外(extern)是不可见的；<br>  定义全局变量就可以实现变量在文件中的共享，但定义静态全局变量还有以下好处：</p>
+<blockquote>
+<pre><code><span class="number">1</span>)静态全局变量不能被其它文件所用；
+<span class="number">2</span>)其它文件中可以定义相同名字的变量，不会发生冲突；
+</code></pre></blockquote>
+<p>示例：<br>test1.c中,静态全局变量ch,只能在test1.c中使用，其他c文件不能使用<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>  <span class="keyword">char</span> *ch = <span class="string">"Hello World!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printstr</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test2.<span class="function">c</span><br><span class="line"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,ch);  <span class="comment">//这里会报错，因为这个ch为test.c中的全局变量，只能在test1.c中使用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、[静态局部变量]">2、[静态局部变量]</h3><p>在局部变量前，加上关键字static，该变量就被定义成为一个静态局部变量。</p>
+<p>在函数体内定义了一个变量，每当程序运行到该语句时都会给该局部变量分配栈内存。但随着程序退出函数体，系统就会收回栈内存，局部变量也相应失效。每次调用这个局部变量在栈上的位置都不一定相同。如果我们想再两次的调用期间保留这个局部变量，就变的不可靠，一种方法使定义全局变量，另一个版本是使用静态局部变量</p>
+<p>静态局部变量保存在全局数据区，即.data段或.bss段，而不是保存在栈中，每次的值保持到下一次调用，直到下次赋新值。</p>
+<p>静态局部变量有以下特点：</p>
+<blockquote>
+<p>1)该变量在全局数据区分配内存；<br>2)静态局部变量在程序执行到该对象的声明处时被首次初始化，即以后的函数调用不再进行初始化；<br>3)静态局部变量一般在声明处初始化，如果没有显式初始化，会被程序自动初始化为0；<br>4)它始终驻留在全局数据区，直到程序运行结束。但其作用域为局部作用域，当定义它的函数或语句块结束时，其作用域随之结束；</p>
+</blockquote>
+<h3 id="3、静态函数">3、静态函数</h3><p>在函数的返回类型前加上static关键字,函数即被定义为静态函数。静态函数与普通函数不同，它只能在声明它的文件当中可见，不能被其它文件使用。</p>
+<p>定义静态函数的好处：</p>
+<blockquote>
+<p>1)静态函数不能被其它文件所用；<br>2)其它文件中可以定义相同名字的函数，不会发生冲突；</p>
+</blockquote>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/05/31/c-and-point-two/" itemprop="url">
                 C与指针-第二章 转义字符
               </a>
@@ -1285,126 +1425,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-list/" itemprop="url">
-                跟我一起写python—列表list (11)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T21:24:27+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-list/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-list/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p> 列表是Python中最频繁的数据类型，它可以完成大多数集合类的数据结构体实现，支持字符、数字、字符串，甚至嵌套列表。<br>     列表用[ ]标识。<br>     列表中的值可以用逗号分割，也可以用到变量[头下表:尾下表]，就可以截取相应的列表，从左到右默认索引从0开始，从右往左默认索引从-1开始，下标可以为空表示取到头或尾</p>
-<p>1）列表list的创建<br>只要把逗号风格的不同数据项用中括号[ ]括起来，即完成列表的创建<br>list = [‘name’,’tianger’,’year’,2016]</p>
-<p>2）访问列表中的内容</p>
-<ul>
-<li>通过下标索引来查找</li>
-<li><p>通过字符串截取来查找</p>
-<p>   list = [‘name’,’tianger’,’year’,2016]<br>   print (list[0])   #输出列表中的第一个元素，结果为name<br>   print (list[1:3]) #输出第二个至第三个的元素，[tianger,year]</p>
-</li>
-</ul>
-<p>3）更新列表</p>
-<ul>
-<li>赋值更新</li>
-<li>append插入更新,插入到列表的末尾</li>
-<li>insert(position,name) 在指定位置position后插入元素name</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>])  <span class="comment">#打印列表中的第二个元素</span></span><br><span class="line"><span class="keyword">list</span>[<span class="number">1</span>] = <span class="string">'Ge'</span>  <span class="comment">#修改列表中的第二个元素内容</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>])   <span class="comment">#打印修改后的列表中的第二个元素内容</span></span><br><span class="line"><span class="keyword">list</span>.append(<span class="string">'yuan'</span>) <span class="comment">#在列表的最后插入一个元素'yuan'</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.insert(<span class="number">2</span>,<span class="string">'Tian'</span>) <span class="comment">#在列表的第二个元素后面插入一个元素'Tian'</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">tianger</span></span><br><span class="line"><span class="name">Ge</span></span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'Ge'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="string">'yuan'</span>]</span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'Ge'</span>, <span class="string">'Tian'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="string">'yuan'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>4）删除列表</p>
-<ul>
-<li>del删除</li>
-<li>pop删除</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line"></span><br><span class="line">del <span class="keyword">list</span>[<span class="number">2</span>] <span class="comment">#删除列表第三个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.pop()   <span class="comment">#删除列表最后一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br><span class="line"><span class="keyword">list</span>.pop(<span class="number">1</span>)  <span class="comment">#删除列表第二个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>)</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">['name', 'tianger', <span class="number">2016</span>]</span><br><span class="line">['name', 'tianger']</span><br><span class="line">['name']</span><br></pre></td></tr></table></figure></p>
-<p>5）列表相关函数处理</p>
-<ul>
-<li>获取列表元素个数len()</li>
-<li>返回列表元素中最大的值max()</li>
-<li>返回列表元素中最小的值min()</li>
-<li>列表插入元素insert(),apend()</li>
-<li>列表删除元素del() , pop()</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#!/usr/bin/python</span></span><br><span class="line"><span class="preprocessor"># -*- coding :UTF -<span class="number">8</span> -*-</span></span><br><span class="line">numlist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">print (len(numlist)) <span class="preprocessor">#打印列表元素个数</span></span><br><span class="line">print (max(numlist)) <span class="preprocessor">#打印列表最大值</span></span><br><span class="line">print (min(numlist)) <span class="preprocessor">#打印列表最小值</span></span><br><span class="line">numlist.insert(<span class="number">2</span>,<span class="number">6</span>)  <span class="preprocessor">#在第二个元素后面插入元素<span class="number">6</span></span></span><br><span class="line">print (numlist)</span><br><span class="line">numlist.append(<span class="number">8</span>)    <span class="preprocessor">#在末尾插入元素 <span class="number">8</span></span></span><br><span class="line">print (numlist)</span><br><span class="line"></span><br><span class="line">del numlist[<span class="number">4</span>]  <span class="preprocessor">#删除第<span class="number">5</span>个元素</span></span><br><span class="line">print (numlist)</span><br><span class="line">numlist.pop()   <span class="preprocessor">#删除末尾的元素</span></span><br><span class="line">print (numlist)</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
-<p> 列表练习:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line">tinylist = [<span class="number">345</span>,<span class="string">'tianger'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>) <span class="comment">#输出完整列表</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">0</span>]) <span class="comment">#输出列表中的第一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>:<span class="number">3</span>]) <span class="comment">#输出第二个至第三个的元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">2</span>:]) <span class="comment">#输出第三个开始至列表末尾的元素</span></span><br><span class="line"><span class="keyword">print</span> (tinylist * <span class="number">2</span>) <span class="comment">#输出列表两次</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span> + tinylist) <span class="comment">#打印组合的列表</span></span><br></pre></td></tr></table></figure></p>
-<p>输出:<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line"><span class="atom">name</span></span><br><span class="line">[<span class="string">'tianger'</span>, <span class="string">'year'</span>]</span><br><span class="line">[<span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line">[<span class="number">345</span>, <span class="string">'tianger'</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1443,7 +1463,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
