@@ -1,0 +1,714 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="3G/LTE protocol | C" />
+
+
+
+  <meta name="keywords" content="C," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="本章主要来讲一些之前没用用过的标准函数库。分为整数函数、浮点型函数、日期和时间函数等。
+整数函数：整数函数的返回值为整型值，分为三类：算术、随机数和字符串转换。
+算术：标准函数库包含了4个整型算术函数—abs\labs\ div\ldiv
+abs—求绝对值:
+原型：int abs(int value);函数说明：abs用来计算传入参数的绝对值，然后将结果返回。用法：int answer;answe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C与指针-第十六章-标准函数库">
+<meta property="og:url" content="http://tianger.github.io/2016/06/19/c-and-point-sixteen-stander/index.html">
+<meta property="og:site_name" content="Tianger's Family">
+<meta property="og:description" content="本章主要来讲一些之前没用用过的标准函数库。分为整数函数、浮点型函数、日期和时间函数等。
+整数函数：整数函数的返回值为整型值，分为三类：算术、随机数和字符串转换。
+算术：标准函数库包含了4个整型算术函数—abs\labs\ div\ldiv
+abs—求绝对值:
+原型：int abs(int value);函数说明：abs用来计算传入参数的绝对值，然后将结果返回。用法：int answer;answe">
+<meta property="og:updated_time" content="2016-06-19T12:56:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C与指针-第十六章-标准函数库">
+<meta name="twitter:description" content="本章主要来讲一些之前没用用过的标准函数库。分为整数函数、浮点型函数、日期和时间函数等。
+整数函数：整数函数的返回值为整型值，分为三类：算术、随机数和字符串转换。
+算术：标准函数库包含了4个整型算术函数—abs\labs\ div\ldiv
+abs—求绝对值:
+原型：int abs(int value);函数说明：abs用来计算传入参数的绝对值，然后将结果返回。用法：int answer;answe">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> C与指针-第十六章-标准函数库 | Tianger's Family </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3000033e6d5b1f1f2b431451efbce4ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Tianger's Family</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              C与指针-第十六章-标准函数库
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-19T20:51:29+08:00" content="2016-06-19">
+            2016-06-19
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/19/c-and-point-sixteen-stander/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/c-and-point-sixteen-stander/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>本章主要来讲一些之前没用用过的标准函数库。分为整数函数、浮点型函数、日期和时间函数等。</p>
+<h2 id="整数函数：">整数函数：</h2><p>整数函数的返回值为整型值，分为三类：算术、随机数和字符串转换。</p>
+<h3 id="算术：">算术：</h3><p>标准函数库包含了4个整型算术函数—abs\labs\ div\ldiv</p>
+<h4 id="abs—求绝对值:">abs—求绝对值:</h4><blockquote>
+<p>原型：int abs(int value);<br>函数说明：abs用来计算传入参数的绝对值，然后将结果返回。<br>用法：<br>int answer;<br>answer = abs(-12);//answer 返回为-12的绝对值，结果为12</p>
+</blockquote>
+<h4 id="labs—求绝对值：">labs—求绝对值：</h4><blockquote>
+<p>原型：long int labs(long int value);<br>返回值：labs跟abs一样，用来计算绝对值，但是labs支持长度为long int类型，长度更长。<br>用法：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">long <span class="literal">result</span>;</span><br><span class="line">long x = -<span class="number">12345678</span>L; //长度范围超过了<span class="type">int</span>的最大范围</span><br><span class="line"><span class="literal">result</span>= labs(x);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="div—两个整数相除：">div—两个整数相除：</h4><blockquote>
+<p>原型：div_t div(int numerator,int denominator);<br>返回值：返回商和余数<br>用法：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div_t q;</span><br><span class="line">q = div(<span class="number">10</span>,<span class="number">3</span>);</span><br><span class="line">printf("<span class="number">8</span> div <span class="number">3</span> = %d, remainder = %d\n", q.quot,q.<span class="comment">rem);</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br>8 div 3 = 3, remainder = 1</p>
+</blockquote>
+<h4 id="ldiv—两个整数相除：">ldiv—两个整数相除：</h4><blockquote>
+<p>原型：ldiv_t ldiv(long int numer, long int denom);<br>返回值：返回商和余数<br>用法：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ldiv_t lx;</span><br><span class="line">lx = ldiv(<span class="number">100000</span>L, <span class="number">30000</span>L);</span><br><span class="line">printf("<span class="number">100000</span> div <span class="number">30000</span> = %ld remainder %ld\n", lx.quot, lx.<span class="comment">rem);</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>输出：</p>
+<blockquote>
+<p>100000 div 30000 = 3 remainder 10000</p>
+</blockquote>
+<h3 id="随机数：">随机数：</h3><p>在我们常用的一些加密、模拟操作的时候，需要用到随机数，这里有两个函数(rand\srand)合在一起使用能够产生伪随机数。</p>
+<blockquote>
+<p>伪随机数：通过计算产生随机数，有可能重复，因此不是真正的随机数。</p>
+</blockquote>
+<h4 id="rand—产生随机数：">rand—产生随机数：</h4><blockquote>
+<p>原型：int rand():<br>用法：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>  <span class="built_in">number</span><span class="comment">;</span></span><br><span class="line"><span class="built_in">number</span> = rand()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="srand_—提供随机数种子：">srand —提供随机数种子：</h4><blockquote>
+<p>原型：void srand(unsigned int seed);<br>这里的seed是rand函数的种子，用来初始化rand()的初始值。</p>
+</blockquote>
+<p>rand调用之前，需要用srand产生一个种子，如果没有用主动调用srand，系统也会默认使用srand(1)。</p>
+<p>通常情况下，srand后面跟时间函数来完成随机种子生成，减少随机数相同的可能性。</p>
+<blockquote>
+<p>srand((unsigned)time(NULL));<br>int a = rand();</p>
+</blockquote>
+<h3 id="字符串转换：">字符串转换：</h3><p>字符串转换函数把字符串转换成数值，常用的有atoi\atol.</p>
+<h4 id="atoi—字符串转成整数：">atoi—字符串转成整数：</h4><blockquote>
+<p>原型：int atoi(const char *nptr);<br>返回值：参数nptr字符串，如果第一个非空格字符存在，是数字或者正负号则开始做类型转换，之后检测到非数字(包括结束符 \0) 字符时停止转换，返回整型数。否则，返回零。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span> *<span class="keyword">str</span> = <span class="string">"12345.67"</span>;</span><br><span class="line">n = atoi(<span class="keyword">str</span>);  <span class="comment">//n的值为12345</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="atlo—字符串转成长整形:">atlo—字符串转成长整形:</h4><blockquote>
+<p>原型：long atol(const char *nptr);<br>返回值:<br>返回转换后的长整型数。如果传入的字符串为空，或者字符串包含的内容非阿拉伯数字序列，则函数返回默认值0。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> l;</span><br><span class="line"><span class="keyword">char</span> *<span class="keyword">str</span> = <span class="string">"98765432"</span>;</span><br><span class="line">l = atol(<span class="keyword">str</span>); <span class="comment">//l为98765432</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="浮点型函数：">浮点型函数：</h2><p>头文件math.h包含了函数库中剩余的数学函数的声明。这些函数的返回值以及绝大多数都是double类型。<br>常用的数学函数有三角函数、双曲线函数、对数和指数函数</p>
+<h3 id="三角函数：">三角函数：</h3><blockquote>
+<p>double sin(double angle);<br>double cos(double angle);<br>double tan(double angle);<br>double asin(double value);<br>double acos(double value);<br>double atan(double value);</p>
+</blockquote>
+<p>sin\cos和tan函数的参数是一个用弧度表示的角度，这些函数分包返回这个角度的正弦、余弦和正切值。<br>asin、acos和atan函数分别返回它们的参数的反正弦、反余弦和反正切。</p>
+<h3 id="双曲线函数：">双曲线函数：</h3><blockquote>
+<p>double sinh(double angle);<br>double cosh(double angle);<br>double tanh(double angle);</p>
+</blockquote>
+<p>这些函数分别返回它们的参数的双曲正弦、双曲余弦和双曲正切。每个函数的参数都是一个以弧度表示的角度。</p>
+<h3 id="对数和指数函数：">对数和指数函数：</h3><blockquote>
+<p>double exp(double x);<br>double log(double x);<br>double log10(double x);</p>
+</blockquote>
+<p>exp函数返回e值的x次幂<br>log函数返回x以e为第的对数，也就是常说的自然对数。log10函数返回x以10为底的对数。</p>
+<h2 id="日期和时间函数：">日期和时间函数：</h2><p>日期处理函数需要引用头文件&lt; time.h&gt;</p>
+<h3 id="当天时间:">当天时间:</h3><h4 id="time:">time:</h4><blockquote>
+<p>原型:time_t time(time_t *returned_value);<br>返回值：如果参数是一个非NULL的指针，时间值也将通过这个指针进行存储。如果机器无法提供当前的日期和时间，或者时间值太大，无法用time_t变量表示，函数就返回-1.</p>
+</blockquote>
+<h4 id="ctime:">ctime:</h4><blockquote>
+<p>原型:char <em>ctime(const time_t </em>timep);<br>说明：ctime将参数timep所指的time_t结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串返回。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">time_t timer<span class="comment">;</span></span><br><span class="line">time<span class="list">(<span class="keyword">&amp;timer</span>)</span><span class="comment">;</span></span><br><span class="line">printf<span class="list">(<span class="string">"%s\n"</span>,ctime<span class="list">(<span class="keyword">&amp;timer</span>)</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：</p>
+<blockquote>
+<p>Sun Jun 19 12:47:41 2016</p>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/19/c-and-point-io/" rel="next">C与指针-第十五章--输入/输出</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/06/19/c-and-point-sixteen-stander/"
+                   data-title="C与指针-第十六章-标准函数库" data-url="http://tianger.github.io/2016/06/19/c-and-point-sixteen-stander/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tianger Ge</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整数函数："><span class="nav-number">1.</span> <span class="nav-text">整数函数：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术："><span class="nav-number">1.1.</span> <span class="nav-text">算术：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#abs—求绝对值:"><span class="nav-number">1.1.1.</span> <span class="nav-text">abs—求绝对值:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#labs—求绝对值："><span class="nav-number">1.1.2.</span> <span class="nav-text">labs—求绝对值：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#div—两个整数相除："><span class="nav-number">1.1.3.</span> <span class="nav-text">div—两个整数相除：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ldiv—两个整数相除："><span class="nav-number">1.1.4.</span> <span class="nav-text">ldiv—两个整数相除：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机数："><span class="nav-number">1.2.</span> <span class="nav-text">随机数：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rand—产生随机数："><span class="nav-number">1.2.1.</span> <span class="nav-text">rand—产生随机数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#srand_—提供随机数种子："><span class="nav-number">1.2.2.</span> <span class="nav-text">srand —提供随机数种子：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串转换："><span class="nav-number">1.3.</span> <span class="nav-text">字符串转换：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#atoi—字符串转成整数："><span class="nav-number">1.3.1.</span> <span class="nav-text">atoi—字符串转成整数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#atlo—字符串转成长整形:"><span class="nav-number">1.3.2.</span> <span class="nav-text">atlo—字符串转成长整形:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点型函数："><span class="nav-number">2.</span> <span class="nav-text">浮点型函数：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三角函数："><span class="nav-number">2.1.</span> <span class="nav-text">三角函数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双曲线函数："><span class="nav-number">2.2.</span> <span class="nav-text">双曲线函数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对数和指数函数："><span class="nav-number">2.3.</span> <span class="nav-text">对数和指数函数：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间函数："><span class="nav-number">3.</span> <span class="nav-text">日期和时间函数：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#当天时间:"><span class="nav-number">3.1.</span> <span class="nav-text">当天时间:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#time:"><span class="nav-number">3.1.1.</span> <span class="nav-text">time:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ctime:"><span class="nav-number">3.1.2.</span> <span class="nav-text">ctime:</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tianger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

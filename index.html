@@ -176,6 +176,158 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/19/c-and-point-sixteen-stander/" itemprop="url">
+                C与指针-第十六章-标准函数库
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-19T20:51:29+08:00" content="2016-06-19">
+            2016-06-19
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/19/c-and-point-sixteen-stander/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/c-and-point-sixteen-stander/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>本章主要来讲一些之前没用用过的标准函数库。分为整数函数、浮点型函数、日期和时间函数等。</p>
+<h2 id="整数函数：">整数函数：</h2><p>整数函数的返回值为整型值，分为三类：算术、随机数和字符串转换。</p>
+<h3 id="算术：">算术：</h3><p>标准函数库包含了4个整型算术函数—abs\labs\ div\ldiv</p>
+<h4 id="abs—求绝对值:">abs—求绝对值:</h4><blockquote>
+<p>原型：int abs(int value);<br>函数说明：abs用来计算传入参数的绝对值，然后将结果返回。<br>用法：<br>int answer;<br>answer = abs(-12);//answer 返回为-12的绝对值，结果为12</p>
+</blockquote>
+<h4 id="labs—求绝对值：">labs—求绝对值：</h4><blockquote>
+<p>原型：long int labs(long int value);<br>返回值：labs跟abs一样，用来计算绝对值，但是labs支持长度为long int类型，长度更长。<br>用法：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">long <span class="literal">result</span>;</span><br><span class="line">long x = -<span class="number">12345678</span>L; //长度范围超过了<span class="type">int</span>的最大范围</span><br><span class="line"><span class="literal">result</span>= labs(x);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="div—两个整数相除：">div—两个整数相除：</h4><blockquote>
+<p>原型：div_t div(int numerator,int denominator);<br>返回值：返回商和余数<br>用法：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div_t q;</span><br><span class="line">q = div(<span class="number">10</span>,<span class="number">3</span>);</span><br><span class="line">printf("<span class="number">8</span> div <span class="number">3</span> = %d, remainder = %d\n", q.quot,q.<span class="comment">rem);</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br>8 div 3 = 3, remainder = 1</p>
+</blockquote>
+<h4 id="ldiv—两个整数相除：">ldiv—两个整数相除：</h4><blockquote>
+<p>原型：ldiv_t ldiv(long int numer, long int denom);<br>返回值：返回商和余数<br>用法：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ldiv_t lx;</span><br><span class="line">lx = ldiv(<span class="number">100000</span>L, <span class="number">30000</span>L);</span><br><span class="line">printf("<span class="number">100000</span> div <span class="number">30000</span> = %ld remainder %ld\n", lx.quot, lx.<span class="comment">rem);</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>输出：</p>
+<blockquote>
+<p>100000 div 30000 = 3 remainder 10000</p>
+</blockquote>
+<h3 id="随机数：">随机数：</h3><p>在我们常用的一些加密、模拟操作的时候，需要用到随机数，这里有两个函数(rand\srand)合在一起使用能够产生伪随机数。</p>
+<blockquote>
+<p>伪随机数：通过计算产生随机数，有可能重复，因此不是真正的随机数。</p>
+</blockquote>
+<h4 id="rand—产生随机数：">rand—产生随机数：</h4><blockquote>
+<p>原型：int rand():<br>用法：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>  <span class="built_in">number</span><span class="comment">;</span></span><br><span class="line"><span class="built_in">number</span> = rand()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="srand_—提供随机数种子：">srand —提供随机数种子：</h4><blockquote>
+<p>原型：void srand(unsigned int seed);<br>这里的seed是rand函数的种子，用来初始化rand()的初始值。</p>
+</blockquote>
+<p>rand调用之前，需要用srand产生一个种子，如果没有用主动调用srand，系统也会默认使用srand(1)。</p>
+<p>通常情况下，srand后面跟时间函数来完成随机种子生成，减少随机数相同的可能性。</p>
+<blockquote>
+<p>srand((unsigned)time(NULL));<br>int a = rand();</p>
+</blockquote>
+<h3 id="字符串转换：">字符串转换：</h3><p>字符串转换函数把字符串转换成数值，常用的有atoi\atol.</p>
+<h4 id="atoi—字符串转成整数：">atoi—字符串转成整数：</h4><blockquote>
+<p>原型：int atoi(const char *nptr);<br>返回值：参数nptr字符串，如果第一个非空格字符存在，是数字或者正负号则开始做类型转换，之后检测到非数字(包括结束符 \0) 字符时停止转换，返回整型数。否则，返回零。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span> *<span class="keyword">str</span> = <span class="string">"12345.67"</span>;</span><br><span class="line">n = atoi(<span class="keyword">str</span>);  <span class="comment">//n的值为12345</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="atlo—字符串转成长整形:">atlo—字符串转成长整形:</h4><blockquote>
+<p>原型：long atol(const char *nptr);<br>返回值:<br>返回转换后的长整型数。如果传入的字符串为空，或者字符串包含的内容非阿拉伯数字序列，则函数返回默认值0。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> l;</span><br><span class="line"><span class="keyword">char</span> *<span class="keyword">str</span> = <span class="string">"98765432"</span>;</span><br><span class="line">l = atol(<span class="keyword">str</span>); <span class="comment">//l为98765432</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="浮点型函数：">浮点型函数：</h2><p>头文件math.h包含了函数库中剩余的数学函数的声明。这些函数的返回值以及绝大多数都是double类型。<br>常用的数学函数有三角函数、双曲线函数、对数和指数函数</p>
+<h3 id="三角函数：">三角函数：</h3><blockquote>
+<p>double sin(double angle);<br>double cos(double angle);<br>double tan(double angle);<br>double asin(double value);<br>double acos(double value);<br>double atan(double value);</p>
+</blockquote>
+<p>sin\cos和tan函数的参数是一个用弧度表示的角度，这些函数分包返回这个角度的正弦、余弦和正切值。<br>asin、acos和atan函数分别返回它们的参数的反正弦、反余弦和反正切。</p>
+<h3 id="双曲线函数：">双曲线函数：</h3><blockquote>
+<p>double sinh(double angle);<br>double cosh(double angle);<br>double tanh(double angle);</p>
+</blockquote>
+<p>这些函数分别返回它们的参数的双曲正弦、双曲余弦和双曲正切。每个函数的参数都是一个以弧度表示的角度。</p>
+<h3 id="对数和指数函数：">对数和指数函数：</h3><blockquote>
+<p>double exp(double x);<br>double log(double x);<br>double log10(double x);</p>
+</blockquote>
+<p>exp函数返回e值的x次幂<br>log函数返回x以e为第的对数，也就是常说的自然对数。log10函数返回x以10为底的对数。</p>
+<h2 id="日期和时间函数：">日期和时间函数：</h2><p>日期处理函数需要引用头文件&lt; time.h&gt;</p>
+<h3 id="当天时间:">当天时间:</h3><h4 id="time:">time:</h4><blockquote>
+<p>原型:time_t time(time_t *returned_value);<br>返回值：如果参数是一个非NULL的指针，时间值也将通过这个指针进行存储。如果机器无法提供当前的日期和时间，或者时间值太大，无法用time_t变量表示，函数就返回-1.</p>
+</blockquote>
+<h4 id="ctime:">ctime:</h4><blockquote>
+<p>原型:char <em>ctime(const time_t </em>timep);<br>说明：ctime将参数timep所指的time_t结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果以字符串返回。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">time_t timer<span class="comment">;</span></span><br><span class="line">time<span class="list">(<span class="keyword">&amp;timer</span>)</span><span class="comment">;</span></span><br><span class="line">printf<span class="list">(<span class="string">"%s\n"</span>,ctime<span class="list">(<span class="keyword">&amp;timer</span>)</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：</p>
+<blockquote>
+<p>Sun Jun 19 12:47:41 2016</p>
+</blockquote>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/19/c-and-point-io/" itemprop="url">
                 C与指针-第十五章--输入/输出
               </a>
@@ -1219,142 +1371,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/04/c-and-point-point/" itemprop="url">
-                C与指针-第六章-指针
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-04T23:12:18+08:00" content="2016-06-04">
-            2016-06-04
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/06/04/c-and-point-point/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/04/c-and-point-point/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="指针">指针</h2><h3 id="含义：">含义：</h3><p>在计算机科学中，指针（Pointer）是编程语言中的一个对象，利用地址，它的值直接指向（points to）存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。因此，将地址形象化的称为“指针”。意思是通过它能找到以它为地址的内存单元。</p>
-<p>指针是一个特殊的变量，它里面存储的数值被解释成为内存里的一个地址</p>
-<blockquote>
-<p>&amp;操作符：取变量的地址<br>*操作符：对指针做解引用操作</p>
-</blockquote>
-<h3 id="地址&amp;内存：">地址&amp;内存：</h3><p>计算机的内存由数以亿万技的位(bit)组成，每个位可以容纳0和1.</p>
-<p>由于位的标示范围太有限，计算机中为了可以存储较大范围的值，通常把许多个位合成一组作为一个单位。在现代大多数的机器中，常用的是用8个位来组成一个单位，这里成为字节(byte)。1个字节可以存储无符号值0~255，或有符号值-128~127。</p>
-<p> 其实字节标示的大小也比较有限，为了继续扩大存储的范围，我们把更多个字节组合在一起，作为一个更大的单位。</p>
-<p> 例如：</p>
-<blockquote>
-<p>int   –4个字节   ，32位为4个字节<br>  float –4个字节<br>  long –4个字节<br>  long long —8个字节</p>
-</blockquote>
-<p>需要注意的：<br>1)内存中的每个位置由一个独一无二的地址标识<br>2)内存中的每个位置都包含一个值<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/c_point.png" alt=""></p>
-<blockquote>
-<p>int a =112,b = -1;<br>  float c = 3.14;<br>  int <em>d = &a;<br>  float </em>e = &c;</p>
-<p>a,b,c,d,e分别表示什么<br>a是112，b为-1，c为3.14<br>d是指向int型的指针，这里指向a的地址，a的地址是100，所以d的值为100<br>e为指向float型的指针，这里指向c的地址，c的地址为108，所以e的值为108</p>
-</blockquote>
-<h3 id="间接访问操作符：">间接访问操作符：</h3><h4 id="含义：-1">含义：</h4><p>通过一个指针访问它所指向的地址的过程称为间接访问或解引用指针。</p>
-<h4 id="操作符：对应的操作符为*">操作符：对应的操作符为*</h4><p>例如：<br>我们上面一节中的d为100，<em>d即为间接访问，</em>d的值为int类型，d的值为100，<em>d标示访问内存位置100并查看哪里的值，因此</em>d的右值为112.</p>
-<p>未初始化和非法的指针：<br> 下面这个代码有没有问题：</p>
-<blockquote>
-<p> int <em>a;
- </em>a = 10;</p>
-</blockquote>
-<p>语句描述：这个语句声明创建了一个名叫a的指针变量。<br> *a = 10表示把12 存储到a所指向的内存位置。</p>
-<p>正常编译这个语句没有问题，但是在正常使用的过程中，会存在一些隐患。这里的a没有做初始化，那么a指向哪个地址我们不清楚，所以这个10存储到哪个内存区域，其实我们也不能清楚的知道。</p>
-<pre><code><span class="blockquote">&gt; 如果指针变量是静态的，它会自动初始化为0</span>
-<span class="blockquote">&gt; 如果指针变量是自动的，那它根本不会被初始化。</span>
-</code></pre><p>所以当，赋值操作进行时，如果a的初值是个非法地址，这个语句将会出错，程序终止；如果a的初值是个合法地址，那么地址上的值被修改，但是我们不确定那个地址是否是我们想要修改的地方。<br>     所以，在对指针进行间接访问之前，要确保它已经初始化。</p>
-<h3 id="空指针：">空指针：</h3><p>含义：表示不指向任何东西(地址或内容)<br>用法：要使一个指针变量位NULL，就需要给它赋一个零值。<br>         想要测试一个指针是否为空，我们需要拿它与零值进行比较。这个零值由源代码约定得出。<br>     指针与零值比较来判断是否为空，我们最好用!这个符号来表示，这样可以排除隐士类型转换，也增强了可读性<br>例如：</p>
-<blockquote>
-<p>int a = 10;<br>int *b = &a;<br>if (!b)<br>{<br>  printf(“point p is not null\n”);<br>}</p>
-</blockquote>
-<h3 id="指针的指针:">指针的指针:</h3><p>我们用**来进行表示指针的指针，例如：</p>
-<blockquote>
-<p>int a = 10;<br>int <em>b = &a;<br>int *</em>c = &b;</p>
-</blockquote>
-<p>假设a的地址为101<br>那么b = 101, <em>b = 10;<br>**c相当于</em>(<em>c),我们必须从里向外逐成求值。</em>c访问c所指向的位置，即为变量b，为101，<em>(</em>c)这个间接访问操作，即访问c所指向位置的地址，这里就死&amp;b，就是变量a，值为10.</p>
-<h3 id="指针运算:">指针运算:</h3><p> 指针运算包括 算数运算和关系运算：</p>
-<h4 id="运算符：+_,-,++,—">运算符：+ ,-,++,—</h4><p>   这种形式只能用于指向数组中某个元素的指针，结果类型也是指针。<br>   指针的算数运算都需要操作一段连续的内存空间，例如数组</p>
-<h4 id="指针运算：+，++">指针运算：+，++</h4><blockquote>
-<p> int   value[5]<br>   int   *p;<br>  (1) p = &amp;value[0];//p指向value数组的第一个元素<br>      P += 2;  //p向后偏移两个int长度的位置，即指向了value数组的第三个元素</p>
-<p>(2) for (p = &amp;value[0]; p&lt; &amp;value[5];)<br>     {<br>          <em>p++ =0;   //这边先进行</em>p = 0的操作，即把value[0]赋初值为0，再指针后移一位，循环初始化value这个数组<br>     }</p>
-</blockquote>
-<p>   当p这个指针指向的地址大于value[5]的地址，循环结束，p &lt;&amp;value[5],这里经过了5此循环后，p就指向了value数组最后一个数组外面的那个地址，指针可能可以合法的获取这个值，但对它执行简介访问操作可能意外的原先存储于这个位置的变量，我们一般不知道这个变量是什么，因此，这种情况下，一般不允许对指向这个位置的指针进行间接操作，即*p = 10这种操作</p>
-<h4 id="指针运算:_-，–">指针运算: -，–</h4><p>  指针相减运算，只适用于数组的操作，即两个指针都指向同一个数组中的元素时，才允许一个指针减去另一个指针。</p>
-<blockquote>
-<p>int   value[5]<br>   int   <em>p;<br>  (1) p = &amp;value[4];//p指向value数组的第一个元素<br>      P -= 2;  //p向前偏移两个int长度的位置，即指向了value数组的第三个元素<br> (2) for (p = &amp;value[4]; p&gt;= &amp;value[0]; p–)<br>     {
-          </em>p =0;   //这边先进行*p = 0的操作，即把value[4]赋初值为0，再指针减减，向前移动一位，循环初始化value这个数组<br>     }</p>
-</blockquote>
-<p>当p这个指针指向的地址小于value[0]的地址，循环结束，p &gt; = &amp;value[0],经过5次循环后，p指针指向了数组第一个元素之前,这里我们同样不能再对p这个指针进行间接操作。</p>
-<h3 id="总结：">总结：</h3><p>1)未初始化的指针变量，不能进行解引用操作<br>2)初始化为NULL的指针，不能进行解引用操作<br>3)指针进行加减法操作后，指向了数组外面的内存地址后，不能对它们进行间接操作<br>4)指针的减法操作只能针对同一个数组的元素进行</p>
-<p>=========================<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1393,7 +1409,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
