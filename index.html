@@ -269,7 +269,7 @@
 <p>原型：int atoi(const char *nptr);<br>返回值：参数nptr字符串，如果第一个非空格字符存在，是数字或者正负号则开始做类型转换，之后检测到非数字(包括结束符 \0) 字符时停止转换，返回整型数。否则，返回零。</p>
 </blockquote>
 <p>示例：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span> *<span class="keyword">str</span> = <span class="string">"12345.67"</span>;</span><br><span class="line">n = atoi(<span class="keyword">str</span>);  <span class="comment">//n的值为12345</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="atlo—字符串转成长整形:">atlo—字符串转成长整形:</h4><blockquote>
+<h4 id="atol—字符串转成长整形:">atol—字符串转成长整形:</h4><blockquote>
 <p>原型：long atol(const char *nptr);<br>返回值:<br>返回转换后的长整型数。如果传入的字符串为空，或者字符串包含的内容非阿拉伯数字序列，则函数返回默认值0。</p>
 </blockquote>
 <p>示例：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> l;</span><br><span class="line"><span class="keyword">char</span> *<span class="keyword">str</span> = <span class="string">"98765432"</span>;</span><br><span class="line">l = atol(<span class="keyword">str</span>); <span class="comment">//l为98765432</span></span><br></pre></td></tr></table></figure></p>
