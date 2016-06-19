@@ -176,6 +176,105 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/02/c-and-point-five/" itemprop="url">
+                C与指针-第五章左移、右移操作
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-02T22:09:46+08:00" content="2016-06-02">
+            2016-06-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/02/c-and-point-five/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/c-and-point-five/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>本文参考了<a href="http://www.cnblogs.com/myblesh/articles/2431806.html" target="_blank" rel="external">京月飞鸿的《C语言中的左移与右移》</a></p>
+<h2 id="左移操作:">左移操作:</h2><h3 id="含义：">含义：</h3><p>顾名思义就是把一个数的所有位都向左移动若干位，在C用用&lt;&lt;运算符标记<br>例：</p>
+<blockquote>
+<p>int i = 1;<br>i = i &lt;&lt; 2</p>
+</blockquote>
+<p>1的二进制为00000001(这里用8位标示，不同系统，不同的位数)，向左移两位，即把1向左移动两位，后面补两个0<br>即 00000100,转换成10进制就变成了4</p>
+<p>需要注意的是，int类型为有符号的类型，最左端的1位是符号位,即0正1负,那么移位的时候就会出现溢出<br>例：</p>
+<blockquote>
+<p>int i  = 0x40000000; //二进制位01000000000000000000000000000000<br>i = i &lt;&lt; 1</p>
+</blockquote>
+<p>i左移1位后变为0x80000000，符号位被置为了1，其它位全是0，变成了int所能表达的最小值，32位的int为-2147483648，溢出。<br>如果此时i再左移1位后，丢弃了最高为后，i变成了0</p>
+<h2 id="右移操作：">右移操作：</h2><h3 id="含义：-1">含义：</h3><p>顾名思义就是把一个数的所有位都向右移动若干位，在C用用&gt;&gt;运算符标记<br>右移分为逻辑右移动和算术右移。</p>
+<h3 id="逻辑右移：">逻辑右移：</h3><p>方法：<br>左边移入的位用0填充<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，则最后面两位移除，最开始的添加两个0，变成00100101，十进制为37</p>
+<h3 id="算术右移：">算术右移：</h3><p>方法：<br>左边移入的位由原先该值的符号位决定，符号位为1则移入的位均为1，符号位为0，则移入的位都为0，这样能够保持原数的正负数形式不变。<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，原来的符号位即首位为1，即最后两位移除，最开始添加两个符号位，这里为1，即变成11100101，十进制为229</p>
+<h2 id="总结：">总结：</h2><p>左移时总是移位和补零。右移时无符号数是移位和补零，此时称为逻辑右移;<br>而有符号数大多数情况下是移位和补最左边的位（也就是补最高有效位），移几位就补几位,此时称为算术右移</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/01/c-and-point-three-and-four/" itemprop="url">
                 C与指针-第三、四章const\extern\static
               </a>
@@ -1332,104 +1431,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-dictonaryy/" itemprop="url">
-                跟我一起写python--字典(12)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T22:06:02+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-dictonaryy/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。<br>字典的数据存储以键值对(key:value)的方式来存储。<br>字典使用大括号，元组使用小括号，列表使用方括号</p>
-<p>1.字典的创建及访问<br>创建方式：<br>{key1:value1 ,key2:value2}</p>
-<p>例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span><span class="symbol">:<span class="string">'tianger'</span></span>,<span class="string">'year'</span><span class="symbol">:<span class="string">'2016’&#125; #创建字典</span><br><span class="line"></span><br><span class="line">print ("dict1['</span>name<span class="string">']:",dict1['</span>name<span class="string">']) #获取字典key-name对应的内容</span><br><span class="line">print ("dict1['</span>year<span class="string">']:",dict1['</span>year<span class="string">']) #获取字典key-name对应的内容</span></span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">tianger</span></span><br><span class="line"><span class="attribute">dict1['year']</span>: <span class="string">2016</span></span><br></pre></td></tr></table></figure></p>
-<p>2.字典修改<br>字典可以更新某一个key/value的内容，也可以增加一个新的key/value内容<br>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['age']:"</span>,dict1[<span class="string">'age'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">jason</span></span><br><span class="line"><span class="attribute">dict1['age']</span>: <span class="string">27</span></span><br></pre></td></tr></table></figure></p>
-<p>3.删除字典<br>删除字典可以只删单个元素，也可以清空完整字典<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> dict1[<span class="string">'name'</span>]; <span class="comment">#删除key是name的item</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line">dict1.clear()  <span class="comment">#清空字典所以得条目</span></span><br><span class="line"><span class="keyword">del</span> dict1     <span class="comment">#删除字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['year']:"</span>,dict1[<span class="string">'year'</span>])</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">10</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>])</span><br><span class="line"><span class="attribute">KeyError</span>: <span class="string">'name'</span></span><br></pre></td></tr></table></figure></p>
-<p>由于key-name这个item被删除，所以print会出错</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
   </nav>
 
  </div>
@@ -1463,7 +1469,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

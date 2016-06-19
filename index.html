@@ -176,6 +176,140 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/19/c-and-point-io/" itemprop="url">
+                C与指针-第十五章--输入/输出
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-19T16:20:24+08:00" content="2016-06-19">
+            2016-06-19
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/19/c-and-point-io/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/c-and-point-io/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>本章主要讨论ANSI C的输入和输出(I/O)函数。首先需要看两个错误和退出的函数。</p>
+<h2 id="错误报错perror:">错误报错perror:</h2><blockquote>
+<p>原型：void perror(char const *message);<br>头文件： &lt; stdio.h&gt; , &lt; stdlib.h&gt;</p>
+</blockquote>
+<p>如果message不是NULL，并且指向一个非空的字符串，perror函数就打印出这个字符串。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">FILE</span> *fp;</span><br><span class="line">fp = fopen(“/home/tianger/<span class="keyword">test</span>”,”r”);</span><br><span class="line"><span class="keyword">if</span>(NULL == fp)</span><br><span class="line">&#123;</span><br><span class="line">     perror(“/home/tianger/<span class="keyword">test</span>”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：</p>
+<blockquote>
+<p>/home/tianger/test：No such file or directory</p>
+</blockquote>
+<h2 id="终止执行exit：">终止执行exit：</h2><blockquote>
+<p>原型：void exit(int status)；<br>头文件: &lt; stdlib.h&gt;</p>
+</blockquote>
+<p>exit,用于终止一个程序的执行，传入的status参数返回给操作系统，用于提示程序是否正常完成。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">     <span class="built_in">exit</span> ⑴；<span class="comment">//等价于return ⑴；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="打开流：fopen:">打开流：fopen:</h2><blockquote>
+<p>原型：FILE <em> fopen(const char </em> path,const char * mode);<br>返回值：成功，返回文件指针，失败返回NULL，错误码保存在errno中 .<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FILE</span> *fp;</span><br><span class="line">fp = fopen(“/home/tianger/<span class="keyword">test</span>”,”r”);</span><br><span class="line"><span class="keyword">if</span>(NULL == fp)</span><br><span class="line">&#123;</span><br><span class="line">     perror(“/home/tianger/<span class="keyword">test</span>”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="关闭流：fclose：">关闭流：fclose：</h2><blockquote>
+<p>原型：int fclose( FILE *fp );<br>返回值：成功，返回0；失败，返回EOF(-1)</p>
+</blockquote>
+<p>关闭fopen打开的fp</p>
+<blockquote>
+<p>fclose(fp);<br>fp = NULL;</p>
+</blockquote>
+<h2 id="读缓冲区：fread:">读缓冲区：fread:</h2><p>fread从一个文件流中读数据，最多读取count个元素，每个元素size字节，如果调用成功返回实际读取到的元素个数，如果不成功或读到文件末尾返回 0</p>
+<blockquote>
+<p>原型：size_t fread ( void <em>buffer, size_t size, size_t count, FILE </em>stream) ;<br>参数:<br>buffer  用于接收数据的内存地址<br>size  要读的每个数据项的字节数，单位是字节<br>count 要读count个数据项，每个数据项size个字节.<br>stream   输入流<br>返回值：实际读取的元素个数。如果返回值与count不相同，则可能文件结尾或发生错误。从ferror和feof获取错误信息或检测是否到达文件结尾。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    FILE*stream;</span><br><span class="line">    <span class="keyword">char</span> msg[]=<span class="string">"this is a test"</span>;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">if</span>((stream=fopen(<span class="string">"tianger.txt"</span>,<span class="string">"w+"</span>))==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"Can not open output file.\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*write some data to the file*/</span></span><br><span class="line">    fwrite(msg,<span class="built_in">strlen</span>(msg)+<span class="number">1</span>,<span class="number">1</span>,stream);</span><br><span class="line">    <span class="comment">/*sizeof（char）=1 seek to the beginning of the file*/</span></span><br><span class="line">    fseek(stream,<span class="number">0</span>,SEEK_SET);</span><br><span class="line">    <span class="comment">/*read the data and display it*/</span></span><br><span class="line">    fread(buf,<span class="built_in">strlen</span>(msg)+<span class="number">1</span>,<span class="number">1</span>,stream);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf);</span><br><span class="line">    fclose(stream);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br>产生一个tianger.txt文件，并打印 this is a test.</p>
+<h2 id="写缓冲区:_fwrite:">写缓冲区: fwrite:</h2><p>fwrite 指向文件写入一个数据块.fwrite只是把程序先写到缓冲区，真正写入到文件，由操作系统决定，如果此时你想快速把缓冲区内容写入到文件，可以调用fflush()来实现。</p>
+<blockquote>
+<p>原型：size_t fwrite(const void<em> buffer, size_t size, size_t count, FILE</em> stream);<br>返回值：返回实际写入的数据块数目<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    FILE * pFile;</span><br><span class="line">    <span class="keyword">char</span> buffer[] = &#123; <span class="string">'x'</span> , <span class="string">'y'</span> , <span class="string">'z'</span> &#125;;</span><br><span class="line">    pFile = fopen ( <span class="string">"tianger.txt"</span> , <span class="string">"wb"</span> );</span><br><span class="line">    fwrite (buffer , <span class="keyword">sizeof</span>(buffer), <span class="number">1</span> , pFile );</span><br><span class="line">    fclose (pFile);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>输出:<br>往文件tianger.txt中写入xyz</p>
+<h2 id="移动文件流的读写位置:fseek()">移动文件流的读写位置:fseek()</h2><blockquote>
+<p>原型：int fseek(FILE *stream, long offset, int fromwhere);<br>返回值：如果执行成功，stream将指向以fromwhere为基准，偏移offset（指针偏移量）个字节的位置，函数返回0。如果执行失败(比如offset超过文件自身大小)，则不改变stream指向的位置，函数返回一个非0值。</p>
+</blockquote>
+<p>示例参考fread中的用法。</p>
+<h2 id="缓冲区强制物理写入：fflush()">缓冲区强制物理写入：fflush()</h2><p>fflush()用来清除读写缓冲区，需要立即把输出缓冲区的数据进行物理写入。</p>
+<blockquote>
+<p>原型：int fflush(FILE *stream);<br>返回值：成功，返回0；失败，返回EOF(-1)。</p>
+</blockquote>
+<p>在上面fwite写完后，fflpsu(fp); 即执行缓冲区内容写入文件。</p>
+<h2 id="格式化字符：sprintf():">格式化字符：sprintf():</h2><p>sprintf()是字符串格式化命令，主要功能是把格式化的数据写入某个字符串中，它是一个可变参数函数。</p>
+<blockquote>
+<p>原型：int sprintf(char <em>buffer,char const </em>format, …)<br>参数：<br>buffer：char型指针，指向将要写入的字符串的缓冲区。<br>format：格式化字符串。<br>[argument]…：可选参数，可以是任何类型的数据。<br>返回值：<br>     返回写入buffer 的字符数，出错则返回-1. 如果 buffer 或 format 是空指针，且不出错而继续，函数将返回-1，并且 errno 会被设置为 EINVAL。<br>     sprintf 返回被写入buffer 的字节数，结束字符‘\0’不计入内。即，如果“Hello”被写入空间足够大的buffer后，函数sprintf 返回5。</p>
+</blockquote>
+<p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">void</span> )</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span>  buffer[<span class="number">200</span>], s[] = <span class="string">"computer"</span>, c = <span class="string">'l'</span>;</span><br><span class="line">  <span class="keyword">int</span>  i = <span class="number">35</span>, j;</span><br><span class="line">  <span class="keyword">float</span> fp = <span class="number">1.7320534f</span>;</span><br><span class="line">  <span class="comment">// 格式化并打印各种数据到buffer</span></span><br><span class="line">  j  = <span class="built_in">sprintf</span>( buffer,    <span class="string">"  String:    %s\n"</span>, s ); </span><br><span class="line">  j += <span class="built_in">sprintf</span>( buffer + j, <span class="string">"  Character: %c\n"</span>, c ); </span><br><span class="line">  j += <span class="built_in">sprintf</span>( buffer + j, <span class="string">"  Integer:  %d\n"</span>, i ); </span><br><span class="line">  j += <span class="built_in">sprintf</span>( buffer + j, <span class="string">"  Real:      %f\n"</span>, fp );</span><br><span class="line">  <span class="built_in">printf</span>( <span class="string">"Output:\n%s\ncharacter count = %d\n"</span>,buffer,j );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br>Output:<br>  String:    computer<br>  Character: l<br>  Integer:  35<br>  Real:      1.732053</p>
+<p>character count = 74</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/18/c-and-point-fourteen-define/" itemprop="url">
                 C与指针-第十四章--预处理器
               </a>
@@ -1221,110 +1355,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/02/c-and-point-five/" itemprop="url">
-                C与指针-第五章左移、右移操作
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-02T22:09:46+08:00" content="2016-06-02">
-            2016-06-02
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/06/02/c-and-point-five/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/c-and-point-five/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>本文参考了<a href="http://www.cnblogs.com/myblesh/articles/2431806.html" target="_blank" rel="external">京月飞鸿的《C语言中的左移与右移》</a></p>
-<h2 id="左移操作:">左移操作:</h2><h3 id="含义：">含义：</h3><p>顾名思义就是把一个数的所有位都向左移动若干位，在C用用&lt;&lt;运算符标记<br>例：</p>
-<blockquote>
-<p>int i = 1;<br>i = i &lt;&lt; 2</p>
-</blockquote>
-<p>1的二进制为00000001(这里用8位标示，不同系统，不同的位数)，向左移两位，即把1向左移动两位，后面补两个0<br>即 00000100,转换成10进制就变成了4</p>
-<p>需要注意的是，int类型为有符号的类型，最左端的1位是符号位,即0正1负,那么移位的时候就会出现溢出<br>例：</p>
-<blockquote>
-<p>int i  = 0x40000000; //二进制位01000000000000000000000000000000<br>i = i &lt;&lt; 1</p>
-</blockquote>
-<p>i左移1位后变为0x80000000，符号位被置为了1，其它位全是0，变成了int所能表达的最小值，32位的int为-2147483648，溢出。<br>如果此时i再左移1位后，丢弃了最高为后，i变成了0</p>
-<h2 id="右移操作：">右移操作：</h2><h3 id="含义：-1">含义：</h3><p>顾名思义就是把一个数的所有位都向右移动若干位，在C用用&gt;&gt;运算符标记<br>右移分为逻辑右移动和算术右移。</p>
-<h3 id="逻辑右移：">逻辑右移：</h3><p>方法：<br>左边移入的位用0填充<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，则最后面两位移除，最开始的添加两个0，变成00100101，十进制为37</p>
-<h3 id="算术右移：">算术右移：</h3><p>方法：<br>左边移入的位由原先该值的符号位决定，符号位为1则移入的位均为1，符号位为0，则移入的位都为0，这样能够保持原数的正负数形式不变。<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，原来的符号位即首位为1，即最后两位移除，最开始添加两个符号位，这里为1，即变成11100101，十进制为229</p>
-<h2 id="总结：">总结：</h2><p>左移时总是移位和补零。右移时无符号数是移位和补零，此时称为逻辑右移;<br>而有符号数大多数情况下是移位和补最左边的位（也就是补最高有效位），移几位就补几位,此时称为算术右移</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </nav>
 
  </div>
@@ -1358,7 +1393,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
