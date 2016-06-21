@@ -176,6 +176,119 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/05/c-and-pint-seven-function/" itemprop="url">
+                C与指针-第七章-函数
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-05T22:55:12+08:00" content="2016-06-05">
+            2016-06-05
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/05/c-and-pint-seven-function/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/c-and-pint-seven-function/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>函数是指一段在一起的、可以做某一件事的程序，也叫子程序、方法。</p>
+<h2 id="定义：">定义：</h2><blockquote>
+<p>返回类型  函数名字(形式参数)<br>{<br>     代码块<br>}</p>
+</blockquote>
+<p>形式参数列表包括变量名和它们的类型声明。<br>代码块包含了局部变量的声明和相关执行语句。<br>compare.c中<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int max(int <span class="keyword">value</span><span class="number">_</span>left, int <span class="keyword">value</span><span class="number">_</span>right)</span><br><span class="line">&#123;</span><br><span class="line">     <span class="keyword">if</span> (<span class="keyword">value</span><span class="number">_</span>left &gt; <span class="keyword">value</span><span class="number">_</span>right)</span><br><span class="line">     &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">value</span><span class="number">_</span>left;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">     &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">value</span><span class="number">_</span>right;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果函数的类型声明为void，没有返回值；否则，需要相应类型的返回值。</p>
+<h2 id="声明：">声明：</h2><p>当我们在一个源文件中定义的函数想被其他源文件使用的话，我们需要在头文件中声明这个函数，想调用这个函数的源文件中，include这个头文件即可。<br>.h文件中按如下方式进行声明。<br>返回类型  函数名字(形式参数)；<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">internel.h中</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> value_left ,<span class="keyword">int</span> value_right)</span></span>;</span><br><span class="line"></span><br><span class="line">在 main.c中使用</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> max_value;</span><br><span class="line">   max_value(<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">   <span class="built_in">printf</span>(“max value is %d\n”,max_value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数形参：">函数形参：</h2><p>C函数的所有参数均以“传值调用”方式进行传递。但是当我们传进来的参数为一个数组时，并在函数㕜使用下表引用该数组的参数，那么实际上函数对该数据的修改是调用程序中数组的元素，这个行为被称为“传址调用”。</p>
+<p>下面这个数组，length为传值调用，array为传址调用<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="built_in">array</span>[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reset</span><span class="params">(<span class="keyword">int</span> *<span class="built_in">array</span>,<span class="keyword">int</span> length)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">     <span class="keyword">while</span> (length &gt;<span class="number">0</span>)</span><br><span class="line">     &#123;</span><br><span class="line">          <span class="comment">/*把数组的元组清零*/</span></span><br><span class="line">          <span class="built_in">array</span>[lengh] = <span class="number">0</span>;</span><br><span class="line">          length—;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="递归与迭代：">递归与迭代：</h2><h3 id="递归算法：">递归算法：</h3><p>直接或间接调用自身的函数。<br>把操作的内容放入栈，等函数递归完成后，出栈打印<br>下面这个简单的例子来说明递归调用方式。<br>程序作用：输入一个值，循环打印它的除以10 后剩余的值。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="keyword">fun</span>(<span class="title">int</span></span> input)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (input &gt;<span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span>(<span class="title">input</span></span>/<span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  printf(<span class="string">"%d\n"</span>,input);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">fun</span>(1234);</span><br><span class="line">  <span class="title">return</span></span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>输出：<br>0<br>1<br>12<br>123<br>1234</p>
+</blockquote>
+<p>这里递归的操作依次为，先把第一个input放入栈，此时为1234；当再次调用时得到input的值，input为123，把123放入栈，一直大牌最后input的值为0，结束递归，打印时，先从栈顶取出数据，栈顶数据为0，栈底数据为1234，打印上面输出的结果<br>数据操作如下图所示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/c_function.png" alt=""></p>
+<h3 id="迭代算法：">迭代算法：</h3><p>迭代是重复反馈过程的活动，其目的通常是为了逼近所需目标或结果。每一次对过程的重复称为一次“迭代”，而每一次迭代得到的结果会作为下一次迭代的初始值。</p>
+<p>迭代算法是用计算机解决问题的一种基本方法。它利用计算机运算速度快、适合做重复性操作的特点，让计算机对一组指令（或一定步骤）进行重复执行，在每次执行这组指令（或这些步骤）时，都从变量的原值推出它的一个新值。</p>
+<p>对于上面递归的算法，我们换成迭代来实现：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="keyword">fun</span>(<span class="title">int</span></span> input)void <span class="function"><span class="keyword">fun</span>(<span class="title">int</span></span> input)</span><br><span class="line">&#123;</span><br><span class="line">   int ret;</span><br><span class="line">   <span class="keyword">while</span>(input &gt;<span class="number">0</span>)</span><br><span class="line">   &#123;</span><br><span class="line">     ret = input;</span><br><span class="line">     printf(<span class="string">"%d\n"</span>,ret);</span><br><span class="line">     input = input/<span class="number">10</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结：">总结：</h3><p>递归的使用可以使代码更加简洁清晰，可读性更好，但由于递归需要系统堆栈，所以空间消耗比非递归代码要大很多。<br>理论上，递归与迭代在时间复杂度方面是等价的，但实际上递归的效率确实比迭代低。<br>一般情况下，能不用递归我们就尽量不使用递归，我们使用递归的先决条件是，当且仅当一个存在预期的收敛时，我们才使用递归算法，否则我们还是用迭代。</p>
+<h2 id="可变参数：">可变参数：</h2><p>我们之前将的函数传进来的参数个数都是固定的，那么我们有没有办法，函数的参数有多个，但是我们只调用其中一部分呢，C的可变参数实现了这一功能。<br>     我们看下面这个例子，msg函数有多个参数，但是我们只调用其中一个，这种方式我们可以用在log打印上，可以打印不同类型的log，以及多个参数列表实现。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">msg</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y…)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">     msg(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>C的可变参数使用，需要用到下面一些函数：<br>void va_start( va_list arg_ptr, prev_param );<br>type va_arg( va_list arg_ptr, type );<br>void va_end( va_list arg_ptr );</p>
+<p>va_list:用来保存宏va_start、va_arg和va_end所需信息的一种类型。为了访问变长参数列表中的参数，必须声明va_list类型的一个对象       定义： typedef char *  va_list;</p>
+<p>va_start:访问变长参数列表中的参数之前使用的宏，它初始化用va_list声明的对象，初始化结果供宏va_arg和 va_end使用；</p>
+<p>va_arg: 展开成一个表达式的宏，该表达式具有变长参数列表中下一个参数的值和类型。每次调用va_arg都会修改用va_list声明的对象，从而使该对象指向参数列表中的下一个参数；</p>
+<p>va_end:该宏使程序能够从变长参数列表用宏va_start引用的函数中正常返回。<br>va在这里是variable-argument(可变参数)的意思.</p>
+<p>这些宏定义在stdarg.h中,所以用到可变参数的程序应该包含这个头文件.下面我们写一个简单的可变参数的函数,改函数至少有一个整数参数,第二个参数也是整数,是可选的.函数只是打印这两个参数的值.</p>
+<p>例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">msg_print</span><span class="params">(<span class="keyword">char</span> *msg,...)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    va_list arg_ptr; <span class="comment">/* 定义保存函数参数的结构 */</span></span><br><span class="line">    <span class="keyword">int</span> ipara =<span class="number">0</span>;      <span class="comment">/* 定义参数个数 */</span></span><br><span class="line">    <span class="keyword">char</span> *para = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">char</span>  flag;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* arg_ptr指向传入的第一个可选参数，msg是最后一个确定的参数 */</span></span><br><span class="line">    va_start(arg_ptr, msg);</span><br><span class="line">    <span class="keyword">while</span>(*msg)</span><br><span class="line">    &#123;</span><br><span class="line">        flag = *msg++;</span><br><span class="line">        <span class="keyword">if</span> (flag != <span class="string">'%'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">putchar</span>(flag); <span class="comment">/*  如果字符不包括%号，把字符输出到终端上 */</span></span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        flag = *msg++; <span class="comment">/*  如果字符是%号，指针后移一位，判断对应格式 */</span></span><br><span class="line">        <span class="keyword">switch</span>(flag)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'s'</span>: <span class="comment">/*  检索到%s，进行字符串的打印 */</span></span><br><span class="line">                para = va_arg(arg_ptr, <span class="keyword">char</span> *); <span class="comment">/*  取出当前的参数，类型为char *. */</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%s"</span>,para);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'d'</span>:</span><br><span class="line">                ipara = va_arg(arg_ptr, <span class="keyword">int</span>);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d"</span>, ipara);</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    va_end(arg_ptr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    msg_print(<span class="string">"The first print %d\n"</span>,<span class="number">100</span>);</span><br><span class="line">    msg_print(<span class="string">"The second print %s,%d\n"</span>,<span class="string">"hello"</span>,<span class="number">200</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>输出：<br>he first print 100<br>The second print hello,200</p>
+</blockquote>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/04/c-and-point-point/" itemprop="url">
                 C与指针-第六章-指针
               </a>
@@ -1236,245 +1349,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/28/markdown-head-first-basic/" itemprop="url">
-                MarkDown 入门指南
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-28T22:22:21+08:00" content="2016-04-28">
-            2016-04-28
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/MarkDown/" itemprop="url" rel="index">
-                  <span itemprop="name">MarkDown</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/04/28/markdown-head-first-basic/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/markdown-head-first-basic/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="1-为什么要用Markdown">1.为什么要用Markdown</h3><h3 id="2-常用语法">2.常用语法</h3><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-1标题">&nbsp;&nbsp;&nbsp;&nbsp;2.1标题</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-2粗体、斜体">&nbsp;&nbsp;&nbsp;&nbsp;2.2粗体、斜体</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-3空格、居中">&nbsp;&nbsp;&nbsp;&nbsp;2.3空格、居中</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-4分割线">&nbsp;&nbsp;&nbsp;&nbsp;2.4分割线</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-5列表">&nbsp;&nbsp;&nbsp;&nbsp;2.5列表</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-6高亮代码">&nbsp;&nbsp;&nbsp;&nbsp;2.6高亮代码</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-7引用">&nbsp;&nbsp;&nbsp;&nbsp;2.7引用</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-8表格">&nbsp;&nbsp;&nbsp;&nbsp;2.8表格</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-9超链接、图片">&nbsp;&nbsp;&nbsp;&nbsp;2.9超链接、图片</h4><h3 id="3-常用编辑器">3.常用编辑器</h3><h3 id="4-最后想说的">4.最后想说的</h3><hr>
-<h3 id="1-为什么要用Markdown-1">1.为什么要用Markdown</h3><p>很多人写文档都喜欢用word，但是有没有觉得很长的时间，我们都在调格式，其实真正的技术文档，我们应该把主要的经历花费在技术内容中，而不是在格式的调整中。  </p>
-<p>当我们的word格式的文档需要更新时，不同的版本不方便管理和控制。</p>
-<blockquote>
-<p><em>We believe that writing is about content, about what you want to say - not about fancy formatting.</em><br>我们坚信写作写的是内容，所思所想，而不是花样格式。<br>— Ulysses for Mac  </p>
-</blockquote>
-<h5 id="Markdown优点：">Markdown优点：</h5><ul>
-<li>专注你的文字内容而不是排版样式，安心写作  </li>
-<li>可以转换成pdf、html等格式  </li>
-<li>纯文本内容，兼容所有的文本编辑器与字处理软件  </li>
-<li>文档版本可控    </li>
-<li>可读、直观、学习成本低  </li>
-<li>技术青年  </li>
-</ul>
-<hr>
-<h3 id="2-常用语法-1">2.常用语法</h3><h4 id="2-1标题">2.1标题</h4><h5 id="语法：">语法：</h5><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
-<h5 id="效果：">效果：</h5><h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><hr>
-<h5 id="2-2粗体、斜体">2.2粗体、斜体</h5><h5 id="语法：-1">语法：</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span>粗体<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">__粗体__</span><br><span class="line"><span class="keyword">*</span>斜体<span class="keyword">*</span></span><br><span class="line">_斜体_</span><br></pre></td></tr></table></figure>
-<h5 id="效果：-1">效果：</h5><p><strong>粗体</strong><br><strong>粗体</strong><br><em>斜体</em><br><em>斜体</em>  </p>
-<hr>
-<h4 id="2-3-空格、居中">2.3.空格、居中</h4><h5 id="语法：-2">语法：</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp;nbsp;空格,一个&amp;nbsp;为一个空格</span><br><span class="line"><span class="tag">&lt;<span class="title">center</span>&gt;</span>居中<span class="tag">&lt;/<span class="title">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="效果：-2">效果：</h5><p>&nbsp;空格,一个&nbsp;为一个空格</p>
-<center>居中</center> 
-
-
-<hr>
-<h4 id="2-4分割线">2.4分割线</h4><h5 id="语法：-3">语法：</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">~~文字删除线~~</span><br></pre></td></tr></table></figure>
-<h5 id="效果：-3">效果：</h5><hr>
-<hr>
-<p><del>文字删除线</del></p>
-<hr>
-<h4 id="2-5列表">2.5列表</h4><h5 id="语法：-4">语法：</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>无序列表项目</span><br><span class="line"><span class="bullet">- </span>无序列表项目</span><br><span class="line"><span class="bullet">- </span>无序列表项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>无序列表项目</span><br><span class="line"><span class="bullet">* </span>无序列表项目</span><br><span class="line"><span class="bullet">* </span>无序列表项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">1. </span>有序列表项目</span><br><span class="line"><span class="bullet">2. </span>有序列表项目</span><br><span class="line"><span class="bullet">3. </span>有序列表项目</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>外层列表项目</span><br><span class="line"> + 内层列表项目</span><br><span class="line"> + 内层列表项目</span><br><span class="line"> + 内层列表项目</span><br><span class="line"><span class="bullet">- </span>外层列表项目</span><br></pre></td></tr></table></figure>
-<h5 id="效果：-4">效果：</h5><ul>
-<li>无序列表项目</li>
-<li>无序列表项目</li>
-<li>无序列表项目</li>
-</ul>
-<ul>
-<li>无序列表项目</li>
-<li>无序列表项目</li>
-<li>无序列表项目</li>
-</ul>
-<ol>
-<li>有序列表项目</li>
-<li>有序列表项目</li>
-<li>有序列表项目</li>
-</ol>
-<ul>
-<li>外层列表项目<ul>
-<li>内层列表项目</li>
-<li>内层列表项目</li>
-<li>内层列表项目</li>
-</ul>
-</li>
-<li>外层列表项目</li>
-</ul>
-<hr>
-<h4 id="2-6高亮代码">2.6高亮代码</h4><h5 id="语法：-5">语法：</h5><blockquote>
-<p>首尾都要输入三个括号里的符号(`)</p>
-</blockquote>
-<h5 id="效果：-5">效果：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (YourIdea)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"You are very handsome\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="2-7引用">2.7引用</h4><h5 id="语法：-6">语法：</h5><p>在需要添加引用的内容之前加入符号&gt;<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="blockquote">&gt; 这是一个引用  </span></span><br><span class="line"><span class="blockquote">&gt; I think so</span></span><br></pre></td></tr></table></figure></p>
-<h5 id="效果：-6">效果：</h5><blockquote>
-<p>这是一个引用<br>I think so</p>
-</blockquote>
-<hr>
-<h4 id="2-8表格">2.8表格</h4><hr>
-<h5 id="语法：-7">语法：</h5><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> ABCD </span>|<span class="string"> EFGH </span>|<span class="string"> IJKL </span>|</span><br><span class="line">|<span class="string">:----:</span>|<span class="string">:----:</span>|<span class="string">:----:</span>|</span><br><span class="line">|<span class="string"> 1    </span>|<span class="string"> 2    </span>|<span class="string">  3   </span>|</span><br><span class="line">|<span class="string"> 4    </span>|<span class="string"> 5    </span>|<span class="string">  6   </span>|</span><br><span class="line">|<span class="string"> 7    </span>|<span class="string"> 8    </span>|<span class="string">  8   </span>|</span><br></pre></td></tr></table></figure>
-<h5 id="效果：-7">效果：</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">ABCD</th>
-<th style="text-align:center">EFGH</th>
-<th style="text-align:center">IJKL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">6</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">8</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 id="2-9超链接、图片">2.9超链接、图片</h4><h5 id="语法：-8">语法：</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">超链接：</span><br><span class="line">[<span class="link_label">Tianger's Family</span>](<span class="link_url">http://tianger.github.io/</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">图片：</span><br><span class="line">![<span class="link_label">天歌的编程小结</span>](<span class="link_url">http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="效果：-8">效果：</h5><p>超链接：<br><a href="http://tianger.github.io/">Tianger’s Family</a>  </p>
-<p>图片：<br>公众号：天歌的编程小结<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="天歌的编程小结"></p>
-<hr>
-<h3 id="3-常用编辑器-1">3.常用编辑器</h3><p>在线编辑器：</p>
-<ul>
-<li><p>作业部落  </p>
-<blockquote>
-<p>支持流程图、序列图<br>地址：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">https://www.zybuluo.com/mdeditor</a></p>
-</blockquote>
-</li>
-<li><p>简书  </p>
-<blockquote>
-<p>地址：<a href="http://www.jianshu.com/" target="_blank" rel="external">http://www.jianshu.com/</a></p>
-</blockquote>
-</li>
-<li><p>马克飞象 Marxico</p>
-<blockquote>
-<p>内容可以同步到印象笔记中<br>地址：<a href="https://maxiang.io/" target="_blank" rel="external">https://maxiang.io/</a></p>
-</blockquote>
-</li>
-</ul>
-<p>离线编辑器：</p>
-<ul>
-<li><p>MarkdownPad  </p>
-<blockquote>
-<p>下载地址： <a href="http://markdownpad.com/" target="_blank" rel="external">http://markdownpad.com/</a></p>
-</blockquote>
-</li>
-<li><p>CuteMarkEd  </p>
-<blockquote>
-<p>下载地址：<a href="http://cloose.github.io/CuteMarkEd" target="_blank" rel="external">http://cloose.github.io/CuteMarkEd</a></p>
-</blockquote>
-</li>
-</ul>
-<p>Firefox插件：  </p>
-<ul>
-<li>Markdown Viewer  <blockquote>
-<p>下载地址： <a href="https://addons.mozilla.org/zh-CN/firefox/addon/markdown-viewer/?src=ss" target="_blank" rel="external">https://addons.mozilla.org/zh-CN/firefox/addon/markdown-viewer/?src=ss</a>  </p>
-</blockquote>
-</li>
-</ul>
-<p>Chrome插件： </p>
-<ul>
-<li><p>Markdown preview</p>
-<blockquote>
-<p>下载地址：<a href="http://www.cnplugins.com/office/markdown-preview/download.html" target="_blank" rel="external">http://www.cnplugins.com/office/markdown-preview/download.html</a>  </p>
-</blockquote>
-</li>
-<li><p>Markdown preview plus</p>
-<blockquote>
-<p>下载地址：<a href="http://www.cnplugins.com/fuzhu/markdown-preview-plus-dzte/download.html" target="_blank" rel="external">http://www.cnplugins.com/fuzhu/markdown-preview-plus-dzte/download.html</a></p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h3 id="4-最后想说的-1">4.最后想说的</h3><p>Markdown的入门介绍就到这里的，相信看到这里，基本上已经能够开始进行Markdown的编写了，那么让我们加入MD，一起拥抱开源！</p>
-<p>本文使用Markdown编写，可以下载作为例子参考：<br>下载地址：</p>
-<p><a href="http://7xn24x.com1.z0.glb.clouddn.com/MarkDown%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.md" target="_blank" rel="external">MarkDown入门指南</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1513,7 +1387,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">43</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
