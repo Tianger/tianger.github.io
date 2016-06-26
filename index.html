@@ -176,6 +176,104 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/26/c-and-point-seventeen-queue/" itemprop="url">
+                C与指针-第十七章-队列
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-26T16:14:44+08:00" content="2016-06-26">
+            2016-06-26
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/26/c-and-point-seventeen-queue/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/c-and-point-seventeen-queue/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>前面学习了堆栈的操作，本章主要来学习队列的相关操作。</p>
+<h2 id="队列的特点：">队列的特点：</h2><blockquote>
+<p>1)先进先出(First in First Out FIFO)<br>  例如排队等餐，先排的人拿到快餐后，离开这个队伍，后面一个人前进一位，新来的人在队伍的最后面加入<br>2)队列只允许在队首进行删除操作，队尾进行添加操作</p>
+</blockquote>
+<p>队列的数据存储方式主要有下面两种方式：</p>
+<blockquote>
+<p>1）动态数组存储<br>2）链表存储</p>
+</blockquote>
+<h2 id="队列的几个操作：">队列的几个操作：</h2><blockquote>
+<p>1)初始化队列：<br>    队列的内容进行初始化，如果是动态申请空间队列，还需要申请空间<br> 2)进队列:<br>      数据从队尾加入<br>3)出队列:<br>      数据从队首删除<br>4)判断队列是否为空:<br>      检查队列中是否还有元素<br>5)判断队列是否已满：<br>      检查队列中元素的个数是否已达到上限</p>
+</blockquote>
+<p>接下来通过代码示例来实现两种存储方式的队列，为了方便操作，这里的数据都使用int类型</p>
+<h2 id="1-动态数组存储">1.动态数组存储</h2><h3 id="queue-h">queue.h</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> QUEUE_H</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> QUEUE_H</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*初始化并创建队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init_array_queue</span><span class="params">(size_t size)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*销毁队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">destroy_array_queue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*入队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(<span class="keyword">int</span> value)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*出队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dnqueue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*队首元素*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">queue_top</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*队列是否为空*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">is_queue_empty</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*队列是否已满*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">is_queue_full</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="queue-c">queue.c</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"queue.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*保存数据的数组*/</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> *queue_arr=<span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*队列的实际大小*/</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> QUEUE_SIZE    <span class="number">100</span>  <span class="comment">/*队列中元素数量的限制*/</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> true <span class="number">1</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> false <span class="number">0</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*初始化并创建队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init_array_queue</span><span class="params">(size_t size)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    queue_arr = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * size);</span><br><span class="line">    <span class="keyword">if</span> (queue_arr == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"arr malloc error!"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*销毁队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">destroy_array_queue</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (queue_arr)</span><br><span class="line">  &#123;</span><br><span class="line">     <span class="built_in">free</span>(queue_arr);</span><br><span class="line">     queue_arr = <span class="literal">NULL</span>;</span><br><span class="line">     count = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*入队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(<span class="keyword">int</span> value)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  queue_arr[count++] = value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*出队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dnqueue</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;;</span><br><span class="line">    <span class="keyword">int</span> ret = queue_arr[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    count--;</span><br><span class="line">    <span class="keyword">while</span> (i++&lt;count)</span><br><span class="line">        queue_arr[i-<span class="number">1</span>] = queue_arr[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">queue_top</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> queue_arr[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*队列是否为空*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">is_queue_empty</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> count == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*队列是否已满*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">is_queue_full</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> count == QUEUE_SIZE -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  init_array_queue(QUEUE_SIZE);</span><br><span class="line">  enqueue(<span class="number">10</span>);</span><br><span class="line">  enqueue(<span class="number">20</span>);</span><br><span class="line">  <span class="keyword">int</span> top = queue_top();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"queue top is %d\n"</span>,top);</span><br><span class="line">  destroy_array_queue();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-链表存储">2.链表存储</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*单链表节点*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>  NODE</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="keyword">struct</span> NODE* next;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*表头*/</span></span><br><span class="line"><span class="keyword">static</span> Node *phead = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*创建节点*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">create_node</span><span class="params">(<span class="keyword">int</span> data)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Node *pnode = <span class="literal">NULL</span>;</span><br><span class="line">    pnode = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    <span class="keyword">if</span>(!pnode)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pnode-&gt;data = data;</span><br><span class="line">    pnode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> pnode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*销毁链表*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">destory_link</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Node *pnode = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(phead != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pnode = phead;</span><br><span class="line">        phead = phead-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(pnode);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*入队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(<span class="keyword">int</span> data)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!phead)</span><br><span class="line">  &#123;</span><br><span class="line">      phead = create_node(data);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  Node *pnode = create_node(data);</span><br><span class="line">  Node *pend = phead;</span><br><span class="line">  <span class="keyword">while</span>(pend-&gt;next)</span><br><span class="line">  &#123;</span><br><span class="line">      pend = pend-&gt;next;</span><br><span class="line">  &#125;</span><br><span class="line">  pend-&gt;next = pnode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*出队列*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dnqueue</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line"> <span class="keyword">int</span> ret = phead-&gt;data;</span><br><span class="line"> Node *pnode = phead;</span><br><span class="line"> phead = phead-&gt;next;</span><br><span class="line"> <span class="built_in">free</span>(pnode);</span><br><span class="line"> <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">queue_top</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> phead-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*返回链表节点个数*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    Node *pend = phead;</span><br><span class="line">    <span class="keyword">while</span>(pend)</span><br><span class="line">    &#123;</span><br><span class="line">        pend = pend-&gt;next;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*队列是否为空*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">is_queue_empty</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> size() == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  enqueue(<span class="number">10</span>); <span class="comment">/*入队*/</span></span><br><span class="line">  enqueue(<span class="number">20</span>);</span><br><span class="line">  <span class="keyword">int</span> top = queue_top(); <span class="comment">/*返回队首元素*/</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"queue top is %d\n"</span>,top);</span><br><span class="line">  destory_link(); <span class="comment">/*销毁队列*/</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/21/c-and-point-seventeen-stack/" itemprop="url">
                 C与指针-第十七章-堆栈
               </a>
@@ -1257,112 +1355,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/07/c-and-point-eight/" itemprop="url">
-                C与指针-第八章-数组
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-07T22:22:28+08:00" content="2016-06-07">
-            2016-06-07
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/06/07/c-and-point-eight/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/c-and-point-eight/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。</p>
-<p>特点：只能存放一种类型的数据，如全部是int型或者全部是char型，数组里的数据成为元素。</p>
-<h2 id="一维数组：">一维数组：</h2><h3 id="格式：">格式：</h3><p>类型 数组名[元素个数-常量表达式]<br>（1）数组名的命名方法与变量名相同，遵循标识符命名规则;<br>（2）数组是用方括号括起来的常量表达式，不能用圆括号;<br>（3）常量表达式表示数组元素的个数，即数组的长度，数组的下标从0开始，下标的最大值为:<br>常量表达式-1;<br>（4）常量表达式中可以包括常量和符号常量，不能包括变量。<br>可以用赋值语句或输入语句使数组中的元素得到值，但要占用运行时间。可以使数组在运行之前初始化，即在编译阶段使之得到初值。</p>
-<h3 id="初始化：">初始化：</h3><p>int buf[5] = {1,2,3,4,5};<br>这里把buf数组中的5个元素初始化为1,2,3,4,5</p>
-<h3 id="下标：">下标：</h3><p>这里变量buf称为数组，因为它是一些值的集合，下标和数组名一起使用，用于标示该集合中的某个特定的值。例如buf[0]表示数组buf的第一个元素的值，这里值为1. buf[4]标示数组buf第5个值，这里值为5.<br>buf[0]  //对应的值为1<br>buf[4] //对应的值为5<br>数组的下标从0开始计数</p>
-<h2 id="多维数组：">多维数组：</h2><p>某个数组的维数不止1个，我们称这个数组为多维数组</p>
-<h3 id="格式：-1">格式：</h3><p>数组［下标］［下标］</p>
-<p>在引用二维数组时，必须是单个元素，不能是整个数组名。下标可以是一个表达式，但不能是变量。如果下标是一个表达式，注意表达式的值不能超出数组定义的上、下限。</p>
-<p>int num[3][5];<br>创建了一个包含15个元素的矩阵。我们一般把这个理解为3行5列，当然也可以理解为5行3列，为了我们方便记忆，我们看做为3行10列。</p>
-<p>(1) 多维数组初始化<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num[<span class="number">3</span>][<span class="number">5</span>] =&#123;&#123;<span class="number">1</span>,<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>&#125;,&#123;<span class="number">6</span>，<span class="number">7</span>，<span class="number">8</span>，<span class="number">9</span>，<span class="number">10</span>&#125;,&#123;<span class="number">11</span>，<span class="number">12</span>，<span class="number">13</span>，<span class="number">14</span>，<span class="number">15</span>&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>以上赋值把第一个花括号内的数据赋给第一行元素，第二个花括号内数据赋给第二元素，以此类推，即按行赋值</p>
-<p>(2) 可以将所有的数据写在一个花括号内，按数组排列的顺序对各元素赋值。</p>
-<p>(3)可以对数组的部分元素赋初值。如:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static int a[<span class="link_label">3</span>][<span class="link_reference">5</span>]  = &#123;&#123;1&#125;,&#123;6&#125;，&#123;11&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>以上赋值的结果是:数组第一列的元素分别赋了初值1，6，11，其余元素的值都是0。<br>(4)如果对二维数组的全部元素都赋初值，则定义数组时对第一维的长度可以不指定，但第二维的长度不能省。</p>
-<h2 id="指针数组_&amp;数组指针：">指针数组 &amp;数组指针：</h2><p>　　指针数组：首先它是一个数组，数组的元素都是指针，数组占多少个字节由数组本身决定。它是“储存指针的数组”的简称。<br>　　数组指针：首先它是一个指针，它指向一个数组。在32 位系统下永远是占4 个字节，至于它指向的数组占多少字节，不知道。它是“指向数组的指针”的简称。</p>
-<p>例：</p>
-<h3 id="指针数组：">指针数组：</h3><blockquote>
-<p>int <em>num1[10];<br>“[]”的优先级比“</em>”要高,num1先与“[]”结合，构成一个数组的定义，数组名为num1.int *修饰的是数组的内容，即数组的每个元素。那现在我们清楚，这是一个数组，其包含10 个指向int 类型数据的指针，即指针数组。</p>
-</blockquote>
-<h3 id="数组指针：">数组指针：</h3><blockquote>
-<p>int (<em>num2)[10];<br>在这里“()”的优先级比“[]”高，“</em>”号和num2 构成一个指针的定义，指针变量名为num2,int 修饰的是数组的内容，即数组的每个元素。</p>
-</blockquote>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1401,7 +1393,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
