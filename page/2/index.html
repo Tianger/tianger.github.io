@@ -176,6 +176,124 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/09/c-and-point-nine-char/" itemprop="url">
+                C与指针-第九章-字符、字符串处理API
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-09T23:08:16+08:00" content="2016-06-09">
+            2016-06-09
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/09/c-and-point-nine-char/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/09/c-and-point-nine-char/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>字符串是一种重要的数据类型，但是C语言并没有显式的字符串数据类型，因此字符串以字符串常量的形式出现或存储于字符数组中。字符串常量很适用于那些程序不会对它们进行修改的字符串。所有其他字符串都必须存储于字符数组或动态分配的内存中。本次主要描述处理字符串和字符的库函数。</p>
+<p>字符串就是一串零个或多个字符，并且以一个位模式为全0的NUL字节结尾。因此，字符串所包含的字符内部不能出现NUL字节。<br>     字符、字符串处理需要引入string.h这个头文件</p>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span>
+</code></pre><h2 id="1-字符串长度">1.字符串长度</h2><p>API: strlen<br>原型：size_t strlen(char const *string)<br>返回值:string字符串的长度，不包括结束符\0<br>作用：strlen返回一个类型为sizt_t的值，属于一个无符号整数类型。即为传入字符串的长度<br>用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> buf[<span class="number">20</span>] = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="built_in">strlen</span>(buf);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"i = %d\n"</span>,i);</span><br></pre></td></tr></table></figure></p>
+<p>这里i打印值为5，即为字符串hello的长度，不包含结束符。</p>
+<p>尝试模仿strlen的写法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">size_t</span> my_strlen(<span class="keyword">const</span> <span class="keyword">char</span>* <span class="built_in">string</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">size_t</span> length = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(*<span class="built_in">string</span>++ != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        length += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-复制字符串">2.复制字符串</h2><h3 id="1)不受长度限制">1)不受长度限制</h3><p>API：strcpy<br>原型：char <em>strcpy(char </em>dst,char const *src)<br>返回值：返回指向dst字符串的指针<br>作用：这个函数把参数src字符串复制到dst参数。如果参数src和dst在内存中出现重叠，其结果是未定义的。dst必须是一个字符数组或者是一个指向动态分配内存的数组的指针。<br>     src赋值给dst，dst以前的内容将会被覆盖丢失.如果src的长度超过了dst数组的长度，执行时会crash<br>用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">30</span>] = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="built_in">strcpy</span>(buf,<span class="string">"message"</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf);</span><br><span class="line"> 输出内容为 message</span><br></pre></td></tr></table></figure></p>
+<p>模仿strcpy的写法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">my_strcpy</span><span class="params">(<span class="keyword">char</span> *dst, <span class="keyword">const</span> <span class="keyword">char</span> * src)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *ret = dst;</span><br><span class="line">    <span class="keyword">if</span>((dst == <span class="literal">NULL</span>) || (src == <span class="literal">NULL</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(*src != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst++ = *src++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2)长度受限制">2)长度受限制</h3><p>API:strncpy<br>原型：char <em>strncpy(char </em>dst, char const *src, size_t len);<br>返回值：返回指向dst字符串的指针<br>作用：把src字符串的字符复制到dst数组中。它总是正好向dst写入len个字符。如果strlen(src)的值小于len，dst数组会用额外的NUL字节填充到len长度。如果strlne(src)的值大于或等于len，那么只有len 个字符被复制到dst中。<br>用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">30</span>] = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="built_in">strncpy</span>(buf,<span class="string">"A message"</span>,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf); <span class="comment">//输出A mes world，长度为5，其余的不拷贝</span></span><br><span class="line"><span class="built_in">strncpy</span>(buf,<span class="string">"A message"</span>,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf); <span class="comment">//输出A message</span></span><br></pre></td></tr></table></figure></p>
+<p>模仿strncpy的写法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">my_strncpy</span><span class="params">(<span class="keyword">char</span> *dst, <span class="keyword">const</span> <span class="keyword">char</span> * src ,<span class="keyword">int</span> len)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *ret = dst;</span><br><span class="line">    <span class="keyword">size_t</span> i;</span><br><span class="line">    <span class="keyword">if</span>((dst == <span class="literal">NULL</span>) || (src == <span class="literal">NULL</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len &amp;&amp; src[i] != <span class="string">'\0'</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dst[i] = src[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dst[i] = <span class="string">'\0'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-连接字符串">3.连接字符串</h2><h3 id="1)不受长度限制-1">1)不受长度限制</h3><p>API: strcat<br>原型：char <em>strcat(char </em>dst, const char *src);<br>返回：返回指向dst字符串的指针<br>作用：把src的字符串添加(连接)到dst字符串后面。这里要求dst原先已经包含了一个字符串(可以为空字符串)。它找到这个字符串的末尾。并把src字符串的一份拷贝添加到这个位置。如果src和dst的位置发生重叠，其结果是未定义的。<br>用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">20</span>] = “hello”;</span><br><span class="line"><span class="built_in">strcat</span>(buf,”world”);</span><br><span class="line"><span class="built_in">printf</span>(“%s\n”,buf); <span class="comment">//输出helloworld</span></span><br></pre></td></tr></table></figure></p>
+<p>模仿strcat的写法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">my_stcat</span><span class="params">(<span class="keyword">char</span> *dst, <span class="keyword">const</span> <span class="keyword">char</span> * src)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *ret = dst;</span><br><span class="line">    <span class="keyword">if</span>((dst == <span class="literal">NULL</span>) || (src == <span class="literal">NULL</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(*dst != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        dst++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(*src != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst++ = *src++;</span><br><span class="line">    &#125;</span><br><span class="line">    *dst = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">return</span> dst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2)长度受限制-1">2)长度受限制</h3><p>API: strncat<br>原型：char <em>strncat(char </em>dst, const char *src,size_t len);<br>返回值：指向dst的指针<br>作用：从src中复制长度为len个字符到dst中<br>用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">20</span>] = “hello”;</span><br><span class="line"><span class="built_in">strncat</span>(buf,”world”,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">printf</span>(“%s\n”,buf); <span class="comment">//输出hellowo</span></span><br><span class="line"><span class="built_in">strncat</span>(buf,”world”,<span class="number">10</span>);</span><br><span class="line"><span class="built_in">printf</span>(“%s\n”,buf); <span class="comment">//输出helloworld，超过部分遇到\0结束符，不再进行连接</span></span><br></pre></td></tr></table></figure></p>
+<p>模拟strncat：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">my_stncat</span><span class="params">(<span class="keyword">char</span> *dst, <span class="keyword">const</span> <span class="keyword">char</span> * src,size_t len)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *ret = dst;</span><br><span class="line">    <span class="keyword">size_t</span> i;</span><br><span class="line">    <span class="keyword">if</span>((dst == <span class="literal">NULL</span>) || (src == <span class="literal">NULL</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(*dst != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        dst++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(len &amp;&amp; (*dst++ = *src++) != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        len--;</span><br><span class="line">    &#125;</span><br><span class="line">    *dst = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">return</span> dst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-字符串比较">4.字符串比较</h2><h3 id="1)不受长度限制-2">1)不受长度限制</h3><p>API: strcmp<br>原型：int strcmp(const char <em>s1, const char </em>s2)<br>返回值：0表示两个字符串相同，其余表示两个字符串不同<br>作用：对两个字符串s1\s2逐个字符进行比较，直到发现不匹配为止<br>用法：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">char buf[<span class="number">20</span>] = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">ret</span> = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">ret</span> = strcmp(buf,<span class="string">"hello”);</span><br><span class="line"></span><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">ret</span>);//输出<span class="number">0</span>，两个字符串相同</span><br><span class="line"><span class="keyword">ret</span> = strcmp(buf,”hello world<span class="string">");</span><br><span class="line"></span><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="keyword">ret</span>);//输出-<span class="number">32</span>，两个字符串不同</span><br></pre></td></tr></table></figure></p>
+<p>模仿strcmp：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">size_t</span> my_strcmp(<span class="keyword">const</span> <span class="keyword">char</span> *s1, <span class="keyword">const</span> <span class="keyword">char</span> * s2)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">size_t</span> ret = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> ((s1 == <span class="literal">NULL</span>) || (s2 == <span class="literal">NULL</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!(ret = *(<span class="keyword">unsigned</span> <span class="keyword">char</span>*)s1 - *(<span class="keyword">unsigned</span> <span class="keyword">char</span> *)s2) &amp;&amp; *s2)</span><br><span class="line">    &#123;</span><br><span class="line">        ++s1;</span><br><span class="line">        ++s2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2)长度受限制-2">2)长度受限制</h3><p>API: strncmp<br>原型：int strcmp(const char <em>s1, const char </em>s2,size_t len)<br>返回值：0表示两个字符串相同，其余表示两个字符串不同<br>作用：对两个字符串s1\s2逐个字符进行比较，直到发现不匹配为止<br>用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">20</span>] = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">ret = <span class="built_in">strncmp</span>(buf,<span class="string">"hello"</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ret); <span class="comment">//输出0，表示hello中前两个字符he跟hello中前两个相同</span></span><br><span class="line"></span><br><span class="line">ret = <span class="built_in">strncmp</span>(buf,<span class="string">"hello world"</span>,<span class="number">8</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ret); <span class="comment">//输出-32，表示不相等，即hello world前8个字符，与hello不相等</span></span><br></pre></td></tr></table></figure></p>
+<p>模仿strncmp：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">size_t</span> my_strncmp(<span class="keyword">const</span> <span class="keyword">char</span> *s1, <span class="keyword">const</span> <span class="keyword">char</span> * s2,<span class="keyword">size_t</span> len)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">size_t</span> ret = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> ((s1 == <span class="literal">NULL</span>) || (s2 == <span class="literal">NULL</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!(ret = *(<span class="keyword">unsigned</span> <span class="keyword">char</span>*)s1 - *(<span class="keyword">unsigned</span> <span class="keyword">char</span> *)s2) &amp;&amp; *s2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (len &lt;=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ++s1;</span><br><span class="line">        ++s2;</span><br><span class="line">        len--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-字符串查找">5.字符串查找</h2><p>原型：char strstr(char <em>s1, char </em>s2)<br>返回值：NULL，或者指向查找到的起始位置的指针<br>作用：这个函数在s1中查找整个s2第一次出现的起始位置，并返回一个指向该位置的指针。如果s2并没有完整地出现在s1的任何地方，函数将返回一个NULL指针，如果s2是一个空字符串，函数就返回是</p>
+<p>用法：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">char buf[<span class="number">20</span>] = <span class="string">"hello"</span>;</span><br><span class="line">char *<span class="keyword">last</span> = NULL;</span><br><span class="line"><span class="keyword">last</span> = strstr(buf,<span class="string">"he”);</span><br><span class="line"></span><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,<span class="keyword">last</span>); //打印hello</span><br><span class="line"><span class="keyword">last</span> = strstr(buf,<span class="string">"hello world"</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,<span class="keyword">last</span>); //打印null</span><br></pre></td></tr></table></figure></p>
+<p>模拟strstr写法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">my_strstr</span><span class="params">(<span class="keyword">char</span> *s1, <span class="keyword">char</span> * s2)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (*s1 == <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(*s2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(*s1 != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s2[i] == <span class="string">'\0'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> s1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (s2[i] != s1[i])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        s1++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-内存操作：">6.内存操作：</h2><p>主要有memcpy、memmove、memcmp、memchr、memset几个函数</p>
+<h3 id="原型：">原型：</h3><blockquote>
+<p>void <em>memcpy(void </em>dst,void const <em>src,size_t length);<br>void </em>memmove(void <em>dst,void const </em>src,size_t length);<br>void <em>memcmp(void const </em>s1,void const <em>s2,size_t length);<br>void </em>memchr(void <em>s1,void const </em>s2,size_t length);<br>void <em>memset(void </em>dst,int ch,size_t length);</p>
+</blockquote>
+<h3 id="用法:">用法:</h3><h3 id="memcpy">memcpy</h3><p>从src的起始位置赋值length个字节到dst的内存起始位置，可以复制任何类型。如果src和dst出现重叠，其结果是未知的<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> dst[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">char</span> src[<span class="number">20</span>] = <span class="string">"hello"</span>;</span><br><span class="line"><span class="built_in">memcpy</span>(dst,src,<span class="built_in">strlen</span>(src));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="built_in">strlen</span>(src));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,dst );</span><br></pre></td></tr></table></figure></p>
+<p>模拟memcpy：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">my_memcpy</span><span class="params">(<span class="keyword">char</span> *dst, <span class="keyword">char</span> * src,size_t len)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *ret = dst;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>((dst == <span class="literal">NULL</span>) &amp;&amp; (src == <span class="literal">NULL</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(len-- &gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst++ = *src++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="memmove：">memmove：</h3><p>memmove用于从src拷贝count个字符到dest，如果目标区域和源区域有重叠的话，memmove能够保证源串在被覆盖之前将重叠区域的字节拷贝到目标区域中。但复制后src内容会被更改。但是当目标区域与源区域没有重叠则和memcpy函数功能相同。<br>用法：<br>char s[]=”Golden Global View”;<br>memmove(s,s+7,strlen(s)+1-7);<br>printf(“%s”,s);<br>程序输出结果：Global View<br>*注意：这里的拷贝长度strlen(s)+1-7表示把字符串结尾的’\0’也拷贝进来。</p>
+<h3 id="memcmp">memcmp</h3><p>memcmp是比较内存区域buf1和buf2的前count个字节。该函数是按字节比较的。<br>返回值：<br>当s1<s2时，返回值<0 当s1="=s2时，返回值=0">s2时，返回值&gt;0</s2时，返回值<0></p>
+<blockquote>
+<p>如:char <em>s1=”abc”;<br>char </em>s2=”acd”;<br>int r=memcmp(s1,s2,3);<br>就是比较s1和s2的前3个字节，第一个字节相等，第二个字节比较中大小已经确定，不必继续比较第三字节了。所以r=-1</p>
+</blockquote>
+<h3 id="memchr:">memchr:</h3><p>从buf所指内存区域的前count个字节查找字符ch。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *s=<span class="string">"Hello, Programmers!"</span>;</span><br><span class="line"><span class="keyword">void</span> *p;<span class="comment">//因为memchr(,,);return void*p;</span></span><br><span class="line">p=<span class="built_in">memchr</span>(s,<span class="string">'P'</span>,<span class="built_in">strlen</span>(s));</span><br><span class="line"><span class="comment">//p=(char *)memchr(s,'P',sizeof(s)); //s是一个指向char的指针，而任何指针都是个一个4字节的数，在这里应//该是要说明搜索整个字符串的长度，所以应该用strlen(s)</span></span><br><span class="line"><span class="keyword">if</span>(p)</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s"</span>,p);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Not Found!"</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="memst">memst</h3><p>将s所指向的某一块内存中的前n个 字节的内容全部设置为ch指定的ASCII值<br>通常用来进行内存初始化作用<br>例如：<br>char dst[20];<br>memset(dst,0x0,sizeof(dst)); //把dst指向的大小为20的内存区域值都设置为0.</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/07/c-and-point-eight/" itemprop="url">
                 C与指针-第八章-数组
               </a>
@@ -1221,117 +1339,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/07/learning-python-with-me-module/" itemprop="url">
-                跟我一起写python--模块(15)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-07T17:13:25+08:00" content="2016-05-07">
-            2016-05-07
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/05/07/learning-python-with-me-module/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/learning-python-with-me-module/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。</p>
-<p>我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.path中增加事先写好的.py文件所在的目录，然后再import我们的模块名称。<br><br></p>
-<blockquote>
-<p>即调用方法为:</p>
-<h4 id="模块名-函数名">模块名.函数名</h4></blockquote>
-<h3 id="1-_模块导入–import">1. 模块导入–import</h3><p>在Python中用关键字import来引入某个模块，比如要引用模块sys，就可以在文件最开始的地方用import sys来引入。</p>
-<p>例：<br><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print (<span class="string">"sys\'s path is"</span>, sys.path)</span><br></pre></td></tr></table></figure></p>
-<p>输出：</p>
-<blockquote>
-<p>sys’s path is [‘/home/tianger/python’, ‘/usr/lib/python2.7’, ‘/usr/lib/python2.7/plat-x86_64-linux-gnu’, ‘/usr/lib/python2.7/lib-tk’, ‘/usr/lib/python2.7/lib-old’, ‘/usr/lib/python2.7/lib-dynload’, ‘/usr/local/lib/python2.7/dist-packages’, ‘/usr/lib/python2.7/dist-packages’, ‘/usr/lib/python2.7/dist-packages/PILcompat’, ‘/usr/lib/python2.7/dist-packages/gtk-2.0’, ‘/usr/lib/pymodules/python2.7’, ‘/usr/lib/python2.7/dist-packages/ubuntu-sso-client’]</p>
-</blockquote>
-<p>说明：</p>
-<blockquote>
-<p>1、import sys 引入 python 标准库中的 sys.py 模块；这是引入某一模块的方法。<br>2、sys.path 包含了一个 Python 解释器自动查找所需模块的路径的列表。</p>
-</blockquote>
-<h3 id="2-自定义模块">2.自定义模块</h3><p>第一节我们用了系统的模块sys，但是通常情况我们需要自己写接口给自己调用，这就需要我们来实现自定义模块</p>
-<p>我们先创建一下自定义模块hello.py，内容如下：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">()</span>:</span></span><br><span class="line">    print （<span class="string">'hello world!'</span>）</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(a,b)</span></span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br></pre></td></tr></table></figure></p>
-<p>我们再创建一个test.py，来调用hello.py中的say()和plus()函数实现，test.py内容如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line">import hello</span><br><span class="line"></span><br><span class="line">print (<span class="string">'call hello\'s say function as follow:'</span>)</span><br><span class="line"></span><br><span class="line">hello.<span class="function"><span class="title">say</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">sum = hello.<span class="function"><span class="title">plus</span><span class="params">(<span class="number">3</span>,<span class="number">5</span>)</span></span></span><br><span class="line"></span><br><span class="line">print (<span class="string">'call hello\'s plus function is'</span>, sum)</span><br></pre></td></tr></table></figure></p>
-<p>输出：</p>
-<blockquote>
-<p>call hello’s say function as follow:<br>hello world!<br>call hello’s plus function is 8</p>
-</blockquote>
-<p>说明：</p>
-<blockquote>
-<p>import hello –加载我们之前写的hello模块<br>hello.say() –调用hello模块中的say函数，会自动打印出hello world！<br>sum = hello.plus(3,5) –向hello的plus函数中，传入两个值3、5，计算得到的结果赋值给sum</p>
-</blockquote>
-<p>通过上面两个简单的例子，我们可以编写自己的模块了，让自己的工程进行模块化，不但可以使代码变得简洁，同时也增加了代码的复用性</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1370,7 +1377,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

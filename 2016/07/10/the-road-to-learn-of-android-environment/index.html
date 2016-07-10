@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -39,19 +39,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
+<meta name="description" content="前段时间回顾了一下C和JAVA的一些基础和进阶书籍，接下来让我们真正进入Android系统源码的怀抱吧，我会根据一个月之前写的《Android取经之路–学习启动篇》的知识点一步步的往下进行分析及学习，最终的目的是希望完成一个中间件，能够完成其他service到Framework，最终能到Modem的相关操作。
+我使用的环境为Windows + Ubuntu16.04虚拟机.
+源码下载及环境搭建参考">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟我一起写python--为什么要学习python(1)">
-<meta property="og:url" content="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/index.html">
+<meta property="og:title" content="Android6.0 系统源码下载及环境搭建">
+<meta property="og:url" content="http://tianger.github.io/2016/07/10/the-road-to-learn-of-android-environment/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
-<meta property="og:updated_time" content="2016-04-23T09:15:42.000Z">
+<meta property="og:description" content="前段时间回顾了一下C和JAVA的一些基础和进阶书籍，接下来让我们真正进入Android系统源码的怀抱吧，我会根据一个月之前写的《Android取经之路–学习启动篇》的知识点一步步的往下进行分析及学习，最终的目的是希望完成一个中间件，能够完成其他service到Framework，最终能到Modem的相关操作。
+我使用的环境为Windows + Ubuntu16.04虚拟机.
+源码下载及环境搭建参考">
+<meta property="og:updated_time" content="2016-07-10T11:36:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跟我一起写python--为什么要学习python(1)">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。
-&amp;nbs">
+<meta name="twitter:title" content="Android6.0 系统源码下载及环境搭建">
+<meta name="twitter:description" content="前段时间回顾了一下C和JAVA的一些基础和进阶书籍，接下来让我们真正进入Android系统源码的怀抱吧，我会根据一个月之前写的《Android取经之路–学习启动篇》的知识点一步步的往下进行分析及学习，最终的目的是希望完成一个中间件，能够完成其他service到Framework，最终能到Modem的相关操作。
+我使用的环境为Windows + Ubuntu16.04虚拟机.
+源码下载及环境搭建参考">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +64,7 @@
   };
 </script>
 
-  <title> 跟我一起写python--为什么要学习python(1) | Tianger's Family </title>
+  <title> Android6.0 系统源码下载及环境搭建 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -178,7 +181,7 @@
           
           
             
-              跟我一起写python--为什么要学习python(1)
+              Android6.0 系统源码下载及环境搭建
             
           
         </h1>
@@ -187,8 +190,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-15T22:15:48+08:00" content="2016-03-15">
-            2016-03-15
+          <time itemprop="dateCreated" datetime="2016-07-10T19:28:02+08:00" content="2016-07-10">
+            2016-07-10
           </time>
         </span>
 
@@ -197,8 +200,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+                <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                  <span itemprop="name">Android取经之路</span>
                 </a>
               </span>
 
@@ -213,8 +216,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="commentsCount"></span>
+              <a href="/2016/07/10/the-road-to-learn-of-android-environment/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/10/the-road-to-learn-of-android-environment/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -228,11 +231,36 @@
       
 
       
-        <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;例如用C语言来实现MCFG适配功能，可能需要上千行的C代码，而且执行也不方便，但是用python可能只要几百行代码，并且可以把脚本加入到编译环境中，当项目执行编译时，自动运行脚本得出结果，减少了人为的动作，缩短了工作量，提高工作效率。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;同时在看了高通骁龙820的平台代码后，发现高通已经在工程中大量的使用了python，因此，使用python将会成为一个趋势，就让大家跟着我一起来学习python吧。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python简介–来自百度百科：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Python（英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象、解析型计算机程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议[1]  。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进<br>&nbsp;&nbsp;&nbsp;&nbsp;Python具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中[2]  有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C/C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。</p>
+        <span itemprop="articleBody"><p>前段时间回顾了一下C和JAVA的一些基础和进阶书籍，接下来让我们真正进入Android系统源码的怀抱吧，我会根据一个月之前写的<a href="http://tianger.github.io/2016/05/29/the-road-to-learn-of-android-start/">《Android取经之路–学习启动篇》</a>的知识点一步步的往下进行分析及学习，最终的目的是希望完成一个中间件，能够完成其他service到Framework，最终能到Modem的相关操作。</p>
+<p>我使用的环境为Windows + Ubuntu16.04虚拟机.</p>
+<p>源码下载及环境搭建参考了 AOSP - 清华大学TUNA 镜像源<br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/</a></p>
+<p>环境搭建—(在Ubuntu中搭建)：</p>
+<h2 id="1-安装JDK1-7并完成配置：">1.安装JDK1.7并完成配置：</h2><p>在www.java.com中 下载jdk-7u79-linux-x64.tar.gz —这个根据个人的电脑配置来</p>
+<p>环境变量配置方法：新建文件夹-解压-设置环境变量-测试环境变量</p>
+<h3 id="1）解压JDK">1）解压JDK</h3><p>新建文件夹-解压<br>sudo mkdir /usr/lib/jvm<br>sudo tar zxvf jdk-7u79-linux-x64.tar.gz -C /usr/lib/jvm</p>
+<h3 id="2）设置环境变量">2）设置环境变量</h3><p>sudo gedit /etc/profile</p>
+<h3 id="3）加入环境变量内容">3）加入环境变量内容</h3><p>export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_79<br>export JRE_HOME=${JAVA_HOME}/jre<br>export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib<br>export PATH=${JAVA_HOME}/bin:$PATH</p>
+<h3 id="4）设置默认的JDK">4）设置默认的JDK</h3><p>sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/jdk1.7.0_79/bin/java 300<br>sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/jdk1.7.0_79/bin/javac 300</p>
+<h3 id="5）重启一下/efc/profile">5）重启一下/efc/profile</h3><p>source  /efc/profile</p>
+<h3 id="6）测试">6）测试</h3><p>java -version</p>
+<h3 id="7）显示JDK版本则配置成功">7）显示JDK版本则配置成功</h3><p>root@ubuntu:/home/ubuntu/Public# java -version<br>java version “1.7.0_79”<br>Java(TM) SE Runtime Environment (build 1.7.0_79-b15)<br>Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)</p>
+<h2 id="2-安装_git">2.安装 git</h2><p>sudo apt-get install git-core</p>
+<h2 id="3-安装curl">3.安装curl</h2><p>sudo apt-get install git-core curl</p>
+<p>4## .安装repo, 通过curl下载repo<br>mkdir ~/bin<br>PATH=~/bin:$PATH<br>curl <a href="https://storage.googleapis.com/git-repo-downloads/repo" target="_blank" rel="external">https://storage.googleapis.com/git-repo-downloads/repo</a> &gt; ~/bin/repo<br>chmod a+x ~/bin/repo</p>
+<h2 id="5-新建一个目录，然后进入该目录。">5.新建一个目录，然后进入该目录。</h2><p>cd /home/tianger<br>mkdir AP6.0  //创建一个目录，这个目录用来保存源码<br>cd AP6.0</p>
+<h2 id="6-版本下载：">6.版本下载：</h2><h3 id="1)初始化git仓库">1)初始化git仓库</h3><p>repo init -u <a href="https://aosp.tuna.tsinghua.edu.cn/platform/manifest" target="_blank" rel="external">https://aosp.tuna.tsinghua.edu.cn/platform/manifest</a> -b android-6.0.0_r26</p>
+<p>如果提示下面错误:<br>Cannot get <a href="https://gerrit.googlesource.com/git-repo/clone.bundle" target="_blank" rel="external">https://gerrit.googlesource.com/git-repo/clone.bundle</a></p>
+<p>可以修改~/bin/repo下面的REPO_URL</p>
+<p>sudo gedit ~/bin/repo<br>修改REPO_URL = ‘<a href="https://gerrit-google.tuna.tsinghua.edu.cn/git-repo’" target="_blank" rel="external">https://gerrit-google.tuna.tsinghua.edu.cn/git-repo’</a></p>
+<h3 id="2)下载代码">2)下载代码</h3><p>repo sync</p>
+<p>基本上等上一到两晚上就能下载成功</p>
+<h2 id="7-版本编译：">7.版本编译：</h2><p>先用build/envsetup.sh设置环境变量，再调用 lunch 命令选择构建目标。<br>之后即执行 make -jN 进行编译。我用的参数为 -j4 编译了大约两个小时：</p>
+<h2 id="8-编译方法：">8.编译方法：</h2><p>1) source build/envsetup.sh</p>
+<p>2) lunch full-eng</p>
+<p>3) make -j4<br>这里的j4标示使用4个线程，可以用多个线程，根据自己CPU决定</p>
+<p>4) adb reboot bootloader</p>
+<p>5)fastboot flashall -w</p>
+<p>6)emulator</p>
 </span>
       
     </div>
@@ -241,7 +269,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
         </div>
       
@@ -250,13 +278,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/16/learning-python-with-me-create-environment/" rel="prev">跟我一起写python--环境搭建(2)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/14/rrc-release-progress/" rel="next">WCDMA协议和信令—呼叫建立和释放流程分析(5)</a>
+              <a href="/2016/06/26/c-and-point-seventeen-queue/" rel="next">C与指针-第十七章-队列</a>
             
           </div>
         </div>
@@ -281,8 +307,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/"
-                   data-title="跟我一起写python--为什么要学习python(1)" data-url="http://tianger.github.io/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/">
+              <div class="ds-thread" data-thread-key="2016/07/10/the-road-to-learn-of-android-environment/"
+                   data-title="Android6.0 系统源码下载及环境搭建" data-url="http://tianger.github.io/2016/07/10/the-road-to-learn-of-android-environment/">
               </div>
             
           </div>
@@ -364,7 +390,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装JDK1-7并完成配置："><span class="nav-number">1.</span> <span class="nav-text">1.安装JDK1.7并完成配置：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1）解压JDK"><span class="nav-number">1.1.</span> <span class="nav-text">1）解压JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2）设置环境变量"><span class="nav-number">1.2.</span> <span class="nav-text">2）设置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3）加入环境变量内容"><span class="nav-number">1.3.</span> <span class="nav-text">3）加入环境变量内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）设置默认的JDK"><span class="nav-number">1.4.</span> <span class="nav-text">4）设置默认的JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5）重启一下/efc/profile"><span class="nav-number">1.5.</span> <span class="nav-text">5）重启一下/efc/profile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6）测试"><span class="nav-number">1.6.</span> <span class="nav-text">6）测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7）显示JDK版本则配置成功"><span class="nav-number">1.7.</span> <span class="nav-text">7）显示JDK版本则配置成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装_git"><span class="nav-number">2.</span> <span class="nav-text">2.安装 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装curl"><span class="nav-number">3.</span> <span class="nav-text">3.安装curl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-新建一个目录，然后进入该目录。"><span class="nav-number">4.</span> <span class="nav-text">5.新建一个目录，然后进入该目录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-版本下载："><span class="nav-number">5.</span> <span class="nav-text">6.版本下载：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1)初始化git仓库"><span class="nav-number">5.1.</span> <span class="nav-text">1)初始化git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2)下载代码"><span class="nav-number">5.2.</span> <span class="nav-text">2)下载代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-版本编译："><span class="nav-number">6.</span> <span class="nav-text">7.版本编译：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-编译方法："><span class="nav-number">7.</span> <span class="nav-text">8.编译方法：</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
