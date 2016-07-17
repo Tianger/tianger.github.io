@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -39,36 +39,29 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:
-语法格式:
-for 变量 in 序列(元素表):
-     执行语句..
-即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。注意，for的行尾也要用到冒号：
-流程图：
-例：1234567891011121314#!/usr/bin/python# -*- coding :U">
+<meta name="description" content="Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.
+   图1 Android 5层架构图
+
+Androi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟我一起写python--for循环(9)">
-<meta property="og:url" content="http://tianger.github.io/2016/04/17/learning-python-with-me-for/index.html">
+<meta property="og:title" content="Android硬件抽象层(HAL层)学习计划">
+<meta property="og:url" content="http://tianger.github.io/2016/07/17/the-road-to-learn-of-android-hal/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:
-语法格式:
-for 变量 in 序列(元素表):
-     执行语句..
-即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。注意，for的行尾也要用到冒号：
-流程图：
-例：1234567891011121314#!/usr/bin/python# -*- coding :U">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/python-for.png">
+<meta property="og:description" content="Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.
+   图1 Android 5层架构图
+
+Androi">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/Android-5%E5%B1%82.png">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/Android-poweron.png">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/HAL.png">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
-<meta property="og:updated_time" content="2016-04-23T11:39:37.000Z">
+<meta property="og:updated_time" content="2016-07-17T10:38:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跟我一起写python--for循环(9)">
-<meta name="twitter:description" content="上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:
-语法格式:
-for 变量 in 序列(元素表):
-     执行语句..
-即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。注意，for的行尾也要用到冒号：
-流程图：
-例：1234567891011121314#!/usr/bin/python# -*- coding :U">
+<meta name="twitter:title" content="Android硬件抽象层(HAL层)学习计划">
+<meta name="twitter:description" content="Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.
+   图1 Android 5层架构图
+
+Androi">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -78,7 +71,7 @@ for 变量 in 序列(元素表):
   };
 </script>
 
-  <title> 跟我一起写python--for循环(9) | Tianger's Family </title>
+  <title> Android硬件抽象层(HAL层)学习计划 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -195,7 +188,7 @@ for 变量 in 序列(元素表):
           
           
             
-              跟我一起写python--for循环(9)
+              Android硬件抽象层(HAL层)学习计划
             
           
         </h1>
@@ -204,8 +197,8 @@ for 变量 in 序列(元素表):
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T21:16:41+08:00" content="2016-04-17">
-            2016-04-17
+          <time itemprop="dateCreated" datetime="2016-07-17T18:31:15+08:00" content="2016-07-17">
+            2016-07-17
           </time>
         </span>
 
@@ -214,8 +207,8 @@ for 变量 in 序列(元素表):
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+                <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                  <span itemprop="name">Android取经之路</span>
                 </a>
               </span>
 
@@ -230,8 +223,8 @@ for 变量 in 序列(元素表):
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-for/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-for/" itemprop="commentsCount"></span>
+              <a href="/2016/07/17/the-road-to-learn-of-android-hal/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/the-road-to-learn-of-android-hal/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -245,16 +238,30 @@ for 变量 in 序列(元素表):
       
 
       
-        <span itemprop="articleBody"><p>上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:</p>
-<p>语法格式:</p>
-<pre><code><span class="keyword">for</span> 变量 <span class="keyword">in</span> 序列(元素表):
-     执行语句..
-</code></pre><p>即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。<br>注意，for的行尾也要用到冒号：</p>
-<p>流程图：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-for.png" alt=""></p>
-<p>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"NAME :"</span>,name)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"over,bye!"</span>)</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">NAME : jason</span><br><span class="line">NAME : tianger</span><br><span class="line">NAME : jodie</span><br><span class="line">over,<span class="built_in">bye</span>!</span><br></pre></td></tr></table></figure></p>
-<p>通过索引迭代<br>通过索引位置来进行循环执行<br>例：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">index</span> in range(len(names)):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"NAME :"</span>,names[<span class="keyword">index</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"over,bye!"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">NAME</span> : jason</span><br><span class="line"><span class="keyword">NAME</span> : tianger</span><br><span class="line"><span class="keyword">NAME</span> : jodie</span><br><span class="line">over,bye<span class="comment">!</span></span><br></pre></td></tr></table></figure></p>
-<p>注:<br>len()返回数组元素的个数<br>range()返回一个序列的数</p>
+        <span itemprop="articleBody"><p>Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-5%E5%B1%82.png" alt=""></p>
+   <center>图1 Android 5层架构图</center>
+
+<p>Android启动图示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-poweron.png" alt=""></p>
+<center>图2：Android开机启动流程</center>
+
+<blockquote>
+<p>第一步：手机开机后，引导芯片启动，引导程序到RAM，bootloader检查RAM，初始化硬件等参数</p>
+<p>第二步：硬件等参数初始化完成后，进入到Kernel层，Kernel层主要加载一些硬件设备驱动，初始化进程管理等操作</p>
+<p>第三步：Kernel层加载完毕后，硬件设备驱动与HAL层进行交互。初始化进程管理等操作会启动INIT进程 ，这些在Native层中</p>
+<p>第四步：init进程(是所有进程的鼻祖，第一个启动)启动后，会启动adbd，logd等用户守护进程，并且会启动service Manager等重要服务，同时记载zygote进程，这里属于C++ Framework，代码为C++程序</p>
+<p>第五步：zygote是init进程解析init.rc文件后fork生成，它会加载虚拟机，启动System Server；System Server负责启动和管理整个Java sFramework</p>
+<p>第六步：zygote同时会启动相关的APP进程，它启动的第一个APP进程为Launcher，然后启动Email，SMS等进程，所有的APP进程都有zygote fork生成。</p>
+</blockquote>
+<p>至此，Android系统加载完成。</p>
+<p>接下来将根据图2的Android开机启动流程，一步步的进行分析和学习，Bootloader本段学习过程不做描述，这涉及到各个设备厂商的相关核心代码。所以我接下来会从Kernel一步步的往上分析，但是由于Kernel的技术内容太多，涉及面很广，因此深入阐述的地方还要待以后进一步挖掘。</p>
+<p>  下面先开始硬件抽象层(HAL层)的学习，部分知识点参考了老罗(罗升阳)的技术博客。</p>
+<p>   我们先想一下为什么要有Android硬件抽象层，我们直接从Kernel提供内核代码给libraries使用不也可以吗？Linux内核源码版权需要遵循GNU License，在产品发布时，需要公布源码，而Android源码遵循Apache License，无需公布源码，为么不损害设备厂商的利益，Android设计出了HAL层，把对硬件的支持抽象成为 硬件抽象层和内核驱动层，内核驱动层只提供简单的访问逻辑，具体的实现都放在硬件抽象层中来实现。<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/HAL.png" alt=""></p>
+<center>图3 硬件抽象层</center>
+
+<p>俗话说，站在巨人的肩膀上，看的更远，因此我参考老罗的之前的学习内容，也把HAL层的学习计划做了相应的调整,细节如下：</p>
+<blockquote>
+<p>(1)在Android内核中编写驱动<br>(2)C空间增加可执行程序访问硬件驱动<br>(3)HAL层访问Linux内核驱动程序<br>(4)HAL层写JNI方法提供Framwok访问接口<br>(5)Framework提供访问接口访问硬件<br>(6)JAVA层APP通过Framework接口访问硬件服务</p>
+</blockquote>
 <p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
@@ -264,7 +271,7 @@ for 变量 in 序列(元素表):
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
         </div>
       
@@ -273,13 +280,11 @@ for 变量 in 序列(元素表):
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/17/learning-python-with-me-break-and-continue/" rel="prev">跟我一起写python--跳出循环-break，continue (10)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/17/learning-python-with-me-while/" rel="next">跟我一起写python--while循环 (8)</a>
+              <a href="/2016/07/10/the-road-to-learn-of-android-environment/" rel="next">Android6.0 系统源码下载及环境搭建</a>
             
           </div>
         </div>
@@ -304,8 +309,8 @@ for 变量 in 序列(元素表):
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/04/17/learning-python-with-me-for/"
-                   data-title="跟我一起写python--for循环(9)" data-url="http://tianger.github.io/2016/04/17/learning-python-with-me-for/">
+              <div class="ds-thread" data-thread-key="2016/07/17/the-road-to-learn-of-android-hal/"
+                   data-title="Android硬件抽象层(HAL层)学习计划" data-url="http://tianger.github.io/2016/07/17/the-road-to-learn-of-android-hal/">
               </div>
             
           </div>

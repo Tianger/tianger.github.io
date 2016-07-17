@@ -176,6 +176,114 @@
           
           
             
+              <a class="post-title-link" href="/2016/07/17/the-road-to-learn-of-android-hal/" itemprop="url">
+                Android硬件抽象层(HAL层)学习计划
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-07-17T18:31:15+08:00" content="2016-07-17">
+            2016-07-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                  <span itemprop="name">Android取经之路</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/07/17/the-road-to-learn-of-android-hal/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/the-road-to-learn-of-android-hal/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-5%E5%B1%82.png" alt=""></p>
+   <center>图1 Android 5层架构图</center>
+
+<p>Android启动图示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-poweron.png" alt=""></p>
+<center>图2：Android开机启动流程</center>
+
+<blockquote>
+<p>第一步：手机开机后，引导芯片启动，引导程序到RAM，bootloader检查RAM，初始化硬件等参数</p>
+<p>第二步：硬件等参数初始化完成后，进入到Kernel层，Kernel层主要加载一些硬件设备驱动，初始化进程管理等操作</p>
+<p>第三步：Kernel层加载完毕后，硬件设备驱动与HAL层进行交互。初始化进程管理等操作会启动INIT进程 ，这些在Native层中</p>
+<p>第四步：init进程(是所有进程的鼻祖，第一个启动)启动后，会启动adbd，logd等用户守护进程，并且会启动service Manager等重要服务，同时记载zygote进程，这里属于C++ Framework，代码为C++程序</p>
+<p>第五步：zygote是init进程解析init.rc文件后fork生成，它会加载虚拟机，启动System Server；System Server负责启动和管理整个Java sFramework</p>
+<p>第六步：zygote同时会启动相关的APP进程，它启动的第一个APP进程为Launcher，然后启动Email，SMS等进程，所有的APP进程都有zygote fork生成。</p>
+</blockquote>
+<p>至此，Android系统加载完成。</p>
+<p>接下来将根据图2的Android开机启动流程，一步步的进行分析和学习，Bootloader本段学习过程不做描述，这涉及到各个设备厂商的相关核心代码。所以我接下来会从Kernel一步步的往上分析，但是由于Kernel的技术内容太多，涉及面很广，因此深入阐述的地方还要待以后进一步挖掘。</p>
+<p>  下面先开始硬件抽象层(HAL层)的学习，部分知识点参考了老罗(罗升阳)的技术博客。</p>
+<p>   我们先想一下为什么要有Android硬件抽象层，我们直接从Kernel提供内核代码给libraries使用不也可以吗？Linux内核源码版权需要遵循GNU License，在产品发布时，需要公布源码，而Android源码遵循Apache License，无需公布源码，为么不损害设备厂商的利益，Android设计出了HAL层，把对硬件的支持抽象成为 硬件抽象层和内核驱动层，内核驱动层只提供简单的访问逻辑，具体的实现都放在硬件抽象层中来实现。<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/HAL.png" alt=""></p>
+<center>图3 硬件抽象层</center>
+
+<p>俗话说，站在巨人的肩膀上，看的更远，因此我参考老罗的之前的学习内容，也把HAL层的学习计划做了相应的调整,细节如下：</p>
+<blockquote>
+<p>(1)在Android内核中编写驱动<br>(2)C空间增加可执行程序访问硬件驱动<br>(3)HAL层访问Linux内核驱动程序<br>(4)HAL层写JNI方法提供Framwok访问接口<br>(5)Framework提供访问接口访问硬件<br>(6)JAVA层APP通过Framework接口访问硬件服务</p>
+</blockquote>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/07/10/the-road-to-learn-of-android-environment/" itemprop="url">
                 Android6.0 系统源码下载及环境搭建
               </a>
@@ -259,6 +367,7 @@
 <p>4) adb reboot bootloader</p>
 <p>5)fastboot flashall -w</p>
 <p>6)emulator</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
         
       
@@ -1229,127 +1338,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/10/c-and-point-ten-struct/" itemprop="url">
-                C与指针-第十章-结构体\联合union
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-10T22:49:51+08:00" content="2016-06-10">
-            2016-06-10
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/06/10/c-and-point-ten-struct/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/c-and-point-ten-struct/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>在C语言中，结构体(struct)指的是一种数据结构，是C语言中聚合数据类型(aggregate data type)的一类。结构体可以被声明为变量、指针或数组等，用以实现较复杂的数据结构。结构体同时也是一些元素的集合，这些元素称为结构体的成员(member)，且这些成员可以为不同的类型，成员一般用名字访问。</p>
-<h2 id="含义：">含义：</h2><p>结构体(struct)是由一系列具有相同类型或不同类型的数据构成的数据集合，叫做结构。</p>
-<h2 id="定义与声明：">定义与声明：</h2><p>结构体的定义如下所示，struct为结构体关键字，tag为结构体的标志，member-list为结构体成员列表，其必须列出其所有成员；variable-list为此结构体声明的变量。</p>
-<blockquote>
-<p>struct tag {<br>member-list<br>} variable-list ;</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//此声明声明了拥有3个成员的结构体，分别为整型的a，字符型的b和双精度的c</span></span><br><span class="line"><span class="comment">//同时又声明了结构体变量s1</span></span><br><span class="line"><span class="comment">//这个结构体并没有标明其标签</span></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">char</span> b;</span><br><span class="line">    <span class="keyword">double</span> c;</span><br><span class="line">&#125;s1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">char</span> b;</span><br><span class="line">    <span class="keyword">double</span> c;</span><br><span class="line">&#125;s2;</span><br><span class="line">注：s1和s2被编译器当做两种截然不同的类型，即使他们成员列表相同。</span><br></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同上声明了拥有3个成员的结构体，分别为整型的a，字符型的b和双精度的c</span></span><br><span class="line"><span class="comment">//结构体的标签被命名为SIMPLE,没有声明变量</span></span><br><span class="line"><span class="keyword">struct</span> SI<span class="built_in">MPLE</span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">char</span> b;</span><br><span class="line">    <span class="keyword">double</span> c;</span><br><span class="line">&#125;;</span><br><span class="line">用标签来创建变量：</span><br><span class="line"><span class="keyword">struct</span> SI<span class="built_in">MPLE</span> x;</span><br><span class="line"><span class="keyword">struct</span> SI<span class="built_in">MPLE</span> y[<span class="number">20</span>];</span><br><span class="line">这里x和y是两个完全相同的类型，因为他们用标签来进行定义</span><br></pre></td></tr></table></figure>
-<h2 id="typedef：">typedef：</h2><p>声明结构体时可以使用的另一种良好技巧是用typedef创建一种新的类型。</p>
-<blockquote>
-<p>typedef struct{<br>     int a;<br>     char b;<br>     double c;<br>}s3;</p>
-</blockquote>
-<p>这个技巧和标签的效果几乎完全相同，区别在于s3现在是个类型名而不是个结构标签。以后的声明如下：</p>
-<blockquote>
-<p>s3 x;<br>s3 y[20];</p>
-</blockquote>
-<h2 id="结构成员：">结构成员：</h2><p>结构体的成员可以是标量、数组、指针甚至是其他结构体。</p>
-<blockquote>
-<p>typedef struct{<br>     int a;<br>     char b;<br>     double c:<br>     s3 d;<br>     s3 e[10];<br>}s4;</p>
-</blockquote>
-<h3 id="1)直接访问">1)直接访问</h3><p>结构体成员通过’.’操作符来访问的。<br>例：<br>s4 comp;</p>
-<p>访问成员a， comp.a;<br>访问成员d中的a， comp.d.a;<br>访问成员e中第5个元素的成员a，comp.e[4].a;</p>
-<h3 id="2)间接访问">2)间接访问</h3><p>如果拥有一个指向结构体的指针，那么我们访问结构体成员需要用’-&gt;’操作符来访问。<br>s4 *comp;</p>
-<p>访问成员a， comp-&gt;a;<br>访问成员d中的a， comp-&gt;d.a;<br>访问成员e中第5个元素的成员a，comp-&gt;e[4].a;</p>
-<h2 id="联合：">联合：</h2><h3 id="含义：-1">含义：</h3><p>“联合”是一种特殊的类，也是一种构造类型的数据结构。在一个“联合”内可以定义多种不同的数据类型， 一个被说明为该“联合”类型的变量中，允许装入该“联合”所定义的任何一种数据，这些数据共享同一段内存，以达到节省空间的目的。 这是一个非常特殊的地方，也是联合的特征。另外，同struct一样，联合默认访问权限也是公有的，并且，也具有成员函数。</p>
-<blockquote>
-<p>联合使用关键字union来定义。</p>
-</blockquote>
-<h3 id="声明：">声明：</h3><p>联合声明跟结构体类似。<br>union {<br>     数据成员；<br>}变量；</p>
-<blockquote>
-<p>union{<br>      int a;<br>     float b;<br>}message；</p>
-</blockquote>
-<p>在一个32位的机器上，变量message只占用内存中最大的变量类型的大小，这里int跟float占用内存相同，因此变量message这里只占用内存中一个32位的字。<br>如果a被访问，这个字就作为int型访问；<br>如果b被访问，这个字就作为float型访问。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">message</span>.b = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">message</span>.a = <span class="number">10</span>;</span><br><span class="line">printf(“%d\n”,<span class="keyword">message</span>.a);</span><br><span class="line">printf(“%f\n”,<span class="keyword">message</span>.b);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>由于最后一个访问的是a，因此a打印的值为10，b的值为0.000000；反之相同</p>
-</blockquote>
-<h3 id="union和结构体：">union和结构体：</h3><p>通常我们把union和struct结合起来使用，这样更加方便我们的程序开发。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">typedef <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">     int age;</span><br><span class="line">     int height;</span><br><span class="line">&#125;<span class="class"><span class="keyword">class</span>;</span></span><br><span class="line"></span><br><span class="line">typedef <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">     int year;</span><br><span class="line">     char class_name[<span class="number">10</span>];</span><br><span class="line">     <span class="class"><span class="keyword">enum</span> &#123;<span class="title">class1</span>,<span class="title">class2</span>&#125; <span class="title">type</span>;</span></span><br><span class="line">     <span class="class"><span class="keyword">union</span>&#123;</span></span><br><span class="line">          <span class="class"><span class="keyword">class</span>  <span class="title">first_student</span>;</span></span><br><span class="line">          <span class="class"><span class="keyword">class</span>  <span class="title">second_student</span>;</span></span><br><span class="line">     &#125;data;</span><br><span class="line">&#125;message;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    message msg;</span><br><span class="line">    int y;</span><br><span class="line">    int z;</span><br><span class="line">   <span class="regexp">/*msg相关变量赋值*/</span></span><br><span class="line">    msg.data.first_student.age = <span class="number">10</span>;</span><br><span class="line">    msg.data.first_student.height = <span class="number">170</span>;</span><br><span class="line">    msg.<span class="keyword">type</span> = class1;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(msg.<span class="keyword">type</span> == class1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="regexp">/*union一次只能访问一个成员*/</span></span><br><span class="line">         y = msg.data.first_student.age;</span><br><span class="line">         z = msg.data.first_student.height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">         y = msg.data.second_student.age;</span><br><span class="line">         z = msg.data.second_student.height;</span><br><span class="line">    &#125;</span><br><span class="line">      printf(<span class="string">"%d\n"</span>,y);  <span class="regexp">//</span>打印<span class="number">10</span></span><br><span class="line">      printf(<span class="string">"%d\n"</span>,z);  <span class="regexp">//</span>打印<span class="number">170</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结：">总结：</h2><p>1.结构体中，不同类型的值可以存储在一起，成员可以是标量、数组、指针或结构体<br>2.不同的二结构体声明即使它们的成员列表相同也被认为是不同的类型，typedef可以用于解决此问题<br>3.联合的所有成员都存储于同一个内存位置，通过访问不同类型的联合成员，内存中相同的位组合可以被解释为不同的东西。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1388,7 +1376,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
