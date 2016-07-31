@@ -176,6 +176,117 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/14/c-and-point-twelve-linknode/" itemprop="url">
+                C与指针-第十二章 链表
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-14T22:25:42+08:00" content="2016-06-14">
+            2016-06-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/14/c-and-point-twelve-linknode/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/c-and-point-twelve-linknode/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
+<p>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。链表最明显的好处就是，常规数组排列关联项目的方式可能不同于这些数据项目在记忆体或磁盘上顺序，数据的存取往往要在不同的排列顺序中转换。链表允许插入和移除表上任意位置上的节点，但是不允许随机存取。</p>
+<h3 id="链表细则：">链表细则：</h3><p>1)是由结构体和指针构成的。<br>2)包括两个部分一个是数据域和指针域。<br>3)链表中的结点分为两类：头结点和一般结点。头结点是没有数据域的。<br>4)基本操作有：初始化链表，增加结点和删除结点，求链表的长度等等。</p>
+<p>链表主要包括：单向链表，双向链表，循环链表。</p>
+<h2 id="单向链表">单向链表</h2><h3 id="含义：">含义：</h3><p>单向链表（单链表）是链表的一种，其特点是链表的链接方向是单向的，对链表的访问要通过顺序读取从头部开始；链表是使用指针进行构造的列表；又称为结点列表，因为链表是由一个个结点组装起来的；其中每个结点都有指针成员变量指向列表中的下一个结点；<br>列表是由结点构成，head指针指向第一个成为表头结点，而终止于最后一个指向nuLL的指针。</p>
+<h3 id="用法：">用法：</h3><p>//一个链表结构体的声明<br><figure class="highlight thrift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">NODE</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">NODE</span> *next;</span><br><span class="line">	int	  data;</span><br><span class="line">&#125;Node;</span></span><br></pre></td></tr></table></figure></p>
+<p>单链表的指向，链表的起始位置我们成为根指针(root)，它指向链表的第一个节点。根指针不包含任何数据，它只是一个指针。<br>Node *root;<br>下一个节点的访问通过root-&gt;next来实现<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/single-link.png" alt=""></p>
+<h3 id="1-初始化链表：">1.初始化链表：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">InitNodeList</span><span class="params">(Node **node)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	*node=(Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));<span class="comment">//链表分配内存空间</span></span><br><span class="line">	<span class="keyword">if</span>(!*node)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	(*node)-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：初始化时，这里的指针为二级指针，因为我们想要获取链表的根指针，如果只传入一级指针，malloc后得到的为分配内存的首地址给node，而不能被主函数中指针变量root得到这个地址。</p>
+</blockquote>
+<h3 id="2-插入数据：">2.插入数据：</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">按值的大小顺序进行插入，把值插入到合适的位置</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">int</span> InsertNodeList(Node **root,<span class="keyword">int</span> data)</span><br><span class="line">&#123;</span><br><span class="line">  Node *current;</span><br><span class="line">  Node *<span class="keyword">previous</span>;</span><br><span class="line">  Node *<span class="keyword">new</span>;</span><br><span class="line"></span><br><span class="line">  current = *root;</span><br><span class="line">  <span class="keyword">previous</span> = <span class="keyword">NULL</span>; <span class="comment">/*用于判断新插入的值是否在第一个节点*/</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*寻找正确的插入位置，按序访问链表，直到到达一个其值大于或等于新值的节点*/</span></span><br><span class="line">  <span class="keyword">while</span>(current != <span class="keyword">NULL</span> &amp;&amp; current-&gt;data &lt; data)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">previous</span> = current;</span><br><span class="line">    current  = current-&gt;<span class="keyword">next</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*新节点分配内存空间*/</span></span><br><span class="line">  <span class="keyword">new</span> = (Node *)malloc(sizeof(Node));</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">new</span> == <span class="keyword">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/*新节点插入链表*/</span></span><br><span class="line">  <span class="keyword">new</span>-&gt;data = data;</span><br><span class="line">  <span class="comment">/*如果插入的值在根节点，把新节点指向根节点，否则前一个节点，指向新节点*/</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">previous</span> == <span class="keyword">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    *root = <span class="keyword">new</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">previous</span>-&gt;<span class="keyword">next</span> = <span class="keyword">new</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-获取链表长度">3.获取链表长度</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> LengthNodeList(Node *root)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  Node *<span class="keyword">previous</span>;</span><br><span class="line">  <span class="keyword">previous</span>=root-&gt;<span class="keyword">next</span>;<span class="comment">/*p指向链表的第一个结点。*/</span></span><br><span class="line">  <span class="comment">/*循环链表，直到节点为空*/</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="keyword">previous</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">previous</span>=<span class="keyword">previous</span>-&gt;<span class="keyword">next</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-删除节点：">4.删除节点：</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void DestroyNodeList(Node <span class="keyword">*</span>root)</span><br><span class="line">&#123;</span><br><span class="line">  Node <span class="keyword">*</span>current,<span class="keyword">*</span>next;</span><br><span class="line">  current=root;/<span class="keyword">*</span>current 指向链表的根结点<span class="keyword">*</span>/</span><br><span class="line">  /<span class="keyword">*</span>当节点指向为空，即到了链表末尾，跳出<span class="keyword">*</span>/</span><br><span class="line">  while(current)</span><br><span class="line">  &#123;</span><br><span class="line">    next = current-&gt;next;/<span class="keyword">*</span>指向当前结点的下一个结点。<span class="keyword">*</span>/</span><br><span class="line">    free(current);/<span class="keyword">*</span>释放当前结点<span class="keyword">*</span>/</span><br><span class="line">    current = next;/<span class="keyword">*</span>指向下一个结点<span class="keyword">*</span>/</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-调用：">5.调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	Node *root;</span><br><span class="line">	<span class="keyword">int</span> node_length = <span class="number">0</span>;</span><br><span class="line">	InitNodeList(&amp;root);  <span class="comment">/*初始化链表，得到一个跟节点*/</span></span><br><span class="line">	InsertNodeList(&amp;root,<span class="number">10</span>); <span class="comment">/*向链表中插入一个数据*/</span></span><br><span class="line">	node_length = LengthNodeList(root); <span class="comment">/*获取链表长度*/</span></span><br><span class="line">	DestroyNodeList(root); <span class="comment">/*销毁链表*/</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="双向链表">双向链表</h2><h3 id="含义：-1">含义：</h3><p>双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。</p>
+<h3 id="特点：">特点：</h3><blockquote>
+<pre><code><span class="number">1</span>）在数据结构中具有双向指针
+<span class="number">2</span>）插入、删除数据的时候需要考虑前后的方向的操作
+</code></pre></blockquote>
+<h3 id="用法：-1">用法：</h3><p>一个链表结构体的声明<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef <span class="class"><span class="keyword">struct</span> <span class="title">NODE</span>&#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">NODE</span> *<span class="title">prev</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">NODE</span> *<span class="title">next</span>;</span></span><br><span class="line">	int	  data;</span><br><span class="line">&#125;<span class="constant">Node</span>;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xn24x.com1.z0.glb.clouddn.com/mutl-link.png" alt=""></p>
+<h3 id="1-初始化链表：-1">1.初始化链表：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">InitNodeList</span><span class="params">(Node **node)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	*node=(Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));<span class="comment">//链表分配内存空间</span></span><br><span class="line">	<span class="keyword">if</span>(!*node)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	(*node)-&gt;prev=<span class="literal">NULL</span>;</span><br><span class="line">	(*node)-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.插入数据：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> InsertNodeList(register Node *root,<span class="keyword">int</span> data)</span><br><span class="line">&#123;</span><br><span class="line">  register Node *<span class="keyword">this</span>;</span><br><span class="line">  register Node *<span class="keyword">next</span>;</span><br><span class="line">  register Node *newnode;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">this</span> = root;(<span class="keyword">next</span> = <span class="keyword">this</span>-&gt;<span class="keyword">next</span>)!= <span class="keyword">NULL</span>; <span class="keyword">this</span> =<span class="keyword">next</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">next</span>-&gt;data == data)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">next</span>-&gt;data &gt; data)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;</span><br><span class="line">    <span class="comment">/*新节点分配内存空间*/</span></span><br><span class="line">  newnode = (Node *)malloc(sizeof(Node));</span><br><span class="line">  <span class="keyword">if</span>(newnode == <span class="keyword">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*新节点插入链表*/</span></span><br><span class="line">  newnode-&gt;data = data;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*插入新节点*/</span></span><br><span class="line">  newnode-&gt;<span class="keyword">next</span> = <span class="keyword">next</span>;</span><br><span class="line">  <span class="keyword">this</span>-&gt;<span class="keyword">next</span> = newnode;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span> != root)</span><br><span class="line">  &#123;</span><br><span class="line">    newnode-&gt;prev = <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    newnode-&gt;prev = <span class="keyword">NULL</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">next</span> != <span class="keyword">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">next</span>-&gt;prev = newnode;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    root-&gt;prev = newnode;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-获取链表长度-1">3.获取链表长度</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> LengthNodeList(Node *root)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  Node *<span class="keyword">previous</span>;</span><br><span class="line">  <span class="keyword">previous</span>=root-&gt;<span class="keyword">next</span>;<span class="comment">/*p指向链表的第一个结点。*/</span></span><br><span class="line">  <span class="comment">/*循环链表，直到节点为空*/</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="keyword">previous</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">previous</span>=<span class="keyword">previous</span>-&gt;<span class="keyword">next</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-删除节点：-1">4.删除节点：</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> DestroyNodeList(Node *root)</span><br><span class="line">&#123;</span><br><span class="line">  Node *current,*<span class="keyword">next</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  current=root;<span class="comment">/*current 指向链表的根结点*/</span></span><br><span class="line">  <span class="comment">/*当节点指向为空，即到了链表末尾，跳出*/</span></span><br><span class="line">  <span class="keyword">while</span>(current)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">next</span> = current-&gt;<span class="keyword">next</span>;<span class="comment">/*指向当前结点的下一个结点。*/</span></span><br><span class="line">    free(current);<span class="comment">/*释放当前结点*/</span></span><br><span class="line">    current = <span class="keyword">next</span>;<span class="comment">/*指向下一个结点*/</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-调用：-1">5.调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	Node *root;</span><br><span class="line">	<span class="keyword">int</span> node_length = <span class="number">0</span>;</span><br><span class="line">	InitNodeList(&amp;root);  <span class="comment">/*初始化链表，得到一个跟节点*/</span></span><br><span class="line">	InsertNodeList(root,<span class="number">10</span>); <span class="comment">/*向链表中插入一个数据*/</span></span><br><span class="line">	InsertNodeList(root,<span class="number">20</span>); <span class="comment">/*向链表中插入一个数据*/</span></span><br><span class="line">	node_length = LengthNodeList(root); <span class="comment">/*获取链表长度*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,node_length);</span><br><span class="line">	DestroyNodeList(root); <span class="comment">/*销毁链表*/</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="">    </p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/11/c-and-point-eleven-malloc-and-free/" itemprop="url">
                 C与指针-第十一章—动态内存分配
               </a>
@@ -1268,108 +1379,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/30/c-and-point-one/" itemprop="url">
-                C与指针-第一章scanf\strncpy\strcpy\memcpy
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-30T21:50:41+08:00" content="2016-05-30">
-            2016-05-30
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/05/30/c-and-point-one/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/c-and-point-one/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>第一章的主要重点是，如何从键盘进行输入、以及相应的字符串拷贝。<br>这里主要用到四个C的基础API–scanf\strcpy\strncpy\memcpy</p>
-<p>scanf<br>作用： 是格式输入函数，即按用户的制定格式从键盘上把数据输入到制定变量中<br>头文件： #include <stdio.h><br>调用形式：scanf(“&lt;格式说明字符串&gt;”，&lt;变量地址&gt;);<br>注意第二个参数是一个地址，记得加&amp;符号，假如你是一个数组，不需要加入&amp;符号，如果是一个数组带下表，需要加上<br>int column[8];<br>int num;<br>scanf(“%d”,&amp;num)<br>scanf(“%d”,coloumn);<br>scanf(“%d”,&amp;coloumn[1]);</stdio.h></p>
-<p>例如：<br>scanf(“%d %d”,&amp;a,&amp;b);<br>如果a和b都被成功读入，那么scanf的返回值就是2<br>如果只有a被成功读入，返回值为1<br>如果a和b都未被成功读入，返回值为0<br>如果遇到错误或遇到end of file，返回值为EOF。<br>且返回值为int型.</p>
-<p>&amp;a,&amp;b,&amp;c中的&amp;是地址运算符，&amp;a指a在内存中的地址。scanf的作用是：按照a，b，c的内存地址将输入的数据存到a，b，c中去。变量a，b，c的地址是在编译连续阶段分配的（存储顺序由编译器决定）。</p>
-<p>注意部分：<br>如果scanf中%d是连着写的如“%d%d%d”,在输入数据时，数据之间不可以加逗号，只能是空格或tab键或者回车键——“2 3 4” 或 “2（按tab）3（按tab）4（按tab）”。若是“%d，%d，%d”，则在输入数据时需要加“，”，如“2，3，4”.</p>
-<p>相关输入格式<br>变量  类型<br>%d   int<br>%ld  long<br>%f    float<br>%lf   double<br>%c   char<br>%s   char数组</p>
-<p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">float</span> b;</span><br><span class="line"><span class="keyword">char</span> c;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d,%f,%c"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"a=%d,b=%f,c=%c\n"</span>,a,b,c);</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d%f %c"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"a1=%d,b1=%f,c1=%c\n"</span>,a,b,c);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>输入：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>,<span class="number">2.3</span>,d <span class="comment">//输入</span></span><br><span class="line">a=<span class="number">1</span>,b=<span class="number">2.300000</span>,c=d <span class="comment">//输出</span></span><br><span class="line"><span class="number">1</span> <span class="number">2.4</span> e <span class="comment">//输入</span></span><br><span class="line">a1=<span class="number">1</span>,b1=<span class="number">2.400000</span>,c1=e <span class="comment">//输出</span></span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>strcpy函数：顾名思义字符串复制函数：原型：extern char <em>strcpy(char </em>dest,char *src); 功能：把从src地址开始且含有NULL结束符的字符串赋值到以dest开始的地址空间，返回dest（地址中存储的为复制后的新值）。要求：src和dest所指内存区域不可以重叠且dest必须有足够的空间来容纳src的字符串。<br>一般函数原型实现方式：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">strcpy</span><span class="params">(<span class="keyword">char</span> * strDest,<span class="keyword">const</span> <span class="keyword">char</span> * strSrc)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">char</span> * strDestCopy=strDest; <span class="comment">//[3]</span></span><br><span class="line"><span class="keyword">if</span> ((strDest==<span class="literal">NULL</span>)||(strSrc==<span class="literal">NULL</span>)) <span class="comment">//[1]</span></span><br><span class="line"><span class="keyword">throw</span> <span class="string">"Invalid argument(s)"</span>; <span class="comment">//[2]</span></span><br><span class="line"><span class="keyword">while</span> ((*strDest++=*strSrc++)!=<span class="string">'\0'</span>); <span class="comment">//[4]</span></span><br><span class="line"><span class="keyword">return</span> strDestCopy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>该函数的参数是字符指针，也就是可以是字符串变量和字符数组，因为它们的变量名代表首字符地址。字符串默认有一个null结束符，字符数组没有。所以此处需要注意：因为src要求有null结束符，所以字符数组的长度必须大于等于src包含null结束符的总长度。例如，char* src=”abcd”; char dest[5]; 这里dest的长度就至少为5。</p>
-<ol>
-<li>strncpy函数：多个n代表可以指定字符个数进行赋值。原型：char <em> strncpy(char </em>dest, char <em>src, size_t n);  功能：将字符串src中最多n个字符复制到字符数组dest中(它并不像strcpy一样遇到NULL才停止复制，而是等凑够n个字符才开始复制），返回指向dest的指针。要求：如果n &gt; dest串长度，dest栈空间溢出产生崩溃异常。该函数注意的地方和strcpy类似，但是n值需特别注意，<br>1）src串长度&lt;=dest串长度,(这里的串长度包含串尾NULL字符)<br>如果n=(0, src串长度)，src的前n个字符复制到dest中。但是由于没有NULL字符，所以直接访问dest串会发生栈溢出的异常情况。这时，一般建议采取memset将dest的全部元素用null填充，如：memset(dest,0,7)（7为从dest起始地址开始前7个位置填充null，dest可以为字符指针和数组名）。注意：char</em> pc=”abc”; char chs[5]; sizeof(pc)为4（包含null）(有些编译器不行），sizeof(chs)为5。<br>如果n = src串长度，与strcpy一致。<br>如果n = dest串长度，[0,src串长度]处存放于desk字串，(src串长度, dest串长度]处存放NULL。<br>2）src串长度&gt;dest串长度<br>如果n =dest串长度，则dest串没有NULL字符，会导致输出会有乱码。如果不考虑src串复制完整性，可以将dest最后一字符置为NULL。<br>所以，一般把n设为dest（含null）的长度（除非将多个src复制到dest中）。当2）中n=dest串长度时，定义dest为字符数组，因为这时没有null字符拷贝。</li>
-</ol>
-<p>3、memcpy函数<br>void  <em>memcpy(void </em>s1,  const void *s2,  size_t  n);<br>说明：<br>函数memcpy从s2指向的对象中复制n个字符到s1指向的对象中。如果复制发生在两个重叠的对象中，则这种行为未定义。<br>返回值：<br>函数memcpy返回s1的值。</p>
-<p>memcpy用来在内存中复制数据，由于字符串是以“\0”结尾的，所以对于在数据中包含“\0”的数据只能用memcpy。<br>Strncpy和memcpy很相似，只不过它在一个终止的空字符处停止。当n&gt;strlen(s1)时，给s2不够数的空间里填充“\0”；当n&lt;=strlen(s1)时，s2是没有结束符“\0”的。</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1408,7 +1417,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

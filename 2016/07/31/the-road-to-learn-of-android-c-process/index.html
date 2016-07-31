@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -39,23 +39,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。字典的数据存储以键值对(key:value)的方式来存储。字典使用大括号，元组使用小括号，列表使用方括号
-1.字典的创建及访问创建方式：{key1:value1 ,key2:value2}
-例：1234dict1 = &amp;#123;&apos;name&apos;:&apos;tianger&apos;,&apos;year&apos;:&apos;2016’&amp;#125; #创建字典print (">
+<meta name="description" content="上一章我们学习了如何在内核中写驱动程序，我们创建了三种不同的文件节点供用户来访问，分别是传统设备/dev/hello、proc文件系统/proc/hello和devfs系统属性访问/sys/class/hello/hello/val。但是我们没有去真正的验证程序的有效性，这一章我们一起来学习一下，如何在用户C空间写一个C的程序来访问hello驱动。
+用户C空间的进程都被放在/system/bin中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟我一起写python--字典(12)">
-<meta property="og:url" content="http://tianger.github.io/2016/04/17/learning-python-with-me-dictonaryy/index.html">
+<meta property="og:title" content="C空间增加可执行程序访问硬件驱动">
+<meta property="og:url" content="http://tianger.github.io/2016/07/31/the-road-to-learn-of-android-c-process/index.html">
 <meta property="og:site_name" content="Tianger's Family">
-<meta property="og:description" content="python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。字典的数据存储以键值对(key:value)的方式来存储。字典使用大括号，元组使用小括号，列表使用方括号
-1.字典的创建及访问创建方式：{key1:value1 ,key2:value2}
-例：1234dict1 = &amp;#123;&apos;name&apos;:&apos;tianger&apos;,&apos;year&apos;:&apos;2016’&amp;#125; #创建字典print (">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
-<meta property="og:updated_time" content="2016-04-23T11:45:27.000Z">
+<meta property="og:description" content="上一章我们学习了如何在内核中写驱动程序，我们创建了三种不同的文件节点供用户来访问，分别是传统设备/dev/hello、proc文件系统/proc/hello和devfs系统属性访问/sys/class/hello/hello/val。但是我们没有去真正的验证程序的有效性，这一章我们一起来学习一下，如何在用户C空间写一个C的程序来访问hello驱动。
+用户C空间的进程都被放在/system/bin中">
+<meta property="og:updated_time" content="2016-07-31T09:14:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跟我一起写python--字典(12)">
-<meta name="twitter:description" content="python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。字典的数据存储以键值对(key:value)的方式来存储。字典使用大括号，元组使用小括号，列表使用方括号
-1.字典的创建及访问创建方式：{key1:value1 ,key2:value2}
-例：1234dict1 = &amp;#123;&apos;name&apos;:&apos;tianger&apos;,&apos;year&apos;:&apos;2016’&amp;#125; #创建字典print (">
+<meta name="twitter:title" content="C空间增加可执行程序访问硬件驱动">
+<meta name="twitter:description" content="上一章我们学习了如何在内核中写驱动程序，我们创建了三种不同的文件节点供用户来访问，分别是传统设备/dev/hello、proc文件系统/proc/hello和devfs系统属性访问/sys/class/hello/hello/val。但是我们没有去真正的验证程序的有效性，这一章我们一起来学习一下，如何在用户C空间写一个C的程序来访问hello驱动。
+用户C空间的进程都被放在/system/bin中">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +61,7 @@
   };
 </script>
 
-  <title> 跟我一起写python--字典(12) | Tianger's Family </title>
+  <title> C空间增加可执行程序访问硬件驱动 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -182,7 +178,7 @@
           
           
             
-              跟我一起写python--字典(12)
+              C空间增加可执行程序访问硬件驱动
             
           
         </h1>
@@ -191,8 +187,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T22:06:02+08:00" content="2016-04-17">
-            2016-04-17
+          <time itemprop="dateCreated" datetime="2016-07-31T17:12:14+08:00" content="2016-07-31">
+            2016-07-31
           </time>
         </span>
 
@@ -201,8 +197,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+                <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                  <span itemprop="name">Android取经之路</span>
                 </a>
               </span>
 
@@ -217,8 +213,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-dictonaryy/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/" itemprop="commentsCount"></span>
+              <a href="/2016/07/31/the-road-to-learn-of-android-c-process/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/the-road-to-learn-of-android-c-process/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -232,16 +228,29 @@
       
 
       
-        <span itemprop="articleBody"><p>python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。<br>字典的数据存储以键值对(key:value)的方式来存储。<br>字典使用大括号，元组使用小括号，列表使用方括号</p>
-<p>1.字典的创建及访问<br>创建方式：<br>{key1:value1 ,key2:value2}</p>
-<p>例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span><span class="symbol">:<span class="string">'tianger'</span></span>,<span class="string">'year'</span><span class="symbol">:<span class="string">'2016’&#125; #创建字典</span><br><span class="line"></span><br><span class="line">print ("dict1['</span>name<span class="string">']:",dict1['</span>name<span class="string">']) #获取字典key-name对应的内容</span><br><span class="line">print ("dict1['</span>year<span class="string">']:",dict1['</span>year<span class="string">']) #获取字典key-name对应的内容</span></span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">tianger</span></span><br><span class="line"><span class="attribute">dict1['year']</span>: <span class="string">2016</span></span><br></pre></td></tr></table></figure></p>
-<p>2.字典修改<br>字典可以更新某一个key/value的内容，也可以增加一个新的key/value内容<br>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['age']:"</span>,dict1[<span class="string">'age'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">jason</span></span><br><span class="line"><span class="attribute">dict1['age']</span>: <span class="string">27</span></span><br></pre></td></tr></table></figure></p>
-<p>3.删除字典<br>删除字典可以只删单个元素，也可以清空完整字典<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> dict1[<span class="string">'name'</span>]; <span class="comment">#删除key是name的item</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line">dict1.clear()  <span class="comment">#清空字典所以得条目</span></span><br><span class="line"><span class="keyword">del</span> dict1     <span class="comment">#删除字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['year']:"</span>,dict1[<span class="string">'year'</span>])</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">10</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>])</span><br><span class="line"><span class="attribute">KeyError</span>: <span class="string">'name'</span></span><br></pre></td></tr></table></figure></p>
-<p>由于key-name这个item被删除，所以print会出错</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+        <span itemprop="articleBody"><p>上一章我们学习了如何在内核中写驱动程序，我们创建了三种不同的文件节点供用户来访问，分别是传统设备/dev/hello、proc文件系统/proc/hello和devfs系统属性访问/sys/class/hello/hello/val。但是我们没有去真正的验证程序的有效性，这一章我们一起来学习一下，如何在用户C空间写一个C的程序来访问hello驱动。</p>
+<p>用户C空间的进程都被放在/system/bin中，例如我们常用的logcat、logd、rild等进程都能在其中找到。<br>Tianger:~ getianger$ adb shell<br>root@android:/ # cd system/bin<br>root@android:/system/bin # ls</p>
+<p>接下来开始来实现这个C的进程，我们把这个进程取名为hello。</p>
+<h3 id="1-进入到external目录，创建hello目录">1.进入到external目录，创建hello目录</h3><blockquote>
+<p>Tianger:Android root# cd external/<br>Tianger:external root# mkdir hello</p>
+</blockquote>
+<h3 id="2-进入到hello目录，新建hello-c：">2.进入到hello目录，新建hello.c：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DEVICE_NAME <span class="string">"/dev/hello"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/*通过传统的设备访问来操作，打开/dev/hello，得到文件句柄fd*/</span></span><br><span class="line">    fd = open(DEVICE_NAME, O_RDWR);</span><br><span class="line">    <span class="keyword">if</span>(fd == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Failed to open device %s.\n"</span>, DEVICE_NAME);</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Read original value:\n"</span>);</span><br><span class="line">    <span class="comment">/*调用read方法，触发到hello驱动中的hello_read，读取寄存器val的值*/</span></span><br><span class="line">    read(fd, &amp;val, <span class="keyword">sizeof</span>(val));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d.\n\n"</span>, val);</span><br><span class="line">    <span class="comment">/*寄存器重新赋值为5*/</span></span><br><span class="line">    val = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Write value %d to %s.\n\n"</span>, val, DEVICE_NAME);</span><br><span class="line">    <span class="comment">/*调用write方法，出发到hello驱动中的hello_write，写入寄存器val的值*/</span></span><br><span class="line">    write(fd, &amp;val, <span class="keyword">sizeof</span>(val));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Read the value again:\n"</span>);</span><br><span class="line">    <span class="comment">/*验证写入的寄存器值是否写成功*/</span></span><br><span class="line">    read(fd, &amp;val, <span class="keyword">sizeof</span>(val));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d.\n\n"</span>, val);</span><br><span class="line">    <span class="comment">/*关闭文件句柄，释放驱动调用*/</span></span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该hello.c程序，主要作用:通过传统设备访问方法，打开/dev/hello，读取寄存器val的值，然后重新赋值寄存器值为5，并把新的寄存器值写入到hello驱动中，再去验证是否写入成功。</p>
+<h3 id="3-编译环境:">3.编译环境:</h3><p>在hello目录中创建Android.mk</p>
+<blockquote>
+<p>LOCAL_PATH := $(call my-dir)<br>    include $(CLEAR_VARS)<br>    LOCAL_MODULE_TAGS := optional<br>    LOCAL_MODULE := hello<br>    LOCAL_SRC_FILES := $(call all-subdir-c-files)<br>    include $(BUILD_EXECUTABLE)</p>
+</blockquote>
+<p>注:LOCAL_MODULE表示我们要编译的模块名称，BUILD_EXECUTABLE表示我们编译的是可执行程序.</p>
+<h3 id="4-编译：">4.编译：</h3><p>mmm ./external/hello<br>编译成功后，可以在out/target/product/gerneric/system/bin目录下看到hello了.</p>
+<h3 id="5-启动模拟器">5.启动模拟器</h3><blockquote>
+<p>adb shell<br>  cd /system/bin<br>  ./hello</p>
+</blockquote>
+<p>   输出结果：</p>
+<blockquote>
+<p>Read the original value:<br>   0.<br>   Write value 5 to /dev/hello.<br>   Read the value again:<br>   5.</p>
+</blockquote>
+<p>到这里我们一个最普通的C的进程访问驱动程序就完成了。</p>
+<p>注:kernel这边的程序，主要是参考老罗的Android之旅来完成。</p>
 </span>
       
     </div>
@@ -250,7 +259,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
         </div>
       
@@ -259,13 +268,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/17/learning-python-with-me-tuple/" rel="prev">跟我一起写python--元组(13)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/17/learning-python-with-me-list/" rel="next">跟我一起写python—列表list (11)</a>
+              <a href="/2016/07/30/the-road-to-learn-of-android-kernel-start/" rel="next">在Android内核中编写硬件驱动</a>
             
           </div>
         </div>
@@ -290,8 +297,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/"
-                   data-title="跟我一起写python--字典(12)" data-url="http://tianger.github.io/2016/04/17/learning-python-with-me-dictonaryy/">
+              <div class="ds-thread" data-thread-key="2016/07/31/the-road-to-learn-of-android-c-process/"
+                   data-title="C空间增加可执行程序访问硬件驱动" data-url="http://tianger.github.io/2016/07/31/the-road-to-learn-of-android-c-process/">
               </div>
             
           </div>
@@ -373,7 +380,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-进入到external目录，创建hello目录"><span class="nav-number">1.</span> <span class="nav-text">1.进入到external目录，创建hello目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-进入到hello目录，新建hello-c："><span class="nav-number">2.</span> <span class="nav-text">2.进入到hello目录，新建hello.c：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-编译环境:"><span class="nav-number">3.</span> <span class="nav-text">3.编译环境:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-编译："><span class="nav-number">4.</span> <span class="nav-text">4.编译：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-启动模拟器"><span class="nav-number">5.</span> <span class="nav-text">5.启动模拟器</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

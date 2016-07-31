@@ -176,6 +176,108 @@
           
           
             
+              <a class="post-title-link" href="/2016/05/30/c-and-point-one/" itemprop="url">
+                C与指针-第一章scanf\strncpy\strcpy\memcpy
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-05-30T21:50:41+08:00" content="2016-05-30">
+            2016-05-30
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/05/30/c-and-point-one/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/c-and-point-one/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>第一章的主要重点是，如何从键盘进行输入、以及相应的字符串拷贝。<br>这里主要用到四个C的基础API–scanf\strcpy\strncpy\memcpy</p>
+<p>scanf<br>作用： 是格式输入函数，即按用户的制定格式从键盘上把数据输入到制定变量中<br>头文件： #include <stdio.h><br>调用形式：scanf(“&lt;格式说明字符串&gt;”，&lt;变量地址&gt;);<br>注意第二个参数是一个地址，记得加&amp;符号，假如你是一个数组，不需要加入&amp;符号，如果是一个数组带下表，需要加上<br>int column[8];<br>int num;<br>scanf(“%d”,&amp;num)<br>scanf(“%d”,coloumn);<br>scanf(“%d”,&amp;coloumn[1]);</stdio.h></p>
+<p>例如：<br>scanf(“%d %d”,&amp;a,&amp;b);<br>如果a和b都被成功读入，那么scanf的返回值就是2<br>如果只有a被成功读入，返回值为1<br>如果a和b都未被成功读入，返回值为0<br>如果遇到错误或遇到end of file，返回值为EOF。<br>且返回值为int型.</p>
+<p>&amp;a,&amp;b,&amp;c中的&amp;是地址运算符，&amp;a指a在内存中的地址。scanf的作用是：按照a，b，c的内存地址将输入的数据存到a，b，c中去。变量a，b，c的地址是在编译连续阶段分配的（存储顺序由编译器决定）。</p>
+<p>注意部分：<br>如果scanf中%d是连着写的如“%d%d%d”,在输入数据时，数据之间不可以加逗号，只能是空格或tab键或者回车键——“2 3 4” 或 “2（按tab）3（按tab）4（按tab）”。若是“%d，%d，%d”，则在输入数据时需要加“，”，如“2，3，4”.</p>
+<p>相关输入格式<br>变量  类型<br>%d   int<br>%ld  long<br>%f    float<br>%lf   double<br>%c   char<br>%s   char数组</p>
+<p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">float</span> b;</span><br><span class="line"><span class="keyword">char</span> c;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d,%f,%c"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"a=%d,b=%f,c=%c\n"</span>,a,b,c);</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d%f %c"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"a1=%d,b1=%f,c1=%c\n"</span>,a,b,c);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输入：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>,<span class="number">2.3</span>,d <span class="comment">//输入</span></span><br><span class="line">a=<span class="number">1</span>,b=<span class="number">2.300000</span>,c=d <span class="comment">//输出</span></span><br><span class="line"><span class="number">1</span> <span class="number">2.4</span> e <span class="comment">//输入</span></span><br><span class="line">a1=<span class="number">1</span>,b1=<span class="number">2.400000</span>,c1=e <span class="comment">//输出</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>strcpy函数：顾名思义字符串复制函数：原型：extern char <em>strcpy(char </em>dest,char *src); 功能：把从src地址开始且含有NULL结束符的字符串赋值到以dest开始的地址空间，返回dest（地址中存储的为复制后的新值）。要求：src和dest所指内存区域不可以重叠且dest必须有足够的空间来容纳src的字符串。<br>一般函数原型实现方式：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">strcpy</span><span class="params">(<span class="keyword">char</span> * strDest,<span class="keyword">const</span> <span class="keyword">char</span> * strSrc)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">char</span> * strDestCopy=strDest; <span class="comment">//[3]</span></span><br><span class="line"><span class="keyword">if</span> ((strDest==<span class="literal">NULL</span>)||(strSrc==<span class="literal">NULL</span>)) <span class="comment">//[1]</span></span><br><span class="line"><span class="keyword">throw</span> <span class="string">"Invalid argument(s)"</span>; <span class="comment">//[2]</span></span><br><span class="line"><span class="keyword">while</span> ((*strDest++=*strSrc++)!=<span class="string">'\0'</span>); <span class="comment">//[4]</span></span><br><span class="line"><span class="keyword">return</span> strDestCopy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>该函数的参数是字符指针，也就是可以是字符串变量和字符数组，因为它们的变量名代表首字符地址。字符串默认有一个null结束符，字符数组没有。所以此处需要注意：因为src要求有null结束符，所以字符数组的长度必须大于等于src包含null结束符的总长度。例如，char* src=”abcd”; char dest[5]; 这里dest的长度就至少为5。</p>
+<ol>
+<li>strncpy函数：多个n代表可以指定字符个数进行赋值。原型：char <em> strncpy(char </em>dest, char <em>src, size_t n);  功能：将字符串src中最多n个字符复制到字符数组dest中(它并不像strcpy一样遇到NULL才停止复制，而是等凑够n个字符才开始复制），返回指向dest的指针。要求：如果n &gt; dest串长度，dest栈空间溢出产生崩溃异常。该函数注意的地方和strcpy类似，但是n值需特别注意，<br>1）src串长度&lt;=dest串长度,(这里的串长度包含串尾NULL字符)<br>如果n=(0, src串长度)，src的前n个字符复制到dest中。但是由于没有NULL字符，所以直接访问dest串会发生栈溢出的异常情况。这时，一般建议采取memset将dest的全部元素用null填充，如：memset(dest,0,7)（7为从dest起始地址开始前7个位置填充null，dest可以为字符指针和数组名）。注意：char</em> pc=”abc”; char chs[5]; sizeof(pc)为4（包含null）(有些编译器不行），sizeof(chs)为5。<br>如果n = src串长度，与strcpy一致。<br>如果n = dest串长度，[0,src串长度]处存放于desk字串，(src串长度, dest串长度]处存放NULL。<br>2）src串长度&gt;dest串长度<br>如果n =dest串长度，则dest串没有NULL字符，会导致输出会有乱码。如果不考虑src串复制完整性，可以将dest最后一字符置为NULL。<br>所以，一般把n设为dest（含null）的长度（除非将多个src复制到dest中）。当2）中n=dest串长度时，定义dest为字符数组，因为这时没有null字符拷贝。</li>
+</ol>
+<p>3、memcpy函数<br>void  <em>memcpy(void </em>s1,  const void *s2,  size_t  n);<br>说明：<br>函数memcpy从s2指向的对象中复制n个字符到s1指向的对象中。如果复制发生在两个重叠的对象中，则这种行为未定义。<br>返回值：<br>函数memcpy返回s1的值。</p>
+<p>memcpy用来在内存中复制数据，由于字符串是以“\0”结尾的，所以对于在数据中包含“\0”的数据只能用memcpy。<br>Strncpy和memcpy很相似，只不过它在一个终止的空字符处停止。当n&gt;strlen(s1)时，给s2不够数的空间里填充“\0”；当n&lt;=strlen(s1)时，s2是没有结束符“\0”的。</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/05/29/the-road-to-learn-of-android-start/" itemprop="url">
                 Android取经之路--学习启动篇
               </a>
@@ -1228,100 +1330,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-for/" itemprop="url">
-                跟我一起写python--for循环(9)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T21:16:41+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-for/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-for/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:</p>
-<p>语法格式:</p>
-<pre><code><span class="keyword">for</span> 变量 <span class="keyword">in</span> 序列(元素表):
-     执行语句..
-</code></pre><p>即当变量作为序列的一个标志位，从第一个元素开始一直轮询到最后一个元素结束。<br>注意，for的行尾也要用到冒号：</p>
-<p>流程图：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-for.png" alt=""></p>
-<p>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"NAME :"</span>,name)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"over,bye!"</span>)</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">NAME : jason</span><br><span class="line">NAME : tianger</span><br><span class="line">NAME : jodie</span><br><span class="line">over,<span class="built_in">bye</span>!</span><br></pre></td></tr></table></figure></p>
-<p>通过索引迭代<br>通过索引位置来进行循环执行<br>例：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">index</span> in range(len(names)):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"NAME :"</span>,names[<span class="keyword">index</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"over,bye!"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">NAME</span> : jason</span><br><span class="line"><span class="keyword">NAME</span> : tianger</span><br><span class="line"><span class="keyword">NAME</span> : jodie</span><br><span class="line">over,bye<span class="comment">!</span></span><br></pre></td></tr></table></figure></p>
-<p>注:<br>len()返回数组元素的个数<br>range()返回一个序列的数</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1360,7 +1368,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
