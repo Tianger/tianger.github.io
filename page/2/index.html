@@ -176,6 +176,108 @@
           
           
             
+              <a class="post-title-link" href="/2016/06/15/c-and-point-thirteen-function-point/" itemprop="url">
+                C与指针-第十三章-函数指针
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-15T22:08:39+08:00" content="2016-06-15">
+            2016-06-15
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/C与指针/" itemprop="url" rel="index">
+                  <span itemprop="name">C与指针</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/15/c-and-point-thirteen-function-point/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/c-and-point-thirteen-function-point/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>本文重点讲的函数指针为 回调函数和转移表。</p>
+<h2 id="回调函数">回调函数</h2><h3 id="含义：">含义：</h3><p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方法直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
+<h3 id="机制：">机制：</h3><blockquote>
+<p>⑴定义一个回调函数；<br>⑵提供函数实现的一方在初始化的时候，将回调函数的函数指针注册给调用者；<br>⑶当特定的事件或条件发生的时候，调用者使用函数指针调用回调函数对事件进行处理。</p>
+</blockquote>
+<h3 id="举例：">举例：</h3><p> 1.我们在路上遇到一个好多年没见到的朋友，要了朋友的手机好，跟他说我回去打给你</p>
+<blockquote>
+<p> 1)遇见朋友–主函数<br>  2)我打电话给朋友，通过朋友的手机号，找到朋友–(回调)</p>
+</blockquote>
+<p>2.寄快递的情形<br>   打电话给快递员，告诉他我的地址(理解成回调函数的地址)，快递员在有空的时候根据这个地址来找到你取件。</p>
+<blockquote>
+<p>1)打电话给快递员，告诉他我的地址–主函数(我的地址–回调函数地址)<br>  2)快递员处理完其他事情后，通过这个地址(回调)来找到你取件，执行完回调里面的内容。</p>
+</blockquote>
+<p>示例:<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*回调函数*/</span></span><br><span class="line"><span class="keyword">void</span> *call_phone_number(<span class="keyword">int</span> number )</span><br><span class="line">&#123;</span><br><span class="line">      printf(<span class="string">"phone number = %d\n"</span>,number); <span class="comment">/*通过号码找到朋友*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*调用函数*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">start_call</span>(<span class="params"> <span class="keyword">void</span> *call_back(<span class="keyword">int</span> number</span>))</span><br><span class="line"></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> phone_number = <span class="number">12345</span>;</span><br><span class="line">      call_back(phone_number);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span>(<span class="params"><span class="keyword">void</span></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">      start_call(call_phone_number);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="转移表">转移表</h2><p>用函数指针的形式来替换switch、if/else的方式</p>
+<h3 id="示例：">示例：</h3><p>一个计算器实现<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">double add(double,double);</span><br><span class="line">double sub(double,double);</span><br><span class="line">double mul(double,double);</span><br><span class="line">double <span class="keyword">div</span>(double,double);</span><br><span class="line"></span><br><span class="line">     switch(oper)</span><br><span class="line">     &#123;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">ADD</span>:</span><br><span class="line">               <span class="literal">result</span> = add(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">SUB</span>:</span><br><span class="line">               <span class="literal">result</span> = sub(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">MUL</span>:</span><br><span class="line">               <span class="literal">result</span> = mul(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">DIV</span>:</span><br><span class="line">               <span class="literal">result</span> = <span class="keyword">div</span>(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          default:</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述代码改成转移表只需要两个步骤。<br>首先，声明并初始化一个函数指针数组。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double (*oper_func[])(double,double)=&#123;add,sub,mil,div&#125;;</span><br><span class="line"></span><br><span class="line">调用：</span><br><span class="line">result = oper_func[<span class="link_label">oper</span>](<span class="link_url">op1,op2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>oper从数组中选择正确的函数指针，而函数调用操作符将执行这个函数</p>
+<p>=========================<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/06/14/c-and-point-twelve-linknode/" itemprop="url">
                 C与指针-第十二章 链表
               </a>
@@ -1210,175 +1312,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/31/c-and-point-two/" itemprop="url">
-                C与指针-第二章 转义字符
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-31T21:43:32+08:00" content="2016-05-31">
-            2016-05-31
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/05/31/c-and-point-two/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/c-and-point-two/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。</p>
-<p>所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为后面的字符，都不是它本来的ASCII字符意思了。<br>8进制，16进制转义字符</p>
-<table>
-<thead>
-<tr>
-<th>转义字符</th>
-<th style="text-align:center">意义</th>
-<th style="text-align:center">ASCII码值（十进制）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\a</td>
-<td style="text-align:center">响铃(BEL)</td>
-<td style="text-align:center">007</td>
-</tr>
-<tr>
-<td>\b</td>
-<td style="text-align:center">退格(BS)</td>
-<td style="text-align:center">008</td>
-</tr>
-<tr>
-<td>\f</td>
-<td style="text-align:center">换页(FF)</td>
-<td style="text-align:center">012</td>
-</tr>
-<tr>
-<td>\n</td>
-<td style="text-align:center">换行(LF)</td>
-<td style="text-align:center">010</td>
-</tr>
-<tr>
-<td>\r</td>
-<td style="text-align:center">回车(CR)</td>
-<td style="text-align:center">013</td>
-</tr>
-<tr>
-<td>\t</td>
-<td style="text-align:center">水平制表(HT)</td>
-<td style="text-align:center">009</td>
-</tr>
-<tr>
-<td>\v</td>
-<td style="text-align:center">垂直制表(VT)</td>
-<td style="text-align:center">011</td>
-</tr>
-<tr>
-<td>\</td>
-<td style="text-align:center">代表一个反斜线字符’’\’</td>
-<td style="text-align:center">092</td>
-</tr>
-<tr>
-<td>\’</td>
-<td style="text-align:center">代表一个单引号（撇号）字符</td>
-<td style="text-align:center">039</td>
-</tr>
-<tr>
-<td>\”</td>
-<td style="text-align:center">代表一个双引号字符</td>
-<td style="text-align:center">034</td>
-</tr>
-<tr>
-<td>\?</td>
-<td style="text-align:center">代表一个问号</td>
-<td style="text-align:center">063</td>
-</tr>
-<tr>
-<td>\0</td>
-<td style="text-align:center">空字符(NULL)</td>
-<td style="text-align:center">000</td>
-</tr>
-<tr>
-<td>\ddd</td>
-<td style="text-align:center">1到3位八进制数所代表的任意字符</td>
-<td style="text-align:center">三位八进制</td>
-</tr>
-<tr>
-<td>\xhh</td>
-<td style="text-align:center">1到2位十六进制所代表的任意字符</td>
-<td style="text-align:center">二位十六进制</td>
-</tr>
-</tbody>
-</table>
-<p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">     <span class="keyword">int</span> a,b,c;</span><br><span class="line">     a=<span class="number">1</span>; b=<span class="number">2</span>; c=<span class="number">3</span>;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"%d\n\t%d %d\n %d %d\t\b%d\n"</span>,a,b,c,a,b,c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此程序练习转义字符的使用：<br>a、b、c分别为整数1,2,3<br>调用printf显示程序运行结果：<br>1<br>23<br>12 3</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1417,7 +1350,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

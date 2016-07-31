@@ -176,6 +176,105 @@
           
           
             
+              <a class="post-title-link" href="/2016/07/31/the-road-to-learn-of-android-kernel-hal/" itemprop="url">
+                HAL层访问Linux内核驱动程序
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-07-31T18:33:26+08:00" content="2016-07-31">
+            2016-07-31
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                  <span itemprop="name">Android取经之路</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/07/31/the-road-to-learn-of-android-kernel-hal/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/the-road-to-learn-of-android-kernel-hal/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>上一章学习了从C空间访问Linux内核驱动程序，这一章我们一起来学习如何在硬件抽象层中增加硬件模块来访问内核驱动程序。本章还是跟上一章一样，通过传统设备/dev/hello来连接硬件抽象层模块和内核驱动程序。</p>
+<h3 id="1-进入到/hardware/libhardware/include/hardware目录">1.进入到/hardware/libhardware/include/hardware目录</h3><pre><code>新建<span class="tag">hello</span><span class="class">.h</span>
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> ANDROID_HELLO_INTERFACE_H</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> ANDROID_HELLO_INTERFACE_H</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;hardware/hardware.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">__BEGIN_DECLS</span><br><span class="line"></span><br><span class="line"><span class="comment">/*定义模块ID*/</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> HELLO_HARDWARE_MODULE_ID <span class="string">"hello"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*硬件模块结构体*/</span></span><br><span class="line"><span class="keyword">struct</span> <span class="keyword">hello_module_t</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="keyword">hw_module_t</span> common;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*硬件接口结构体*/</span></span><br><span class="line"><span class="keyword">struct</span> <span class="keyword">hello_device_t</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="keyword">hw_device_t</span> common; <span class="comment">//硬件设备结构</span></span><br><span class="line">    <span class="keyword">int</span> fd;    <span class="comment">//设备文件描述符</span></span><br><span class="line">    <span class="keyword">int</span> (*set_val)(<span class="keyword">struct</span> <span class="keyword">hello_device_t</span>* dev, <span class="keyword">int</span> val);<span class="comment">//写信号量</span></span><br><span class="line">    <span class="keyword">int</span> (*get_val)(<span class="keyword">struct</span> <span class="keyword">hello_device_t</span>* dev, <span class="keyword">int</span>* val);<span class="comment">//读信号量</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">__END_DECLS</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>这里定义了模块ID—hello，模块结构体，硬件接口结构体。</p>
+<h3 id="2-进入到hardware/libhardware/modules目录，新建hello目录">2.进入到hardware/libhardware/modules目录，新建hello目录</h3><pre><code>添加<span class="tag">hello</span><span class="class">.c</span>文件
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> LOG_TAG <span class="string">"HelloStub"</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;hardware/hardware.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;hardware/hello.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;cutils/log.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;cutils/atomic.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DEVICE_NAME <span class="string">"/dev/hello"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MODULE_NAME <span class="string">"Hello"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*设备打开和关闭接口*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_device_open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">struct</span> hw_module_t* module, <span class="keyword">const</span> <span class="keyword">char</span>* name, <span class="keyword">struct</span> hw_device_t** device)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_device_close</span><span class="params">(<span class="keyword">struct</span> hw_device_t* device)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*设备访问接口*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_set_val</span><span class="params">(<span class="keyword">struct</span> hello_device_t* dev, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_get_val</span><span class="params">(<span class="keyword">struct</span> hello_device_t* dev, <span class="keyword">int</span>* val)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*模块方法表*/</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">struct</span> <span class="keyword">hw_module_methods_t</span> hello_module_methods = &#123;</span><br><span class="line">    open: hello_device_open</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*模块实例变量*/</span></span><br><span class="line"><span class="keyword">struct</span> <span class="keyword">hello_module_t</span> HAL_MODULE_INFO_SYM = &#123;</span><br><span class="line">    common: &#123;</span><br><span class="line">        tag: HARDWARE_MODULE_TAG,</span><br><span class="line">        version_major: <span class="number">1</span>,</span><br><span class="line">        version_minor: <span class="number">0</span>,</span><br><span class="line">        id: HELLO_HARDWARE_MODULE_ID,</span><br><span class="line">        name: MODULE_NAME,</span><br><span class="line">        methods: &amp;hello_module_methods,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*设备打开接口*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_device_open</span><span class="params">(<span class="keyword">const</span> <span class="keyword">struct</span> hw_module_t* module, <span class="keyword">const</span> <span class="keyword">char</span>* name, <span class="keyword">struct</span> hw_device_t** device)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="keyword">hello_device_t</span>* dev;dev = (<span class="keyword">struct</span> <span class="keyword">hello_device_t</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <span class="keyword">hello_device_t</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!dev) &#123;</span><br><span class="line">        LOGE(<span class="string">"Hello Stub: failed to alloc space"</span>);</span><br><span class="line">        <span class="keyword">return</span> -EFAULT;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*初始化设备成员，并完成相应的赋值操作*/</span></span><br><span class="line">    <span class="built_in">memset</span>(dev, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">struct</span> <span class="keyword">hello_device_t</span>));</span><br><span class="line">    dev-&gt;common.tag = HARDWARE_DEVICE_TAG;</span><br><span class="line">    dev-&gt;common.version = <span class="number">0</span>;</span><br><span class="line">    dev-&gt;common.module = (<span class="keyword">hw_module_t</span>*)module;</span><br><span class="line">    dev-&gt;common.close = hello_device_close;</span><br><span class="line">    dev-&gt;set_val = hello_set_val;dev-&gt;get_val = hello_get_val;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*调用open函数，打开/dev/hello这个设备驱动*/</span></span><br><span class="line">    <span class="keyword">if</span>((dev-&gt;fd = open(DEVICE_NAME, O_RDWR)) == -<span class="number">1</span>) &#123;</span><br><span class="line">        LOGE(<span class="string">"Hello Stub: failed to open /dev/hello -- %s."</span>, strerror(errno));<span class="built_in">free</span>(dev);</span><br><span class="line">        <span class="keyword">return</span> -EFAULT;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*设备指针指向赋值*/</span></span><br><span class="line">    *device = &amp;(dev-&gt;common);</span><br><span class="line">    LOGI(<span class="string">"Hello Stub: open /dev/hello successfully."</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*设备关闭接口*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_device_close</span><span class="params">(<span class="keyword">struct</span> hw_device_t* device)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="keyword">hello_device_t</span>* hello_device = (<span class="keyword">struct</span> <span class="keyword">hello_device_t</span>*)device;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*如果设备句柄处于激活窗台，则关闭该句柄，清空内存*/</span></span><br><span class="line">    <span class="keyword">if</span>(hello_device) &#123;</span><br><span class="line">        close(hello_device-&gt;fd);</span><br><span class="line">        <span class="built_in">free</span>(hello_device);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*设置信号量*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_set_val</span><span class="params">(<span class="keyword">struct</span> hello_device_t* dev, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    LOGI(<span class="string">"Hello Stub: set value %d to device."</span>, val);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*调用write接口，往hello驱动写入寄存器值*/</span></span><br><span class="line">    write(dev-&gt;fd, &amp;val, <span class="keyword">sizeof</span>(val));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*读取信号量*/</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_get_val</span><span class="params">(<span class="keyword">struct</span> hello_device_t* dev, <span class="keyword">int</span>* val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!val) &#123;</span><br><span class="line">        LOGE(<span class="string">"Hello Stub: error val pointer"</span>);</span><br><span class="line">        <span class="keyword">return</span> -EFAULT;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*调用read接口，读取hello驱动的信号量值*/</span></span><br><span class="line">    read(dev-&gt;fd, val, <span class="keyword">sizeof</span>(*val));</span><br><span class="line"></span><br><span class="line">    LOGI(<span class="string">"Hello Stub: get value %d from device"</span>, *val);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该程序主要实现了/dev/hello驱动的打开和关闭，信号量的读写操作。</p>
+<h3 id="3-编译环境配置：">3.编译环境配置：</h3><pre><code>在<span class="tag">hello</span>目录中创建<span class="tag">Android</span><span class="class">.mk</span>文件:
+</code></pre><blockquote>
+<p>LOCAL_PATH := $(call my-dir)<br>  include $(CLEAR_VARS)<br>  LOCAL_MODULE_TAGS := optional<br>  LOCAL_PRELINK_MODULE := false<br>  LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw<br>  LOCAL_SHARED_LIBRARIES := liblog<br>  LOCAL_SRC_FILES := hello.c<br>  LOCAL_MODULE := hello.default<br>  include $(BUILD_SHARED_LIBRARY)</p>
+</blockquote>
+<p>这里的LOCAL_MODULE用的不是hello，而是hello.default，这样的好处是能够保证我们的模块总能被硬件抽象层访问到。</p>
+<h3 id="4-编译：">4.编译：</h3><p>   mmm hardware/libhardware/modules/hello<br>  编译目录:out/target/product/generic/system/lib/hw/hello.default.so</p>
+<h3 id="5-打包成system-image">5.打包成system.image</h3><pre><code><span class="built_in">make</span> snod
+</code></pre><p>这样我们在为自己的设备驱动增加了一个硬件抽象层模块，后面我们一起学习JNI方法调用硬件抽象层接口的操作。</p>
+<p>注:代码程序主要参考《老罗的Android之旅》来完成。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/07/31/the-road-to-learn-of-android-c-process/" itemprop="url">
                 C空间增加可执行程序访问硬件驱动
               </a>
@@ -1236,108 +1335,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/15/c-and-point-thirteen-function-point/" itemprop="url">
-                C与指针-第十三章-函数指针
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-15T22:08:39+08:00" content="2016-06-15">
-            2016-06-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/06/15/c-and-point-thirteen-function-point/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/c-and-point-thirteen-function-point/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>本文重点讲的函数指针为 回调函数和转移表。</p>
-<h2 id="回调函数">回调函数</h2><h3 id="含义：">含义：</h3><p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方法直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
-<h3 id="机制：">机制：</h3><blockquote>
-<p>⑴定义一个回调函数；<br>⑵提供函数实现的一方在初始化的时候，将回调函数的函数指针注册给调用者；<br>⑶当特定的事件或条件发生的时候，调用者使用函数指针调用回调函数对事件进行处理。</p>
-</blockquote>
-<h3 id="举例：">举例：</h3><p> 1.我们在路上遇到一个好多年没见到的朋友，要了朋友的手机好，跟他说我回去打给你</p>
-<blockquote>
-<p> 1)遇见朋友–主函数<br>  2)我打电话给朋友，通过朋友的手机号，找到朋友–(回调)</p>
-</blockquote>
-<p>2.寄快递的情形<br>   打电话给快递员，告诉他我的地址(理解成回调函数的地址)，快递员在有空的时候根据这个地址来找到你取件。</p>
-<blockquote>
-<p>1)打电话给快递员，告诉他我的地址–主函数(我的地址–回调函数地址)<br>  2)快递员处理完其他事情后，通过这个地址(回调)来找到你取件，执行完回调里面的内容。</p>
-</blockquote>
-<p>示例:<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*回调函数*/</span></span><br><span class="line"><span class="keyword">void</span> *call_phone_number(<span class="keyword">int</span> number )</span><br><span class="line">&#123;</span><br><span class="line">      printf(<span class="string">"phone number = %d\n"</span>,number); <span class="comment">/*通过号码找到朋友*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*调用函数*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">start_call</span>(<span class="params"> <span class="keyword">void</span> *call_back(<span class="keyword">int</span> number</span>))</span><br><span class="line"></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> phone_number = <span class="number">12345</span>;</span><br><span class="line">      call_back(phone_number);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span>(<span class="params"><span class="keyword">void</span></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">      start_call(call_phone_number);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="转移表">转移表</h2><p>用函数指针的形式来替换switch、if/else的方式</p>
-<h3 id="示例：">示例：</h3><p>一个计算器实现<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">double add(double,double);</span><br><span class="line">double sub(double,double);</span><br><span class="line">double mul(double,double);</span><br><span class="line">double <span class="keyword">div</span>(double,double);</span><br><span class="line"></span><br><span class="line">     switch(oper)</span><br><span class="line">     &#123;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">ADD</span>:</span><br><span class="line">               <span class="literal">result</span> = add(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">SUB</span>:</span><br><span class="line">               <span class="literal">result</span> = sub(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">MUL</span>:</span><br><span class="line">               <span class="literal">result</span> = mul(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">DIV</span>:</span><br><span class="line">               <span class="literal">result</span> = <span class="keyword">div</span>(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          default:</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
-<p>上述代码改成转移表只需要两个步骤。<br>首先，声明并初始化一个函数指针数组。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double (*oper_func[])(double,double)=&#123;add,sub,mil,div&#125;;</span><br><span class="line"></span><br><span class="line">调用：</span><br><span class="line">result = oper_func[<span class="link_label">oper</span>](<span class="link_url">op1,op2</span>);</span><br></pre></td></tr></table></figure></p>
-<p>oper从数组中选择正确的函数指针，而函数调用操作符将执行这个函数</p>
-<p>=========================<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1376,7 +1373,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
