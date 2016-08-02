@@ -49,7 +49,8 @@
 <meta property="og:description" content="本章主要讲解在Android的内核中编译硬件驱动程序，由于没有明确的GPIO口控制，因此这里不涉及硬件部分，我们使用一个虚拟硬件设备，并实现读写接口。
 由于我现在内核的知识点还比较浅，因此内核的部分只是作为参考，主要目的，是为了尝试从APK到内核的一条通路实现过程。详细的内核需要等以后把Framework相关的知识补充完整后，再进一步学习。
 这里创建一个虚拟硬件设备，命名为hello，即内核驱动的">
-<meta property="og:updated_time" content="2016-07-30T10:41:33.000Z">
+<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
+<meta property="og:updated_time" content="2016-07-31T10:37:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Android内核中编写硬件驱动">
 <meta name="twitter:description" content="本章主要讲解在Android的内核中编译硬件驱动程序，由于没有明确的GPIO口控制，因此这里不涉及硬件部分，我们使用一个虚拟硬件设备，并实现读写接口。
@@ -254,6 +255,7 @@
 <p>6)cd kernel目录，输入make进行编译</p>
 </blockquote>
 <p>编译成功后，我们可以在hello目录中看到我们的hello.o文件，并且产生的image中已经包含了hello驱动，把这个image下载到手机或者使用模拟器打开这个image就可以进行验证，至此，我们的hello驱动程序编写完成。</p>
+<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
 </span>
       
     </div>
