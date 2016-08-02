@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,25 +23,65 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="3G/LTE protocol | C" />
-
-
-
-  <meta name="keywords" content="Hexo,next" />
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
+  
+  
+  
+  
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
 
 
 <meta name="description" content="3G/LTE protocol | C">
@@ -50,28 +95,34 @@
 <meta name="twitter:description" content="3G/LTE protocol | C">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/page/5/"/>
 
   <title> Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
+
+
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
@@ -85,22 +136,34 @@
 
 
 
-  <div class="container one-column 
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tianger's Family</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -114,28 +177,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -143,13 +202,34 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
       
     </ul>
   
@@ -162,81 +242,119 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/14/rrc-release-progress/" itemprop="url">
-                WCDMA协议和信令—呼叫建立和释放流程分析(5)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-14T21:03:05+08:00" content="2016-03-14">
-            2016-03-14
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/14/rrc-release-progress/" itemprop="url">
+                  WCDMA协议和信令—呼叫建立和释放流程分析(5)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-14T21:03:05+08:00" content="2016-03-14">
+              2016-03-14
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/03/14/rrc-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/rrc-release-progress/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/14/rrc-release-progress/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/rrc-release-progress/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>​<center><strong>RRC连接释放流程</strong></center></p>
+          
+            <p>​<center><strong>RRC连接释放流程</strong></center></p>
 <p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当呼叫RAB释放后，SRNC将判断系统中是否还存在由相同RRC承载的lu信令连接。如果该UE对应的Iu信令连接已全部被释放，则释放该RRC连接。RRC连接释放就是释放UE和UTRAN之间的信令链路以及全部无线承载，经过RRC连接释放过程，无线接口上将释放所有与UE相关的信令连接。<br>&nbsp;&nbsp;&nbsp;&nbsp;根据RRC连接所占用的资源情况，可进一步划分为两类：释放建立在专用信道上的RRC连接、释放建立在公共信道上的RRC连接。RRC连接释放只能发生在CELL_DCH或CELL_FACH状态下，如果当前RRC连接处于CELL_PCH或者URA_PCH状态，UTRAN先发起寻呼将UE状态迁移到CELL_FACH，再进行RRC连接释放。<br>&nbsp;&nbsp;&nbsp;&nbsp;RNC根据不同情况，在下行DCCH或CCCH上通过UM RLC方式发送RRC连接释放消息RRC CONNECTION RELEASE。     如RRC释放时DCCH可用，则UTRAN通过下行DCCH信道发送RRC连接释放消息；否则UTRAN通过下行CCCH信道发送RRC连接释放消息。</p>
 <p>1.2 释放建立在专用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在专用信道上的RRC连接，信令流程如图1-1所示。<br>    <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_private.png" alt=""><br>    <center>图1-1 RRC连接释放(专用信道)</center></p>
 <pre><code>​信令流程描述：         
 </code></pre><p>  (1)        SRNC通过DCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，SRNC可能发送多次，来提高UE接收的可靠性。<br>  (2)        UE向SRNC返回RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。<br>  (3)        SRNC向NodeB发送无线链路删除请求消息RADIO LINK DELETION REQUEST，删除NodeB中的无线链路资源。<br>  (4)        NodeB资源释放完成后，向SRNC返回无线链路删除响应消息RADIO LINK DELETION RESPONSE。<br>  (5)        RNC使用ALCAP协议发起Iub接口用户面传输承载的释放。RRC释放过程结束。     </p>
 <p>1.3 释放建立在公用信道上的RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;释放建立在公用信道上的RRC连接，信令流程如图1-2所示.<br>    ​<img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc_release_public.png" alt=""><br>         <center>图1-1 RRC连接释放(公用信道)</center><br>    ​SRNC通过CCCH信道向UE发送RRC连接释放消息RRC CONNECTION RELEASE，发起RRC连接释放过程，UE释放资源。<br>    ​释放建立在公用信道上的RRC连接时，不需要RRC连接释放完成消息RRC CONNECTION RELEASE COMPLETE。此外，因为用的是小区公共资源，所以只要直接释放UE，而不必释放NodeB资源和数据传输承载。<br>    ​UTRAN可能发送多次RRC连接释放消息RRC CONNECTION RELEASE，以提高UE正确接收这条消息的可靠性，这些消息的RRC SN值相同，重复发送消息数目及发送间隔由网络控制。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -256,73 +374,109 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/13/ue-capability-information-progress/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(4)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-13T17:40:16+08:00" content="2016-03-13">
-            2016-03-13
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/13/ue-capability-information-progress/" itemprop="url">
+                  WCDMA协议和信令-呼叫建立和释放流程分析(4)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-13T17:40:16+08:00" content="2016-03-13">
+              2016-03-13
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/03/13/ue-capability-information-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/ue-capability-information-progress/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/13/ue-capability-information-progress/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/ue-capability-information-progress/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p><center><strong>UE能力信息流程</strong></center><br>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息包括：安全能力、定位能力、测量能力、物理信道能力、传输信道能力等。<br>由于UE的厂家和规格不同，能力也不一致，所以RRC连接建立之后，UE应当向UTRAN发送UE能力信息，以使网络侧按照UE支持的能力参数对其进行配置。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息的传递可以分以下三种情况告诉网络：<br>&nbsp;&nbsp;&nbsp;&nbsp;（1）RRC连接建立完成之后，UE能力信息通过RRC连接建立完成消息RRC CONNECTION SETUP COMPLETE，传递到RNC；<br>&nbsp;&nbsp;&nbsp;&nbsp;（2）RRC连接建立完成之后，当RNC发现相应UE的能力信息不存在时，向UE发送UE能力信息查询消息UE CAPABILITY ENQUIRY，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送UE能力信息；<br>&nbsp;&nbsp;&nbsp;&nbsp;（3）RRC连接期间，当UE能力信息发生改变时，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送新的UE能力信息。</p>
+          
+            <p><center><strong>UE能力信息流程</strong></center><br>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息包括：安全能力、定位能力、测量能力、物理信道能力、传输信道能力等。<br>由于UE的厂家和规格不同，能力也不一致，所以RRC连接建立之后，UE应当向UTRAN发送UE能力信息，以使网络侧按照UE支持的能力参数对其进行配置。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息的传递可以分以下三种情况告诉网络：<br>&nbsp;&nbsp;&nbsp;&nbsp;（1）RRC连接建立完成之后，UE能力信息通过RRC连接建立完成消息RRC CONNECTION SETUP COMPLETE，传递到RNC；<br>&nbsp;&nbsp;&nbsp;&nbsp;（2）RRC连接建立完成之后，当RNC发现相应UE的能力信息不存在时，向UE发送UE能力信息查询消息UE CAPABILITY ENQUIRY，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送UE能力信息；<br>&nbsp;&nbsp;&nbsp;&nbsp;（3）RRC连接期间，当UE能力信息发生改变时，UE通过UE能力信息消息UE CAPABILITY INFORMATION，向RNC发送新的UE能力信息。</p>
 <p>1.2 UE能力信息查询<br>&nbsp;&nbsp;&nbsp;&nbsp;通过UE能力信息查询，UTRAN请求UE发起UE能力查询过程，如图1-1所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_caoability_enquiry.png" alt=""><br>        <center>图1-1 UE能力查询</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过下行DCCH逻辑信道，采用AM RLC方式发送UE能力查询消息UE CAPABILITY ENQUIRY,完成UE能力信息查询过程。</p>
 <p>1.3 UE能力信息更新<br>&nbsp;&nbsp;&nbsp;&nbsp;若UTRAN发起UE能力信息查询过程，或者RRC连接期间UE能力信息发生改变，UE将发起UE能力信息更新过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE能力信息更新过程用于向UTRAN传送UE所支持的无线网络相关能力信息，如图1-2所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/ue_capability_upate.png" alt=""><br>     <center>图1-2 UE能力信息更新</center><br>     （1）UE在上行链路DCCH上，使用AM或UM RLC方式发送UE能力信息消息UE CAPABILITY INFORMATION，消息中携带UE的能力信息。<br>     （2）UTRAN读取UE能力信息，使用AM 或UM RLC方式在下行链路DCCH上发送UE CAPABILITY INFORMA CONFIRM确认消息。UE能力信息更新过程结束。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -342,69 +496,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/13/direct-transfer/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(3)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-13T16:58:27+08:00" content="2016-03-13">
-            2016-03-13
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/13/direct-transfer/" itemprop="url">
+                  WCDMA协议和信令-呼叫建立和释放流程分析(3)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-13T16:58:27+08:00" content="2016-03-13">
+              2016-03-13
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/03/13/direct-transfer/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/direct-transfer/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/13/direct-transfer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/direct-transfer/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><center><strong>直传消息流程</strong></center>
+          
+            <center><strong>直传消息流程</strong></center>
 
 <p>1.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;直传消息指UE与CN之间的信令交互NAS信息，如鉴权、业务请求、连接建立等。由于这些消息在RNC透明传输，所以称为直传消息。<br>&nbsp;&nbsp;&nbsp;&nbsp;RRC连接建立的只是UE与RNC之间的信令连接，因此为了传送直传消息，还需要继续建立UE与CN之间的信令连接。RNC在收到第一条直传消息时(即初始直传消息INITIAL DIRECT TRANSFER)，将建立与CN之间的信令连接，该连接建立于SS7的SCCP之上。<br>&nbsp;&nbsp;&nbsp;&nbsp;UE和CN的信令连接建立成功后，UE发送到CN的消息，通过上行直传消息UPLINK DIRECT TRANSFER 发送到RNC，RNC将其转换为直传消息DIRECT TRANSFER 发送到CN;CN发送到UE的消息，通过直传消息DIRECT TRANSFER 发送到RNC，RNC将其转换为下行直传消息DOWNLINK DIRECT TRANSFER 发送到UE。</p>
 <p>1.2 初始直传<br>&nbsp;&nbsp;&nbsp;&nbsp;初始直传过程用于建立起RNC与CN之间的一条信令连接，同时承载一条初始NAS消息。NAS消息的内容在RNC并不进行解释，而是转送给CN。<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE处于CELL_PCH或URA_PCH状态时，为了进行初始直传，将首先进行小区更新，状态迁移入CELL_FACH状态，更新理由为“uplink data transmission”。小区更新成功结束后，UE将继续进行初始直传。</p>
@@ -413,8 +594,17 @@
 <pre><code>信令流程描述：
 </code></pre><p>   （1）UE向RNC发送上行直传消息UPLINK DIRECT TRANSFER，发起上行直传过程。消息中包含NAS消息、CN标识等信息。<br>   （2）RNC按照消息中包含的CN标识，进行路由，将其中包含的NAS信息内容，通过lu接口的直传消息DIRECT TRANSFER,发送到CN。上行直传过程结束。<br>     如果上行直传消息UPLINK DIRECT TRANSFER 中包含“Measured results on RACH”信息单元，表明消息中携带测量报告，此时UTRAN将解析相应消息内容并用于无线资源控制，消息其余部分仍旧向CN传输。</p>
 <p>1.4 下行直传<br>&nbsp;&nbsp;&nbsp;&nbsp;当CN需要在已存在的信令连接上向UE发送NAS消息时，发起下行直传过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;下行直传的信令流程如图1-3所示：<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/downlink-transfer.png" alt=""><br>     <center>图1-3 下行直传</center><br>信令流程说明：<br>（1）CN向RNC发送直传消息DIRECT TRANSFER，发起下行直传过程。消息中包含NAS消息。<br>（2）UTRAN通过下行DCCH信道采用AM RLC方式，发送下行直传消息DOWNLINK DIRECT TRANSFER,消息中携带CN发送到UE的NAS信息内容，以及CN标识。<br>     UE接收并读取下行直传消息DOWNLINK DIRECT TRANSFER 中携带的NAS消息内容。若接收到的消息包含协议错误，UE将在上行DCCH上采用AM RLC方式发送RRC状态消息RRC STATUS。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -434,76 +624,112 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/12/rrc-setup/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(2)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-12T17:09:12+08:00" content="2016-03-12">
-            2016-03-12
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/12/rrc-setup/" itemprop="url">
+                  WCDMA协议和信令-呼叫建立和释放流程分析(2)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-12T17:09:12+08:00" content="2016-03-12">
+              2016-03-12
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/03/12/rrc-setup/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/12/rrc-setup/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/12/rrc-setup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/12/rrc-setup/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><center><strong>呼叫建立和释放流程分析 之 RRC连接建立流程</strong></center>
+          
+            <center><strong>呼叫建立和释放流程分析 之 RRC连接建立流程</strong></center>
 
 <p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;UE处于空闲模式时，如果UE的NAS(非接入层)请求建立信令连接，UE将发起RRC连接建立请求过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;当RNC接收到UE的RRC连接请求消息，根据特定的算法确定是接收还是拒绝该RRC连接建立请求。如果接受，则再根据特定无线资源算法判决是建立在专用信道还是公共信道。RRC连接建立信道不同，RRC连接建立流程也不同。如果RRC连接不能建立，则RNC拒绝本次RRC连接建立。<br>&nbsp;&nbsp;&nbsp;&nbsp;RRC连接总是由UE发起，RRC释放由RNC发起；每个UE最多只能有一个RRC连接。</p>
 <p>1.2 在专用信道上建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;若RRC连接建立在专用信道上,RNC需要为UE分配专用无线资源、建立无线链路、并且为无线链路建立lub接口的ALCAP用户承载。<br>&nbsp;&nbsp;&nbsp;&nbsp;信令流程如图1-1所示：<br>            <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc-signal-private.png" alt=""><br>            <center>图1-1 RRC连接建立(专用信道)</center><br>     信令流程描述：<br>     （1）UE通过上行CCCH发送RRC连接请求消息RRC CONNECTION REQUEST,请求建立一个RRC连接。<br>     （2）RNC根据RRC连接请求的原因以及系统资源状态，决定UE建立在专用信道上，并分配RNT1、无线资源和其他资源(L1\L2资源)<br>     （3）RNC向NodeB发送无线链路建立请求消息RADIO LINK SETUP REQUEST,请求NodeB分配RRC连接所需的特定无线链路资源。<br>     （4）NodeB资源准备成功后，向RNC应答无线链路建立响应消息RADIO LINK SETUP RESPONSE.<br>     （5）RNC使用ALCAP协议建立lub接口用户面传输承载，并完成RNC与NodeB之间的同步过程。<br>     （6）RNC通过下行CCCH信道向UE发送RRC连接建立消息RRC CONNECTION SETUP，消息包含RNC分配的专用信道信息。<br>     （7）UE确认RRC连接建立成功后，在刚刚建立的上行DCCH信道向RNC发送RRC连接建立完成消息RRC CONNECTION SETUP COMPLETE.<br>               RRC连接建立过程结束。</p>
 <p>1.3 在公共信道上建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;当RRC连接建立在公共信道上时，因为使用已经建立好的小区公共资源，所以不用建立无线链路和用户面的数据传输承载，只需将UE使用的逻辑信道映射在小区公共信道上，其余过程与RRC连接建立在专用信道的情况相似。<br>&nbsp;&nbsp;&nbsp;&nbsp;信令流程如图1-2所示：<br>        <img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc-signal-public.png" alt=""><br>          <center>图1-2 RRC连接建立（公共信道)</center></p>
 <p>1.4 RRC连接拒绝<br>&nbsp;&nbsp;&nbsp;&nbsp;如果RNC判决本次RRC连接请求不能建立（比如资源不足），则RNC直接给UE发送连接拒绝消息RRC CONNECTION REJECT，在该消息中指明RRC连接拒绝的原因，如图1-3所示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/rrc-connection-reject.png" alt=""><br>          <center>图1-3所示 RRC连接拒绝</center></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -523,69 +749,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/02/29/call-start-and-release-progress/" itemprop="url">
-                WCDMA协议和信令-呼叫建立和释放流程分析(1)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-02-29T20:26:40+08:00" content="2016-02-29">
-            2016-02-29
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/29/call-start-and-release-progress/" itemprop="url">
+                  WCDMA协议和信令-呼叫建立和释放流程分析(1)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-29T20:26:40+08:00" content="2016-02-29">
+              2016-02-29
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/02/29/call-start-and-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/call-start-and-release-progress/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/29/call-start-and-release-progress/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/call-start-and-release-progress/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。<br>&nbsp;&nbsp;&nbsp;&nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;无论UE主叫还是被叫，呼叫建立和释放包含以下过程:<br>     （1）UE和URTRAN建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;—RRC(Radio Resource Control)指无线资源控制，属于第三层，第一层L1(物理层PHY)，第二层L2(数据链路层MAC/RLC)，第三层L3(网络层RRC)<br>     （2）通过直传消息，UE和CN建立连接—CN(Core network核心网)<br>     （3）UE能力信息流程<br>     （4）RAB建立流程—RAB(Radio Access Bearer)无线接入承载<br>     （5）RAB释放流程和lu释放流程<br>     （6）RRC连接释放流程</p>
+          
+            <p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。<br>&nbsp;&nbsp;&nbsp;&nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;无论UE主叫还是被叫，呼叫建立和释放包含以下过程:<br>     （1）UE和URTRAN建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;—RRC(Radio Resource Control)指无线资源控制，属于第三层，第一层L1(物理层PHY)，第二层L2(数据链路层MAC/RLC)，第三层L3(网络层RRC)<br>     （2）通过直传消息，UE和CN建立连接—CN(Core network核心网)<br>     （3）UE能力信息流程<br>     （4）RAB建立流程—RAB(Radio Access Bearer)无线接入承载<br>     （5）RAB释放流程和lu释放流程<br>     （6）RRC连接释放流程</p>
 <p>1.2寻呼流程<br>1.2.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼分为CN发起的寻呼和UTRAN发起的寻呼。CN发起的寻呼用于建立一条信令连接，CN发起的寻呼分为协作寻呼和非协作寻呼。CN在RANAP PAGING消息中指示RNC(Radio network control 无线网络控制器)是否需要进行UTRAN(基站)的协作寻呼。<br>&nbsp;&nbsp;&nbsp;&nbsp;(1)协作寻呼是由RNC检查UE是否存在寻呼域之外的其他CN域信令连接，如果存在其他的CN域信令连接，且UE处于CELL_DCH或者CELL_FACH状态，则在无线接口上，寻呼消息通过已经存在的连接的DCCH信道下发；如果存在其他的CN域信令连接，且UE处于CELL_PCH或者URA_PCH状态，则无线接口上，寻呼消息通过PCCH信道下发；如果不存在其他的CN域信令连接，寻呼消息通过PCCH信道下发。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;(2)非协作寻呼是指RNC不需要检查UE是否存在寻呼域之外的其他CN域信令连接，直接在CN指定的寻呼区域中通过PCCH信道下发寻呼消息。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN发起的寻呼可以寻呼处于CELL_PCH或URA_PCH状态的UE，UE通过寻呼相应发起小区更新过程将用户从CELL_PCH或URA_PCH状态迁移到CELL_FACH，或在系统信息改变的时候URTARN通过寻呼消息出发UE(处于IDLE-空闲模式、CELL_PCH或URA_PCH)重新读取更新后的系统信息。</p>
@@ -594,8 +847,17 @@
 <p>1.2.2寻呼空闲模式或PCH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过PCCH信道，使用寻呼类型1消息寻呼处于空闲模式、CELL_PCH或URA_PCH状态下的UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;这一类型的寻呼一般发生在一下几种情况：<br>     （1）为了建立一次呼叫或一条信令连接，由网络侧高层发起的寻呼；<br>     （2）为了将UE的状态从CELL_PCH或URA_PCH状态迁移到CELL_FACH状态，UTRAN发起出发UE状态迁移的寻呼；<br>     （3）当系统信息发生改变时，由UTRAN发起触发UE读取更新后系统信息的寻呼。此时，主消息块(MIB)的值标签包括在寻呼类型1消息PAGING TYPE1中的“HCCH modification info”中。<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-1所示<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/pagging1.png" alt=""><br>     <center>图1-1寻呼空闲模式或PCH状态UE</center></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过PCCH信道，在适当的寻呼时机发送寻呼类型1消息PAGING TYPE1，启动寻呼过程。UTRAN可以选择在几个寻呼时机重复寻呼一个UE，以增加UE正确接收寻呼消息的可能性。<br>处于空闲模式和PCH状态的UE，监视适当的寻呼时机，接收来自网络层的寻呼消息。</p>
 <p>1.2.3寻呼CELL_DCH或CELL_FACH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过DCCH信道，使用寻呼类型2消息寻呼处于CELL_DCH或CELL_FACH状态下的UE.<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-2所示。<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/paging2.png" alt=""><br>     <center>图1-2寻呼CELL_DCH或CELL_FACH状态UE</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过DCCH信道发送寻呼类型2消息PAGING TYPE2,发起寻呼过程。这一类型的寻呼也叫作专用寻呼过程UE接受并读取寻呼类型2消息PAGING TYPE2的内容，并把寻呼原因及寻呼记录种类标识等信息上报给本侧非接入层。寻呼过程结束。<br>&nbsp;&nbsp;&nbsp;&nbsp;本进程不影响UE侧正在进行的其他RRC进程。<br>&nbsp;&nbsp;&nbsp;&nbsp;若UE发现接收到的寻呼类型2消息PAGING TYPE2存在协议错误，丢弃该寻呼消息，并通过上行DCCH采用AM RLC方式，向UTRAN发送RRC状态消息RRC STATUS.</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -615,69 +877,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/02/10/utran-interface-protocol-and-function/" itemprop="url">
-                WCDMA协议和信令---UTRAN 接口协议和功能
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-02-10T17:13:09+08:00" content="2016-02-10">
-            2016-02-10
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/10/utran-interface-protocol-and-function/" itemprop="url">
+                  WCDMA协议和信令---UTRAN 接口协议和功能
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-10T17:13:09+08:00" content="2016-02-10">
+              2016-02-10
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/02/10/utran-interface-protocol-and-function/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/10/utran-interface-protocol-and-function/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/10/utran-interface-protocol-and-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/10/utran-interface-protocol-and-function/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>1.1概述<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/UTRAN-interface.png" alt=""></p>
+          
+            <p>1.1概述<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/UTRAN-interface.png" alt=""></p>
 <center>图1 UTRAN 接口</center><br>&nbsp;&nbsp;&nbsp;&nbsp;图1-1所示，UMTS系统中UTRAN 接口包括lub\ lur \ lu \ uu接口，接口连接的网元如表1-1所示：<br><br><center>表1-1UTRAN接口</center><br><img src="http://7xn24x.com1.z0.glb.clouddn.com/uu-table-interface.png" alt=""><br><br>UTRAN-(UMTS Terrestrial Radio Access Network) UMTS陆地无线接入网<br>Uu—Uu interface 手机和UTRAN之间的接口<br>Node B (WCDMA base station)WCDMA 基站<br>RNC(Radio Network Controller)无线网络控制器—管理基站<br>CN(Core Network) 核心网<br>CS(Circuit-Switched) 电路交换域–例如电话<br>PS(Packet-Switched) 分组交换域—数据业务，例如上网<br>BC(Broadcast-Switched) 广播域–小区广播<br><br>lub/lur/lu/uu都为标准的接口，可以连接不同设备供应商提供的设备。一般将lub/lur/lu接口统称为UTRAN地面接口。<br>根据RNC连接的CN设备的不同，lu接口又可以分lu-CS接口、lu-PS接口和lu-BC，其中lu-CS为RNC何MSC之间的接口，lu-PS为RNC何SGSN之间的接口，lu-BC为RNC何CBC之间的接口。<br><br><br>1.2 Uu接口<br>1.2.1 Uu协议结构<br>&nbsp;&nbsp;&nbsp;&nbsp;Uu接口为UE(User Equipment)与UTRAN(UMTS terrestrial Radio Access Network)之间的接口，是UMTS系统的空中接口，是UMTS系统的空中接口，也是最重要的接口。<br>&nbsp;&nbsp;&nbsp;&nbsp;Uu接口可分为三个协议层：物理层(L1)、数据链路层(L2)和网络层(L3)，如图1-2所示：<br><br><img src="http://7xn24x.com1.z0.glb.clouddn.com/uu-interface.png" alt=""><br><center>图1-2 Uu接口协议栈结构</center>
 
 <p>L1主要用于为高层业务提供传输的无线物理通道。该层由NodeB实现。<br>L2包括MAC(Medium Access Control) 、RLC(Radio Link Control)、BMC(broadcast/Multicast Control)和PDCP(Packet Data Convergence Protocol)四个子层。<br>L3包括接入层(AC)中的RRC子层和非接入层(NAS)的MM(Mobile Management，移动性管理)和CC(Call Control，呼叫控制)<br>L2 和L3子层由RNC实现。</p>
@@ -711,8 +1000,17 @@
 <li>闭环功率控制</li>
 <li>射频处理</li>
 </ul>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -732,69 +1030,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/02/08/wcdma-introduction/" itemprop="url">
-                WCDMA协议和信令—WCDMA简介
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-02-08T16:22:04+08:00" content="2016-02-08">
-            2016-02-08
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/08/wcdma-introduction/" itemprop="url">
+                  WCDMA协议和信令—WCDMA简介
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-08T16:22:04+08:00" content="2016-02-08">
+              2016-02-08
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/02/08/wcdma-introduction/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/08/wcdma-introduction/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/08/wcdma-introduction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/08/wcdma-introduction/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA-宽带码分多址(Wideband Code Division Multiple Access)是一个ITU(国际电信联盟)标准，它从码分多址(CDMA)演变而来，从官方看被认为是IMT-2000的直接扩展，与现在市场上通常提供的技术相比，它能够为移动和手提无线设备提供更高的数据速率。</p>
+          
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA-宽带码分多址(Wideband Code Division Multiple Access)是一个ITU(国际电信联盟)标准，它从码分多址(CDMA)演变而来，从官方看被认为是IMT-2000的直接扩展，与现在市场上通常提供的技术相比，它能够为移动和手提无线设备提供更高的数据速率。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA可支持384Kbps到2Mbps不等的数据传输速率，在高速移动的状态，可以提供384Kbps的传输速率，在低速或是室内环境下，则可提供高达2Mbps的传输速率。而GSM系统目前只能传送9.6Kbps，固定线路的Modem(猫)拨号也只是56Kbps的速率，由此可见WCDMA是无线的宽带通讯。在同一些传输通道中，它还可以提供电路交换(CS域)和分包交换(PS域)的服务，因此，消费者可以同时利用交换方式接听电话，然后以分包方式访问因特网，这样的技术可以提高移动电话的使用效率，使得我们可以解决在同一时间只能做语音或数据传输的服务的限制。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA采用最新的异步传输模式(ATM)微信元传输协议，能够允许在一条线路上传送跟多的语音呼叫，呼叫数由现在的30个提高到300个，在人口密集的地区线路将不在容易堵塞。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;WCDMA是一种由3GPP定制的，基于GSM MAP核心网，UTRAN(UMTS陆地无线接入网)为无线接口的第三代移动通信系统。目前WCDMA有Release 99、Release 4、Release 5、Release6等版本。</p>
@@ -803,8 +1128,17 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;在Release 6版本引入了上行链路增强技术，即HSUPA(High Speed Uplink Packet Access，高速上行分组接入)技术，在5MHZ的带宽内可提供最高的6Mpbs的上行数据船速速率。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;在Release 7版本引入了增强型高速分组接入技术，是HSPA的强化版本，即HSPA+,演进式HSPA(又名 HSPA Evolution，HSPA+,I-HSPA或Internet HSPA)，在5MHZ的带宽内可以提高最高42Mbps下行数据传输速率，以及上行21Mbps数据传输速率.总的来说,HSPA+相比较HSPA速率更快、性能更好，技术更先进，同时网络也更稳定，是目前LTE技术运用之前最快的网络！ITU已经把HSPA+列为4G网络的一个标准，目前4G标准有LTE-Advanced、WirelessMAN-Advanced、WIMAX、HSPA+、LTE（FDD-LTE和TDD-LTE）5个标准。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;在后面我将会逐步进行UTRAN接口协议、小区流程、系统信息、呼叫建立与释放以及移动性管理流程的分析。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -824,69 +1158,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/01/30/use-hexo-create-gt-blog/" itemprop="url">
-                MAC下搭建Git博客-HEXO
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-01-30T21:35:53+08:00" content="2016-01-30">
-            2016-01-30
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/GIT/" itemprop="url" rel="index">
-                  <span itemprop="name">GIT</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/30/use-hexo-create-gt-blog/" itemprop="url">
+                  MAC下搭建Git博客-HEXO
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-30T21:35:53+08:00" content="2016-01-30">
+              2016-01-30
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/01/30/use-hexo-create-gt-blog/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/use-hexo-create-gt-blog/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/GIT/" itemprop="url" rel="index">
+                    <span itemprop="name">GIT</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/30/use-hexo-create-gt-blog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/use-hexo-create-gt-blog/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>Git 博客已经开了好久了，也一直荒废在这，有时候总想写点什么，有时候都因为各种原因，自己给自己找了借口，归结到底还是自己没有能够坚持下来，2016年培养自己的毅力，就从git博客开始吧，把自己平常的工作、学习总结起来，不能再让自己长草，2016加油！ </p>
+          
+            <p>Git 博客已经开了好久了，也一直荒废在这，有时候总想写点什么，有时候都因为各种原因，自己给自己找了借口，归结到底还是自己没有能够坚持下来，2016年培养自己的毅力，就从git博客开始吧，把自己平常的工作、学习总结起来，不能再让自己长草，2016加油！ </p>
 <p>1.注册Github<br><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
 <p>2.下载Node.js<br>官网下载最新版本：<br><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
 <p>3.安装GIT</p>
@@ -914,8 +1275,17 @@
 <p>2)<br>hexo generate #生成静态页面至public页面<br>hexo server  #开启预览访问端口(默认端口4000，‘ctrl+c’ 关闭server)<br>hexo deploy #将.deploy目录部署到github</p>
 <p>注：<br>1)hexo博客使用的是markdown语法规则，详细规则参考我的另一篇文章:<br><a href="http://tianger.github.io/2016/04/28/markdown-head-first-basic/">MarkDown入门指南</a></p>
 <p>2)hexo deploy失败解决办法：<br>提示:<br>ERROR Deployer not found: github<br>解决办法：<br>把_config.yml中得deploy的type改成git，然后执行下面命令<br>nom install hexo-deployer-git —save<br>再hexo g<br>hexo d</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -935,75 +1305,111 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/03/which-programmer-i-want-to-be/" itemprop="url">
-                我想成为怎样的程序员
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-03T15:20:30+08:00" content="2015-10-03">
-            2015-10-03
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/生活/" itemprop="url" rel="index">
-                  <span itemprop="name">生活</span>
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/03/which-programmer-i-want-to-be/" itemprop="url">
+                  我想成为怎样的程序员
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-03T15:20:30+08:00" content="2015-10-03">
+              2015-10-03
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2015/10/03/which-programmer-i-want-to-be/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/which-programmer-i-want-to-be/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/生活/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/03/which-programmer-i-want-to-be/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/which-programmer-i-want-to-be/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>当你进入一家IT公司的时候，有没有这样问过自己一句话-“我想成为怎样的程序员”？</p>
+          
+            <p>当你进入一家IT公司的时候，有没有这样问过自己一句话-“我想成为怎样的程序员”？</p>
 <p>有人会说我会把代码写的很精炼、错误很少；有人会说我会把文档写的很丰富；有人会说我会把公司交给的任务完成的很好，等等… </p>
 <p>这些都是作为一个优秀程序员必备的技能，都没有问题。</p>
 <p>在我看来，其实就是两点，一是做对公司有用的程序员，把公司交给的任务每个功能都开发的很完善，错误很少，代码简洁明了，文档通俗易懂；二是做对自己有用的程序员，掌握语法知识，拓展高级语法，掌握开发中的各个模块，深入理解模块中的各种通信机制，并剥离出各种机制的原理、实现方法，并能举一反三，当你离开这家公司的时候，进入了一个陌生环境，这将成为你的生存之本。</p>
 <p>做到以上两点的人其实比较少，因此在平时的工作跟业余时间中，要善于积累总结，多写文档多增加错误经验。当你真正能做到这些要求，恭喜你，你的薪资将会出现质的飞越。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1025,17 +1431,20 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
 
- </div>
 
+
+          </div>
+          
+
+
+          
+
+        </div>
         
-
-        
-      </div>
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1050,12 +1459,16 @@
 
       
 
-      <section class="site-overview">
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
           <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -1064,19 +1477,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
               
-          </div>
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -1084,14 +1501,33 @@
 
         <div class="links-of-author motion-element">
           
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
+
+        
+        
+
+        
+        
 
       </section>
 
@@ -1101,43 +1537,112 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2015 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
- </div>
+        
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
   
   
-    
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -1148,63 +1653,33 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+  
+
+  
+
 </body>
 </html>

@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,16 +23,49 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
-    <meta name="description" content="3G/LTE protocol | C" />
 
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="C," />
@@ -36,7 +74,14 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
 
 
 <meta name="description" content="链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。
@@ -49,36 +94,41 @@
 使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/single-link.png">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/mutl-link.png">
-<meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg">
-<meta property="og:updated_time" content="2016-06-14T14:34:45.000Z">
+<meta property="og:updated_time" content="2016-08-02T23:17:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C与指针-第十二章 链表">
 <meta name="twitter:description" content="链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。
 使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/2016/06/14/c-and-point-twelve-linknode/"/>
 
   <title> C与指针-第十二章 链表 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
+
+
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
@@ -92,20 +142,32 @@
 
 
 
-  <div class="container one-column page-post-detail">
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tianger's Family</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -119,28 +181,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -148,13 +206,34 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
       
     </ul>
   
@@ -167,71 +246,98 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              C与指针-第十二章 链表
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-14T22:25:42+08:00" content="2016-06-14">
-            2016-06-14
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
             
+              
+                C与指针-第十二章 链表
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-14T22:25:42+08:00" content="2016-06-14">
+              2016-06-14
+            </time>
           </span>
-        
 
-        
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/14/c-and-point-twelve-linknode/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/c-and-point-twelve-linknode/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/c-and-point-twelve-linknode/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/c-and-point-twelve-linknode/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><p>链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
+        <p>链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
 <p>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。链表最明显的好处就是，常规数组排列关联项目的方式可能不同于这些数据项目在记忆体或磁盘上顺序，数据的存取往往要在不同的排列顺序中转换。链表允许插入和移除表上任意位置上的节点，但是不允许随机存取。</p>
 <h3 id="链表细则：">链表细则：</h3><p>1)是由结构体和指针构成的。<br>2)包括两个部分一个是数据域和指针域。<br>3)链表中的结点分为两类：头结点和一般结点。头结点是没有数据域的。<br>4)基本操作有：初始化链表，增加结点和删除结点，求链表的长度等等。</p>
 <p>链表主要包括：单向链表，双向链表，循环链表。</p>
@@ -258,8 +364,26 @@
 <h3 id="3-获取链表长度-1">3.获取链表长度</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> LengthNodeList(Node *root)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  Node *<span class="keyword">previous</span>;</span><br><span class="line">  <span class="keyword">previous</span>=root-&gt;<span class="keyword">next</span>;<span class="comment">/*p指向链表的第一个结点。*/</span></span><br><span class="line">  <span class="comment">/*循环链表，直到节点为空*/</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="keyword">previous</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">previous</span>=<span class="keyword">previous</span>-&gt;<span class="keyword">next</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-删除节点：-1">4.删除节点：</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> DestroyNodeList(Node *root)</span><br><span class="line">&#123;</span><br><span class="line">  Node *current,*<span class="keyword">next</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  current=root;<span class="comment">/*current 指向链表的根结点*/</span></span><br><span class="line">  <span class="comment">/*当节点指向为空，即到了链表末尾，跳出*/</span></span><br><span class="line">  <span class="keyword">while</span>(current)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">next</span> = current-&gt;<span class="keyword">next</span>;<span class="comment">/*指向当前结点的下一个结点。*/</span></span><br><span class="line">    free(current);<span class="comment">/*释放当前结点*/</span></span><br><span class="line">    current = <span class="keyword">next</span>;<span class="comment">/*指向下一个结点*/</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="5-调用：-1">5.调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	Node *root;</span><br><span class="line">	<span class="keyword">int</span> node_length = <span class="number">0</span>;</span><br><span class="line">	InitNodeList(&amp;root);  <span class="comment">/*初始化链表，得到一个跟节点*/</span></span><br><span class="line">	InsertNodeList(root,<span class="number">10</span>); <span class="comment">/*向链表中插入一个数据*/</span></span><br><span class="line">	InsertNodeList(root,<span class="number">20</span>); <span class="comment">/*向链表中插入一个数据*/</span></span><br><span class="line">	node_length = LengthNodeList(root); <span class="comment">/*获取链表长度*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,node_length);</span><br><span class="line">	DestroyNodeList(root); <span class="comment">/*销毁链表*/</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="">    </p>
-</span>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="Tianger Ge wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎扫一扫我的微信公众号！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
       
     </div>
 
@@ -274,15 +398,19 @@
 
       
         <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
+          <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/15/c-and-point-thirteen-function-point/" rel="prev">C与指针-第十三章-函数指针</a>
+              <a href="/2016/06/11/c-and-point-eleven-malloc-and-free/" rel="next" title="C与指针-第十一章—动态内存分配">
+                <i class="fa fa-chevron-left"></i> C与指针-第十一章—动态内存分配
+              </a>
             
           </div>
 
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/11/c-and-point-eleven-malloc-and-free/" rel="next">C与指针-第十一章—动态内存分配</a>
+              <a href="/2016/06/15/c-and-point-thirteen-function-point/" rel="prev" title="C与指针-第十三章-函数指针">
+                C与指针-第十三章-函数指针 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -300,22 +428,24 @@
     </div>
   </div>
 
- </div>
 
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2016/06/14/c-and-point-twelve-linknode/"
-                   data-title="C与指针-第十二章 链表" data-url="http://tianger.github.io/2016/06/14/c-and-point-twelve-linknode/">
-              </div>
-            
           </div>
-        
-      </div>
+          
 
-      
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/14/c-and-point-twelve-linknode/"
+           data-title="C与指针-第十二章 链表" data-url="http://tianger.github.io/2016/06/14/c-and-point-twelve-linknode/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -329,6 +459,8 @@
     <div class="sidebar-inner">
 
       
+
+      
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
@@ -339,12 +471,14 @@
         </ul>
       
 
-      <section class="site-overview">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
           <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -353,19 +487,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
               
-          </div>
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -373,27 +511,46 @@
 
         <div class="links-of-author motion-element">
           
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
+
+        
+        
+
+        
+        
 
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表细则："><span class="nav-number">1.</span> <span class="nav-text">链表细则：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向链表"><span class="nav-number"></span> <span class="nav-text">单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#含义："><span class="nav-number">1.</span> <span class="nav-text">含义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法："><span class="nav-number">2.</span> <span class="nav-text">用法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化链表："><span class="nav-number">3.</span> <span class="nav-text">1.初始化链表：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-插入数据："><span class="nav-number">4.</span> <span class="nav-text">2.插入数据：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-获取链表长度"><span class="nav-number">5.</span> <span class="nav-text">3.获取链表长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-删除节点："><span class="nav-number">6.</span> <span class="nav-text">4.删除节点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-调用："><span class="nav-number">7.</span> <span class="nav-text">5.调用：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number"></span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#含义：-1"><span class="nav-number">1.</span> <span class="nav-text">含义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点："><span class="nav-number">2.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法：-1"><span class="nav-number">3.</span> <span class="nav-text">用法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化链表：-1"><span class="nav-number">4.</span> <span class="nav-text">1.初始化链表：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-获取链表长度-1"><span class="nav-number">5.</span> <span class="nav-text">3.获取链表长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-删除节点：-1"><span class="nav-number">6.</span> <span class="nav-text">4.删除节点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-调用：-1"><span class="nav-number">7.</span> <span class="nav-text">5.调用：</span></a></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
         </section>
       
 
@@ -401,43 +558,116 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2015 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
- </div>
+        
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
   
   
-    
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -448,222 +678,33 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+  
+
+  
+
 </body>
 </html>

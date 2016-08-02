@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,16 +23,49 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
-    <meta name="description" content="3G/LTE protocol | C" />
 
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="WCDMA Call RRC RAB," />
@@ -36,7 +74,14 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
 
 
 <meta name="description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
@@ -53,28 +98,34 @@
 <meta name="twitter:description" content="1.1概述&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼U">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/2016/02/29/call-start-and-release-progress/"/>
 
   <title> WCDMA协议和信令-呼叫建立和释放流程分析(1) | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
+
+
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
@@ -88,20 +139,32 @@
 
 
 
-  <div class="container one-column page-post-detail">
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tianger's Family</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -115,28 +178,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -144,13 +203,34 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
       
     </ul>
   
@@ -163,71 +243,98 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              WCDMA协议和信令-呼叫建立和释放流程分析(1)
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-02-29T20:26:40+08:00" content="2016-02-29">
-            2016-02-29
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/WCDMA/" itemprop="url" rel="index">
-                  <span itemprop="name">WCDMA</span>
-                </a>
-              </span>
-
-              
-              
-
             
+              
+                WCDMA协议和信令-呼叫建立和释放流程分析(1)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-29T20:26:40+08:00" content="2016-02-29">
+              2016-02-29
+            </time>
           </span>
-        
 
-        
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/02/29/call-start-and-release-progress/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/call-start-and-release-progress/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/WCDMA/" itemprop="url" rel="index">
+                    <span itemprop="name">WCDMA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/29/call-start-and-release-progress/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/call-start-and-release-progress/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。<br>&nbsp;&nbsp;&nbsp;&nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;无论UE主叫还是被叫，呼叫建立和释放包含以下过程:<br>     （1）UE和URTRAN建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;—RRC(Radio Resource Control)指无线资源控制，属于第三层，第一层L1(物理层PHY)，第二层L2(数据链路层MAC/RLC)，第三层L3(网络层RRC)<br>     （2）通过直传消息，UE和CN建立连接—CN(Core network核心网)<br>     （3）UE能力信息流程<br>     （4）RAB建立流程—RAB(Radio Access Bearer)无线接入承载<br>     （5）RAB释放流程和lu释放流程<br>     （6）RRC连接释放流程</p>
+        <p>1.1概述<br>&nbsp;&nbsp;&nbsp;&nbsp;当UE(手机)读到小区并且读到小区的系统消息后，可以知道系统的参数配置情况，具备接入网络的条件。<br>&nbsp;&nbsp;&nbsp;&nbsp;呼叫的建立包括UE主叫（MO-Mbobiel Originate）和UE被叫两种类型(MT-Mobile Terminated),两种类型区别在于，呼叫建立之前，系统需要通过寻呼流程在指定区域寻呼UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;无论UE主叫还是被叫，呼叫建立和释放包含以下过程:<br>     （1）UE和URTRAN建立RRC连接<br>&nbsp;&nbsp;&nbsp;&nbsp;—RRC(Radio Resource Control)指无线资源控制，属于第三层，第一层L1(物理层PHY)，第二层L2(数据链路层MAC/RLC)，第三层L3(网络层RRC)<br>     （2）通过直传消息，UE和CN建立连接—CN(Core network核心网)<br>     （3）UE能力信息流程<br>     （4）RAB建立流程—RAB(Radio Access Bearer)无线接入承载<br>     （5）RAB释放流程和lu释放流程<br>     （6）RRC连接释放流程</p>
 <p>1.2寻呼流程<br>1.2.1 概述<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼分为CN发起的寻呼和UTRAN发起的寻呼。CN发起的寻呼用于建立一条信令连接，CN发起的寻呼分为协作寻呼和非协作寻呼。CN在RANAP PAGING消息中指示RNC(Radio network control 无线网络控制器)是否需要进行UTRAN(基站)的协作寻呼。<br>&nbsp;&nbsp;&nbsp;&nbsp;(1)协作寻呼是由RNC检查UE是否存在寻呼域之外的其他CN域信令连接，如果存在其他的CN域信令连接，且UE处于CELL_DCH或者CELL_FACH状态，则在无线接口上，寻呼消息通过已经存在的连接的DCCH信道下发；如果存在其他的CN域信令连接，且UE处于CELL_PCH或者URA_PCH状态，则无线接口上，寻呼消息通过PCCH信道下发；如果不存在其他的CN域信令连接，寻呼消息通过PCCH信道下发。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;(2)非协作寻呼是指RNC不需要检查UE是否存在寻呼域之外的其他CN域信令连接，直接在CN指定的寻呼区域中通过PCCH信道下发寻呼消息。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN发起的寻呼可以寻呼处于CELL_PCH或URA_PCH状态的UE，UE通过寻呼相应发起小区更新过程将用户从CELL_PCH或URA_PCH状态迁移到CELL_FACH，或在系统信息改变的时候URTARN通过寻呼消息出发UE(处于IDLE-空闲模式、CELL_PCH或URA_PCH)重新读取更新后的系统信息。</p>
@@ -236,7 +343,26 @@
 <p>1.2.2寻呼空闲模式或PCH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过PCCH信道，使用寻呼类型1消息寻呼处于空闲模式、CELL_PCH或URA_PCH状态下的UE。<br>&nbsp;&nbsp;&nbsp;&nbsp;这一类型的寻呼一般发生在一下几种情况：<br>     （1）为了建立一次呼叫或一条信令连接，由网络侧高层发起的寻呼；<br>     （2）为了将UE的状态从CELL_PCH或URA_PCH状态迁移到CELL_FACH状态，UTRAN发起出发UE状态迁移的寻呼；<br>     （3）当系统信息发生改变时，由UTRAN发起触发UE读取更新后系统信息的寻呼。此时，主消息块(MIB)的值标签包括在寻呼类型1消息PAGING TYPE1中的“HCCH modification info”中。<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-1所示<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/pagging1.png" alt=""><br>     <center>图1-1寻呼空闲模式或PCH状态UE</center></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过PCCH信道，在适当的寻呼时机发送寻呼类型1消息PAGING TYPE1，启动寻呼过程。UTRAN可以选择在几个寻呼时机重复寻呼一个UE，以增加UE正确接收寻呼消息的可能性。<br>处于空闲模式和PCH状态的UE，监视适当的寻呼时机，接收来自网络层的寻呼消息。</p>
 <p>1.2.3寻呼CELL_DCH或CELL_FACH状态的UE<br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通常通过DCCH信道，使用寻呼类型2消息寻呼处于CELL_DCH或CELL_FACH状态下的UE.<br>&nbsp;&nbsp;&nbsp;&nbsp;寻呼流程如图1-2所示。<br>     <img src="http://7xn24x.com1.z0.glb.clouddn.com/paging2.png" alt=""><br>     <center>图1-2寻呼CELL_DCH或CELL_FACH状态UE</center><br>&nbsp;&nbsp;&nbsp;&nbsp;UTRAN通过DCCH信道发送寻呼类型2消息PAGING TYPE2,发起寻呼过程。这一类型的寻呼也叫作专用寻呼过程UE接受并读取寻呼类型2消息PAGING TYPE2的内容，并把寻呼原因及寻呼记录种类标识等信息上报给本侧非接入层。寻呼过程结束。<br>&nbsp;&nbsp;&nbsp;&nbsp;本进程不影响UE侧正在进行的其他RRC进程。<br>&nbsp;&nbsp;&nbsp;&nbsp;若UE发现接收到的寻呼类型2消息PAGING TYPE2存在协议错误，丢弃该寻呼消息，并通过上行DCCH采用AM RLC方式，向UTRAN发送RRC状态消息RRC STATUS.</p>
-</span>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="Tianger Ge wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎扫一扫我的微信公众号！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
       
     </div>
 
@@ -251,15 +377,19 @@
 
       
         <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
+          <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/12/rrc-setup/" rel="prev">WCDMA协议和信令-呼叫建立和释放流程分析(2)</a>
+              <a href="/2016/02/10/utran-interface-protocol-and-function/" rel="next" title="WCDMA协议和信令---UTRAN 接口协议和功能">
+                <i class="fa fa-chevron-left"></i> WCDMA协议和信令---UTRAN 接口协议和功能
+              </a>
             
           </div>
 
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/02/10/utran-interface-protocol-and-function/" rel="next">WCDMA协议和信令---UTRAN 接口协议和功能</a>
+              <a href="/2016/03/12/rrc-setup/" rel="prev" title="WCDMA协议和信令-呼叫建立和释放流程分析(2)">
+                WCDMA协议和信令-呼叫建立和释放流程分析(2) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -277,22 +407,24 @@
     </div>
   </div>
 
- </div>
 
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2016/02/29/call-start-and-release-progress/"
-                   data-title="WCDMA协议和信令-呼叫建立和释放流程分析(1)" data-url="http://tianger.github.io/2016/02/29/call-start-and-release-progress/">
-              </div>
-            
           </div>
-        
-      </div>
+          
 
-      
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/29/call-start-and-release-progress/"
+           data-title="WCDMA协议和信令-呼叫建立和释放流程分析(1)" data-url="http://tianger.github.io/2016/02/29/call-start-and-release-progress/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -306,6 +438,8 @@
     <div class="sidebar-inner">
 
       
+
+      
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
@@ -316,12 +450,14 @@
         </ul>
       
 
-      <section class="site-overview">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
           <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -330,19 +466,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
               
-          </div>
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -350,27 +490,46 @@
 
         <div class="links-of-author motion-element">
           
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
+
+        
+        
+
+        
+        
 
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+            
+              
             
             
               <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
         </section>
       
 
@@ -378,43 +537,116 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2015 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
- </div>
+        
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
   
   
-    
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -425,222 +657,33 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+  
+
+  
+
 </body>
 </html>

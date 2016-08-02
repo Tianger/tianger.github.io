@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,25 +23,65 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="3G/LTE protocol | C" />
-
-
-
-  <meta name="keywords" content="Hexo,next" />
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
+  
+  
+  
+  
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
 
 
 <meta name="description" content="3G/LTE protocol | C">
@@ -50,28 +95,34 @@
 <meta name="twitter:description" content="3G/LTE protocol | C">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/page/2/"/>
 
   <title> Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
+
+
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
@@ -85,22 +136,34 @@
 
 
 
-  <div class="container one-column 
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tianger's Family</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -114,28 +177,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -143,13 +202,34 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
       
     </ul>
   
@@ -162,74 +242,103 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/15/c-and-point-thirteen-function-point/" itemprop="url">
-                C与指针-第十三章-函数指针
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-15T22:08:39+08:00" content="2016-06-15">
-            2016-06-15
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/15/c-and-point-thirteen-function-point/" itemprop="url">
+                  C与指针-第十三章-函数指针
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T22:08:39+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/15/c-and-point-thirteen-function-point/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/c-and-point-thirteen-function-point/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/c-and-point-thirteen-function-point/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/c-and-point-thirteen-function-point/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>本文重点讲的函数指针为 回调函数和转移表。</p>
+          
+            <p>本文重点讲的函数指针为 回调函数和转移表。</p>
 <h2 id="回调函数">回调函数</h2><h3 id="含义：">含义：</h3><p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方法直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
 <h3 id="机制：">机制：</h3><blockquote>
 <p>⑴定义一个回调函数；<br>⑵提供函数实现的一方在初始化的时候，将回调函数的函数指针注册给调用者；<br>⑶当特定的事件或条件发生的时候，调用者使用函数指针调用回调函数对事件进行处理。</p>
@@ -247,9 +356,17 @@
 <h3 id="示例：">示例：</h3><p>一个计算器实现<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">double add(double,double);</span><br><span class="line">double sub(double,double);</span><br><span class="line">double mul(double,double);</span><br><span class="line">double <span class="keyword">div</span>(double,double);</span><br><span class="line"></span><br><span class="line">     switch(oper)</span><br><span class="line">     &#123;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">ADD</span>:</span><br><span class="line">               <span class="literal">result</span> = add(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">SUB</span>:</span><br><span class="line">               <span class="literal">result</span> = sub(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">MUL</span>:</span><br><span class="line">               <span class="literal">result</span> = mul(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">DIV</span>:</span><br><span class="line">               <span class="literal">result</span> = <span class="keyword">div</span>(op1mop2);</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">          default:</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
 <p>上述代码改成转移表只需要两个步骤。<br>首先，声明并初始化一个函数指针数组。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double (*oper_func[])(double,double)=&#123;add,sub,mil,div&#125;;</span><br><span class="line"></span><br><span class="line">调用：</span><br><span class="line">result = oper_func[<span class="link_label">oper</span>](<span class="link_url">op1,op2</span>);</span><br></pre></td></tr></table></figure></p>
 <p>oper从数组中选择正确的函数指针，而函数调用操作符将执行这个函数</p>
-<p>=========================<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -269,69 +386,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/14/c-and-point-twelve-linknode/" itemprop="url">
-                C与指针-第十二章 链表
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-14T22:25:42+08:00" content="2016-06-14">
-            2016-06-14
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/14/c-and-point-twelve-linknode/" itemprop="url">
+                  C与指针-第十二章 链表
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-14T22:25:42+08:00" content="2016-06-14">
+              2016-06-14
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/14/c-and-point-twelve-linknode/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/c-and-point-twelve-linknode/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/c-and-point-twelve-linknode/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/c-and-point-twelve-linknode/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
+          
+            <p>链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
 <p>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。链表最明显的好处就是，常规数组排列关联项目的方式可能不同于这些数据项目在记忆体或磁盘上顺序，数据的存取往往要在不同的排列顺序中转换。链表允许插入和移除表上任意位置上的节点，但是不允许随机存取。</p>
 <h3 id="链表细则：">链表细则：</h3><p>1)是由结构体和指针构成的。<br>2)包括两个部分一个是数据域和指针域。<br>3)链表中的结点分为两类：头结点和一般结点。头结点是没有数据域的。<br>4)基本操作有：初始化链表，增加结点和删除结点，求链表的长度等等。</p>
 <p>链表主要包括：单向链表，双向链表，循环链表。</p>
@@ -358,9 +502,17 @@
 <h3 id="3-获取链表长度-1">3.获取链表长度</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> LengthNodeList(Node *root)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  Node *<span class="keyword">previous</span>;</span><br><span class="line">  <span class="keyword">previous</span>=root-&gt;<span class="keyword">next</span>;<span class="comment">/*p指向链表的第一个结点。*/</span></span><br><span class="line">  <span class="comment">/*循环链表，直到节点为空*/</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="keyword">previous</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">previous</span>=<span class="keyword">previous</span>-&gt;<span class="keyword">next</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-删除节点：-1">4.删除节点：</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> DestroyNodeList(Node *root)</span><br><span class="line">&#123;</span><br><span class="line">  Node *current,*<span class="keyword">next</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">NULL</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  current=root;<span class="comment">/*current 指向链表的根结点*/</span></span><br><span class="line">  <span class="comment">/*当节点指向为空，即到了链表末尾，跳出*/</span></span><br><span class="line">  <span class="keyword">while</span>(current)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">next</span> = current-&gt;<span class="keyword">next</span>;<span class="comment">/*指向当前结点的下一个结点。*/</span></span><br><span class="line">    free(current);<span class="comment">/*释放当前结点*/</span></span><br><span class="line">    current = <span class="keyword">next</span>;<span class="comment">/*指向下一个结点*/</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="5-调用：-1">5.调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	Node *root;</span><br><span class="line">	<span class="keyword">int</span> node_length = <span class="number">0</span>;</span><br><span class="line">	InitNodeList(&amp;root);  <span class="comment">/*初始化链表，得到一个跟节点*/</span></span><br><span class="line">	InsertNodeList(root,<span class="number">10</span>); <span class="comment">/*向链表中插入一个数据*/</span></span><br><span class="line">	InsertNodeList(root,<span class="number">20</span>); <span class="comment">/*向链表中插入一个数据*/</span></span><br><span class="line">	node_length = LengthNodeList(root); <span class="comment">/*获取链表长度*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,node_length);</span><br><span class="line">	DestroyNodeList(root); <span class="comment">/*销毁链表*/</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="">    </p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -380,69 +532,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/11/c-and-point-eleven-malloc-and-free/" itemprop="url">
-                C与指针-第十一章—动态内存分配
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-11T22:22:28+08:00" content="2016-06-11">
-            2016-06-11
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/11/c-and-point-eleven-malloc-and-free/" itemprop="url">
+                  C与指针-第十一章—动态内存分配
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-11T22:22:28+08:00" content="2016-06-11">
+              2016-06-11
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/11/c-and-point-eleven-malloc-and-free/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/11/c-and-point-eleven-malloc-and-free/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/11/c-and-point-eleven-malloc-and-free/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/11/c-and-point-eleven-malloc-and-free/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>我们使用数组时，它是存储于内存中连续的位置上，它所需要的内存在编译时就被分配，使用起来比较方便，但是也存在几个缺点。</p>
+          
+            <p>我们使用数组时，它是存储于内存中连续的位置上，它所需要的内存在编译时就被分配，使用起来比较方便，但是也存在几个缺点。</p>
 <h3 id="数组的缺点:">数组的缺点:</h3><p>1)假如一个数组无限大，而我们只需要很少的几个字节，这就会造成内存浪费，增加了内存的开销。<br>2)我们我们访问超过数组下标的内容时，造成数组越界，有可能产生一个异常值，从而导致失败。</p>
 <p>针对这两点，动态内存分配的处理就相对比较适用。动态内存分配中使用的几个关键字<br>malloc和free，这两个是成对出现的，malloc用来申请内存空间，free用来释放内存。</p>
 <h2 id="malloc和free">malloc和free</h2><p>malloc从内存池中提取一块合适的内存，并向该程序返回一个指向这块内存的指针。这块内存没有初始化。<br>当内存不再使用时，调用free把这块内存归还给内存池。</p>
@@ -459,9 +638,17 @@
 <p>relloc函数用于修改一个原先已经分配的内存块大小。使用这个函数，你可以使一块内存扩大或缩小。如果它用于扩大一个内存块，那么这块内存原先的内容依然保留，新增加的内存添加到原先内存块的后面，新的内存并未以任何方式进行初始化。该内存块尾部的部分内存便被拿掉，剩余部分内存的原先内容依然被保留。</p>
 <p>如果realloc函数的第1个参数是NULL，那么它的行为就和malloc一样。</p>
 <h2 id="内存泄漏：">内存泄漏：</h2><p>当动态分配的内存不再需要使用时，它应该被释放。如果内存不释放，将会引起内存泄漏。内存泄漏可以一点点的榨干可用内存，从而导致程序崩溃。</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -481,69 +668,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/10/c-and-point-ten-struct/" itemprop="url">
-                C与指针-第十章-结构体\联合union
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-10T22:49:51+08:00" content="2016-06-10">
-            2016-06-10
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/10/c-and-point-ten-struct/" itemprop="url">
+                  C与指针-第十章-结构体\联合union
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-10T22:49:51+08:00" content="2016-06-10">
+              2016-06-10
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/10/c-and-point-ten-struct/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/c-and-point-ten-struct/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/10/c-and-point-ten-struct/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/c-and-point-ten-struct/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>在C语言中，结构体(struct)指的是一种数据结构，是C语言中聚合数据类型(aggregate data type)的一类。结构体可以被声明为变量、指针或数组等，用以实现较复杂的数据结构。结构体同时也是一些元素的集合，这些元素称为结构体的成员(member)，且这些成员可以为不同的类型，成员一般用名字访问。</p>
+          
+            <p>在C语言中，结构体(struct)指的是一种数据结构，是C语言中聚合数据类型(aggregate data type)的一类。结构体可以被声明为变量、指针或数组等，用以实现较复杂的数据结构。结构体同时也是一些元素的集合，这些元素称为结构体的成员(member)，且这些成员可以为不同的类型，成员一般用名字访问。</p>
 <h2 id="含义：">含义：</h2><p>结构体(struct)是由一系列具有相同类型或不同类型的数据构成的数据集合，叫做结构。</p>
 <h2 id="定义与声明：">定义与声明：</h2><p>结构体的定义如下所示，struct为结构体关键字，tag为结构体的标志，member-list为结构体成员列表，其必须列出其所有成员；variable-list为此结构体声明的变量。</p>
 <blockquote>
@@ -581,8 +795,17 @@
 </blockquote>
 <h3 id="union和结构体：">union和结构体：</h3><p>通常我们把union和struct结合起来使用，这样更加方便我们的程序开发。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">typedef <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">     int age;</span><br><span class="line">     int height;</span><br><span class="line">&#125;<span class="class"><span class="keyword">class</span>;</span></span><br><span class="line"></span><br><span class="line">typedef <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">     int year;</span><br><span class="line">     char class_name[<span class="number">10</span>];</span><br><span class="line">     <span class="class"><span class="keyword">enum</span> &#123;<span class="title">class1</span>,<span class="title">class2</span>&#125; <span class="title">type</span>;</span></span><br><span class="line">     <span class="class"><span class="keyword">union</span>&#123;</span></span><br><span class="line">          <span class="class"><span class="keyword">class</span>  <span class="title">first_student</span>;</span></span><br><span class="line">          <span class="class"><span class="keyword">class</span>  <span class="title">second_student</span>;</span></span><br><span class="line">     &#125;data;</span><br><span class="line">&#125;message;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    message msg;</span><br><span class="line">    int y;</span><br><span class="line">    int z;</span><br><span class="line">   <span class="regexp">/*msg相关变量赋值*/</span></span><br><span class="line">    msg.data.first_student.age = <span class="number">10</span>;</span><br><span class="line">    msg.data.first_student.height = <span class="number">170</span>;</span><br><span class="line">    msg.<span class="keyword">type</span> = class1;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(msg.<span class="keyword">type</span> == class1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="regexp">/*union一次只能访问一个成员*/</span></span><br><span class="line">         y = msg.data.first_student.age;</span><br><span class="line">         z = msg.data.first_student.height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">         y = msg.data.second_student.age;</span><br><span class="line">         z = msg.data.second_student.height;</span><br><span class="line">    &#125;</span><br><span class="line">      printf(<span class="string">"%d\n"</span>,y);  <span class="regexp">//</span>打印<span class="number">10</span></span><br><span class="line">      printf(<span class="string">"%d\n"</span>,z);  <span class="regexp">//</span>打印<span class="number">170</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="总结：">总结：</h2><p>1.结构体中，不同类型的值可以存储在一起，成员可以是标量、数组、指针或结构体<br>2.不同的二结构体声明即使它们的成员列表相同也被认为是不同的类型，typedef可以用于解决此问题<br>3.联合的所有成员都存储于同一个内存位置，通过访问不同类型的联合成员，内存中相同的位组合可以被解释为不同的东西。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -602,69 +825,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/09/c-and-point-nine-char/" itemprop="url">
-                C与指针-第九章-字符、字符串处理API
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-09T23:08:16+08:00" content="2016-06-09">
-            2016-06-09
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/09/c-and-point-nine-char/" itemprop="url">
+                  C与指针-第九章-字符、字符串处理API
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-09T23:08:16+08:00" content="2016-06-09">
+              2016-06-09
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/09/c-and-point-nine-char/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/09/c-and-point-nine-char/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/09/c-and-point-nine-char/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/09/c-and-point-nine-char/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>字符串是一种重要的数据类型，但是C语言并没有显式的字符串数据类型，因此字符串以字符串常量的形式出现或存储于字符数组中。字符串常量很适用于那些程序不会对它们进行修改的字符串。所有其他字符串都必须存储于字符数组或动态分配的内存中。本次主要描述处理字符串和字符的库函数。</p>
+          
+            <p>字符串是一种重要的数据类型，但是C语言并没有显式的字符串数据类型，因此字符串以字符串常量的形式出现或存储于字符数组中。字符串常量很适用于那些程序不会对它们进行修改的字符串。所有其他字符串都必须存储于字符数组或动态分配的内存中。本次主要描述处理字符串和字符的库函数。</p>
 <p>字符串就是一串零个或多个字符，并且以一个位模式为全0的NUL字节结尾。因此，字符串所包含的字符内部不能出现NUL字节。<br>     字符、字符串处理需要引入string.h这个头文件</p>
 <pre><code><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span>
 </code></pre><h2 id="1-字符串长度">1.字符串长度</h2><p>API: strlen<br>原型：size_t strlen(char const *string)<br>返回值:string字符串的长度，不包括结束符\0<br>作用：strlen返回一个类型为sizt_t的值，属于一个无符号整数类型。即为传入字符串的长度<br>用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> buf[<span class="number">20</span>] = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="built_in">strlen</span>(buf);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"i = %d\n"</span>,i);</span><br></pre></td></tr></table></figure></p>
@@ -698,9 +948,17 @@
 </blockquote>
 <h3 id="memchr:">memchr:</h3><p>从buf所指内存区域的前count个字节查找字符ch。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *s=<span class="string">"Hello, Programmers!"</span>;</span><br><span class="line"><span class="keyword">void</span> *p;<span class="comment">//因为memchr(,,);return void*p;</span></span><br><span class="line">p=<span class="built_in">memchr</span>(s,<span class="string">'P'</span>,<span class="built_in">strlen</span>(s));</span><br><span class="line"><span class="comment">//p=(char *)memchr(s,'P',sizeof(s)); //s是一个指向char的指针，而任何指针都是个一个4字节的数，在这里应//该是要说明搜索整个字符串的长度，所以应该用strlen(s)</span></span><br><span class="line"><span class="keyword">if</span>(p)</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s"</span>,p);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Not Found!"</span>);</span><br></pre></td></tr></table></figure></p>
 <h3 id="memst">memst</h3><p>将s所指向的某一块内存中的前n个 字节的内容全部设置为ch指定的ASCII值<br>通常用来进行内存初始化作用<br>例如：<br>char dst[20];<br>memset(dst,0x0,sizeof(dst)); //把dst指向的大小为20的内存区域值都设置为0.</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -720,69 +978,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/07/c-and-point-eight/" itemprop="url">
-                C与指针-第八章-数组
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-07T22:22:28+08:00" content="2016-06-07">
-            2016-06-07
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/07/c-and-point-eight/" itemprop="url">
+                  C与指针-第八章-数组
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T22:22:28+08:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/07/c-and-point-eight/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/c-and-point-eight/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/07/c-and-point-eight/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/c-and-point-eight/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。</p>
+          
+            <p>所谓数组，就是相同数据类型的元素按一定顺序排列的集合，就是把有限个类型相同的变量用一个名字命名，然后用编号区分他们的变量的集合，这个名字称为数组名，编号称为下标。</p>
 <p>特点：只能存放一种类型的数据，如全部是int型或者全部是char型，数组里的数据成为元素。</p>
 <h2 id="一维数组：">一维数组：</h2><h3 id="格式：">格式：</h3><p>类型 数组名[元素个数-常量表达式]<br>（1）数组名的命名方法与变量名相同，遵循标识符命名规则;<br>（2）数组是用方括号括起来的常量表达式，不能用圆括号;<br>（3）常量表达式表示数组元素的个数，即数组的长度，数组的下标从0开始，下标的最大值为:<br>常量表达式-1;<br>（4）常量表达式中可以包括常量和符号常量，不能包括变量。<br>可以用赋值语句或输入语句使数组中的元素得到值，但要占用运行时间。可以使数组在运行之前初始化，即在编译阶段使之得到初值。</p>
 <h3 id="初始化：">初始化：</h3><p>int buf[5] = {1,2,3,4,5};<br>这里把buf数组中的5个元素初始化为1,2,3,4,5</p>
@@ -804,9 +1089,17 @@
 <h3 id="数组指针：">数组指针：</h3><blockquote>
 <p>int (<em>num2)[10];<br>在这里“()”的优先级比“[]”高，“</em>”号和num2 构成一个指针的定义，指针变量名为num2,int 修饰的是数组的内容，即数组的每个元素。</p>
 </blockquote>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -826,69 +1119,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/05/c-and-pint-seven-function/" itemprop="url">
-                C与指针-第七章-函数
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-05T22:55:12+08:00" content="2016-06-05">
-            2016-06-05
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/05/c-and-pint-seven-function/" itemprop="url">
+                  C与指针-第七章-函数
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-05T22:55:12+08:00" content="2016-06-05">
+              2016-06-05
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/05/c-and-pint-seven-function/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/c-and-pint-seven-function/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/05/c-and-pint-seven-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/c-and-pint-seven-function/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>函数是指一段在一起的、可以做某一件事的程序，也叫子程序、方法。</p>
+          
+            <p>函数是指一段在一起的、可以做某一件事的程序，也叫子程序、方法。</p>
 <h2 id="定义：">定义：</h2><blockquote>
 <p>返回类型  函数名字(形式参数)<br>{<br>     代码块<br>}</p>
 </blockquote>
@@ -917,9 +1237,17 @@
 <blockquote>
 <p>输出：<br>he first print 100<br>The second print hello,200</p>
 </blockquote>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -939,69 +1267,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/04/c-and-point-point/" itemprop="url">
-                C与指针-第六章-指针
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-04T23:12:18+08:00" content="2016-06-04">
-            2016-06-04
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/04/c-and-point-point/" itemprop="url">
+                  C与指针-第六章-指针
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-04T23:12:18+08:00" content="2016-06-04">
+              2016-06-04
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/04/c-and-point-point/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/04/c-and-point-point/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/04/c-and-point-point/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/04/c-and-point-point/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><h2 id="指针">指针</h2><h3 id="含义：">含义：</h3><p>在计算机科学中，指针（Pointer）是编程语言中的一个对象，利用地址，它的值直接指向（points to）存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。因此，将地址形象化的称为“指针”。意思是通过它能找到以它为地址的内存单元。</p>
+          
+            <h2 id="指针">指针</h2><h3 id="含义：">含义：</h3><p>在计算机科学中，指针（Pointer）是编程语言中的一个对象，利用地址，它的值直接指向（points to）存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。因此，将地址形象化的称为“指针”。意思是通过它能找到以它为地址的内存单元。</p>
 <p>指针是一个特殊的变量，它里面存储的数值被解释成为内存里的一个地址</p>
 <blockquote>
 <p>&amp;操作符：取变量的地址<br>*操作符：对指针做解引用操作</p>
@@ -1053,9 +1408,17 @@
 </blockquote>
 <p>当p这个指针指向的地址小于value[0]的地址，循环结束，p &gt; = &amp;value[0],经过5次循环后，p指针指向了数组第一个元素之前,这里我们同样不能再对p这个指针进行间接操作。</p>
 <h3 id="总结：">总结：</h3><p>1)未初始化的指针变量，不能进行解引用操作<br>2)初始化为NULL的指针，不能进行解引用操作<br>3)指针进行加减法操作后，指向了数组外面的内存地址后，不能对它们进行间接操作<br>4)指针的减法操作只能针对同一个数组的元素进行</p>
-<p>=========================<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1075,69 +1438,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/02/c-and-point-five/" itemprop="url">
-                C与指针-第五章左移、右移操作
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-02T22:09:46+08:00" content="2016-06-02">
-            2016-06-02
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/02/c-and-point-five/" itemprop="url">
+                  C与指针-第五章左移、右移操作
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-02T22:09:46+08:00" content="2016-06-02">
+              2016-06-02
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/02/c-and-point-five/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/c-and-point-five/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/02/c-and-point-five/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/c-and-point-five/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>本文参考了<a href="http://www.cnblogs.com/myblesh/articles/2431806.html" target="_blank" rel="external">京月飞鸿的《C语言中的左移与右移》</a></p>
+          
+            <p>本文参考了<a href="http://www.cnblogs.com/myblesh/articles/2431806.html" target="_blank" rel="external">京月飞鸿的《C语言中的左移与右移》</a></p>
 <h2 id="左移操作:">左移操作:</h2><h3 id="含义：">含义：</h3><p>顾名思义就是把一个数的所有位都向左移动若干位，在C用用&lt;&lt;运算符标记<br>例：</p>
 <blockquote>
 <p>int i = 1;<br>i = i &lt;&lt; 2</p>
@@ -1152,9 +1542,17 @@
 <h3 id="逻辑右移：">逻辑右移：</h3><p>方法：<br>左边移入的位用0填充<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，则最后面两位移除，最开始的添加两个0，变成00100101，十进制为37</p>
 <h3 id="算术右移：">算术右移：</h3><p>方法：<br>左边移入的位由原先该值的符号位决定，符号位为1则移入的位均为1，符号位为0，则移入的位都为0，这样能够保持原数的正负数形式不变。<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，原来的符号位即首位为1，即最后两位移除，最开始添加两个符号位，这里为1，即变成11100101，十进制为229</p>
 <h2 id="总结：">总结：</h2><p>左移时总是移位和补零。右移时无符号数是移位和补零，此时称为逻辑右移;<br>而有符号数大多数情况下是移位和补最左边的位（也就是补最高有效位），移几位就补几位,此时称为算术右移</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1174,69 +1572,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/06/01/c-and-point-three-and-four/" itemprop="url">
-                C与指针-第三、四章const\extern\static
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-01T21:56:19+08:00" content="2016-06-01">
-            2016-06-01
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/01/c-and-point-three-and-four/" itemprop="url">
+                  C与指针-第三、四章const\extern\static
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-01T21:56:19+08:00" content="2016-06-01">
+              2016-06-01
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/01/c-and-point-three-and-four/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/c-and-point-three-and-four/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/01/c-and-point-three-and-four/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/c-and-point-three-and-four/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>C与指针第三章重点需要掌握的是 const\extern\static  这三个修饰关键字。<br>第四章主要讲的是if\while\switch\for\do..while\goto等常用语句的用法，这作为基础内容，本章就不进行讲解。</p>
+          
+            <p>C与指针第三章重点需要掌握的是 const\extern\static  这三个修饰关键字。<br>第四章主要讲的是if\while\switch\for\do..while\goto等常用语句的用法，这作为基础内容，本章就不进行讲解。</p>
 <h2 id="const:">const:</h2><p>const关键字是一个很常用的关键字，它限定一个变量不允许被改变，产生静态作用。</p>
 <h3 id="定义：">定义：</h3><p>const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新的。</p>
 <h3 id="目的：">目的：</h3><p>const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。</p>
@@ -1292,9 +1717,17 @@
 <blockquote>
 <p>1)静态函数不能被其它文件所用；<br>2)其它文件中可以定义相同名字的函数，不会发生冲突；</p>
 </blockquote>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1316,17 +1749,20 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
- </div>
 
+
+          </div>
+          
+
+
+          
+
+        </div>
         
-
-        
-      </div>
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1341,12 +1777,16 @@
 
       
 
-      <section class="site-overview">
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
           <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -1355,19 +1795,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
               
-          </div>
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -1375,14 +1819,33 @@
 
         <div class="links-of-author motion-element">
           
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
+
+        
+        
+
+        
+        
 
       </section>
 
@@ -1392,43 +1855,112 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2015 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
- </div>
+        
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
   
   
-    
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -1439,63 +1971,33 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+  
+
+  
+
 </body>
 </html>

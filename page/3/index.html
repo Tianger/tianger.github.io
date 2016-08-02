@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,25 +23,65 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="3G/LTE protocol | C" />
-
-
-
-  <meta name="keywords" content="Hexo,next" />
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
+  
+  
+  
+  
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
 
 
 <meta name="description" content="3G/LTE protocol | C">
@@ -50,28 +95,34 @@
 <meta name="twitter:description" content="3G/LTE protocol | C">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/page/3/"/>
 
   <title> Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
+
+
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
@@ -85,22 +136,34 @@
 
 
 
-  <div class="container one-column 
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tianger's Family</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -114,28 +177,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -143,13 +202,34 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
       
     </ul>
   
@@ -162,74 +242,103 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/31/c-and-point-two/" itemprop="url">
-                C与指针-第二章 转义字符
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-31T21:43:32+08:00" content="2016-05-31">
-            2016-05-31
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/31/c-and-point-two/" itemprop="url">
+                  C与指针-第二章 转义字符
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-31T21:43:32+08:00" content="2016-05-31">
+              2016-05-31
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/05/31/c-and-point-two/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/c-and-point-two/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/31/c-and-point-two/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/c-and-point-two/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。</p>
+          
+            <p>C与指针第二章的重点就是转义字符和编程风格，这里只列举一下我们常用的转义字符，至于编程风格，这个可以根据不同的平台有不同的风格，谷歌与微软的风格不相同，但有一点我们要记住，就是需要与我们编写的工程代码中的风格保持一致。</p>
 <p>所有的ASCII码都可以用“\”加数字（一般是8进制数字）来表示。而C中定义了一些字母前加”\”来表示常见的那些不能显示的ASCII字符，如\0,\t,\n等，就称为转义字符，因为后面的字符，都不是它本来的ASCII字符意思了。<br>8进制，16进制转义字符</p>
 <table>
 <thead>
@@ -314,9 +423,17 @@
 </table>
 <p>示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">     <span class="keyword">int</span> a,b,c;</span><br><span class="line">     a=<span class="number">1</span>; b=<span class="number">2</span>; c=<span class="number">3</span>;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"%d\n\t%d %d\n %d %d\t\b%d\n"</span>,a,b,c,a,b,c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>此程序练习转义字符的使用：<br>a、b、c分别为整数1,2,3<br>调用printf显示程序运行结果：<br>1<br>23<br>12 3</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -336,69 +453,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/30/c-and-point-one/" itemprop="url">
-                C与指针-第一章scanf\strncpy\strcpy\memcpy
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-30T21:50:41+08:00" content="2016-05-30">
-            2016-05-30
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/30/c-and-point-one/" itemprop="url">
+                  C与指针-第一章scanf\strncpy\strcpy\memcpy
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-30T21:50:41+08:00" content="2016-05-30">
+              2016-05-30
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/05/30/c-and-point-one/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/c-and-point-one/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/30/c-and-point-one/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/c-and-point-one/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>第一章的主要重点是，如何从键盘进行输入、以及相应的字符串拷贝。<br>这里主要用到四个C的基础API–scanf\strcpy\strncpy\memcpy</p>
+          
+            <p>第一章的主要重点是，如何从键盘进行输入、以及相应的字符串拷贝。<br>这里主要用到四个C的基础API–scanf\strcpy\strncpy\memcpy</p>
 <p>scanf<br>作用： 是格式输入函数，即按用户的制定格式从键盘上把数据输入到制定变量中<br>头文件： #include <stdio.h><br>调用形式：scanf(“&lt;格式说明字符串&gt;”，&lt;变量地址&gt;);<br>注意第二个参数是一个地址，记得加&amp;符号，假如你是一个数组，不需要加入&amp;符号，如果是一个数组带下表，需要加上<br>int column[8];<br>int num;<br>scanf(“%d”,&amp;num)<br>scanf(“%d”,coloumn);<br>scanf(“%d”,&amp;coloumn[1]);</stdio.h></p>
 <p>例如：<br>scanf(“%d %d”,&amp;a,&amp;b);<br>如果a和b都被成功读入，那么scanf的返回值就是2<br>如果只有a被成功读入，返回值为1<br>如果a和b都未被成功读入，返回值为0<br>如果遇到错误或遇到end of file，返回值为EOF。<br>且返回值为int型.</p>
 <p>&amp;a,&amp;b,&amp;c中的&amp;是地址运算符，&amp;a指a在内存中的地址。scanf的作用是：按照a，b，c的内存地址将输入的数据存到a，b，c中去。变量a，b，c的地址是在编译连续阶段分配的（存储顺序由编译器决定）。</p>
@@ -416,9 +560,17 @@
 </ol>
 <p>3、memcpy函数<br>void  <em>memcpy(void </em>s1,  const void *s2,  size_t  n);<br>说明：<br>函数memcpy从s2指向的对象中复制n个字符到s1指向的对象中。如果复制发生在两个重叠的对象中，则这种行为未定义。<br>返回值：<br>函数memcpy返回s1的值。</p>
 <p>memcpy用来在内存中复制数据，由于字符串是以“\0”结尾的，所以对于在数据中包含“\0”的数据只能用memcpy。<br>Strncpy和memcpy很相似，只不过它在一个终止的空字符处停止。当n&gt;strlen(s1)时，给s2不够数的空间里填充“\0”；当n&lt;=strlen(s1)时，s2是没有结束符“\0”的。</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -438,90 +590,114 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/29/the-road-to-learn-of-android-start/" itemprop="url">
-                Android取经之路--学习启动篇
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-29T09:04:14+08:00" content="2016-05-29">
-            2016-05-29
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Android取经之路/" itemprop="url" rel="index">
-                  <span itemprop="name">Android取经之路</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/29/the-road-to-learn-of-android-start/" itemprop="url">
+                  Android取经之路--学习启动篇
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-29T09:04:14+08:00" content="2016-05-29">
+              2016-05-29
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/05/29/the-road-to-learn-of-android-start/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/29/the-road-to-learn-of-android-start/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                    <span itemprop="name">Android取经之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/29/the-road-to-learn-of-android-start/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/29/the-road-to-learn-of-android-start/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;现如今，几乎人手一台手机，据统计，平均每人每天花在手机上的时间达到了3-4小时，现在主流的支柱型手机系统是Android、IOS。<br>&nbsp;&nbsp;&nbsp;&nbsp;根据Gartner去年第四季的调查，Android于智慧型手机市场的占有率为80.7%，排名第二的苹果iOS则是17.7%。在过去的一年全球推出了超过600款Android手机，程序安装数量已经突破了650亿。在今年5月份谷歌开发者大会上，Android系统发布了Android7.0-Android N，Android也向前迭代了几十个版本。<br>&nbsp;&nbsp;&nbsp;&nbsp;既然Android那么流行，那么到底他是如何工作的，他的内部构造是什么，很值得我们深入研究学习。最近也看了老罗-罗升阳的Android之旅，老罗不愧为大神级人物，每个模块讲解的都很深入，但是其中都是基于Android2.2，与现在的版本已经差了好几个大版本，现在最常用也最稳定的版本是Android6.0-Android M，因此接下来我会参考老罗的相关文章以及其他网络大神的相关文章，基于Android6.0的源码进行展开学习。</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;现如今，几乎人手一台手机，据统计，平均每人每天花在手机上的时间达到了3-4小时，现在主流的支柱型手机系统是Android、IOS。<br>&nbsp;&nbsp;&nbsp;&nbsp;根据Gartner去年第四季的调查，Android于智慧型手机市场的占有率为80.7%，排名第二的苹果iOS则是17.7%。在过去的一年全球推出了超过600款Android手机，程序安装数量已经突破了650亿。在今年5月份谷歌开发者大会上，Android系统发布了Android7.0-Android N，Android也向前迭代了几十个版本。<br>&nbsp;&nbsp;&nbsp;&nbsp;既然Android那么流行，那么到底他是如何工作的，他的内部构造是什么，很值得我们深入研究学习。最近也看了老罗-罗升阳的Android之旅，老罗不愧为大神级人物，每个模块讲解的都很深入，但是其中都是基于Android2.2，与现在的版本已经差了好几个大版本，现在最常用也最稳定的版本是Android6.0-Android M，因此接下来我会参考老罗的相关文章以及其他网络大神的相关文章，基于Android6.0的源码进行展开学习。</p>
 <p>准备学习分享的内容从以下几个方面进行：<br>语法：<br>C语言：<br> 入门书籍：《The C ProGramming Language》<br> 进阶书籍：《C与指针》<br> 参考我的博客:<a href="http://tianger.github.io/categories/C%E4%B8%8E%E6%8C%87%E9%92%88/">《C与指针》</a></p>
 <p>JAVA语言：<br> 入门书籍：《Head first java》<br> 进阶书籍：《thinking in java》</p>
 <p>C++语言：<br>  建议书籍：《C++ primer》</p>
 <p>MakeFile:<br> 入门书籍：《跟我一起写Makefile》</p>
 <p>Python：<br> 入门书籍：<br> 参考我的博客:<a href="http://tianger.github.io/categories/%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99python/">《跟我一起写Python》</a></p>
-<p>Android系统源码学习：<br>1.<a href="http://tianger.github.io/2016/07/10/the-road-to-learn-of-android-environment/">环境搭建及编译</a><br>2.<a href="http://tianger.github.io/2016/07/17/the-road-to-learn-of-android-hal/">APP到Kernel通路学习</a><br>   (1)<a href="http://tianger.github.io/2016/07/30/the-road-to-learn-of-android-kernel-start/">内核中编写硬件驱动</a><br>   (2)C空间增加可执行程序访问硬件驱动<br>   (3)HAL层(硬件抽象层)访问Linux内核驱动程序<br>   (4)HAL层写JNI方法提供Framework使用<br>   (5)Framework提供接口访问硬件<br>   (6)JAVA层APP通过Framework接口访问Kernel层驱动</p>
-<p>3.Android系统启动<br>  1)init<br>  2)Zygote<br>  3)SystemServer<br>  4)Home–launcher启动</p>
-<p>4.Android通信方式</p>
-<p>5.Binder层学习</p>
-<p>6.Socket学习<br>   (1)基础socket<br>   (2)LocalSocket<br>   (3)AIDL机制<br>   (4)JAVA空间到C空间Socket通信流程</p>
-<p>7.Handler</p>
-<p>8.四大组件<br>  (1)Activity<br>  (2)Brodcast<br>  (3)Service<br>  (4)Content Provider</p>
-<p>9.多线程，进程通讯</p>
-<p>10.同步异步机制</p>
-<p>11.RIL(Radio Interface Layer 无线接口)层分析</p>
-<p>12.Telephony层分析</p>
-<p>13.通话过程分析</p>
-<p>14.selinux<br>15.ART虚拟机<br>16.设计模式<br>     1)单例<br>     2反射机制<br>     3)工程模式<br>       …<br>   虽然一直在通信行业，但是一直从事的都是高通Modem 协议、平台的分析与开发，Android的开发比较少，了解也比较少。<br>   为了不落伍，接下来准备先花一个半月的时间回顾一下《C与指针》、《Thinking in java》、《C++ primer》，同时，会把相关的疑问以及期间的隐藏问题列举出来，单独进行分析。<br>   然后计划花费大半年到一年的时间，根据上述的Android系统源码学习的过程进行一系列的文章描述。</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/29/the-road-to-learn-of-android-start/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -541,75 +717,110 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/08/python-sample-rm-git-pull-conflict/" itemprop="url">
-                Python实例--移除git pull冲突文件
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-08T20:32:31+08:00" content="2016-05-08">
-            2016-05-08
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Python实例/" itemprop="url" rel="index">
-                  <span itemprop="name">Python实例</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/08/python-sample-rm-git-pull-conflict/" itemprop="url">
+                  Python实例--移除git pull冲突文件
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-08T20:32:31+08:00" content="2016-05-08">
+              2016-05-08
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/05/08/python-sample-rm-git-pull-conflict/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/08/python-sample-rm-git-pull-conflict/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python实例/" itemprop="url" rel="index">
+                    <span itemprop="name">Python实例</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/08/python-sample-rm-git-pull-conflict/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/08/python-sample-rm-git-pull-conflict/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><blockquote>
+          
+            <blockquote>
 <p>作用：移除git pull冲突文件 <br><br>说明：当我们本地的一些工程比较老旧时，想同步服务器上最新的代码，但是当我们git pull时，会出现很多文件冲突，如果不想保留自己的修改，直接同步代码的话，可以使用本脚本来进行冲突文件的删除</p>
 </blockquote>
 <p>源码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/user/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="keyword">import</span> os.path </span><br><span class="line"></span><br><span class="line"><span class="comment">#获取当前目录的完整路径</span></span><br><span class="line">homedir = os.getcwd()</span><br><span class="line"></span><br><span class="line"><span class="comment">#把git pull的冲突文件导出到conflict.txt中</span></span><br><span class="line">os.system(<span class="string">"git pull &gt; conflict.txt 2&gt;&amp;1;"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#判断conflict.txt是否存在，如果存在，变量赋值，否则为空</span></span><br><span class="line"><span class="keyword">if</span> os.path.exists(<span class="string">"conflict.txt"</span>): </span><br><span class="line">  conflict_file = open(<span class="string">'conflict.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  conflict_file = <span class="keyword">None</span></span><br><span class="line">  <span class="keyword">print</span> (<span class="string">'there is no conflict.txt file'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除指定目录文件函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">removeFileInFile</span><span class="params">(dir,targetFile)</span>:</span> </span><br><span class="line">    <span class="keyword">if</span> os.path.exists(dir + <span class="string">'/'</span> + targetFile): </span><br><span class="line">        os.remove(dir + <span class="string">'/'</span> + targetFile)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'no such file:%s'</span> % dir + targetFile)</span><br><span class="line"></span><br><span class="line"><span class="comment">#while循环，从conflict.txt中按行读取，如果这一行是一个文件，则删除它，如果不是执行下一个</span></span><br><span class="line"><span class="comment">#当读到行尾后，跳出while循环</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> conflict_file != <span class="keyword">None</span>:</span><br><span class="line">        target_line = conflict_file.readline()</span><br><span class="line">        target_line = target_line.strip()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> target_line:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment">#print target_line</span></span><br><span class="line">        <span class="comment">#print homedir + target_line</span></span><br><span class="line">        <span class="keyword">if</span> os.path.isfile(target_line):</span><br><span class="line">            removeFileInFile(homedir , target_line)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.exists(<span class="string">"conflict.txt"</span>):</span><br><span class="line">    os.remove(<span class="string">"conflict.txt"</span>)</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">"git pull"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -629,69 +840,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/07/learning-python-with-me-module/" itemprop="url">
-                跟我一起写python--模块(15)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-07T17:13:25+08:00" content="2016-05-07">
-            2016-05-07
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/07/learning-python-with-me-module/" itemprop="url">
+                  跟我一起写python--模块(15)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T17:13:25+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/05/07/learning-python-with-me-module/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/learning-python-with-me-module/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/learning-python-with-me-module/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/learning-python-with-me-module/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。</p>
+          
+            <p>编程语言中模块是指数据说明、可执行语句等程序元素的集合，它是指单独命名的可通过名字来访问的过程、函数、子程序或宏调用。</p>
 <p>我们通常在C\C++\JAVA中如果需要用到某个特定功能，需要调用对应模块的接口，需要使用include或者import相关头文件或者包。在python中我们同样的，先实现一个.py文件，在另一个文件中需要import时，将事先写好的.py文件拷贝 到当前目录，或者是在sys.path中增加事先写好的.py文件所在的目录，然后再import我们的模块名称。<br><br></p>
 <blockquote>
 <p>即调用方法为:</p>
@@ -718,9 +956,17 @@
 <p>import hello –加载我们之前写的hello模块<br>hello.say() –调用hello模块中的say函数，会自动打印出hello world！<br>sum = hello.plus(3,5) –向hello的plus函数中，传入两个值3、5，计算得到的结果赋值给sum</p>
 </blockquote>
 <p>通过上面两个简单的例子，我们可以编写自己的模块了，让自己的工程进行模块化，不但可以使代码变得简洁，同时也增加了代码的复用性</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -740,69 +986,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/05/02/learning-python-with-me-function/" itemprop="url">
-                跟我一起写python—函数 (14)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-05-02T22:03:48+08:00" content="2016-05-02">
-            2016-05-02
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/02/learning-python-with-me-function/" itemprop="url">
+                  跟我一起写python—函数 (14)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-02T22:03:48+08:00" content="2016-05-02">
+              2016-05-02
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/05/02/learning-python-with-me-function/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/02/learning-python-with-me-function/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/02/learning-python-with-me-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/02/learning-python-with-me-function/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>函数，名称出自数学家李善兰的著作《代数学》—“凡此变数中函彼变数者，则此为彼之函数”。即函数指一个量随着另一个量的变化而变化，或者说一个量中包含另一个量。</p>
+          
+            <p>函数，名称出自数学家李善兰的著作《代数学》—“凡此变数中函彼变数者，则此为彼之函数”。即函数指一个量随着另一个量的变化而变化，或者说一个量中包含另一个量。</p>
 <p>我们简单理解为，一个输入，对应一个唯一的输出关系。</p>
 <p>编程语言中，函数即指一个语句块，语句块有自己的名字，他可以有输入，也可以有输出。</p>
 <p>之前我们已经用过python的内建函数，例如print、len等，下面我们来讲函数的相关使用.</p>
@@ -841,9 +1114,17 @@
 <span class="tag">a</span> is still <span class="number">10</span>
 </code></pre></blockquote>
 <pre><code>这里的<span class="literal">a</span>为一个全局变量
-</code></pre><p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+</code></pre>
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -863,69 +1144,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/28/markdown-head-first-basic/" itemprop="url">
-                MarkDown 入门指南
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-28T22:22:21+08:00" content="2016-04-28">
-            2016-04-28
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/MarkDown/" itemprop="url" rel="index">
-                  <span itemprop="name">MarkDown</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/28/markdown-head-first-basic/" itemprop="url">
+                  MarkDown 入门指南
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-28T22:22:21+08:00" content="2016-04-28">
+              2016-04-28
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/28/markdown-head-first-basic/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/markdown-head-first-basic/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MarkDown/" itemprop="url" rel="index">
+                    <span itemprop="name">MarkDown</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/28/markdown-head-first-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/markdown-head-first-basic/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><h3 id="1-为什么要用Markdown">1.为什么要用Markdown</h3><h3 id="2-常用语法">2.常用语法</h3><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-1标题">&nbsp;&nbsp;&nbsp;&nbsp;2.1标题</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-2粗体、斜体">&nbsp;&nbsp;&nbsp;&nbsp;2.2粗体、斜体</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-3空格、居中">&nbsp;&nbsp;&nbsp;&nbsp;2.3空格、居中</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-4分割线">&nbsp;&nbsp;&nbsp;&nbsp;2.4分割线</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-5列表">&nbsp;&nbsp;&nbsp;&nbsp;2.5列表</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-6高亮代码">&nbsp;&nbsp;&nbsp;&nbsp;2.6高亮代码</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-7引用">&nbsp;&nbsp;&nbsp;&nbsp;2.7引用</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-8表格">&nbsp;&nbsp;&nbsp;&nbsp;2.8表格</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-9超链接、图片">&nbsp;&nbsp;&nbsp;&nbsp;2.9超链接、图片</h4><h3 id="3-常用编辑器">3.常用编辑器</h3><h3 id="4-最后想说的">4.最后想说的</h3><hr>
+          
+            <h3 id="1-为什么要用Markdown">1.为什么要用Markdown</h3><h3 id="2-常用语法">2.常用语法</h3><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-1标题">&nbsp;&nbsp;&nbsp;&nbsp;2.1标题</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-2粗体、斜体">&nbsp;&nbsp;&nbsp;&nbsp;2.2粗体、斜体</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-3空格、居中">&nbsp;&nbsp;&nbsp;&nbsp;2.3空格、居中</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-4分割线">&nbsp;&nbsp;&nbsp;&nbsp;2.4分割线</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-5列表">&nbsp;&nbsp;&nbsp;&nbsp;2.5列表</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-6高亮代码">&nbsp;&nbsp;&nbsp;&nbsp;2.6高亮代码</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-7引用">&nbsp;&nbsp;&nbsp;&nbsp;2.7引用</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-8表格">&nbsp;&nbsp;&nbsp;&nbsp;2.8表格</h4><h4 id="&nbsp;&nbsp;&nbsp;&nbsp;2-9超链接、图片">&nbsp;&nbsp;&nbsp;&nbsp;2.9超链接、图片</h4><h3 id="3-常用编辑器">3.常用编辑器</h3><h3 id="4-最后想说的">4.最后想说的</h3><hr>
 <h3 id="1-为什么要用Markdown-1">1.为什么要用Markdown</h3><p>很多人写文档都喜欢用word，但是有没有觉得很长的时间，我们都在调格式，其实真正的技术文档，我们应该把主要的经历花费在技术内容中，而不是在格式的调整中。  </p>
 <p>当我们的word格式的文档需要更新时，不同的版本不方便管理和控制。</p>
 <blockquote>
@@ -1081,8 +1389,17 @@
 <h3 id="4-最后想说的-1">4.最后想说的</h3><p>Markdown的入门介绍就到这里的，相信看到这里，基本上已经能够开始进行Markdown的编写了，那么让我们加入MD，一起拥抱开源！</p>
 <p>本文使用Markdown编写，可以下载作为例子参考：<br>下载地址：</p>
 <p><a href="http://7xn24x.com1.z0.glb.clouddn.com/MarkDown%20%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.md" target="_blank" rel="external">MarkDown入门指南</a></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1102,69 +1419,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-tuple/" itemprop="url">
-                跟我一起写python--元组(13)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T22:26:20+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/17/learning-python-with-me-tuple/" itemprop="url">
+                  跟我一起写python--元组(13)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T22:26:20+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-tuple/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-tuple/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/17/learning-python-with-me-tuple/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-tuple/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。<br>元组与列表类似，不同之处在于元组的元素不能修改。<br>元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。</p>
+          
+            <p>上一节课我们写了list，对数据的操作有了一个基本的认知，本节课我们来学习另一种数据处理—元组(tuple)。<br>元组与列表类似，不同之处在于元组的元素不能修改。<br>元组使用小括号，列表使用方括号。元组的下表所以同样是从0开始。</p>
 <p>1.元组创建：<br>在小括号中添加元素，并使用逗号隔开<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>',<span class="quoted">'year</span>',<span class="number">1988</span>)</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span><br><span class="line"></span><br><span class="line">print <span class="list">(<span class="string">"tup1[0]:"</span>,tup1[<span class="number">0</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup1[1:3]:"</span>,tup1[<span class="number">1</span>:<span class="number">3</span>])</span></span><br><span class="line">print <span class="list">(<span class="string">"tup2[2:3]:"</span>,tup2[<span class="number">2</span>:<span class="number">3</span>])</span></span><br></pre></td></tr></table></figure></p>
 <p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tup1[0]</span>: <span class="string">name</span></span><br><span class="line"><span class="attribute">tup1[1:3]</span>: <span class="string">('tianger', 'year')</span></span><br><span class="line"><span class="attribute">tup2[2:3]</span>: <span class="string">(3,)</span></span><br></pre></td></tr></table></figure></p>
 <p>2.修改元组<br>元组中的元素是不允许修改的，但我们可以通过对元组进行连接组合<br>例：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">tup2 = <span class="list">(<span class="number">1</span>,<span class="number">2</span>)</span></span><br><span class="line"></span><br><span class="line">tup3 = tup1 + tup2</span><br><span class="line">print <span class="list">(<span class="keyword">tup3</span>)</span></span><br></pre></td></tr></table></figure></p>
@@ -1172,9 +1516,17 @@
 <p>3.删除元组<br>元组的元素不能够被删除，可以通过del函数来删除元组<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup1 = <span class="list">(<span class="quoted">'name</span>',<span class="quoted">'tianger</span>')</span></span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br><span class="line">del tup1</span><br><span class="line">print <span class="list">(<span class="keyword">tup1</span>)</span></span><br></pre></td></tr></table></figure></p>
 <p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">9</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (tup1)</span><br><span class="line"><span class="attribute">NameError</span>: name <span class="string">'tup1'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p>
 <p>从输出的内容来看，元组已经被成功删除</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1194,69 +1546,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-dictonaryy/" itemprop="url">
-                跟我一起写python--字典(12)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T22:06:02+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/17/learning-python-with-me-dictonaryy/" itemprop="url">
+                  跟我一起写python--字典(12)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T22:06:02+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-dictonaryy/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/17/learning-python-with-me-dictonaryy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。<br>字典的数据存储以键值对(key:value)的方式来存储。<br>字典使用大括号，元组使用小括号，列表使用方括号</p>
+          
+            <p>python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。<br>字典的数据存储以键值对(key:value)的方式来存储。<br>字典使用大括号，元组使用小括号，列表使用方括号</p>
 <p>1.字典的创建及访问<br>创建方式：<br>{key1:value1 ,key2:value2}</p>
 <p>例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span><span class="symbol">:<span class="string">'tianger'</span></span>,<span class="string">'year'</span><span class="symbol">:<span class="string">'2016’&#125; #创建字典</span><br><span class="line"></span><br><span class="line">print ("dict1['</span>name<span class="string">']:",dict1['</span>name<span class="string">']) #获取字典key-name对应的内容</span><br><span class="line">print ("dict1['</span>year<span class="string">']:",dict1['</span>year<span class="string">']) #获取字典key-name对应的内容</span></span></span><br></pre></td></tr></table></figure></p>
 <p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">tianger</span></span><br><span class="line"><span class="attribute">dict1['year']</span>: <span class="string">2016</span></span><br></pre></td></tr></table></figure></p>
@@ -1265,9 +1644,17 @@
 <p>3.删除字典<br>删除字典可以只删单个元素，也可以清空完整字典<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> dict1[<span class="string">'name'</span>]; <span class="comment">#删除key是name的item</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line">dict1.clear()  <span class="comment">#清空字典所以得条目</span></span><br><span class="line"><span class="keyword">del</span> dict1     <span class="comment">#删除字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['year']:"</span>,dict1[<span class="string">'year'</span>])</span><br></pre></td></tr></table></figure></p>
 <p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">10</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>])</span><br><span class="line"><span class="attribute">KeyError</span>: <span class="string">'name'</span></span><br></pre></td></tr></table></figure></p>
 <p>由于key-name这个item被删除，所以print会出错</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1287,69 +1674,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-list/" itemprop="url">
-                跟我一起写python—列表list (11)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T21:24:27+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/17/learning-python-with-me-list/" itemprop="url">
+                  跟我一起写python—列表list (11)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T21:24:27+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-list/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-list/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/17/learning-python-with-me-list/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-list/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p> 列表是Python中最频繁的数据类型，它可以完成大多数集合类的数据结构体实现，支持字符、数字、字符串，甚至嵌套列表。<br>     列表用[ ]标识。<br>     列表中的值可以用逗号分割，也可以用到变量[头下表:尾下表]，就可以截取相应的列表，从左到右默认索引从0开始，从右往左默认索引从-1开始，下标可以为空表示取到头或尾</p>
+          
+            <p> 列表是Python中最频繁的数据类型，它可以完成大多数集合类的数据结构体实现，支持字符、数字、字符串，甚至嵌套列表。<br>     列表用[ ]标识。<br>     列表中的值可以用逗号分割，也可以用到变量[头下表:尾下表]，就可以截取相应的列表，从左到右默认索引从0开始，从右往左默认索引从-1开始，下标可以为空表示取到头或尾</p>
 <p>1）列表list的创建<br>只要把逗号风格的不同数据项用中括号[ ]括起来，即完成列表的创建<br>list = [‘name’,’tianger’,’year’,2016]</p>
 <p>2）访问列表中的内容</p>
 <ul>
@@ -1385,9 +1799,17 @@
 <p>输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
 <p> 列表练习:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span> = [<span class="string">'name'</span>,<span class="string">'tianger'</span>,<span class="string">'year'</span>,<span class="number">2016</span>]</span><br><span class="line">tinylist = [<span class="number">345</span>,<span class="string">'tianger'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>) <span class="comment">#输出完整列表</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">0</span>]) <span class="comment">#输出列表中的第一个元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">1</span>:<span class="number">3</span>]) <span class="comment">#输出第二个至第三个的元素</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span>[<span class="number">2</span>:]) <span class="comment">#输出第三个开始至列表末尾的元素</span></span><br><span class="line"><span class="keyword">print</span> (tinylist * <span class="number">2</span>) <span class="comment">#输出列表两次</span></span><br><span class="line"><span class="keyword">print</span> (<span class="keyword">list</span> + tinylist) <span class="comment">#打印组合的列表</span></span><br></pre></td></tr></table></figure></p>
 <p>输出:<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line"><span class="atom">name</span></span><br><span class="line">[<span class="string">'tianger'</span>, <span class="string">'year'</span>]</span><br><span class="line">[<span class="string">'year'</span>, <span class="number">2016</span>]</span><br><span class="line">[<span class="number">345</span>, <span class="string">'tianger'</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br><span class="line">[<span class="string">'name'</span>, <span class="string">'tianger'</span>, <span class="string">'year'</span>, <span class="number">2016</span>, <span class="number">345</span>, <span class="string">'tianger'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1409,17 +1831,20 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
- </div>
 
+
+          </div>
+          
+
+
+          
+
+        </div>
         
-
-        
-      </div>
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1434,12 +1859,16 @@
 
       
 
-      <section class="site-overview">
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
           <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -1448,19 +1877,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
               
-          </div>
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -1468,14 +1901,33 @@
 
         <div class="links-of-author motion-element">
           
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
+
+        
+        
+
+        
+        
 
       </section>
 
@@ -1485,43 +1937,112 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2015 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
- </div>
+        
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
   
   
-    
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -1532,63 +2053,33 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+  
+
+  
+
 </body>
 </html>

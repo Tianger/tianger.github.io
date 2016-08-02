@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,16 +23,49 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
-    <meta name="description" content="3G/LTE protocol | C" />
 
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="C," />
@@ -36,7 +74,14 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
 
 
 <meta name="description" content="抽象数据类型(ADT)是C程序员不可或缺的工具，这类ADT有链表、堆栈、队列和树等，前面我们已经讨论过了链表，接下来我们来学习堆栈、队列和树。
@@ -59,7 +104,7 @@
 本章主要讲解堆栈的操作方式，并用上述三种方式分别来实现堆栈的操作。
 
 栈的特点：后进先出(Last in First out –LIF">
-<meta property="og:updated_time" content="2016-06-21T13:13:58.000Z">
+<meta property="og:updated_time" content="2016-08-02T23:14:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C与指针-第十七章-堆栈">
 <meta name="twitter:description" content="抽象数据类型(ADT)是C程序员不可或缺的工具，这类ADT有链表、堆栈、队列和树等，前面我们已经讨论过了链表，接下来我们来学习堆栈、队列和树。
@@ -72,28 +117,34 @@
 栈的特点：后进先出(Last in First out –LIF">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/2016/06/21/c-and-point-seventeen-stack/"/>
 
   <title> C与指针-第十七章-堆栈 | Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
+
+
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
@@ -107,20 +158,32 @@
 
 
 
-  <div class="container one-column page-post-detail">
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tianger's Family</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -134,28 +197,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -163,13 +222,34 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
       
     </ul>
   
@@ -182,71 +262,98 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              C与指针-第十七章-堆栈
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-06-21T20:56:42+08:00" content="2016-06-21">
-            2016-06-21
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C与指针/" itemprop="url" rel="index">
-                  <span itemprop="name">C与指针</span>
-                </a>
-              </span>
-
-              
-              
-
             
+              
+                C与指针-第十七章-堆栈
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-21T20:56:42+08:00" content="2016-06-21">
+              2016-06-21
+            </time>
           </span>
-        
 
-        
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/06/21/c-and-point-seventeen-stack/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/21/c-and-point-seventeen-stack/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/21/c-and-point-seventeen-stack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/21/c-and-point-seventeen-stack/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><p>抽象数据类型(ADT)是C程序员不可或缺的工具，这类ADT有链表、堆栈、队列和树等，前面我们已经讨论过了链表，接下来我们来学习堆栈、队列和树。</p>
+        <p>抽象数据类型(ADT)是C程序员不可或缺的工具，这类ADT有链表、堆栈、队列和树等，前面我们已经讨论过了链表，接下来我们来学习堆栈、队列和树。</p>
 <p>所有的ADT都需要确定一件事情–如何获取内存来存储值，这里有三种方案：</p>
 <blockquote>
 <p>1)静态数组<br>2）动态内存分配<br>3）动态链表存储</p>
@@ -255,6 +362,7 @@
 <blockquote>
 <p>栈的特点：后进先出(Last in First out –LIFO)<br>例如向仓库里堆放货品，后放进去的靠近门口，因此也会先拿出去</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="栈操作：">栈操作：</h3><p>入栈(push):<br>将数据保存到栈顶的操作。进入栈操作前，先修改栈顶指针，使其向上移动一个元素位置，然后将数据保存到栈顶指针所指的位置。</p>
 <p>出栈(pop)：<br>将栈顶数据弹出操作，通过修改栈顶指针，使其指向栈中的下一个元素。</p>
 <h3 id="堆栈实现：">堆栈实现：</h3><h4 id="1)静态数组操作：">1)静态数组操作：</h4><p>  这一节堆栈的操作以int类型进行入栈、出栈</p>
@@ -268,7 +376,26 @@
 </blockquote>
 <h4 id="3）数据链表操作：">3）数据链表操作：</h4><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">#define</span> MAX_LEN <span class="number">100</span></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    char *top; <span class="comment">//栈顶</span></span><br><span class="line">    char *base;<span class="comment">//栈底</span></span><br><span class="line">    int stacksize;<span class="comment">//栈大小</span></span><br><span class="line">&#125;<span class="built_in">stack</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*栈的初始化*/</span></span><br><span class="line"><span class="literal">void</span> init_stack(<span class="built_in">stack</span> *s)</span><br><span class="line">&#123;</span><br><span class="line">    s<span class="subst">-&gt;</span>base = (char *)malloc(MAX_LEN * sizeof(char));</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">NULL</span> == s)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    s<span class="subst">-&gt;</span>top = s<span class="subst">-&gt;</span>base;</span><br><span class="line">    s<span class="subst">-&gt;</span>stacksize = MAX_LEN;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*栈的销毁*/</span></span><br><span class="line"><span class="literal">void</span> destory(<span class="built_in">stack</span> *s)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">NULL</span> == s<span class="subst">-&gt;</span>base)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    free(s<span class="subst">-&gt;</span>base);</span><br><span class="line">    s<span class="subst">-&gt;</span>top = s<span class="subst">-&gt;</span>base = <span class="built_in">NULL</span>;</span><br><span class="line">    s<span class="subst">-&gt;</span>stacksize = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*清空栈*/</span></span><br><span class="line"><span class="literal">void</span> clear(<span class="built_in">stack</span> *s)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">NULL</span> == s<span class="subst">-&gt;</span>base)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    s<span class="subst">-&gt;</span>top = s<span class="subst">-&gt;</span>base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*入栈*/</span></span><br><span class="line"><span class="literal">void</span> push(<span class="built_in">stack</span> *s,char elem)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//s是否已满，若栈满，重新分配空间</span></span><br><span class="line">  <span class="keyword">if</span> ((s<span class="subst">-&gt;</span>top<span class="attribute">-s</span><span class="subst">-&gt;</span>base)&gt;STACK_INIT_SIZE)</span><br><span class="line">  &#123;</span><br><span class="line">    s<span class="subst">-&gt;</span>base = (char*)realloc(s<span class="subst">-&gt;</span>base,(STACKINCRENMENT+STACK_INIT_SIZE)*sizeof(char));</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">NULL</span> == s<span class="subst">-&gt;</span>base)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将栈顶指针指向栈顶</span></span><br><span class="line">    s<span class="subst">-&gt;</span>top = s<span class="subst">-&gt;</span>base+s<span class="subst">-&gt;</span>stacksize;</span><br><span class="line">    s<span class="subst">-&gt;</span>stacksize += MAX_LEN;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//将元素e，写入栈顶，注意这里可能有错。</span></span><br><span class="line">   *(s<span class="subst">-&gt;</span>top)=elem;</span><br><span class="line">   s<span class="subst">-&gt;</span>top++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*出栈*/</span></span><br><span class="line">char pop(<span class="built_in">stack</span> *s)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">//保存栈顶元素</span></span><br><span class="line">    char topelement;</span><br><span class="line">    <span class="comment">//如果栈顶指针指向与栈底指针指向同一内存单元时，表示栈为空或者栈不存在</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (s<span class="subst">-&gt;</span>top == s<span class="subst">-&gt;</span>base)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">//栈顶元素= 栈的top - 1；</span></span><br><span class="line">   topelement = *(s<span class="subst">-&gt;</span>top - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> topelement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>示例：<br><figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define MAX_LEN 100</span></span><br><span class="line"></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span>  *top;</span><br><span class="line">  <span class="keyword">char</span>  *tail;</span><br><span class="line">  <span class="keyword">int</span>    stacksize;</span><br><span class="line">&#125;stack;</span><br><span class="line"></span><br><span class="line">void init_stack(stack *s)</span><br><span class="line">&#123;</span><br><span class="line">  s-&gt;tail = (<span class="keyword">char</span> *)malloc(MAX_LEN*sizeof(<span class="keyword">char</span>));</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">NULL</span> == s)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  s-&gt;top = s-&gt;tail;</span><br><span class="line">  s-&gt;stacksize = MAX_LEN;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void destory_stack(stack *s)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">NULL</span> == s-&gt;tail)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  free(s-&gt;tail);</span><br><span class="line">  s-&gt;top = s-&gt;tail = <span class="keyword">NULL</span>;</span><br><span class="line">  s-&gt;stacksize = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void clear_stack(stack *s)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">NULL</span> == s-&gt;tail)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  s-&gt;top = s-&gt;tail;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void push(stack *s,<span class="keyword">char</span> elem)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//if stack is full,need malloc new space</span></span><br><span class="line">  <span class="keyword">if</span> ((s-&gt;top - s-&gt;tail) &gt; MAX_LEN)</span><br><span class="line">  &#123;</span><br><span class="line">    s-&gt;tail = (<span class="keyword">char</span> *)malloc(MAX_LEN *sizeof(<span class="keyword">char</span>));</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">NULL</span> == s-&gt;tail)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    s-&gt;top = s-&gt;tail + s-&gt;stacksize;</span><br><span class="line">    s-&gt;stacksize += MAX_LEN;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  *(s-&gt;top) = elem;</span><br><span class="line">  s-&gt;top++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> pop(stack *s)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span> topelem;</span><br><span class="line">  <span class="keyword">if</span> (s-&gt;top == s-&gt;tail)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">exit</span>(-<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  topelem = *(s-&gt;top - <span class="number">1</span>);</span><br><span class="line">  s-&gt;top--;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> topelem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(void)</span><br><span class="line">&#123;</span><br><span class="line">  stack s;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">char</span> *elem = <span class="string">"abcd"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//INI STACK</span></span><br><span class="line">  init_stack(&amp;s);</span><br><span class="line">  printf(<span class="string">"进栈顺序\r\n"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//循环打印elem的值</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(*elem != <span class="string">'\0'</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    push(&amp;s,*elem);</span><br><span class="line">    printf(<span class="string">"%3c\r\n"</span>,*elem);</span><br><span class="line">    elem++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//出栈</span></span><br><span class="line">  printf(<span class="string">"出栈顺序\r\n"</span>);</span><br><span class="line">  <span class="keyword">while</span>((s.top != <span class="keyword">NULL</span>) &amp;&amp; (s.tail != <span class="keyword">NULL</span>))</span><br><span class="line">  &#123;</span><br><span class="line">    printf(<span class="string">"%3c\r\n"</span>,pop(&amp;s));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  clear_stack(&amp;s);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</span>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="Tianger Ge wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎扫一扫我的微信公众号！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
       
     </div>
 
@@ -283,15 +410,19 @@
 
       
         <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
+          <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/26/c-and-point-seventeen-queue/" rel="prev">C与指针-第十七章-队列</a>
+              <a href="/2016/06/19/c-and-point-sixteen-stander/" rel="next" title="C与指针-第十六章-标准函数库">
+                <i class="fa fa-chevron-left"></i> C与指针-第十六章-标准函数库
+              </a>
             
           </div>
 
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/19/c-and-point-sixteen-stander/" rel="next">C与指针-第十六章-标准函数库</a>
+              <a href="/2016/06/26/c-and-point-seventeen-queue/" rel="prev" title="C与指针-第十七章-队列">
+                C与指针-第十七章-队列 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -309,22 +440,24 @@
     </div>
   </div>
 
- </div>
 
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2016/06/21/c-and-point-seventeen-stack/"
-                   data-title="C与指针-第十七章-堆栈" data-url="http://tianger.github.io/2016/06/21/c-and-point-seventeen-stack/">
-              </div>
-            
           </div>
-        
-      </div>
+          
 
-      
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/21/c-and-point-seventeen-stack/"
+           data-title="C与指针-第十七章-堆栈" data-url="http://tianger.github.io/2016/06/21/c-and-point-seventeen-stack/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -338,6 +471,8 @@
     <div class="sidebar-inner">
 
       
+
+      
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
@@ -348,12 +483,14 @@
         </ul>
       
 
-      <section class="site-overview">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
           <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -362,19 +499,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
               
-          </div>
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -382,27 +523,46 @@
 
         <div class="links-of-author motion-element">
           
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
+
+        
+        
+
+        
+        
 
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈操作："><span class="nav-number">1.</span> <span class="nav-text">栈操作：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆栈实现："><span class="nav-number">2.</span> <span class="nav-text">堆栈实现：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1)静态数组操作："><span class="nav-number">2.1.</span> <span class="nav-text">1)静态数组操作：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）动态内存分配"><span class="nav-number">2.2.</span> <span class="nav-text">2）动态内存分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）数据链表操作："><span class="nav-number">2.3.</span> <span class="nav-text">3）数据链表操作：</span></a></li></ol></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
         </section>
       
 
@@ -410,43 +570,116 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2015 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
- </div>
+        
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
   
   
-    
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -457,222 +690,33 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+  
+
+  
+
 </body>
 </html>

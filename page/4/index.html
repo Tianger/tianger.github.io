@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,25 +23,65 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-    <meta name="description" content="3G/LTE protocol | C" />
-
-
-
-  <meta name="keywords" content="Hexo,next" />
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
+  
+  
+  
+  
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
 
 
 <meta name="description" content="3G/LTE protocol | C">
@@ -50,28 +95,34 @@
 <meta name="twitter:description" content="3G/LTE protocol | C">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/page/4/"/>
 
   <title> Tianger's Family </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
+
+
 
   <script type="text/javascript">
     var _hmt = _hmt || [];
@@ -85,22 +136,34 @@
 
 
 
-  <div class="container one-column 
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tianger's Family</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -114,28 +177,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -143,13 +202,34 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
       
     </ul>
   
@@ -162,74 +242,103 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-break-and-continue/" itemprop="url">
-                跟我一起写python--跳出循环-break，continue (10)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T21:20:12+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/17/learning-python-with-me-break-and-continue/" itemprop="url">
+                  跟我一起写python--跳出循环-break，continue (10)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T21:20:12+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-break-and-continue/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-break-and-continue/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/17/learning-python-with-me-break-and-continue/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-break-and-continue/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>循环语句中，如果想跳出循环，我们有两种方式，一种是brak，另一种是continue</p>
+          
+            <p>循环语句中，如果想跳出循环，我们有两种方式，一种是brak，另一种是continue</p>
 <p>1.break<br>     break语句用来终止循环语句，即跳出整个循环过程。</p>
 <p>流程图：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-break.png" alt=""></p>
 <p>例：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding :UTF -8 -*-</span><br><span class="line"><span class="keyword">count</span> = 5</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">count</span> &gt;0:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"count is "</span>,<span class="keyword">count</span>)</span><br><span class="line">    <span class="keyword">count</span> = <span class="keyword">count</span> -1</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">count</span> == 2:</span><br><span class="line">        <span class="keyword">break</span>   #<span class="keyword">break</span>跳出整个<span class="keyword">while</span>循环</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"over!"</span>)</span><br></pre></td></tr></table></figure></p>
@@ -239,9 +348,17 @@
 <p><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-continue.png" alt=""></p>
 <p>例：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line"><span class="command">count</span> = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="command">count</span> &gt;<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">    print (<span class="string">"count is "</span>,<span class="command">count</span>)</span><br><span class="line">    <span class="command">count</span> = <span class="command">count</span> -<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> <span class="command">count</span> == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">continue</span>  <span class="comment">#只跳出当前一次的循环，执行下一次循环</span></span><br><span class="line"></span><br><span class="line">print (<span class="string">"over!"</span>)</span><br></pre></td></tr></table></figure></p>
 <p>输出:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">5</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">4</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">3</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">2</span></span><br><span class="line"><span class="command">count</span> <span class="keyword">is</span>  <span class="number">1</span></span><br><span class="line"><span class="keyword">over</span>!</span><br></pre></td></tr></table></figure></p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -261,69 +378,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-for/" itemprop="url">
-                跟我一起写python--for循环(9)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T21:16:41+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/17/learning-python-with-me-for/" itemprop="url">
+                  跟我一起写python--for循环(9)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T21:16:41+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-for/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-for/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/17/learning-python-with-me-for/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-for/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:</p>
+          
+            <p>上一节课我们学习了while循环，对于 循环的处理操作大家应该比较了解了，本课我们来学习for循环:</p>
 <p>语法格式:</p>
 <pre><code><span class="keyword">for</span> 变量 <span class="keyword">in</span> 序列(元素表):
      执行语句..
@@ -333,9 +477,17 @@
 <p>通过索引迭代<br>通过索引位置来进行循环执行<br>例：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding :UTF -8 -*-</span></span><br><span class="line">names = [<span class="string">'jason'</span>,<span class="string">'tianger'</span>,<span class="string">'jodie'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">index</span> in range(len(names)):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"NAME :"</span>,names[<span class="keyword">index</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"over,bye!"</span>)</span><br></pre></td></tr></table></figure></p>
 <p>输出：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">NAME</span> : jason</span><br><span class="line"><span class="keyword">NAME</span> : tianger</span><br><span class="line"><span class="keyword">NAME</span> : jodie</span><br><span class="line">over,bye<span class="comment">!</span></span><br></pre></td></tr></table></figure></p>
 <p>注:<br>len()返回数组元素的个数<br>range()返回一个序列的数</p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -355,76 +507,111 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/17/learning-python-with-me-while/" itemprop="url">
-                跟我一起写python--while循环 (8)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-17T21:11:36+08:00" content="2016-04-17">
-            2016-04-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/17/learning-python-with-me-while/" itemprop="url">
+                  跟我一起写python--while循环 (8)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T21:11:36+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/17/learning-python-with-me-while/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-while/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/17/learning-python-with-me-while/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-while/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>前面我们已经学习了if条件语句，本节的while其实跟if比较类型，就是把if的判断条件循环执行，直到你的条件不满足后，跳出循环。</p>
+          
+            <p>前面我们已经学习了if条件语句，本节的while其实跟if比较类型，就是把if的判断条件循环执行，直到你的条件不满足后，跳出循环。</p>
 <p>基本形式:<br>while 判断条件:<br>    执行语句…</p>
 <pre><code>当判断条件一直为非<span class="number">0</span>、非空即<span class="literal">True</span>时，<span class="keyword">while</span>循环一直执行，当条件为<span class="number">0</span>、空、<span class="literal">False</span>时，循环停止。
 注意，这里<span class="keyword">while</span> 行结尾也有一个冒号。
 </code></pre><p>例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#!/usr/bin/python</span></span><br><span class="line"><span class="preprocessor"># -*- coding :UTF -<span class="number">8</span> -*-</span></span><br><span class="line">age = <span class="number">4</span></span><br><span class="line"><span class="keyword">while</span> age != <span class="number">0</span>:</span><br><span class="line">    print (age)</span><br><span class="line">    age = age -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">print (<span class="string">"age is over,break!"</span>)</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">age is over,<span class="keyword">break</span>!</span><br></pre></td></tr></table></figure></p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -444,69 +631,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/11/learning-python-with-me-if/" itemprop="url">
-                跟我一起写python--条件语句If (7)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-11T21:09:18+08:00" content="2016-04-11">
-            2016-04-11
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/11/learning-python-with-me-if/" itemprop="url">
+                  跟我一起写python--条件语句If (7)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-11T21:09:18+08:00" content="2016-04-11">
+              2016-04-11
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/11/learning-python-with-me-if/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/learning-python-with-me-if/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/11/learning-python-with-me-if/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/learning-python-with-me-if/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>当一个表达式在程序中被用于检验其真/假时，就成为一个条件，这个句子称为条件语句。<br>我们这里用到’如果’的条件语句——if<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-if.png" alt=""><br>上图含义:<br>当有条件判断进来后，进行值的判断，是True还是False，走不同的通路<br>Python中任何非0和非空的值都是True，0或者空位False。</p>
+          
+            <p>当一个表达式在程序中被用于检验其真/假时，就成为一个条件，这个句子称为条件语句。<br>我们这里用到’如果’的条件语句——if<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/python-if.png" alt=""><br>上图含义:<br>当有条件判断进来后，进行值的判断，是True还是False，走不同的通路<br>Python中任何非0和非空的值都是True，0或者空位False。</p>
 <p>if的基本形式：<br>1）单条件– 一次判断<br>if 判断条件:<br>     执行语句1…..<br>else:<br>     执行语句2…</p>
 <p>要注意，if\else的行结尾有冒:<br>如果判断条件为True，则走执行语句1，否则走执行语句2.</p>
 <p>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/user/bin/python</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input age"</span>)</span><br><span class="line">value = input()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (age == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,value)</span><br></pre></td></tr></table></figure></p>
@@ -515,9 +729,17 @@
 <p>例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/user/bin/python</span></span><br><span class="line">age_1 = <span class="number">17</span></span><br><span class="line">age_2 = <span class="number">18</span></span><br><span class="line">age_3 = <span class="number">19</span></span><br><span class="line">age_4 = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"please input age"</span>)</span><br><span class="line">value = input()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (age_1 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_1)</span><br><span class="line"><span class="keyword">elif</span> (age_2 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_2)</span><br><span class="line"><span class="keyword">elif</span> (age_3 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_3)</span><br><span class="line"><span class="keyword">elif</span> (age_4 == value):</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,age_4)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">     <span class="built_in">print</span> (<span class="string">"age is "</span>,value)</span><br></pre></td></tr></table></figure></p>
 <p>3）多条件<br>如果里面的条件有多个，我们成为多个条件，这里一般用and、or来表示<br>例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">19</span> and age &lt;=<span class="number">21</span>: <span class="preprocessor">#判断年龄在<span class="number">19</span>到<span class="number">21</span>之间</span></span><br><span class="line">    print (<span class="string">"young"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt;<span class="number">18</span> or age &gt; <span class="number">27</span>:</span><br><span class="line">    print (<span class="string">"not young"</span>)</span><br></pre></td></tr></table></figure></p>
 <p>输出:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">young</span><br></pre></td></tr></table></figure></p>
-<p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -537,69 +759,96 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/10/learning-python-with-me-data-type/" itemprop="url">
-                跟我一起写python--数据类型 (6)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-10T19:25:42+08:00" content="2016-04-10">
-            2016-04-10
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/10/learning-python-with-me-data-type/" itemprop="url">
+                  跟我一起写python--数据类型 (6)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-10T19:25:42+08:00" content="2016-04-10">
+              2016-04-10
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/10/learning-python-with-me-data-type/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/learning-python-with-me-data-type/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/10/learning-python-with-me-data-type/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/learning-python-with-me-data-type/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>数据类型：一个值得集合以及定义在这个值集上的一组操作。<br>数据类型包括原始类型、多元组、记录单元、代数数据类型、抽象数据类型、参考类型以及函数类型。<br>在python中，我们主要使用的数据类型有以下内容:</p>
+          
+            <p>数据类型：一个值得集合以及定义在这个值集上的一组操作。<br>数据类型包括原始类型、多元组、记录单元、代数数据类型、抽象数据类型、参考类型以及函数类型。<br>在python中，我们主要使用的数据类型有以下内容:</p>
 <ul>
 <li>整数</li>
 <li>浮点数</li>
@@ -733,9 +982,17 @@ Local current <span class="keyword">time</span>: <span class="keyword">time</spa
      expire_time = <span class="string">"2016-04-10 19:03:35"</span>
      d = datetime.datetime.strptime(expire_time,<span class="string">"<span class="variable">%Y</span>-<span class="variable">%m</span>-<span class="variable">%d</span> <span class="variable">%H</span>:<span class="variable">%M</span>:<span class="variable">%S</span>"</span>)
      <span class="keyword">print</span> (d)
-</code></pre><p>#=========================#<br>微信公众号：天歌的编程小结<br>公众号ID：vipgty<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt=""></p>
-</span>
+</code></pre>
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -755,69 +1012,96 @@ Local current <span class="keyword">time</span>: <span class="keyword">time</spa
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/04/learning-python-with-me-variable/" itemprop="url">
-                跟我一起写python--变量 (5)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-04T22:00:25+08:00" content="2016-04-04">
-            2016-04-04
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/04/learning-python-with-me-variable/" itemprop="url">
+                  跟我一起写python--变量 (5)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-04T22:00:25+08:00" content="2016-04-04">
+              2016-04-04
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/04/learning-python-with-me-variable/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/04/learning-python-with-me-variable/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/04/learning-python-with-me-variable/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/04/learning-python-with-me-variable/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p> <strong>1.概念</strong><br>     变量来源于数学，是计算机语言中能储存计算结果或能表示值抽象概念。变量存储在内存中，当创建变量时会在内存中开辟一个空间。<br>     变量可以指定不同的数据类型，可以存储整数、小数或字符。</p>
+          
+            <p> <strong>1.概念</strong><br>     变量来源于数学，是计算机语言中能储存计算结果或能表示值抽象概念。变量存储在内存中，当创建变量时会在内存中开辟一个空间。<br>     变量可以指定不同的数据类型，可以存储整数、小数或字符。</p>
 <p><strong>2.命名规则</strong></p>
 <blockquote>
 <ul>
@@ -848,8 +1132,17 @@ please input xiaoming<span class="comment">'s age</span>
 please input xiaohong<span class="comment">'s age</span>
 <span class="number">12</span>
 xiaohong <span class="keyword">is</span> older
-</code></pre></span>
+</code></pre>
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -869,69 +1162,96 @@ xiaohong <span class="keyword">is</span> older
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/04/02/learning-python-with-me-coding-style/" itemprop="url">
-                跟我一起写python--编程风格 (4)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-04-02T17:54:39+08:00" content="2016-04-02">
-            2016-04-02
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/02/learning-python-with-me-coding-style/" itemprop="url">
+                  跟我一起写python--编程风格 (4)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-02T17:54:39+08:00" content="2016-04-02">
+              2016-04-02
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/04/02/learning-python-with-me-coding-style/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/learning-python-with-me-coding-style/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/02/learning-python-with-me-coding-style/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/learning-python-with-me-coding-style/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>注:部分内容来自网络。<br>Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。<br>本课主要来讲解python的编程风格.</p>
+          
+            <p>注:部分内容来自网络。<br>Python语言与C、C++、JAVA比较类似，具体在编程风格上体现。<br>本课主要来讲解python的编程风格.</p>
 <hr>
 <p><strong>1.文件名</strong></p>
 <p>python的文件名以.py结尾，与.c.cpp.java不同.<br>执行python程序的方法:python 文件名.py or  python3 文件名.py<br>或者如果脚本文件存在于/user/bin中，执行方法：./文件名.py</p>
@@ -963,8 +1283,17 @@ xiaohong <span class="keyword">is</span> older
        ^
      IndentationError: unindent <span class="keyword">does</span> <span class="keyword">not</span> match any outer indentation level
 </code></pre><p>  小结:<br>        在python的代码块中必须使用相同数目的行首缩进空格数。<br>        建议你在每个缩进层次使用 单个制表符 或 两个空格 或者 四个空格</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -984,69 +1313,96 @@ xiaohong <span class="keyword">is</span> older
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/16/learning-python-with-me-hello-world/" itemprop="url">
-                跟我一起写python--Helloworld(3)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-16T22:13:33+08:00" content="2016-03-16">
-            2016-03-16
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/16/learning-python-with-me-hello-world/" itemprop="url">
+                  跟我一起写python--Helloworld(3)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-16T22:13:33+08:00" content="2016-03-16">
+              2016-03-16
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/03/16/learning-python-with-me-hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-hello-world/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/16/learning-python-with-me-hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-hello-world/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>接下来的例子都是在LINUX\MAC OS上进行实际操作，Python为3.5，建议文中的所有例子，都自己一行一行的敲到终端并执行，好记性不如烂笔头还是有些道理的</p>
+          
+            <p>接下来的例子都是在LINUX\MAC OS上进行实际操作，Python为3.5，建议文中的所有例子，都自己一行一行的敲到终端并执行，好记性不如烂笔头还是有些道理的</p>
 <p>打开终端，输入python3<br>得到&gt;&gt;&gt;的标记。</p>
 <p>在里面输入print （’hello world’），会打印我们熟悉的hello world</p>
 <blockquote>
@@ -1070,8 +1426,17 @@ xiaohong <span class="keyword">is</span> older
 <p>如果你把hello world替换成中文，则会出现乱码，此时我们需要在hello.py中加入#coding=utf-8，来保证编码格式:</p>
 <pre><code><span class="comment">#coding=utf-8</span>
 <span class="built_in">print</span> (<span class="string">'你好'</span>)
-</code></pre></span>
+</code></pre>
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1091,69 +1456,96 @@ xiaohong <span class="keyword">is</span> older
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/16/learning-python-with-me-create-environment/" itemprop="url">
-                跟我一起写python--环境搭建(2)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-16T22:11:17+08:00" content="2016-03-16">
-            2016-03-16
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/16/learning-python-with-me-create-environment/" itemprop="url">
+                  跟我一起写python--环境搭建(2)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-16T22:11:17+08:00" content="2016-03-16">
+              2016-03-16
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/03/16/learning-python-with-me-create-environment/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-create-environment/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/16/learning-python-with-me-create-environment/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-create-environment/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>python可以用在多个平台–Windows、Linux、MAC OS等<br>如果想知道当前的python是哪个版本或者确认是否已经安装了python，可以在终端上输入“python”来查看</p>
+          
+            <p>python可以用在多个平台–Windows、Linux、MAC OS等<br>如果想知道当前的python是哪个版本或者确认是否已经安装了python，可以在终端上输入“python”来查看</p>
 <p>Python 下载:<br>从python官网进行下载<br><a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a></p>
 <p>根据你的使用的系统，下载相应的python，推荐使用python3.5</p>
 <p>python安装：<br>1）MAC OS<br>下载3.5的pkg包直接，直接一步步默认安装，如果你是10.8及以上用户，系统自动安装了python2.7，建议升级到3.5，安装完再终端上运行python3</p>
@@ -1167,8 +1559,17 @@ xiaohong <span class="keyword">is</span> older
 </ul>
 <p>执行以上操作后，python会安装在/usr/local/bin目录，python库安装在/usr/local/lib/pythonXX，XX为你使用的python版本号，安装完再终端上运行python3</p>
 <p>3)Windows安装<br>     根据系统是32\64bit下载对应的msi格式的安装包，勾选Add python 3.5 to PATH,默认一步步安装即可，安装完再终端上运行python<br>     如果运行python提示找不到，则需要去配置环境变量，在系统变量的Path中加入python路径，或者重新安装一下，安装向导上要勾选Add python 3.5 to PATH</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1188,75 +1589,111 @@ xiaohong <span class="keyword">is</span> older
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="url">
-                跟我一起写python--为什么要学习python(1)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-15T22:15:48+08:00" content="2016-03-15">
-            2016-03-15
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                  <span itemprop="name">跟我一起写python</span>
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="url">
+                  跟我一起写python--为什么要学习python(1)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-15T22:15:48+08:00" content="2016-03-15">
+              2016-03-15
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/15/learning-python-with-me-why-we-need-to-learn-python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/learning-python-with-me-why-we-need-to-learn-python/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>&nbsp;&nbsp;&nbsp;&nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。</p>
+          
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;最近在做高通平台的MCFG适配功能，发现要手动整理一大堆xml、excel，比较一堆数据，此时萌生了一个想法，为什么我不用脚本来实现，在shell、perl、python中做了多方选择后，确认使用python，因为python有很多通用的API、对XML、文件操作非常方便，代码量少，语法简单，就类似于写C语言一样来写python，上手很快。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;例如用C语言来实现MCFG适配功能，可能需要上千行的C代码，而且执行也不方便，但是用python可能只要几百行代码，并且可以把脚本加入到编译环境中，当项目执行编译时，自动运行脚本得出结果，减少了人为的动作，缩短了工作量，提高工作效率。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;同时在看了高通骁龙820的平台代码后，发现高通已经在工程中大量的使用了python，因此，使用python将会成为一个趋势，就让大家跟着我一起来学习python吧。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Python简介–来自百度百科：</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Python（英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象、解析型计算机程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议[1]  。<br>&nbsp;&nbsp;&nbsp;&nbsp;Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进<br>&nbsp;&nbsp;&nbsp;&nbsp;Python具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中[2]  有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C/C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1278,17 +1715,20 @@ xiaohong <span class="keyword">is</span> older
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
- </div>
 
+
+          </div>
+          
+
+
+          
+
+        </div>
         
-
-        
-      </div>
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1303,12 +1743,16 @@ xiaohong <span class="keyword">is</span> older
 
       
 
-      <section class="site-overview">
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png" alt="Tianger Ge" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
           <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -1317,19 +1761,23 @@ xiaohong <span class="keyword">is</span> older
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
               
-          </div>
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -1337,14 +1785,33 @@ xiaohong <span class="keyword">is</span> older
 
         <div class="links-of-author motion-element">
           
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
+
+        
+        
+
+        
+        
 
       </section>
 
@@ -1354,43 +1821,112 @@ xiaohong <span class="keyword">is</span> older
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2015 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
- </div>
+        
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
   
   
-    
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -1401,63 +1937,33 @@ xiaohong <span class="keyword">is</span> older
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+  
+
+  
+
 </body>
 </html>
