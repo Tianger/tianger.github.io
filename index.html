@@ -268,6 +268,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/03/the-road-to-learn-of-android-jni-interface/" itemprop="url">
+                  HAL层写JNI方法提供Framework访问接口
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T22:27:36+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                    <span itemprop="name">Android取经之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/the-road-to-learn-of-android-jni-interface/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/the-road-to-learn-of-android-jni-interface/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>前面几张我们理解了如何在kernel中写驱动程序，如何访问这个驱动，在HAL层如何读写hello驱动的寄存器值，接下来我们想从App层(一个apk程序)能对hello驱动的寄存器值进行读写操作，但是APP层使用的是JAVA语言，HAL层以及kernel使用的是C\C++语言进行编写，我们如何才能进行跨语言的调用呢? Android给我们提供了一个很好的方法JNI(Java Native Interface)来进行调用。</p>
+<p>Android的应用程序使用java编写，Java类编译为Dex型式的Bytecode之后，必须靠Dalvik虚拟机(VM: Virtual Machine)来执行。在执行Java类的过程中，如果Java类需要与C组件沟通时，VM就会去载入C组件，然后让Java的函数顺利地调用到C组件的函数。此时，VM扮演着桥梁的角色，让Java与C组件能通过标准的JNI介面而相互沟通。</p>
+<p>我们这里JAVA应用程序将会通过JNI方法来调用硬件抽象层接口，来实现对寄存器值的读写操作。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/03/the-road-to-learn-of-android-jni-interface/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/31/the-road-to-learn-of-android-kernel-hal/" itemprop="url">
                   HAL层访问Linux内核驱动程序
                 </a>
@@ -714,10 +838,7 @@
       
         
           <p>Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-5%E5%B1%82.png" alt=""></p>
-   <center>图1 Android 5层架构图</center>
-
-<p>Android启动图示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-poweron.png" alt=""></p>
-<center>图2：Android开机启动流程</center>
+   <center>图1 Android 5层架构图</center><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/07/17/the-road-to-learn-of-android-hal/#more" rel="contents">
               阅读全文 &raquo;
@@ -1389,165 +1510,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/18/c-and-point-fourteen-define/" itemprop="url">
-                  C与指针-第十四章--预处理器
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-18T19:49:36+08:00" content="2016-06-18">
-              2016-06-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C与指针/" itemprop="url" rel="index">
-                    <span itemprop="name">C与指针</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/18/c-and-point-fourteen-define/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/18/c-and-point-fourteen-define/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>预处理器是在真正的编译开始之前由编译器调用的独立程序。预处理器可以删除注释、包含其他文件以及执行宏（宏macro是一段重复文字的简短描写）替代。预处理器可由语言（如C，PHP要求或以后作为提供额外功能（诸如为FORTRAN提供Ratfor预处理器）的附加软件。</p>
-<h2 id="预定义宏">预定义宏</h2><p>ANSI C定义了一些宏。虽然每一个可以供您使用的编程，预定义宏不应该被直接修改。</p>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th style="text-align:center">例子</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DATE</strong></td>
-<td style="text-align:center">“Jun 18 2016”</td>
-<td style="text-align:center">文件被编译的时间</td>
-</tr>
-<tr>
-<td><strong>TIME</strong></td>
-<td style="text-align:center">“15:47:03”</td>
-<td style="text-align:center">文件被编译的时间</td>
-</tr>
-<tr>
-<td><strong>FILE</strong></td>
-<td style="text-align:center">“test.c”</td>
-<td style="text-align:center">进行编译的源文件名</td>
-</tr>
-<tr>
-<td><strong>LINE</strong></td>
-<td style="text-align:center">“8”</td>
-<td style="text-align:center">文件当前的行号</td>
-</tr>
-<tr>
-<td><strong>STDC</strong></td>
-<td style="text-align:center">“1”</td>
-<td style="text-align:center">如果编译器遵循ANSI C，其值就为1，否则未定义</td>
-</tr>
-</tbody>
-</table>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/18/c-and-point-fourteen-define/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1593,7 +1555,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -1,0 +1,696 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前面几张我们理解了如何在kernel中写驱动程序，如何访问这个驱动，在HAL层如何读写hello驱动的寄存器值，接下来我们想从App层(一个apk程序)能对hello驱动的寄存器值进行读写操作，但是APP层使用的是JAVA语言，HAL层以及kernel使用的是C\C++语言进行编写，我们如何才能进行跨语言的调用呢? Android给我们提供了一个很好的方法JNI(Java Native Inter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HAL层写JNI方法提供Framework访问接口">
+<meta property="og:url" content="http://tianger.github.io/2016/08/03/the-road-to-learn-of-android-jni-interface/index.html">
+<meta property="og:site_name" content="Tianger's Family">
+<meta property="og:description" content="前面几张我们理解了如何在kernel中写驱动程序，如何访问这个驱动，在HAL层如何读写hello驱动的寄存器值，接下来我们想从App层(一个apk程序)能对hello驱动的寄存器值进行读写操作，但是APP层使用的是JAVA语言，HAL层以及kernel使用的是C\C++语言进行编写，我们如何才能进行跨语言的调用呢? Android给我们提供了一个很好的方法JNI(Java Native Inter">
+<meta property="og:updated_time" content="2016-08-03T14:37:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HAL层写JNI方法提供Framework访问接口">
+<meta name="twitter:description" content="前面几张我们理解了如何在kernel中写驱动程序，如何访问这个驱动，在HAL层如何读写hello驱动的寄存器值，接下来我们想从App层(一个apk程序)能对hello驱动的寄存器值进行读写操作，但是APP层使用的是JAVA语言，HAL层以及kernel使用的是C\C++语言进行编写，我们如何才能进行跨语言的调用呢? Android给我们提供了一个很好的方法JNI(Java Native Inter">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://tianger.github.io/2016/08/03/the-road-to-learn-of-android-jni-interface/"/>
+
+  <title> HAL层写JNI方法提供Framework访问接口 | Tianger's Family </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3000033e6d5b1f1f2b431451efbce4ef";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Tianger's Family</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Leave no regrets every day</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HAL层写JNI方法提供Framework访问接口
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T22:27:36+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                    <span itemprop="name">Android取经之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/the-road-to-learn-of-android-jni-interface/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/the-road-to-learn-of-android-jni-interface/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前面几张我们理解了如何在kernel中写驱动程序，如何访问这个驱动，在HAL层如何读写hello驱动的寄存器值，接下来我们想从App层(一个apk程序)能对hello驱动的寄存器值进行读写操作，但是APP层使用的是JAVA语言，HAL层以及kernel使用的是C\C++语言进行编写，我们如何才能进行跨语言的调用呢? Android给我们提供了一个很好的方法JNI(Java Native Interface)来进行调用。</p>
+<p>Android的应用程序使用java编写，Java类编译为Dex型式的Bytecode之后，必须靠Dalvik虚拟机(VM: Virtual Machine)来执行。在执行Java类的过程中，如果Java类需要与C组件沟通时，VM就会去载入C组件，然后让Java的函数顺利地调用到C组件的函数。此时，VM扮演着桥梁的角色，让Java与C组件能通过标准的JNI介面而相互沟通。</p>
+<p>我们这里JAVA应用程序将会通过JNI方法来调用硬件抽象层接口，来实现对寄存器值的读写操作。</p>
+<a id="more"></a>
+<ol>
+<li>JNI方法创建<br>在frameworks/base/services/core/jni目录，新建一个com_android_server_HelloService.cpp</li>
+</ol>
+<blockquote>
+<p>cd frameworks/base/services/core/jni<br>vim com_android_server_HelloService.cpp</p>
+</blockquote>
+<p>在com_android_server_HelloService.cpp文件中，实现JNI方法。注意文件的命令方法，com_android_server前缀表示的是包名，表示硬件服务HelloService是放在frameworks/base/services/java目录下的com/android/server目录的，即存在一个命令为com.android.server.HelloService的类。简单地说，HelloService是一个提供Java接口的硬件访问服务类。</p>
+<p>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> LOG_TAG <span class="string">"HelloService"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"jni.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"JNIHelp.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"android_runtime/AndroidRuntime.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;utils/misc.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;utils/Log.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;hardware/hardware.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;hardware/hello.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> android</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*在硬件抽象层中定义的硬件访问结构体，参考&lt;hardware/hello.h&gt;*/</span></span><br><span class="line">        <span class="keyword">struct</span> <span class="keyword">hello_device_t</span>* hello_device = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">/*通过硬件抽象层定义的硬件访问接口设置硬件寄存器val的值*/</span></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hello_setVal</span><span class="params">(JNIEnv* env, jobject clazz, jint value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val = value;</span><br><span class="line">        ALOGI(<span class="string">"Hello JNI: set value %d to device."</span>, val);</span><br><span class="line">        <span class="keyword">if</span>(!hello_device) &#123;</span><br><span class="line">            ALOGI(<span class="string">"Hello JNI: device is not open."</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        hello_device-&gt;set_val(hello_device, val);</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="comment">/*通过硬件抽象层定义的硬件访问接口读取硬件寄存器val的值*/</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> jint <span class="title">hello_getVal</span><span class="params">(JNIEnv* env, jobject clazz)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(!hello_device) &#123;</span><br><span class="line">            ALOGI(<span class="string">"Hello JNI: device is not open."</span>);</span><br><span class="line">            <span class="keyword">return</span> val;</span><br><span class="line">        &#125;</span><br><span class="line">        hello_device-&gt;get_val(hello_device, &amp;val);</span><br><span class="line"></span><br><span class="line">        ALOGI(<span class="string">"Hello JNI: get value %d from device."</span>, val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="comment">/*通过硬件抽象层定义的硬件模块打开接口打开硬件设备*/</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">hello_device_open</span><span class="params">(<span class="keyword">const</span> hw_module_t* module, <span class="keyword">struct</span> hello_device_t** device)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> module-&gt;methods-&gt;open(module, HELLO_HARDWARE_MODULE_ID, (<span class="keyword">struct</span> <span class="keyword">hw_device_t</span>**)device);</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="comment">/*通过硬件模块ID来加载指定的硬件抽象层模块并打开硬件*/</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> jboolean <span class="title">hello_init</span><span class="params">(JNIEnv* env, jclass clazz)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">hello_module_t</span>* module;</span><br><span class="line"></span><br><span class="line">        ALOGI(<span class="string">"Hello JNI: initializing......"</span>);</span><br><span class="line">        <span class="keyword">if</span>(hw_get_module(HELLO_HARDWARE_MODULE_ID, (<span class="keyword">const</span> <span class="keyword">struct</span> <span class="keyword">hw_module_t</span>**)&amp;module) == <span class="number">0</span>) &#123;</span><br><span class="line">            ALOGI(<span class="string">"Hello JNI: hello Stub found."</span>);</span><br><span class="line">            <span class="keyword">if</span>(hello_device_open(&amp;(module-&gt;common), &amp;hello_device) == <span class="number">0</span>) &#123;</span><br><span class="line">                ALOGI(<span class="string">"Hello JNI: hello device is open."</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ALOGE(<span class="string">"Hello JNI: failed to open hello device."</span>);</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ALOGE(<span class="string">"Hello JNI: failed to get hello stub module."</span>);</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="comment">/*JNI方法表*/</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> JNINativeMethod method_table[] = &#123;</span><br><span class="line">        &#123;<span class="string">"init_native"</span>, <span class="string">"()Z"</span>, (<span class="keyword">void</span>*)hello_init&#125;,</span><br><span class="line">        &#123;<span class="string">"setVal_native"</span>, <span class="string">"(I)V"</span>, (<span class="keyword">void</span>*)hello_setVal&#125;,</span><br><span class="line">        &#123;<span class="string">"getVal_native"</span>, <span class="string">"()I"</span>, (<span class="keyword">void</span>*)hello_getVal&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">        <span class="comment">/*注册JNI方法*/</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">register_android_server_HelloService</span><span class="params">(JNIEnv *env)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> jniRegisterNativeMethods(env, <span class="string">"com/android/server/HelloService"</span>, method_table, NELEM(method_table));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>注意，在hello_init函数中，通过Android硬件抽象层提供的hw_get_module方法来加载模块ID为HELLO_HARDWARE_MODULE_ID的硬件抽象层模块，其中，HELLO_HARDWARE_MODULE_ID是在<hardware hello.h="">中定义的。Android硬件抽象层会根据HELLO_HARDWARE_MODULE_ID的值在Android系统的/system/lib/hw目录中找到相应的模块，然后加载起来，并且返回hw_module_t接口给调用者使用。在jniRegisterNativeMethods函数中，第二个参数的值必须对应HelloService所在的包的路径，即com.android.server.HelloService。</hardware></p>
+<p> 2.修改onload.cpp<br>cd \frameworks\base\services\core\jni<br>增加下面两行代码<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">namespace android &#123;</span><br><span class="line"><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span><br><span class="line"></span>int register_android_server_HelloService(JNIEnv *env);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">在JNI_onLoad增加register_android_server_HelloService函数调用：</span><br><span class="line">extern <span class="string">"C"</span> jint JNI_onLoad(JavaVM* vm, <span class="literal">void</span>* reserved)</span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span><br><span class="line"></span>register_android_server_HelloService(env);</span><br><span class="line"><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，在Android系统初始化时，就会自动加载该JNI方法调用表。</p>
+<p>3.修改同目录下的Android.mk文件，在LOCAL_SRC_FILES变量中增加一行：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">com_android_server_location_GpsLocationProvider<span class="class">.cpp</span> \</span><br><span class="line">com_android_server_HelloService<span class="class">.cpp</span> /</span><br><span class="line">onload.cpp</span><br></pre></td></tr></table></figure></p>
+<p>4.编译</p>
+<blockquote>
+<p>mmm frameworks/base/services/core/jni/<br>make snod</p>
+</blockquote>
+<p>至此，我们生成的system.img就包括了我们的JNI方法，这个方法可以提供给App Framework层进行调用，从而来读写hello驱动的寄存器值。</p>
+<p>注:代码程序主要参考《老罗的Android之旅》来完成。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn24x.com1.z0.glb.clouddn.com/tiangermy-wechart.jpg" alt="Tianger Ge wechat" style="width: 200px; max-width: 100%;"/>
+    <div>如果您喜欢这篇文章，欢迎扫一扫我的微信公众号！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/31/the-road-to-learn-of-android-kernel-hal/" rel="next" title="HAL层访问Linux内核驱动程序">
+                <i class="fa fa-chevron-left"></i> HAL层访问Linux内核驱动程序
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/03/the-road-to-learn-of-android-jni-interface/"
+           data-title="HAL层写JNI方法提供Framework访问接口" data-url="http://tianger.github.io/2016/08/03/the-road-to-learn-of-android-jni-interface/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn24x.com1.z0.glb.clouddn.com/headphoto.png"
+               alt="Tianger Ge" />
+          <p class="site-author-name" itemprop="name">Tianger Ge</p>
+          <p class="site-description motion-element" itemprop="description">3G/LTE protocol | C</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.github.com/tianger" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tianger/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tianger Ge</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"tianger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

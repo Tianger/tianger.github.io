@@ -85,27 +85,21 @@
 
 
 <meta name="description" content="Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.
-   图1 Android 5层架构图
-
-Androi">
+   图1 Android 5层架构图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android硬件抽象层(HAL层)学习计划">
 <meta property="og:url" content="http://tianger.github.io/2016/07/17/the-road-to-learn-of-android-hal/index.html">
 <meta property="og:site_name" content="Tianger's Family">
 <meta property="og:description" content="Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.
-   图1 Android 5层架构图
-
-Androi">
+   图1 Android 5层架构图">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/Android-5%E5%B1%82.png">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/Android-poweron.png">
 <meta property="og:image" content="http://7xn24x.com1.z0.glb.clouddn.com/HAL.png">
-<meta property="og:updated_time" content="2016-08-02T23:10:52.000Z">
+<meta property="og:updated_time" content="2016-08-03T14:32:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android硬件抽象层(HAL层)学习计划">
 <meta name="twitter:description" content="Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.
-   图1 Android 5层架构图
-
-Androi">
+   图1 Android 5层架构图">
 
 
 
@@ -345,12 +339,10 @@ Androi">
 
       
         <p>Android的系统非常复杂和庞大，底层以Linux为基础，上层采用带有虚拟机的JAVA层，通过JNI技术，将上下层打通。我们通常在网上看到的都是官方给出的经典四层架构图。从上到下分别是应用程序层、应用框架层、系统库和运行时库，Linux内核。但是我这里给出的图示多了一层为HAL层(硬件抽象层)，这一层主要作用是对硬件设备的具体实现加以抽象.<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-5%E5%B1%82.png" alt=""></p>
-   <center>图1 Android 5层架构图</center>
+   <center>图1 Android 5层架构图</center><br><a id="more"></a><br>Android启动图示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-poweron.png" alt=""><br><br><center>图2：Android开机启动流程</center>
 
-<p>Android启动图示：<br><img src="http://7xn24x.com1.z0.glb.clouddn.com/Android-poweron.png" alt=""></p>
-<center>图2：Android开机启动流程</center>
 
-<a id="more"></a>
+
 <blockquote>
 <p>第一步：手机开机后，引导芯片启动，引导程序到RAM，bootloader检查RAM，初始化硬件等参数</p>
 <p>第二步：硬件等参数初始化完成后，进入到Kernel层，Kernel层主要加载一些硬件设备驱动，初始化进程管理等操作</p>
@@ -487,7 +479,7 @@ Androi">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
