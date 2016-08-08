@@ -268,6 +268,133 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/09/the-road-to-learn-of-android-framework-interface/" itemprop="url">
+                  Framework提供接口访问硬件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-09T05:46:21+08:00" content="2016-08-09">
+              2016-08-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android取经之路/" itemprop="url" rel="index">
+                    <span itemprop="name">Android取经之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/09/the-road-to-learn-of-android-framework-interface/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/09/the-road-to-learn-of-android-framework-interface/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>上一章，我们理解了如何写一个JNI方法来访问HAL层的接口，这个JNI的方法最终是被Android Framework来进行调用，Android Framework最终又被Android的应用软件进行调用，从而实现从可视应用程序访问驱动寄存器的通路。本章我们一起来学习如何在Android Framework层来写接口供可视应用程序访问，并且访问JNI的接口。</p>
+<h2 id="1-新建AIDI代理">1.新建AIDI代理</h2><p>  服务一般是运行在一个独立的进程中来为各个应用程序提供服务，因此应用程序需要访问服务的接口，就需要通过代理来试下，Android中主要通过AIDI代理实现。<br>  创建方法：</p>
+<blockquote>
+<p>cd /frameworks/base/core/java/android/os<br> vim IHelloService.aidl</p>
+</blockquote>
+<p> IHelloService.aidl定义了IHelloService接口：</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/09/the-road-to-learn-of-android-framework-interface/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/03/the-road-to-learn-of-android-jni-interface/" itemprop="url">
                   HAL层写JNI方法提供Framework访问接口
                 </a>
@@ -1380,141 +1507,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/19/c-and-point-io/" itemprop="url">
-                  C与指针-第十五章--输入/输出
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-19T16:20:24+08:00" content="2016-06-19">
-              2016-06-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C与指针/" itemprop="url" rel="index">
-                    <span itemprop="name">C与指针</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/19/c-and-point-io/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/c-and-point-io/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本章主要讨论ANSI C的输入和输出(I/O)函数。首先需要看两个错误和退出的函数。</p>
-<h2 id="错误报错perror:">错误报错perror:</h2><blockquote>
-<p>原型：void perror(char const *message);<br>头文件： &lt; stdio.h&gt; , &lt; stdlib.h&gt;</p>
-</blockquote>
-<p>如果message不是NULL，并且指向一个非空的字符串，perror函数就打印出这个字符串。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">FILE</span> *fp;</span><br><span class="line">fp = fopen(“/home/tianger/<span class="keyword">test</span>”,”r”);</span><br><span class="line"><span class="keyword">if</span>(NULL == fp)</span><br><span class="line">&#123;</span><br><span class="line">     perror(“/home/tianger/<span class="keyword">test</span>”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>输出：</p>
-<blockquote>
-<p>/home/tianger/test：No such file or directory</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/19/c-and-point-io/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1555,7 +1552,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

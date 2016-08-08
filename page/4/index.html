@@ -268,6 +268,134 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/17/learning-python-with-me-dictonaryy/" itemprop="url">
+                  跟我一起写python--字典(12)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T22:06:02+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
+                    <span itemprop="name">跟我一起写python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/17/learning-python-with-me-dictonaryy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/17/learning-python-with-me-dictonaryy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>python数据处理还有一种创建的类型—字典.字典可以存储任意类型对象。<br>字典的数据存储以键值对(key:value)的方式来存储。<br>字典使用大括号，元组使用小括号，列表使用方括号</p>
+<p>1.字典的创建及访问<br>创建方式：<br>{key1:value1 ,key2:value2}</p>
+<p>例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span><span class="symbol">:<span class="string">'tianger'</span></span>,<span class="string">'year'</span><span class="symbol">:<span class="string">'2016’&#125; #创建字典</span><br><span class="line"></span><br><span class="line">print ("dict1['</span>name<span class="string">']:",dict1['</span>name<span class="string">']) #获取字典key-name对应的内容</span><br><span class="line">print ("dict1['</span>year<span class="string">']:",dict1['</span>year<span class="string">']) #获取字典key-name对应的内容</span></span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">tianger</span></span><br><span class="line"><span class="attribute">dict1['year']</span>: <span class="string">2016</span></span><br></pre></td></tr></table></figure></p>
+<p>2.字典修改<br>字典可以更新某一个key/value的内容，也可以增加一个新的key/value内容<br>例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">"dict1['age']:"</span>,dict1[<span class="string">'age'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dict1['name']</span>: <span class="string">jason</span></span><br><span class="line"><span class="attribute">dict1['age']</span>: <span class="string">27</span></span><br></pre></td></tr></table></figure></p>
+<p>3.删除字典<br>删除字典可以只删单个元素，也可以清空完整字典<br>例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'name'</span>:<span class="string">'tianger'</span>,<span class="string">'year'</span>:<span class="string">'2016'</span>&#125;</span><br><span class="line"></span><br><span class="line">dict1[<span class="string">'name'</span>] = <span class="string">"jason"</span> <span class="comment">#修改key-name的内容</span></span><br><span class="line">dict1[<span class="string">'age'</span>] = <span class="number">27</span> <span class="comment">#添加一个新的键值对</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> dict1[<span class="string">'name'</span>]; <span class="comment">#删除key是name的item</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>]) <span class="comment">#获取字典key-name对应的内容</span></span><br><span class="line">dict1.clear()  <span class="comment">#清空字典所以得条目</span></span><br><span class="line"><span class="keyword">del</span> dict1     <span class="comment">#删除字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"dict1['year']:"</span>,dict1[<span class="string">'year'</span>])</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  File <span class="string">"test.py"</span>, line <span class="number">10</span>, <span class="keyword">in</span> &lt;<span class="built_in">module</span>&gt;</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"dict1['name']:"</span>,dict1[<span class="string">'name'</span>])</span><br><span class="line"><span class="attribute">KeyError</span>: <span class="string">'name'</span></span><br></pre></td></tr></table></figure></p>
+<p>由于key-name这个item被删除，所以print会出错</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/17/learning-python-with-me-list/" itemprop="url">
                   跟我一起写python—列表list (11)
                 </a>
@@ -1609,144 +1737,11 @@ xiaohong <span class="keyword">is</span> older
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/16/learning-python-with-me-create-environment/" itemprop="url">
-                  跟我一起写python--环境搭建(2)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-16T22:11:17+08:00" content="2016-03-16">
-              2016-03-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/跟我一起写python/" itemprop="url" rel="index">
-                    <span itemprop="name">跟我一起写python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/16/learning-python-with-me-create-environment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/learning-python-with-me-create-environment/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>python可以用在多个平台–Windows、Linux、MAC OS等<br>如果想知道当前的python是哪个版本或者确认是否已经安装了python，可以在终端上输入“python”来查看</p>
-<p>Python 下载:<br>从python官网进行下载<br><a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a></p>
-<p>根据你的使用的系统，下载相应的python，推荐使用python3.5</p>
-<p>python安装：<br>1）MAC OS<br>下载3.5的pkg包直接，直接一步步默认安装，如果你是10.8及以上用户，系统自动安装了python2.7，建议升级到3.5，安装完再终端上运行python3</p>
-<p>2)Linux</p>
-<ul>
-<li>下载合适的源码包并解压</li>
-<li>如果你需要自定义一些选项修改Modules/Setup</li>
-<li>执行./configure脚本</li>
-<li>make</li>
-<li>make install</li>
-</ul>
-<p>执行以上操作后，python会安装在/usr/local/bin目录，python库安装在/usr/local/lib/pythonXX，XX为你使用的python版本号，安装完再终端上运行python3</p>
-<p>3)Windows安装<br>     根据系统是32\64bit下载对应的msi格式的安装包，勾选Add python 3.5 to PATH,默认一步步安装即可，安装完再终端上运行python<br>     如果运行python提示找不到，则需要去配置环境变量，在系统变量的Path中加入python路径，或者重新安装一下，安装向导上要勾选Add python 3.5 to PATH</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1787,7 +1782,7 @@ xiaohong <span class="keyword">is</span> older
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

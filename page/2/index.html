@@ -268,6 +268,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/19/c-and-point-io/" itemprop="url">
+                  C与指针-第十五章--输入/输出
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-19T16:20:24+08:00" content="2016-06-19">
+              2016-06-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C与指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C与指针</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/19/c-and-point-io/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/c-and-point-io/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本章主要讨论ANSI C的输入和输出(I/O)函数。首先需要看两个错误和退出的函数。</p>
+<h2 id="错误报错perror:">错误报错perror:</h2><blockquote>
+<p>原型：void perror(char const *message);<br>头文件： &lt; stdio.h&gt; , &lt; stdlib.h&gt;</p>
+</blockquote>
+<p>如果message不是NULL，并且指向一个非空的字符串，perror函数就打印出这个字符串。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">FILE</span> *fp;</span><br><span class="line">fp = fopen(“/home/tianger/<span class="keyword">test</span>”,”r”);</span><br><span class="line"><span class="keyword">if</span>(NULL == fp)</span><br><span class="line">&#123;</span><br><span class="line">     perror(“/home/tianger/<span class="keyword">test</span>”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：</p>
+<blockquote>
+<p>/home/tianger/test：No such file or directory</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/19/c-and-point-io/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/18/c-and-point-fourteen-define/" itemprop="url">
                   C与指针-第十四章--预处理器
                 </a>
@@ -1595,145 +1725,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/02/c-and-point-five/" itemprop="url">
-                  C与指针-第五章左移、右移操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-02T22:09:46+08:00" content="2016-06-02">
-              2016-06-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C与指针/" itemprop="url" rel="index">
-                    <span itemprop="name">C与指针</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/02/c-and-point-five/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/c-and-point-five/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本文参考了<a href="http://www.cnblogs.com/myblesh/articles/2431806.html" target="_blank" rel="external">京月飞鸿的《C语言中的左移与右移》</a></p>
-<h2 id="左移操作:">左移操作:</h2><h3 id="含义：">含义：</h3><p>顾名思义就是把一个数的所有位都向左移动若干位，在C用用&lt;&lt;运算符标记<br>例：</p>
-<blockquote>
-<p>int i = 1;<br>i = i &lt;&lt; 2</p>
-</blockquote>
-<p>1的二进制为00000001(这里用8位标示，不同系统，不同的位数)，向左移两位，即把1向左移动两位，后面补两个0<br>即 00000100,转换成10进制就变成了4</p>
-<p>需要注意的是，int类型为有符号的类型，最左端的1位是符号位,即0正1负,那么移位的时候就会出现溢出<br>例：</p>
-<blockquote>
-<p>int i  = 0x40000000; //二进制位01000000000000000000000000000000<br>i = i &lt;&lt; 1</p>
-</blockquote>
-<p>i左移1位后变为0x80000000，符号位被置为了1，其它位全是0，变成了int所能表达的最小值，32位的int为-2147483648，溢出。<br>如果此时i再左移1位后，丢弃了最高为后，i变成了0</p>
-<h2 id="右移操作：">右移操作：</h2><h3 id="含义：-1">含义：</h3><p>顾名思义就是把一个数的所有位都向右移动若干位，在C用用&gt;&gt;运算符标记<br>右移分为逻辑右移动和算术右移。</p>
-<h3 id="逻辑右移：">逻辑右移：</h3><p>方法：<br>左边移入的位用0填充<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，则最后面两位移除，最开始的添加两个0，变成00100101，十进制为37</p>
-<h3 id="算术右移：">算术右移：</h3><p>方法：<br>左边移入的位由原先该值的符号位决定，符号位为1则移入的位均为1，符号位为0，则移入的位都为0，这样能够保持原数的正负数形式不变。<br>int i = 150;//二进制为10010110<br>i = i&gt;&gt;2;<br>i向右移动两位，原来的符号位即首位为1，即最后两位移除，最开始添加两个符号位，这里为1，即变成11100101，十进制为229</p>
-<h2 id="总结：">总结：</h2><p>左移时总是移位和补零。右移时无符号数是移位和补零，此时称为逻辑右移;<br>而有符号数大多数情况下是移位和补最左边的位（也就是补最高有效位），移几位就补几位,此时称为算术右移</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1774,7 +1770,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
